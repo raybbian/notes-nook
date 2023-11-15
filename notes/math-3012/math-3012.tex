@@ -1,0 +1,1415 @@
+% updated 2023-11-15 13:13:00
+\documentclass[a4paper]{article}
+\input{../preamble.tex}
+\title{math-3012}
+\begin{document}
+    \maketitle
+    \tableofcontents\lecture{1}{Wed 04 Oct 2023 13:07}{Counting and Formulas}
+
+\section{Intro to Combinatorics}
+
+What is combinatorics? It is related to discrete math (finite structures) - things we can count.
+
+\subsection{Counting}
+\begin{eg}
+	Count the number of binary strings with length 10.
+\end{eg}
+
+For this problem, we can choose the characters in the string from \( \{0, 1\}   \). We make this choice 10 times. Therefore, there are \( 2^{10}  \) number of binary strings of length 10.
+
+\begin{eg}
+	Count the number of binary strings with length \( n \), such that there are no two consecutive ones. 
+\end{eg}
+
+This problem is a little less straight forward. Let \( F(n) \) be the number of binary strings of length \( n \). To form a string of \( n \), we can:
+\begin{itemize}
+	\item Choose 1 as our starting digit. Then, we must choose 0 as the next digit. Then, there are \( F(n-2) \) ways to choose the rest of the digits.
+	\item Choose 0 as our starting digit. Then, there are \( F(n-1) \) ways to choose the rest of the digits.
+\end{itemize}
+This problem has a recursive solution: \( F(n) = F(n-1) + F(n-2) \). We will learn more on how to find general formulas for these relations later.
+
+\begin{note}
+	Note that these are actually the fibonnaci numbers. There exists a general formula given by \[
+		F(n) = \frac{1}{\sqrt{5} }\left( \frac{1+\sqrt{5} }{2} \right)^{n+2} - \frac{1}{\sqrt{5} }\left( \frac{1-\sqrt{5} }{2} \right)^{n+2} 
+	.\] 
+\end{note}
+
+\begin{remark}
+The right term approaches 0 as \( n \to \infty \). Therefore, this function's growth is exponential (\( 1.6^n \)). Sometimes, knowing how fast a function grows is more informative that knowing its specific equation.
+\end{remark}
+
+\subsection{Approximate Counting}
+Sometimes, we cannot easily find a formula like this one to count things. And even if we do, it might not be very informative. 
+
+\begin{definition}
+	A \textbf{partition} of \( n \) is an expression of \( n \) as a sum of positive integers (where the order of the summands does not matter).
+\end{definition}
+
+\begin{eg}
+	Let \( P_n \) be the number of partitions of a positive integer. How do you calculate \( P_n \)?
+\end{eg}
+
+Well, we can calculate it by hand for smaller cases. We have:
+
+\begin{align*}
+	P_1 &= 1 \\
+	P_2 &= 2 \\
+	P_3 &= 3 \\
+	P_4 &= 5 \\
+	P_5 &= 7 \\
+.\end{align*}
+
+\begin{note}
+We must be careful! It is easy to assume that \( P_n = 8 \) from our calculations. However, this is not the case.
+\end{note}
+
+There actually doesn't exist any known equation for this sequence. However, there exists a really handy estimation formula:\[
+	P_n \approx \frac{1}{4n\sqrt{3} }e^{\pi \sqrt{\frac{2n}{3} } }
+.\] 
+This is what it means to approximately count. We don't know the exact value of \( P_n \) for all \( n \), but we are interested in how fast it grows, and a rough estimate of its actual value.
+
+\subsection{Preface to Graphs}
+Graphs are commonly used to model real world problems.
+\begin{definition}
+	A \textbf{graph} is a network of vertices with pairwise edges between them.
+\end{definition}
+
+\begin{definition}
+	A graph is \textbf{planar} if it can be drawn without edge-crossings.
+\end{definition}
+
+\exercise{1}
+Is the pentagonal graph planar?
+
+\lecture{2}{Wed 04 Oct 2023 13:07}{Intro to Graphs}
+
+Continuing on the idea of graphs: Graphs can be represented with a vertex set and an edge set.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{example-graph}
+    \caption{Example Graph}
+    \label{fig:example-graph}
+\end{figure}
+
+Here, the vertex set is \( V=\{a, b, c, d, e, f, g\}   \), and the edge set is \( E = \{ab, ad, bd, fg, fe\}   \). In this graph, there are 7 vertices and 5 edges. However, real life applications have lots more vertices and lots more edges. \par
+
+In this class, we will only consider simple graphs:
+
+\begin{definition}
+	A \textbf{simple} graph is a graph in which:
+	\begin{itemize}
+		\item A vertex cannot have an edge to itself.
+		\item Two vertices cannot have more than one edge between them.
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	If there is an edge between vertices \( u \) and \( v \), we say that \( u \) and \( v \) are \textbf{adjacent} or \textbf{neighbors}.
+\end{definition}
+
+\begin{definition}
+	A \textbf{complete graph} \( K_n \) is a graph with \( n \) vertices, all of which are adjacent to each other.
+\end{definition}
+
+We know that the planar graph \( K_5 \) is not planar. But why is this? Well, it is implied by the four color theorem.
+
+\subsubsection{Four Color Theorem}
+The four color theorem states that:
+\begin{theorem}
+	If \( G \) is a planar graph, then it is possible to color the vertices of \( G \) using at most 4 colors such that adjacent vertices are colored differently.
+\end{theorem}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{coloring-of-a-graph}
+    \caption{Coloring of a graph}
+    \label{fig:coloring-of-a-graph}
+\end{figure}
+
+\begin{note}
+	We cannot color this graph with only 3 colors, because it contains the complete graph \( K_4 \).
+\end{note}
+
+The four color theorem was conjectured in 1852 by Gunthrie. It was experimentally observed when counting a map of the counties in England. Gunthrie observed that 4 colors were enough. \par
+
+The four color theorem was proven in 1879 by Kempe, then in 1880 by Tait. However, errors were found in their proofs in 1890 and 1891 respectively. Finally, it was solved in 1976 by Appel and Haken.
+
+\begin{note}
+	This was the first example of a significant mathematical problem in which a solution was found by a computer.
+\end{note}
+
+Why was the four color theorem so hard to prove? Because it says something about \textit{every} planar graph.
+
+\subsubsection{Ramsey's Numbers}
+
+Here are some definitions that we will need for Ramsey's theorem:
+
+\begin{definition}
+	A \textbf{clique} in a graph is a set of vertices that are all adjacent to each other.
+\end{definition}
+
+\begin{definition}
+	An \textbf{independent set} in a graph is a set of vertices that are not adjacent to each other.
+\end{definition}
+
+\begin{theorem}
+	For any \( k \), there exists \( N \in  \mathbb{N} \) such that every graph with at least \( N \) vertices has a clique or an independent set of size \( k \) (or both).
+\end{theorem}
+
+This \( N \) is known as the \( k \)th Ramsey number and is denoted \( R(k) \). It is the smallest number \( N \) that satisfies the theorem. Let us compute some values of \( R(k) \):
+\begin{itemize}
+	\item \( R(2)=2 \).
+		\begin{proof}
+			We only need the two vertices, which are either part of the same clique, or part of the same independent set.
+		\end{proof}
+	\item \( R(3)=6 \). To prove this, we need to show that 5 does not work, but 6 does.
+		\begin{proof}
+			\( R(3)>5 \) because there exists a graph of size 5 in which there is no clique and no independent set of size 3. This is the "pentagonal" graph. \par
+			\( R(3) \le 6 \). Let \( G \) be a graph such that \( |V(G)| \ge 6 \). Pick a vertex \( v \in  V(G) \). \( v \) must be adjacent to or not adjacent to at least 5 other vertices. \par
+			Let \( A \) be the set of vertices \( v \) is adjacent to, and \( B \) the set of vertices \( v \) is not adjacent to. Note that because \( |A| + |B| \ge 5 \), at least one of \( |A| \) or \( |B| \) is greater than or equal to 3. \par
+			Assume \( |A| \ge 3 \). Then, if \( A \) is an independent set, we have found an independent set of at least size \( 3 \). Otherwise, if \( A \) is not an independent set, then at least two vertices in \( A \) must be adjacent. Therefore, those two vertices and \( v \) form a clique of size at least 3. The case where \( |B| \ge 3 \) can be proven similarly.
+		\end{proof}
+	\item \( R(4) = 18 \).
+		\begin{note}
+			There was a study in Budapest which found that in a group of 18 teenagers, there was either a group of 4 that were all friends, or a group of 4 that were not friends. This was not a discovery in psychology!
+		\end{note}
+	\item \( R(5) = ~? \). The 5th Ramsey number is an open problem. All we know is that \( 43 \le  R(5) \le 48 \). This illustrates an example of a \textit{small number} problem that computers cannot solve.
+\end{itemize}
+
+\lecture{3}{Wed 04 Oct 2023 13:08}{Intro to Sets}
+
+\section{Intro to Sets}
+
+What exactly are sets?
+
+\begin{definition}
+	A \textbf{set} is a collection of unordered, unique, elements.
+\end{definition}
+
+\begin{notation}
+	We say that \( x \in  X \) when \( x \) is an element/member of the set \( X \).
+\end{notation}
+
+\begin{definition}
+	The \textbf{Principle of Extensionality} states that if two sets have the same elements, then they are equal.
+\end{definition}
+
+\begin{note}
+	Order does not matter! Only whether or not the element is in the set.
+\end{note}
+
+\begin{eg}
+	\( \{a, b, c\} = \{a, c, b\} =\{a, b, a, b, c\}     \)
+\end{eg}
+
+What are some well known infinite sets?
+\begin{itemize}
+	\item \( \mathbb{N} \) is the set of all natural numbers (including 0 in this class).
+	\item \( \mathbb{Z} \) is the set of all integers.
+	\item \( \mathbb{Q} \) is the set of all rational numbers.
+	\item \( \mathbb{R} \) is the set of all real numbers.
+\end{itemize}
+
+\begin{notation}
+	If we say that \( n \in \mathbb{N} \), that means that \( n \) is a natural number.
+\end{notation}
+
+\begin{definition}
+	A set with no elements is called the empty set, denoted by \( \O \).
+\end{definition}
+
+\begin{note}
+	\( \{\O\} \neq \O  \)! The set \( \{\O\}   \) has one element: the empty set!
+\end{note}
+
+\begin{notation}
+	We can write use set builder notation to write \( \{0, 2, 4, 6, \ldots \}   \) as \( \{n ~|~ n \in \mathbb{N}, n \text{ is even}\} \).
+\end{notation}
+
+\begin{definition}
+	We say a set \( A \) is a subset of a set \( B \) (\( A \subseteq B\)) if every element in \( A \) belongs to \( B \).
+\end{definition}
+
+\begin{eg}
+	\( \mathbb{N} \subseteq \mathbb{Z} \), \( \{a, c\} \subseteq \{a, b, c\}    \).
+\end{eg}
+
+\begin{property}
+	The empty set \( \O \) is a subset of every set.
+\end{property}
+
+\begin{note}
+	The elements of a set's elements are not their own elements! Be careful when there are sets within sets.
+\end{note}
+
+\subsection{Set Operations}
+Let \( A,B \) be sets. There are 5 key operations on sets:
+\begin{itemize}
+	\item The \textbf{union} of a set \( A \cup B \) is defined by \( \{x ~|~ x \in A \lor x \in B\}   \).
+	\item The \textbf{intersection} of a set \( A \cap B \) is defined by \( \{x ~|~ x \in A \land x \in B \}   \).
+	\item The \textbf{difference} of a set \( A \setminus B \) is defined by \( \{x ~|~ x \in A \land x \not\in B \}   \).
+	\item The \textbf{symmetric diffference} of a set \( A \triangle B \) is defined by \( (A \setminus B) \cup (B \setminus A) \).
+	\item The \textbf{cartesian product} \( A \times B \) is defined by \( \{(a,b) ~|~ a \in A \land b \in B\}  \)
+		\begin{note}
+			\( (a,b) \) is the ordered pair with the first element \( a \) and second element \( b \). \( (a,b) \neq  (b,a) \) unless \( a = b \).
+		\end{note}
+\end{itemize}
+
+\begin{eg}
+	\[ \{1,2\} \times \{a,b\} \times \{x,y\} = \{ (1, a, x), (1, a, y), (2, a, x), (2, a, y), (1, b, x), (1, b, y), (2, b, x), (2, b, y) \} .\]
+\end{eg}
+
+More generally, given set \( A_{1}, A_{2}, A_{3}, \ldots, A_k \), their cartesian product is the set of all ordered tuples \( (a_{1}, a_{2}, a_{3}, \ldots , a_k) \) where \( a_{1} \in A_1, a_{2} \in A_2, \ldots , a_k \in A_k \).
+
+\begin{notation}
+	\( A^k = \underbrace{A \times A \times  A \times \ldots \times A}_{k \text{ times}}\)
+\end{notation}
+
+\exercise{1}
+\( \{0,1\}^3 = \{?\}   \), \( \O \times A = ~?\)
+
+\lecture{4}{Wed 04 Oct 2023 13:08}{Rules of Counting; Permutations}
+
+\lecture{5}{Wed 04 Oct 2023 13:08}{Combinations; Formulaic vs Combinatoric Proofs}
+
+\lecture{6}{Wed 04 Oct 2023 13:09}{Binomial Theorem}
+
+\lecture{7}{Wed 04 Oct 2023 13:09}{Multichoose; Lattice Paths}
+
+\lecture{8}{Wed 04 Oct 2023 13:10}{Catalan Numbers}
+
+\lecture{9}{Wed 04 Oct 2023 13:10}{Multinomial Theorem}
+
+\lecture{10}{Wed 04 Oct 2023 13:10}{Recursion and Induction}
+
+\lecture{11}{Wed 04 Oct 2023 13:10}{Mathematical Induction Continued}
+
+\lecture{12}{Wed 04 Oct 2023 13:10}{Strong/Complete Induction}
+
+\lecture{13}{Wed 04 Oct 2023 13:10}{Bounds on Binomial Coefficients}
+
+\lecture{14}{Wed 04 Oct 2023 13:12}{Bounds Continued}
+
+\lecture{15}{Wed 04 Oct 2023 13:13}{Stirling's Approximation; Graph Theory}
+
+\section{Intro to Graph Theory}
+
+\lecture{16}{Wed 04 Oct 2023 13:13}{Handshake Theorem; Order of Summation}
+
+\lecture{17}{Wed 04 Oct 2023 13:13}{Isomorphic Graphs; Walks and Paths}
+
+\lecture{18}{Wed 04 Oct 2023 13:58}{Intro to Trees}
+
+We will continue on the idea of graphs from last lecture.
+\begin{definition}
+	A graph \( G \) is \textbf{connected} if \( V(G) \neq \varnothing \) and for all \( u,v\in V(G) \), there is a \( uv \)-walk in \( G \).
+\end{definition}
+
+\begin{figure}[ht]
+    \centering
+		\incfig[0.8]{a-disconnected-graph}
+    \caption{Examples of Graphs}
+    \label{fig:a-disconnected-graph}
+\end{figure}
+
+In general, any graph can be partitioned into (connected) components (connected induced subgraphs with no edges between them).
+
+\begin{note}
+	A graph is connected if and only if it has one component.
+\end{note}
+
+\begin{definition}
+	A \textbf{cycle} in a graph \( G \) is a walk \( (x_{0}, x_{1},\ldots, x_{L}) \) such that:
+	\begin{itemize}
+		\item \( x_{0} = x_L \)
+		\item \( x_{0}, x_{1}, \ldots, x_{L - 1} \) are distinct
+		\item \( L \geq 3 \)
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	A cycle of length 3 is called a \textbf{triangle}.
+\end{definition}
+
+\begin{definition}
+	A graph is \textbf{acyclic} if it has no cycles.
+\end{definition}
+
+\begin{definition}
+	A connected acyclic graph is called a \textbf{tree}.
+\end{definition}
+
+\begin{definition}
+	Acyclic graphs are also called \textbf{forests}.
+\end{definition}
+\begin{remark}
+	Because all components in an acyclic graph are acyclic, and connected acyclic graphs are trees!
+\end{remark}
+
+\begin{definition}
+	A \textbf{leaf} in a tree is a vertex of degree 1.
+\end{definition}
+\begin{remark}
+	Leaves are useful because deleting leaves from a tree results in a smaller tree.
+\end{remark}
+
+\begin{problem}
+	Let \( T \) be a tree, \( v \in  V(T) \) a leaf. Then \( T-v \coloneqq \) the graph obtained from \( T \) by removing \( v \) and its incident edge is also a tree. Why?
+\end{problem}
+
+\begin{prop}
+	If \( T \) is a tree with \( n \ge 2 \) vertices, then it has \( \ge 2 \) leaves.
+\end{prop}
+\begin{proof}
+	Consider a longest path! Let \( T \) be a tree with \( n\ge 2 \) vertices. Let \( (x_{0}, x_{1}, \ldots , x_L) \) be \underbar{a} path in \( T \) of max length.
+	\begin{note}
+		\( 1 \le L \le n - 1 \), because we only have \( n \) vertices available to us, and a tree with at least two vertices has at least 1 edge.
+	\end{note}
+	We claim that \( x_L \) is a leaf in \( T \). We will prove this by contradiction: suppose \( x_L \) is not a leaf. Then, \( \deg_T(x_L) \ge 2 \), so \( x_L \) has to have a neighbor \( y \) that is different from \( x_{L-1} \).
+	\begin{note}
+		\( y \) is also different from \( x_{0}, x_{1}, \ldots , x_{L - 2} \) because there are no cycles in \( T \).
+	\end{note}
+	Therefore, \( (x_{0}, x_{1}, \ldots, x_L, y) \) is a path in \( T \) of length \( L + 1 > L \) which is impossible \contra. It follows that \( x_L \) is a leaf, as claimed. \par
+	By a similar argument, \( x_{0} \) is also a leaf.
+\end{proof}
+
+\begin{theorem}
+	If \( T \) is a tree with \( n \) vertices, then it has exactly \( n-1 \) edges.
+\end{theorem}
+\begin{proof}
+	Proof by induction on \( n \). \par
+	\begin{description}
+		\item[Base:]  n = 1. Then, \( T \) has 1 vertex and 0 edges. \( 1 - 1 = 0 \), so the theorem holds.
+		\item[Step:] We wish to prove for some \( n \ge 1 \), every tree with \( n \) vertices has \( n - 1 \) edges. Let \( T \) be a tree with \( n + 1 \) vertices. We want to show that \( T \) has \( n \) edges.
+			\begin{note}
+				\( T \) has \( n + 1 \ge 1 + 1 = 2 \) vertices, so \( T \) has a leaf, denoted \( v \in  V(T) \).
+			\end{note}
+			Let \( T' \coloneqq T - v \). Then \( T' \) is a tree with \( n \) vertices. \( |E(T')| = |E(T)| - 1 \). And by our inductive hypothesis, \( T' \) has \( n - 1 \) edges. Therefore, \( |E(T)| = n \), as desired.
+	\end{description}
+\end{proof}
+
+\begin{property}
+	Every connected graph \( G \) has a spanning tree (a spanning subgraph that is a tree).
+\end{property}
+\exercise{1}
+How many spanning trees does a complete graph \( K_n \) have?
+
+\lecture{19}{Fri 06 Oct 2023 14:01}{Spanning Trees; Eulerian and Hamiltonian Graphs}
+
+Why does every connected graph have a spanning tree?
+\begin{proof}
+	If \( G \) is a tree, then \( G \) itself is the spanning tree. If \( G \) is not a tree, then it contains one or more cycles. It can be shown that deleting edges from any cycle removes the cycle, but maintains connectivity of the graph.
+\end{proof}
+
+There is another proof using extremal configurations:
+\begin{proof}
+	Let \( T \) be a connected spanning subgraph of \( G \) with the fewest edges.
+	\begin{note}
+		\( G \) itself is a connected spanning subgraph of \( G \). Therefore, there must exist \( T \) with the fewest edges.
+	\end{note}
+	\begin{remark}
+		This argument assumes \( G \) is finite (even though the fact holds true for infinitely connected graphs as well).
+	\end{remark}
+	We claim that \( T \) is a tree (as desired). We will proceed with proof by contradiction. Suppose that \( T \) is not a tree. Then, \( T \) has a cycle \( (x_{0}, x_{1}, \ldots , x_l = x_{0}) = C\). Let \( T' \) be the graph obtained from \( T \) by removing one of the edges of the cycle. The graph \( T' \) is connected as well. \par
+	For any \( u,v \in V(G) \), then, since \( T \) is connected, there is a \( uv \)-walk in \( T \). Then, by replacing the removed edge in this walk by the other edges of \( C \), there still remains a \( uv \)-walk in \( T' \). However, this is impossible as \( |E(T')| < |E(T)| \) \contra. We conclude that \( T \) is a spanning tree.
+\end{proof}
+
+\exercise{1}
+Let \( F \) be a spanning forest in \( G \) with the most edges. Show that \( F \) is a tree.
+
+\begin{corollary}
+	A connected graph with \( n \) vertices has at least \( n-1 \) edges.
+\end{corollary}
+
+\subsection{Eulerian and Hamiltonian Graphs}
+
+Let \( G \) be a connected graph.
+\begin{definition}
+	A closed walk in a graph \( G \) is a walk that starts and ends at the same vertex (e.g. a cycle).
+\end{definition}
+
+\begin{definition}
+	An \textbf{Euler circuit} in \( G \) is a closed walk that uses every edge exactly once.
+\end{definition}
+
+\begin{definition}
+	\( G \) is \textbf{Eulerian} if it has an Euler circuit.
+\end{definition}
+
+\begin{definition}
+	A \textbf{Hamiltonian cycle} in \( G \) is a cycle that uses every vertex exactly once.
+\end{definition}
+
+\begin{definition}
+	\( G \) is \textbf{Hamiltonian} if it has a Hamiltonian cycle.
+\end{definition}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{example-graphs}
+    \caption{Eulerian and Hamiltonian Graph}
+    \label{fig:example-graphs}
+\end{figure}
+
+This graph is Eulerian because it conains an Euler circuit: \( (1, 2, 4, 5, 2, 3, 5, 6, 3, 1, 6, 4, 1) \). This graph is also Hamiltonian because it contains a Hamiltonian Cycle: \( (1, 4, 5, 6, 3, 2, 1) \).
+
+\begin{definition}
+	A graph is \textbf{even} if every vertex has even degree.
+\end{definition}
+
+\begin{observe}
+	For a graph to be Eulerian, it must be even. This is because an Euler circuit enters and leaves each vertex the same number of times.
+\end{observe}
+
+\begin{definition}
+	A \textbf{trail} is a walk that uses each edge at most once.
+\end{definition}
+
+\begin{lemma}
+	If \( G \) is an even graph, and \( v \in  V(G) \) is a vertex of degree greater than 0, then there is a closed trail of positive length in \( G \) starting and ending at \( v \).
+\end{lemma}
+
+\begin{proof}
+	Let \( T = (v=x_{0}, x_{1}, x_{2}, \ldots , x_L)\) be a trail starting at \( v \) of maximum length.
+	\begin{note}
+		\( L \ge 1 \) because \( \deg_G(v)>0 \).
+	\end{note}
+	We want to argue that \( T \) is closed (\( x_L=v \)). Suppose that this is not the case. Then, the trail \( T \) enters \( x_L \) \( k \) times and leaves it \( k-1 \) times, for some \( k\ge 1 \). In total, \( T \) uses \( k + (k-1)=2k-1 \) edges incident to \( x_L \). But \( \deg_G(x_L) \) must be even, so there is an unused edge, say \( x_Ly \) incident to \( x_L \) \contra. This is impossible because \( v=x_{0}, x_{1}, \ldots , x_L, y \) would be a longer trail starting at \( v \).
+\end{proof}
+
+\begin{theorem}
+	A connected even graph is Eulerian (Euler).
+\end{theorem}
+
+\begin{proof}
+	Next time!
+\end{proof}
+
+\begin{note}
+	Mathematicians like these theorems: ``obvious necessary condition is sufficient.''
+\end{note}
+
+\lecture{20}{Wed 11 Oct 2023 14:03}{Euler's Theorem}
+
+Continuing with the proof of Euler's Theorem:
+
+\begin{proof}
+	Let \( G \) be a conneced even graph. Let \( T = (x_{0}, x_{1}, x_{2}, \ldots , x_L = x_{0})\) be a closed trail in \( G \) of maximum length. We want to show that \( T \) is an Euler circuit. Assume, for the sake of contradiction, that \( T \) is not an Euler circuit. Then some edges are not used in \( T \). Let \( U \) be the set of all unused edges. Note that
+	\[
+		U = E(G) \setminus \{x_{0}x_{1}, x_{1}x_{2}, \ldots , x_{L-1}x_L\} \neq \varnothing
+	.\] 
+	Let \( X \coloneq \{x_{0}, x_{1}, x_{2}, \ldots , x_{L-1}\}   \) be the vertices used in \( T \) and \( Y \coloneqq V(G) \setminus X \) be the unused vertices. Note that every edge used by \( T \) has both endpoints in \( X \). We claim that there is an edge in \( U \) incident to a vertex in \( X \).
+	\begin{description}
+		\item[Case 1:]\( Y = \varnothing \). In this case, every vertex is in \( X \). Therefore, every edge in \( U \) is incident to two vertices in \( X \).
+		\item[Case 2:] \( Y \neq \varnothing \). In this case, because \( G \) is connected, there must be at least one edge that connects a vertex in \( X \) to a vertex in \( Y \). This edge is incident to a vertex in \( X \), and is in \( U \) (as all edges not in \( U \) are only incident to vertices in \( X \)).
+	\end{description}
+	In both cases, we can find an edge in \( U \) incident to two vertices in \( X \), which was what we wanted. \par
+	So, let \( x_i \in X \) be a vertex incident to an edge in \( U \). Let \( G' \) be the spanning subgraph of \( G \) with edge set \( U \) (we only keep the unused edges). Note that \( \deg_{G'}(x_i) > 0 \) because \( x_i \) is incident to an edge in \( U \). Also note that \( G' \) is an even graph (exercise). \par
+	Then, by the lemma, there exists a closed trail \[
+		(x_i=z_{0}, z_{1}, z_{2}, \ldots , z_k = x_i)
+	\]  in \( G' \) starting and ending at \( x_i \) of length \( k > 0 \). Note that this closed trail only uses edges in \( U \). But then there would exist closed trail \[
+	(x_{0}, x_{1}, \ldots , \underbrace{x_i = z_{0}, z_{1}, \ldots , z_k = x_i}_{\text{only added unused edges}}, x_{i+1}, \ldots , x_{L-1}, x_L = x_{0})
+	.\] in \( G \) of length \( L + k > L \), which is impossible \contra. Therefore, our assumpion is false, and \( T \) is an Euler circuit.
+\end{proof}
+
+Note that this proof actually gives you an easy way of finding an Euler circuit in a connected, even graph. \par
+
+Unfortunately, there is no similar, simple way to tell if a graph has a Hamilton cycle.
+
+\begin{definition}
+	The \textbf{minimum degree} of \( G \), denoted by \( \delta(G) \), is the minimum of the degrees of the vertices of \( G \).
+\end{definition}
+
+
+\begin{property}
+	Let \( G \) be a graph with \( n \ge 3 \) vertices.
+	\begin{itemize}
+		\item If \( \delta(G) \ge n - 1 \), then \( G \) has a Hamilton cycle (it is a complete graph).
+		\item If \( n \) is even, then we can find \( G \) with \( \delta(G) = \frac{n}{2} - 1 \) and no Hamiltonian cycle.
+		\item If \( n \) is odd, then we can find \( G \) with \( \delta(G) = \frac{n-1}{2} \) and no Hamiltonian cycle (exercise).
+	\end{itemize}
+\end{property}
+
+\begin{theorem}
+	If \( G \) is a graph with \( n \ge 3 \) vertices and \( \delta(G) \ge \frac{n}{2} \), then \( G \) is Hamiltonian (Dirac).
+\end{theorem}
+\begin{proof}
+	Theorem 5.18 in the book (clever use of longest paths).
+\end{proof}
+
+\exercise{1}
+Write a computer program that finds euler circuits in connected even graphs.
+\exercise{2}
+If \( G \) is an even graph, then for any set \( X \subseteq V(G) \), the number of edges joining \( X \) to \( V(G)\setminus X \) is even.
+
+\lecture{21}{Fri 13 Oct 2023 14:03}{Graph Coloring}
+
+\subsection{Graph Coloring}
+
+Another property of graphs.
+
+\begin{definition}
+	A proper \( k \)\textbf{-coloring} of a graph \( G \) is an assignment of labels ("colors") from an \( k \)-element set to the vertices of \( G \) such that adjacent vertices are assigned different labels.
+\end{definition}
+
+\begin{definition}
+	The \textbf{chromatic number} of \( G \), denoted \( \chi(G) \), is the minimum \( k \) such that \( G \) has a proper \( k \)-coloring.
+\end{definition}
+
+\begin{note}
+	If \( G \) has \( n \) vertices, then \( \chi(G) \le n \).
+\end{note}
+
+\begin{notation}
+	\( C_n \) denotes the \( n \)-cycle.
+\end{notation}
+
+\begin{eg}
+	\( \chi(C_n) = 2\) if \( n \) is even, and \( \chi(C_n) = 3 \) if \( n \) is odd.
+\end{eg}
+
+\begin{eg}
+	\( \chi(\text{tree}) = 2 \) if there are at least two vertices.
+\end{eg}
+
+\begin{note}
+	In a proper coloring, vertices of the same color form an independent set. In other words, \( \chi(G) \) is the minimum \( k \) such that it is possible to partition \( V(G) \) into \( k \) independent sets.
+\end{note}
+
+Why is coloring useful?
+\begin{itemize}
+	\item It's fun. 
+	\item Practical uses, e.g. scheduling problems and register allocation (in compilers), radio bandwidth allocation, etc.
+	\item It is a useful auxiliary tool for other problems, e.g. an algorithm that may process one independent set in a graph at a time.
+	\item It can capture in a single number some complex structural information about a graph.
+\end{itemize}
+
+\begin{eg}
+	You are trying to assign a set of jobs \( J_{1}, J_2, \ldots , J_n \) into time slots, where some jobs conflict with each other and can't be assigned to the same time slot (if they use the same equipment). Define a graph \( G \colon V(G) = \{J_{1}, J_{2},\ldots , J_n \}   \) where edges are inserted between every conflicting job. Then, we know that every valid time slot assignment is a proper coloring of \( G \). Note that \( \chi (G) \) is the minimum number of time slots required to complete all jobs.
+\end{eg}
+
+\begin{definition}
+	\( G \) is \textbf{bipartite} if \( \chi(G) \le 2 \).
+\end{definition}
+
+\begin{theorem}
+	\( G \) is bipartite if and only if \( G \) has no odd cycles.
+\end{theorem}
+
+If \( \chi(G) \ge 3 \) is because there are cycles of odd length, then what makes \( \chi (G) \) large?
+
+\begin{definition}
+	\( \omega(G) \), the \textbf{clique number} of \( G \), is the maxmimum size of a clique in \( G \).
+\end{definition}
+
+\begin{property}
+	\( \chi(G) \ge \omega (G) \)
+\end{property}
+
+\begin{note}
+	We can also have \( \chi(G) > \omega (G) \): \( \chi (C_5) = 3\), but \( \omega (C_5) = 2\) (works for any cycle of odd length).
+\end{note}
+
+\begin{definition}
+	A graph \( G \) is \textbf{triangle-free} if there are no cliques of size 3 (which look like triangles) in \( G \).
+\end{definition}
+
+\begin{theorem}
+	For any \( k \in \mathbb{N} \), there is a graph \( G \) such that \( \chi (G) \ge k \) and \( \omega (G) = 2 \).
+\end{theorem}
+
+There are many proofs for this theorem. We will use the Blanche Descartes construction.
+
+\begin{note}
+	Blanche Descartes is the pen name of 4 undergrads at Cambridge in 1935. One of them was W. T. Tutte, who went on to become a founder of modern discrete math. He was also a codebreaker in World War 2.
+\end{note}
+
+\begin{proof}
+	Our plan is to start with a triangle-free graph \( G \) with \( \chi(G) = k \), and construct a triangle-free graph \( BD(G) \) with \( \chi (BG(G))= k+1 \). One way we could do this is by adding a vertex adjacent to every vertex in \( G \). However, a problem occurs: adding this vertex creates lots of triangles. \par
+	Instead, we can connect all vertices in \( G \) to separate other vertices, where all of those vertices need to have the same color. How do we do this? We use many copies of \( G \). \par
+	Let \( n \coloneq |V(G)| \), and \( k \coloneq \chi (G) \). Define \( N \coloneq k\cdot (n - 1) + 1 \). Define \( r \coloneq \binom{N}{n} \). Take a set of vertices \( X \) of size \( N \). List all \( n \)-element subsets of \( X \) as \( S_{1}, S_{2}, \ldots , S_r \). Let \( G_{1}, G_{2}, \ldots , G_r \) be copies of \( G \), disjoint from each other and from \( X \). Note that \( |V(G_i)| = n = |S_i| \) such that we can connect vertices in \( G_i \) to \( S_i \) by \( n \) disjoint edges. The resulting graph is \( BD(G) \).
+\end{proof}
+
+\exercise{1}
+What is \( BD(K_2) \)?
+
+\lecture{22}{Mon 16 Oct 2023 13:58}{Graph Coloring Continued}
+
+Blanche Descartes construction continued:
+
+\begin{eg}
+	\( BD(K_2) = C_9\)
+\end{eg}
+
+\begin{eg}
+	\( BD(C_9) \)? Note that to calculate this graph, we would need to make \( \binom{25}{9} = 2042975 \) copies of \( C_9 \)! This graph is very large, but is triangle-free with \( \chi(BD(C_9)) = 4 \).
+\end{eg}
+
+How do we know that the resulting graph is both triangle-free with greater chromatic number?
+
+\begin{lemma}
+	\( \chi(BD(G)) \ge  k+1 \)
+\end{lemma}
+\begin{proof}
+	Suppose not and consider a proper \( k \)-coloring. We have \( |X| = N = k(n-1) + 1 \), which means that some color must be used on at least \( n \) vertices in \( x \). In other words, there is some \( n \)-element set \( S_i \le  X \), all of whose members are colored the same, say with color \( c \). \par
+	Then, every vertex in \( G_i \) cannot be colored with \( c \), so \( G_i \) is colored with only \( k - 1 \) colors. This is impossible as \( \chi(G_i) = \chi(G) = k \) \contra.
+\end{proof}
+
+\begin{lemma}
+	If \( G \) is triangle-free, then so is \( BD(G) \).
+\end{lemma}
+\begin{proof}
+	A triangle in \( BD(G) \) must use some vertex \( x \in X \), as all copies of \( G \) are triangle free. In other words, \( x \) must be connected to two other vertices, of which are neighbors. However, as all copies \( G_i \) of \( G \) are disjoint, and \( x \) is connected by construction to different \( G_i \), such a triangle cannot exist, and \( BD(G) \) is triangle-free.
+\end{proof}
+
+In conclusion, by repeatedly applying the operation \( BD \) to, say \( K_2 \), we can construct triangle-free graphs with arbitrarily large chromatic number.
+
+\begin{theorem}
+	For all \( k,L \in \mathbb{N}\), there is a graph \( G \) with \( \chi(G) \ge k \) and cycles of length at most \( L \) (Erdo\"s).
+\end{theorem}
+
+\begin{note}
+	Because Erdo\"s has published so many papers, there is an Erdo\"s number, which is a distance of collaboration to Erdo\"s himself.
+\end{note}
+
+What are some other reasons for finding large \( \chi \)?
+
+\begin{definition}
+	\( \alpha(G) \) denotes the independence number of \( G \), the max size of an independent set in \( G \).
+\end{definition}
+
+\begin{property}
+	If \( G \) has \( n \ge 1 \) vertices, then \( \chi (G) \ge \frac{n}{\alpha (G)} \)
+\end{property}
+
+Why is this? Say \( \chi(G) = k \). This means \( V(G) \) can be partitioned into \( k \) independent sets. The size of these independent sets is then at most \( \alpha(G) \). Therefore, \( n \le k \cdot \alpha (G) \), which then means \( k \ge  \frac{n}{\alpha (G)} \).
+
+This is an exceptional situation!
+
+\begin{notation}
+	Fix some small constant \( \epsilon >0 \). Write \( a \approx b \) if \( 1 - \epsilon  \le  \frac{a}{b} \le  1 + \epsilon  \). 
+\end{notation}
+
+\begin{theorem}
+	Consider all graphs with vertex set \( [n] \) (there are \( 2^{\binom{n}{2}} \) of them). If \( n \) is large enough, then \( \approx 100\% \) of these graphs satisfy \[
+		\omega \approx 2\log_2(n), \alpha \approx 2\log_2(n), \chi \approx \frac{n}{2\log_2(n)} \approx \frac{n}{\alpha }
+	.\] 
+\end{theorem}
+
+This theorem is studied in an area called random graph theory. Essentially, we can ``guess'' such properties of graphs without running expensive calculations to find them.
+
+Next lecture, we will talk about upper bounds on \( \chi  \) in terms of vertex degrees.
+
+\exercise{1}
+Show that \( \chi(BD(G)) = k + 1 \)
+\exercise{2}
+Show that if \( G \) has no cycles of length 3, 4, or 5, then neither does \( BD(G) \). Conclude that for all \( k \), there is a graph with \( \chi(G) \ge  k \), and no 3, 4, 5 cycles.
+
+
+\lecture{23}{Wed 18 Oct 2023 14:00}{Chromatic Numbers and Maximum Degrees}
+
+How is the chromatic number of a graph \( G \) related to the maximum degree of any vertex in \( G \)?
+
+\begin{definition}
+	\( \Delta (G) \) refers to the \textbf{maximum degree} of any vertex in \( G \).
+\end{definition}
+
+\begin{prop}
+	\( \chi(G) \le \Delta(G) + 1 \).
+\end{prop}
+
+\begin{proof}
+	We can use the greedy coloring algorithm. We color any vertex with the least available color in any order. For any vertex \( v \), we forbid at most \( \deg(v)	 \) colors. In other words, if we have \( \Delta(G) + 1 \) colors to use, there will always be one available color to color the vertex \( v \).
+\end{proof}
+
+\begin{note}
+	This is not necessarily a tight upper bound on \( \chi(G) \)!
+\end{note}
+
+\begin{theorem}
+	(Brooks) Let \( G \) be a connected graph. Then \( \chi(G) = \Delta(G) + 1 \) can only happen if \( G \) is complete, or an odd cycle.
+\end{theorem}
+
+We must ask ourselves again, when is this bound tight? If \( G \) is not complete or odd cycle, then when is \( \chi(G) = \Delta(G) \)?
+
+Take the graph consisting of five triangles in the shape of a pentagon, vertices of which are adjacent to all vertices in the neighboring triangles. This is a graph with \( \Delta = 8 \), \( \alpha =2 \), \( \chi \ge \frac{n}{\alpha } = \frac{15}{2} = 7.5 \). In other words, we have \( \chi \ge 8 \). From Brooks' theorem, we have \( \chi \le 8 \). Therefore, \( \chi =8 \).
+
+\begin{conjecture}
+	(Borodin-Kostochka) If \( \Delta(G) \ge 9 \), and \( G \) is not a complete graph, then \( \chi(G) \le  \triangle(G) - 1 \). 
+\end{conjecture}
+
+\begin{note}
+	This conjecture has been proved true for \( \Delta(G) \ge 10^{14} \)
+\end{note}
+
+\subsection{Planar Graphs}
+
+Remember that a tree is planar if it can be drawn in the plane without edges crossing.
+
+\begin{eg}
+	All trees are planar. \( K_4 \) is planar. \( K_5 \) is not planar. All cycles are planar.
+\end{eg}
+
+How would one prove that a certain graph is not planar?
+
+\begin{theorem}
+	(Euler) For any connected planar graph, we can count the number of regions the graph separates the plane into. Let \( n \) be the number of vertices, and \( m \) be the number of edges in such a graph. Let \( f \) be the number of regions the graph separates the plane into. Then, we have \( n - m + f = 2\).
+\end{theorem}
+
+\lecture{24}{Fri 20 Oct 2023 14:01}{Planar Graphs}
+
+\begin{note}
+	If we forget this formula, we can reconstruct by examining small graphs.
+\end{note}
+
+\begin{intuition}
+	When you add an edge to a connected planar graph without adding new vertices, the number of faces will go up by one. Similarly, if you add an edge without increasing the number of faces, then we must add one new vertex. Either way, \( n-m+f \) is constant.
+\end{intuition}
+
+\begin{proof}
+	We will proceed with induction on \( m \), the number of vertices in the connected planar graph.
+	\begin{description}
+		\item[Base case:] \( m=0 \). The only connected graph with 0 edges is an isolated vertex \( K_1 \) (assuming \( \varnothing \) is not a graph). \( K_1 \) has \( n = 1 \) vertices, \( f=1 \) faces, and \( m=0 \) edges such that \( n-m+f = 1-0+1 = 2 \), as desired.
+		\item[Step:] \( m\ge 1\). Suppose that for some for value of \( m\ge 1 \), this statement holds for all connected planar graphs with \( m-1 \) edges. Now, consider a drawing of a connected planar graph \( G \) with \( m \) edges, \( n \) vertices, and \( f \) faces. We wish to show that \( n-m+f=2 \). We will break this into cases: \par
+			\begin{description}
+				\item[Case 1:] \( G \) is a tree. Note that for all trees, \( f = 1 \) and \( m = n - 1 \). So, \( n-m+f=(m+1)-m+1=2 \), as desired.
+				\item[Case 2:] \( G \) is not a tree. Because \( G \) is connected, then \( G \) must contain a cycle \( C \). Note that every face in \( G \) lies either inside \( C \) or outside \( C \) (Jordan Curve Theorem). Let \( e \) be an edge on the cycle \( C \). Let \( G' \) be the graph obtained from \( G \) by deleting \( e \). Note that because \( e \) is in a cycle in \( G \), \( G' \) remains connected. Note that \( |V(G')| = n \), \( |E(G')|=m-1 \). It remains to find an expression for the number of faces in \( G' \). \par
+					Since \( e \) is on a cycle \( C \) in \( G \), deleting \( e \) merges two faces into one (Jordan Curve Theorem). Therefore, \( G' \) has \( f-1 \) faces!. By the inductive hypothesis, \( n-(m-1)+(f-1)=2 \). Therefore, \( n-m+f=2 \), as desired.
+			\end{description}
+	\end{description}
+	Because we have verified the base and step of induction, \( n-m+f=2 \) holds for all graphs with \( m \in \mathbb{N} \).
+\end{proof}
+
+\begin{corollary}
+	If \( G \) is a connected planar graph with \( m\ge 3 \) edges and \( n \) vertices, then \( m \le 3n-6 \).
+\end{corollary}
+
+\begin{proof}
+	We will proceed with a double-counting argument. If \( m\ge 3 \), then every face is bounded by \( \ge 3 \) edges. Also, every edge is on the boundary of \( \le 2 \) faces. Then, we have \( 2m \ge 3f \implies f \le \frac{2}{3}m \). By Euler's, \( 2 = n-m+f\le n-m+\frac{2}{3}m = n - \frac{1}{3}m\). Rearranging, we have \( m \le 3n - 6 \).
+\end{proof}
+
+This corollary gives us a certificate that certain graphs are not planar. In other words, if \( G \) has too many edges relative to the number of vertices, then \( m \le 3n-6 \) will not be satisfied.
+
+\begin{eg}
+	\( K_5 \) has \( n=5 \) and \( m=10 \). Then, \( m > 3n-6 \), so \( K_5 \) is not planar.
+\end{eg}
+
+\begin{note}
+	The corollary does \textbf{NOT} say ``if \( m \le  3n - 6 \), then \( G \) is planar''.
+\end{note}
+
+\begin{eg}
+	Adding a very long trail to \( K_5 \) will satisfy \( m\le 3n-6 \). But because the graph contains \( K_5 \), it is not planar.
+\end{eg}
+
+\exercise{1}
+Show that the corollary from Euler's formula holds for \( n\ge 3 \) as well.
+
+\exercise{2}
+\( K_{3,3} \) is the complete bipartite graph with 3 vertices in each part of the bipartition. Show that \( K_{3,3} \) is not planar. Hint: use the fact that \( K_{3,3} \) contains no triangles.
+
+\lecture{25}{Mon 23 Oct 2023 14:02}{Planar Graphs Continued}
+
+There exists an upgraded version of Euler's formula for disconnected planar graphs:
+
+\begin{theorem}
+	Let \( G \) be a planar graph with \( n \) vertices, \( m \) edges, \( f \) faces, and \( c \) connected components. Then \( n - m + f - c= 1 \).
+\end{theorem}
+
+\begin{corollary}
+	Every non-empty planar graph has \emph{a} vertex of degree at most 5.
+\end{corollary}
+
+\begin{proof}
+	Assume without loss of generality that \( G \) is connected. Let \( n \) be the number of vertices in \( G \), and \( m \) be the number of edges. Assume, for the sake of contradiction, that there is no vertex with degree at most 5. That is, every vertex has degree at least 6. Then, we have \( m \ge \frac{6}{2}n = 3n \) from the handshake lemma. However, we have that \( m \le 3n-6 \) (from the above corollary). This is a contradiction: therefore our assumption is false, and there must be a vertex with degree at most 5.
+\end{proof}
+
+\begin{corollary}
+	If \( G \) is a planar graph, then \( \chi(G) \le 6 \).
+\end{corollary}
+
+\begin{proof}
+	We will proceed with induction on the number of vertices of \( G \). Let \( n \) be the number of vertices of \( G \).
+	\begin{description}
+		\item[Base case] \( n=5 \). Then, we can color \( G \) in 5 colors.
+		\item[Step case] Assume \( \chi(G') \le 6 \) for every graph \( G' \) with at most \( n -1  \) vertices. By the corollary, \( G \) has a vertex \( v \) of degree at most 5. By the inductive hypothesis, \( G' = G - v \) has \( \chi(G') \le 6 \). Every proper coloring of \( G' \) with at most 6 colors can be extended to a proper coloring of \( G \) using at most 6 colors (we add \( v \) to \( G' \), which is prohibited from at most 5 colors). Therefore, \( \chi(G) \le 6 \), as desired.
+	\end{description}
+	As we have verified the base and step of induction, this corollary holds true for all \( n\ge 5 \).
+\end{proof}
+
+\begin{theorem}
+	(Appel-Haken) The Four Color theorem states that \( \chi(G) \le 4 \) for any planar graph \( G \).
+\end{theorem}
+
+\begin{note}
+	The proof of the Four Color theorem applies a strengthened version of Corollary 3 and a similar method of removing vertices.
+\end{note}
+
+\subsubsection{Graph Minors}
+
+What are graph minors?
+
+\begin{definition}
+	\( G \) "contract" \( e \), denoted \( G / e \), is the graph obtained from \( G \) by deleting \( e \) and contracting the two vertices of \( e \) into a single vertex.
+\end{definition}
+
+\begin{definition}
+	A \textbf{minor} of a graph \( G \) is a graph that can be obtained from a subgraph of \( G \) by a sequence of contractions.
+\end{definition}
+
+\begin{observe}
+	Every minor of a planar graph is planar.
+\end{observe}
+
+\begin{eg}
+	In the Peterson graph, we can contract the 5 edges that connect to the star to the pentagon to get \( K_5 \) as a minor. This also shows that the Peterson graph is not planar.
+\end{eg}
+
+\begin{theorem}
+	(Kuratowski-Wagner) A graph is planar if and only if it has no minor isomorphic to \( K_5 \) or \( K_{3,3} \).
+\end{theorem}
+
+\begin{conjecture}
+	(Hadwiger) If \( G \) has no minor isomorphic to \( K_t \), then \( \chi(G) \le t-1 \).
+\end{conjecture}
+
+\begin{note}
+	This conjecture is known for all \( t \) at most 5. It known for \( t=6 \), proved by Robertson, Seymour, and Thomas, and it is 80 addition pages beyond the proof for the Four Color Theorem.
+\end{note}
+
+\lecture{26}{Wed 25 Oct 2023 14:02}{Exam 2 Review}
+
+\begin{eg}
+	Is every Hamiltonian graph connected?
+\end{eg}
+
+Yes. In order to find a Hamiltonian cycle, the graph must be connected.
+
+\begin{eg}
+	Is every connected graph Hamiltonian?
+\end{eg}
+
+No. Take the graph that is a square with an edge coming off one of the corners, for example.
+
+\begin{eg}
+	How many 3-colorings does the \( n \)-cycle have?
+\end{eg}
+
+Let \( F(n) \) be the number of proper colorings of a cycle of length \( n \) with colors 1, 2, 3. We wish to find \( F(10) \). Note that \( F(n) = 3\cdot 2^{n-1}\) minus the number of colorings of an \( n \)-vertex path where the first and last vertex are colored the same, denoted \( X(n) \). The key observation is that \( X(n) = F(n-1) \). It follows that \( F(n) = 3\cdot 2^{n-1}-F(n-1)  \).
+
+\begin{eg}
+	Is \( K_{3,3} \) with the bottom edge removed planar?
+\end{eg}
+
+Yes. We can rearrange it to be. Note that it also satisfies Euler's formula, where \( v = 6 \), \( m = 8 \), and \( f = 4 \).
+
+\exercise{1}
+How many edges does the hypercube graph \( Q_n \) have?
+
+\exercise{2}
+How can we find the general formula for \( F(n) = 3^{n-1} - F(n-1) \)?
+
+\lecture{27}{Mon 30 Oct 2023 14:00}{Partially Ordered Sets}
+
+One last bit about graphs:
+
+\begin{note}
+	If \( G \) is a graph with chromatic number \( k \), then \( G \) contains a subgraph \( H \) such that \( \chi (H)=k \) and \( \chi (H-v) < k \) for all \( v \in  V(H) \). Such graphs are called \textbf{critical graphs}.
+\end{note}
+
+\section{Partially Ordered Sets}
+
+\subsection{Relations}
+
+Finally, a new section!
+
+\begin{definition}
+	A \textbf{binary relation} on a set \( X \) is a subset \( \mathcal{R} \subseteq X^2 = X \times X \).
+\end{definition}
+
+In other words, \( R \) is a set of some ordered pairs \( (x,y) \) with \( x,y \in  X \).
+
+\begin{eg}
+	Let \( X=\{a,b,c\}   \). Then, one such relation is \( \mathcal{R}=\{(a,a),(a,b),(b,a),(b,c),(c,c)\}   \).
+\end{eg}
+
+\begin{note}
+	These relations can be related to a directed graph where there can be loops and multiple edges between vertices.
+\end{note}
+
+\begin{eg}
+	The empty set \( \varnothing \) is a relation.
+\end{eg}
+
+We use the word relation because it is a set of pairs \( (x,y) \) where \( x \) is ``related'' to \( y \) in some sense. We say that \( (x,y) \in \mathcal{R} \) if \( y \) is \( \mathcal{R} \)-related to \( x \).
+
+\begin{eg}
+	Let \( X=\{1,2,3,4,5\}   \). \( \mathcal{R}=\{ (x,y) \in X^2 \colon x < y\} \) is another way of writing \( \{(1,2),(1,3),(1,4),(1,5),(2,3),(2,4),(2,5),(3,4),(3,5),(4,5)\}    \)
+\end{eg}
+
+Note that relations can exist on infinite sets as well!
+
+\begin{eg}
+	\( \{(n,m) \in \mathbb{N}^2 \colon n \le m\}   \) is an ordering relation of the natural numbers.
+\end{eg}
+
+\begin{eg}
+	\( \{(x,y) \in \mathbb{R}^2 \times \mathbb{R}^2 \colon x \text{ and } y \text{ are orthogonal}\} \) is another relation containing all pairs of orthogonal vectors.
+\end{eg}
+
+\begin{remark}
+	In this course, we will focus on relations on two elements in the same set. However, more generally, relations can exist between a set \( X \) and another set \( Y \) (subsets of \( X \times  Y \)).
+\end{remark}
+
+\begin{eg}
+	Let \( X \) be the set of GT students enrolled in Fall 2023, let \( Y \) be the set of classes offered at GT in Fall 2023. Then, \[
+		\{(S,C) \in X \times Y \colon S \text{ is registered for } C\}
+	.\] is one such valid, real-life relation.
+\end{eg}
+
+\begin{notation}
+	When \( \mathcal{R} \) is a relation, we often write \( x \mathcal{R}y \) to mean \( (x,y) \in \mathcal{R} \)
+\end{notation}
+
+\begin{eg}
+	We write \( x < y \) instead of \( (x,y) \in < \).
+\end{eg}
+
+\begin{eg}
+	If \( X \) is a set of size \( n \), how many binary relations on \( X \) are there?
+\end{eg}
+
+There are \( n \cdot n = n^2\) elements in \( X \times X \), such that there are \( 2^{n^2} \) relations. Note that this value is \( |\mathcal{P}(X^2)| \).
+
+\subsubsection{Properties of Relations}
+
+\begin{property}
+	Let \( \mathcal{R} \subseteq X^2 \) be a relation on \( X \). \( R \) is:
+	\begin{enumerate}
+		\item reflexive: for all \( x \in X \), \( x \mathcal{R}x \).
+		\item irreflexive: for all \( x \in X \), not \( x \mathcal{R}x \).
+		\item symmetric: for all \( x,y \in X \), if \( x\mathcal{R}y \), then \(y\mathcal{R}x \).
+		\item asymmetric: for all \( x,y \in X \), if \( x \mathcal{R}y \), then not \( y\mathcal{R}x \). Note that all asymmetric relations are irreflexive.
+		\item antisymmetric: for all \( x,y \in X \), if \( x \mathcal{R}y \) and \( y\mathcal{R}x \), then \( x=y \).
+		\item transitive: for all \( x,y,z \in X \), if \( x \mathcal{R}y \) and \( y\mathcal{R}z \), then \( x\mathcal{R}z \).
+	\end{enumerate}
+\end{property}
+
+\begin{eg}
+	Let \( X=\{1,2,3\}   \), \( R=\{(1,1),(1,3),(2,2),(3,3)\}   \). What properties does this relation fall under?
+\end{eg}
+
+This relation is reflexive, not irreflexive, not symmetric, not asymmetric, antisymmetric.
+
+\begin{note}
+	The only relation on the empty set \( \varnothing \) is the empty set \( \varnothing \).
+\end{note}
+
+\exercise{1}
+What properties are the relations on the lecture notes?
+
+\lecture{28}{Wed 01 Nov 2023 14:00}{Relations Continued}
+
+\begin{eg}
+	\( \le  \) is...
+\end{eg}
+
+\begin{itemize}
+	\item reflexive because \( x\le x \) for all \( x \in \mathbb{N} \).
+	\item not symmetric because \( 1 \le 2 \) but \( 2 \not\le 1 \).
+	\item not asymmetric because \( 1 \le 1 \).
+	\item antisymmetric because \( x \le y \) and \( y \le x \) implies \( x = y \).
+	\item transitive because \( x \le y \) and \( y \le z \) implies \( x \le z \).
+\end{itemize}
+
+\begin{eg}
+	< is...
+\end{eg}
+
+\begin{itemize}
+	\item irreflexive because \( x < x \) is false for all \( x \in \mathbb{N} \).
+	\item asymmetric because \( x < y \) implies \( y \not< x \).
+	\item antisymmetric because the conditional is vacuously true.
+	\item transitive because \( x < y \) and \( y < z \) implies \( x < z \).
+\end{itemize}
+
+\begin{eg}
+	= is reflexive, symmetric, transitive, and antisymmetric.
+\end{eg}
+
+\begin{eg}
+	``\( x + y \) is even'' is reflexive, symmetric, and transitive.
+\end{eg}
+
+\begin{eg}
+	``\( x+y \) is odd'' is irreflexive and symmetric.
+\end{eg}
+
+\begin{eg}
+	``\( x \) and \( y \) have the same last digit'' is reflexive, symmetric, and transitive.
+\end{eg}
+
+\begin{definition}
+	An \textbf{equivalence relation} is a relation that is reflexive, symmetric, and transitive.
+\end{definition}
+
+\begin{eg}
+	Let \( X=\{\text{all triangles in } \mathbb{R}^2\}   \). Let \( \mathcal{R} = \{(T_{1},T_{2})\in X^2 \colon T_{1} \text{ and } T_{2} \text{ are congruent}\)\} is an example of an equivalnce relation.
+\end{eg}
+
+\begin{eg}
+	Let \( G \) be a graph. Let \( \mathcal{R}= \{(u,v) \in V(G)^2 \colon \text{there is a } uv\text{-path in } G  \)\}.
+\end{eg}
+
+This example is transitive because if \( (u,v) \in \mathcal{R} \) and \( (v,w) \in \mathcal{R} \) (there is a \( uv \)-path \( P_{1} \) and a \( vw \)-path \( P_{2} \)), then by putting \( P_{1}  \) and \( P_{2} \) together we get a \( uw \)-walk. We know that if there is a \( uw \)-walk, then there must be a \( uw \)-path, as desired.
+
+\begin{eg}
+	For any set \( X \), \( X^2 \) is an equivalence relation.
+\end{eg}
+
+\begin{note}
+	The empty relation on \( X \) is not an equivalence relation, because nothing in \( X \) is related to itself (unless, of course, \( X \) is the empty set).
+\end{note}
+
+\begin{definition}
+	A \textbf{partition} of a set \( X \) is a set \( P \) such that every element of \( P \) is a non-empty subset of \( X \), the union of all of sets in \( P \) is \( X \), and the sets in \( P \) are pairwise disjoint. 
+\end{definition}
+
+\begin{eg}
+	Let \( X=\{1,2,3,4,5,6\}   \). Then, \( P = \{\{1,2,3\}, \{4\}, \{5,6\}    \}   \) is a valid partition of \( X \).
+\end{eg}
+
+Given a partition \( P \) of \( X \), define a relation \( E_p \) on \( X \) as follows: \[
+	E_p \coloneq \{(x,y)\in X^2 \colon x,y \text{ are in the same set in } P\}  
+.\] 
+
+\begin{eg}
+	Let \( X=\{1,2,3,4\}   \), \( P=\{\{1,2\} ,\{3,4\}   \}   \). Then, \[ E_p=\{(1,1),(1,2),(2,2),(2,1),(3,3),(3,4),(4,4),(4,3)\}   .\]
+\end{eg}
+
+\begin{property}
+	\( E_p \) is an equivalence relation on \( X \) (In our homework!).
+\end{property}
+
+It turns out that \emph{every} equivalence relation arises in this way.
+
+\exercise{1}
+Prove that the relation \( x-y \in \mathbb{Z} \) on \( \mathbb{R} \) is an equivalence relaion.
+
+\exercise{2}
+What are the partitions of the empty set?
+
+
+\lecture{29}{Fri 03 Nov 2023 14:01}{Partial Orderings}
+
+What do we mean when we say that every equivalence relation arises in this way?
+
+\begin{definition}
+	Let \( E \) be an equivalence relation on a set \( X \). For each \( x \in X \), let \( \left[ x \right]_E = \left\{ y \in X \colon y ~E~ x \right\}  \). This subset is called the \textbf{equivalence class} of \( x \).
+\end{definition}
+
+\begin{definition}
+	The \textbf{quotient} of \( X \) by \( E \) is the set of all equivalence classes \( \frac{X}{E} \) defined by \( \{[x]_E \colon x \in X\}   \).
+\end{definition}
+
+\begin{eg}
+	Let \( X = \{0,1,2,\ldots ,20\}   \). Let \( E=\{(x,y) \in X^2 \colon x \text{ and } y \text{ have the same last digit}\}   \). Then, 
+	\begin{itemize}
+		\item \( [5]_E =  \{5,15\}   \).
+		\item \( [11]_E=\{1,11\}   \).
+		\item \( [0]_E=\{0,10,20\}   \).
+		\item \( [10]_E=\{0,10,20\}   =[20]_E\)!
+		\item \( \frac{X}{E}=\{[0]_E,[1]_E,[2]_E,\ldots ,[9]_E\} \).
+		\item \( |\frac{X}{E}|=10 \).
+	\end{itemize}
+	Note that we don't need to include \( [10]_E \) in \( \frac{X}{E} \) because the element is already listed!
+\end{eg}
+
+\begin{theorem}
+	If \( E \) is an equivalence relation on a set \( X \), then \( \frac{X}{E} \) is a partition of \( X \) and \( E=E_{\frac{X}{E}} \)
+\end{theorem}
+
+The moral of this is that equivalence relations and partitions are two different ways of describing the same structure.
+
+\begin{eg}
+	Let \( G \) be a graph, \( E=\{(u,v) \in V(G)^2 \colon \text{there is a } uv\text{-path in }G \} \) is an equivalence relation on \( V(G) \). The equivalence classes are the connected components of \( G \).
+\end{eg}
+
+\begin{definition}
+	A \textbf{partial order} on a set \( X \) is a relation that is reflextive, antisymmetric, and transitive.
+\end{definition}
+
+\begin{eg}
+	\( \le  \) and \( \ge  \) on \( \mathbb{N} \) or \( \mathbb{R} \) are partial orders.
+\end{eg}
+
+\begin{eg}
+	For any set \( X \), the relation \( \subseteq \) or (\( \supseteq \)) on \( \mathcal{P}(X) \) is a partial order.
+\end{eg}
+
+\begin{eg}
+	Consider the relation \( R \) on \( \mathbb{N}^2 \): \[
+		R \coloneq \{((n_{1},m_{1}),(n_{2},m_{2})) \in (\mathbb{N}^2)^2 \colon n_{1} \le  n_{2}, m_{1} \ge  m_{2}\}
+	.\] (Show that) this is a partial order on \( \mathbb{N}^2 \)
+\end{eg}
+
+\begin{definition}
+	A partially ordered set, or a \textbf{poset}, is a pair \( (X,R) \) where \( X  \) is a set and \( R \) is a partial order on \( X \).
+\end{definition}
+
+\begin{eg}
+	\( (P([3]),\subseteq) \) is a poset.
+\end{eg}
+
+\begin{definition}
+	Let \( (X,R) \) be a poset. We say that an element \( y \in X \) \textbf{covers} an element \( x \in X \) if (1) \( x\neq y \), (2) \( xRy \), and (3) there is no \( z \in X \) such that \( x\neq z \),\( y\neq z \), \( xRz \), and \( zRy \)
+\end{definition}
+
+\begin{definition}
+	A \textbf{Hasse Diagram} of \( (X,R) \) is a graph with vertex set \( X \) and an edges from \( x \) to \( y \) if \( y \) covers \( x \) with the extra condition that if \( y \) covers \( x \), then \( y  \) is drawn above \( x \).
+\end{definition}
+
+\exercise{1}
+How many equivalence relations/partitions are there on a set of size \( n \)?
+
+\exercise{2}
+Show that if \( R \) is a partial order, so is \[
+	R^* = \{(x,y) \in X^2 \colon yRx \} 
+.\] 
+
+\lecture{30}{Mon 06 Nov 2023 14:07}{Posets}
+
+\begin{notation}
+	We can use symbols like \( \le  \), \( \preceq \), and \( \trianglelefteq \) to denote arbitrary partial orders. If there is no chance of confusion, we can write \( x\le y \) to mean \( x \mathcal{R} y \) where \( \mathcal{R} \) is a partial order.
+\end{notation}
+
+\begin{definition}
+	Let \( (X, \le ) \) be a poset. Two elements \( x,y \in X \) are \textbf{comparable} if and only if \( x\le y \) or \( y\le x \).
+\end{definition}
+
+\begin{definition}
+	A \textbf{total order} is a partial order in which every two elements are comparable.
+\end{definition}
+
+\begin{eg}
+	\( (\mathbb{N},\le ) \) is a total order.
+\end{eg}
+
+\begin{eg}
+	\( (\mathcal{P}([3]), \subseteq) \) is \textbf{not} a total order. Consider elements \( \{1\} \) and \( \{2\}   \), which are not comparable.
+\end{eg}
+
+\begin{note}
+	If \( (X, \le ) \) is a poset with \( |X|=n < \infty \) and the order is total, then the Hasse diagram is just a vertical line. In other words, the elements of \( x \) can be listed as \( x_{1},x_{2},x_{3},\ldots ,x_n \) such that \( x_{1}<x_{2}<x_{3}<\ldots <x_n \).
+\end{note}
+
+The situation with infinite sets is more complicated! There are very many Hasse diagrams you can get for a poset with infinitely many elements.
+
+\begin{definition}
+	Let \( (X, \le ) \) be a poset. A \textbf{chain} in \( X \) is a set \( A \subseteq X \) such that every two elements in \( A \) are comparable.
+\end{definition}
+
+\begin{definition}
+	Let \( (X, \le ) \) be a poset. An \textbf{antichain} is a set \( X \subseteq X \) such that no two distinc elements of \( A \) are comparable.
+\end{definition}
+
+\begin{definition}
+	The \textbf{height} of a poset is the length of its longest chain. The \textbf{width} of a poset is the size of its largest antichain.
+\end{definition}
+
+\exercise{1}
+Consider the poset \( (\mathcal{P}([n]), \subseteq) \). What is its height and width?
+
+\lecture{31}{Wed 08 Nov 2023 14:02}{Posets Continued}
+
+Continuing on with partial order:
+
+\begin{prop}
+	The height of \( (\mathcal{P}([n]), \subseteq) = n+1\)
+\end{prop}
+
+\begin{proof}
+	To show that two numbers \( a \) and \( b \) are equal, we can show \( a\le b \) and \( b\le a \). Therefore, we wil show that the height \( \ge n+1 \). We can do this by finding a chain of size \( n+1 \). The chain \[
+		\{\varnothing \subset \{1\} \subset \{1,2\} \subset \{1,2,3\} \subset \ldots \subset \{1,2,\ldots ,n\}\}
+	.\] is one such chain of size \( n+1 \). Next, we show that the height of this poset is at most \( n+1 \). We need to argue that every chain has size at most \( n+1 \). \par
+	Take an arbitrary chain \( A_{1}\subset A_{2}\subset \ldots \subset A_k \). We want to show that \( k\le n+1 \). Note that \( |A_{1}|\ge 0 \), \( |A_{2}|\ge |A_{1}|+1\ge 0+1=1 \), \( |A_{3}|\ge |A_{2}|+1\ge 1+1=2 \), etc. such that \( |A_k| \ge k-1 \). However, \( |A_k| \le n \) since \( A_k \subseteq [n] \). Therefore, \( k-1 \le |A_k| \le n \) and \( k\le n+1 \).
+\end{proof}
+
+What about the width of the poset?
+
+\begin{notation}
+	\( \left\lfloor x \right\rfloor \) denotes the largest integer at most \( x \).
+\end{notation}
+
+\begin{notation}
+	\( \left\lceil x \right\rceil  \) denotes the smallest integer at least \( x \).
+\end{notation}
+
+\begin{theorem}
+	(Sperner) The width of \( (\mathcal{P}([n]), \subseteq) = \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \).
+\end{theorem}
+
+\begin{proof}
+	For any \( k \), the set \( A \subseteq [n] \colon |A| = k \) is an antichain in \( (\mathcal{P}([n]), \subseteq) \) of size \( k \). Therefore, the width of our poset is at least \( \binom{n}{k} \). Therefore, \[
+		\text{width} \ge \max_{k=0}^{n}\binom{n}{k} = \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor }
+	.\] Now, we need to show that every antichain in \( (\mathcal{P}([n])) \) has size at most \( \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \). Take arbitrary antichain \( \mathcal{A} \). In other words, \( \mathcal{A} \) is a collection of subsets of \( [n] \), none of which is a subset of another one. We wish to show that \( |\mathcal{A}| \le \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \). Let 
+	\[
+		\mathbb{S} \coloneq \{\text{all permutations of }[n]\}  \qquad |\mathbb{S}| = n!
+	.\] 
+	Say that a set \( A \subseteq [n] \) of size \( |A| = k \) is a prefix of a permutation \( \pi =(x_{1},x_{2},x_{3},\ldots ,x_n) \in \mathbb{S}_n \) if \( A=\{x_{1},x_{2},\ldots ,x_k\}   \). For example, if \( n=3 \), \( \pi =(3,1,2) \), then \( \{1,3\}   \) is one such prefix. Then, for a permutation \( \pi =(x1,x_{2},\ldots ,x_n) \), its prefixes are \[
+		\varnothing \qquad \{x_{1}\} \qquad \{x_{1},x_{2}\} \qquad \{x_{1},x_{2},x_{3}\} \qquad \ldots \qquad \underbrace{\{x_{1},x_{2},\ldots ,x_{n}\}}_{[n]}
+	.\] Observe that \( \pi  \) has exactly one prefix of each size between \( 0 \) and \( n \). Also, observe that the prefixes of \( \pi  \) form a chain. Then, we look at \[
+	(*) = \sum_{\pi \in \mathbb{S}} \underbrace{\sum_{A \in \mathcal{A}} \underbrace{1[A \text{ is a prefix of } \pi ]}_{A \text{ is a prefix of } \pi ? 1 : 0}}_{\le 1} \le \sum_{\pi  \in \mathbb{S}_n} 1 = n!
+	.\] Note that this is because no two sets in \( \mathcal{A} \) are comparable, and therefore no two sets can belong in the same chain as mentioned before. Then, we switch the order of the summations: \[
+	(*) = \sum_{A \in \mathcal{A}} \sum_{\pi  \in \mathbb{S}} 1[A \text{ is a prefix of } \pi ]
+	.\] How many permutations \( \pi  \) are there such that fixed \( A \) is a prefix of \( \pi  \)?
+\end{proof}
+
+\exercise{1}
+How many chains of size \( n+1 \) are there in \( (\mathcal{P}([n]), \subseteq) \)?
+
+\exercise{2}
+Show that if \( B \) is a set of size \( \neq k \), then \(\{\text{subsets of } [n] \text{ of size } k \}  \cup \{B\}\) is not an antichain.
+
+\exercise{3}
+Given a set \( A \subseteq [n] \) of size \( |A|=k \), how many permutations \( \pi  \in \mathbb{S} \) are there such that \( A  \) is a prefix of \( \pi  \)?
+
+\lecture{32}{Fri 10 Nov 2023 14:05}{More Posets}
+
+Continuing with the proof from last time:
+
+\begin{proof}
+	We know the first \( k \) elements in \( \pi  \) must be equal to \( A \), such that we have \( (n-k)! \) ways to order the rest of the elements. There is also \( k! \) factorial ways to order the first \( k \) elements, because \( A \) is a set and doesn't care about order! Therefore, the answer to our subproblem (inner sum) is \( k!\cdot (n-k)! = \frac{n!}{\binom{n}{k}} \ge \frac{n!}{\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}}\). Then, we have \[
+		\sum_{A \in \mathcal{A}} \frac{n!}{\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}} = |A| \cdot \frac{n!}{\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}} \le (*) \le n!
+	.\] Dividing on \( n! \) on both sides, and multiplying by \( \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \), we havae \( |A| \le \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \), as desired.
+\end{proof}
+
+\subsection{Maximal vs Maximum Elements}
+
+Some more definitions:
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. An element \( x \in X \) is \textbf{maximal} if there is no \( y \in X \) such that \( x<y \).
+\end{definition}
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. An element \( x \in X \) is \textbf{maxmimum} if for all \( y \in X \), \( y \le x \).
+\end{definition}
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. An element \( x \in X \) is \textbf{minimal} if there is no \( y \in X \) such that \( x>y \).
+\end{definition}
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. An element \( x \in X \) is \textbf{minimum} if for all \( y \in X \), \( y \ge x \).
+\end{definition}
+
+\begin{note}
+	If an element is a maximum, every element is comparable to it and it is greater than all other such elements. 
+\end{note}
+
+\begin{note}
+	There can be be at most 1 maxmimum element, but multiple maximal elements. Also, there can be at most 1 minimum element, but multiple minimal elements.
+\end{note}
+
+\begin{note}
+	The poset with two incomparable elements is an example of a poset with no maximum or minimum element!
+\end{note}
+
+\begin{eg}
+	\( (\mathbb{N}, \le ) \) and \( (\varnothing, \varnothing) \) are posets with no maximal elements.
+\end{eg}
+
+\begin{prop}
+	A non-empty finite poset has a maximal element.
+\end{prop}
+
+\begin{proof}
+	Suppose, for the sake of contradiction, that there is no maximal element. Since \( X \neq \varnothing \), we can take some \( x_{0} \in X\). By assumption, \( x_{0} \) is not maximal, so there is some \( x_{1}\in X \) such that \( x_{0}<x_{1} \). \( x_{1} \) is also not maximal, so there is some \( x_{2} \in X \) such that \( x_{1}<x_{2} \), etc. This is a contradiction, because our set is finite!
+\end{proof}
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. Define \[
+		\chi_c(X) = \text{minimum } k \text{ such that } X \text{ can be partitioned into } k \text{ chains}
+	.\] 
+\end{definition}
+
+\begin{note}
+	In other words, this is the minimum \( k \) such that \( X \) can be colored with \( k \) colors such that elements of the same color are comparable.
+\end{note}
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. Define \[
+		\chi_a(X) = \text{minimum } k \text{ such that } X \text{ can be partitioned into } k \text{ antichains}
+	.\] 
+\end{definition}
+
+\begin{eg}
+	For the poset \( X=([3],\subseteq) \), what is \( \chi_c \) and \( \chi_a \)? 
+\end{eg}
+
+We know that \( \chi_c \le 3 \) by example. We know that \( \chi_c \ge 3 \) because there is an antichain of size 3, and each element in this antichain must be in different chains. Therefore, \( \chi_c = 3 \).
+
+Similarly, we know that \( \chi_a \le 4 \) by example. We also know that \( \chi_a \ge 4 \) because there is a chain of size 4, and each element in this chain must be in different antichains. Therefore, \( \chi_a = 4 \).
+
+\begin{note}
+	Just like we have \( \chi(G) \ge \omega(G) \) in a graph, for a poset \( (X, \le ) \), we can write \[
+		\chi_c(X) \ge \text{width}(X) \qquad \chi_a(X) > \text{height}(X)
+	.\] 
+\end{note}
+
+\begin{theorem}
+	(Dilworth) If \( (X, \le ) \) is a finite poset, then \( \chi_c(X) = \text{width of } (X,\le )\).
+\end{theorem}
+
+\begin{theorem}
+	(Dual Dilworth) If \( (X, \le ) \) is a finite poset, then \( \chi_a(X) = \text{height of } (X,\le )\).
+\end{theorem}
+
+\exercise{1}
+Show that if \( (X,\le ) \) is a finite poset and \( x \in X \) is any element, then there exists a minimal element \( m \in X \) and a maximal element in \( M \in X \) such that \( m \le x \le M \).
+
+\lecture{33}{Mon 13 Nov 2023 14:05}{Proof of Dilworth's Theorems}
+
+We will proceed by proving Dual Dilworth/Mirsky's Theorem:
+
+\begin{proof}
+	Let \( (X,\le ) \) be a finite poset. Let the height of this poset be \( k \). Because we already know that \( \chi_a \ge k \), it suffices to show \( \chi_a \le k \). We can show this by finding a coloring of \( X \) using \( k \) or fewer colors such that elements of the same color to be incomparable.
+
+	For an element \( x \in X \), let \( c(x) \) be the maxmimum size of a chain whose maximum element is \( x \). 
+	\begin{observe}
+		\( 1 \le c(x) \le k \).
+	\end{observe}
+	\begin{observe}
+		If \( c(x) = c(y) \) and \( x\neq y \), then \( x \) and \( y \) are incomparable.
+	\end{observe}
+	Why is this? Suppose that \( x \) and \( y \) are comparable. Say \( x > y \). Then, \( x \) is the maxmimum element of a chain with size \( c(y)+1 \), so \( c(x) \ge c(y)+1 > c(y) \), which is a contradiction.
+
+	Therefore, \( c \) is a coloring of \( X \) using \( k \) colors such that elements of the same color are incomparable, as desired.
+\end{proof}
+
+Now, for the proof of Dilworth's theorem:
+
+\begin{proof}
+	Let \( (X, \le ) \) be a finite poset. Let \( k \) be the width of this poset. We wish to show that \( \chi_c(X) \le k \), i.e. there is a partition of \( X \) into \( k \) chains. We will use strong induction on \( n = |X|\).
+	\begin{description}
+		\item[Base case:] \( n=0 \), i.e. \( X = \emptyset \). Then, \( \chi_c(X) \le k = 0 \), as desired.
+		\item[Step case:] Assume that the theorem is true for all posets with \( <n \) elements. We want to show that this theorem holds for a poset \( (X,\le ) \) with \( n \) elements. Take any antichain \( A \subseteq X \) of size \( |A|=k \).
+			\begin{observe}
+				No strictly larger antichain exists.
+			\end{observe}
+			In other words, we cannot add an element to \( A \) while maintaining that \( A \) is an antichain. Therefore, \( x \in X\setminus A \) is comparable to some element of \( A \) i.e. it is \( \le  \) or \( \ge  \) some element in \( a \in A \). Partition \( X \) into 
+			\begin{align*}
+				X^+ &= \{x \in X \colon x \ge a \text{ for some } a \in A\}  \\
+				X^- &= \{x \in X \colon x \le a \text{ for some } a \in A\}  
+			.\end{align*}
+			Note that \( X^+ \cap X^- = A \). Why? It is clear that \( A \subseteq X^+\cap X^- \). For the other direction, suppose \( x \not\in A \) belongs to both \( X^+ \) and \( X^- \). This means that \( x > a \) for some \( a \in A \) \textbf{and} \( x<b \) for some \( b \in A \). This means that \( a<x<b \implies a<b \), which is a contradiction because \( A \) is an antichain, and elements in \( A \) are not comparable.
+
+			Consider the poset \( (X^+, \le) \). Its width is at most \( k \) because \( A \) is an antichain in \( X^+ \). By the inductive hypothesis, \( X^+ \) can be partitioned into \( k \) chains. Since all elements of \( A \) belong to different chains, we can list these \( k \) chains as \( c_{1}^+,c_{2}^+,\ldots ,c_k^+ \) where the minimum element of \( c_i^+ \) is \( a_i \). Similarly, \( X^- \) can be partitioned into \( k \) chains. We can list these \( k \) chains as \( c_{1}^-,c_{2}^-, \ldots , c_k^- \) where the maximum element of \( c_i^- \) is \( a_i \). Then \( X \) can be partitioned into \( k \) chains \( c_{1},c_{2},\ldots c_k \) where \( c_i=c_i^+ \cup c_i^- \), as desired.
+
+			However, there occurs a problem: what if one of \( X^+ \) or \( X^- \) contains only \( A \)? Then \( X^+=X \), which means that \( A \) is the set of minimal elements, or \( X^-=X \), which means that \( A  \) is the set of maximal elements, and we therefore cannot use the inductive hypothesis. If there are antichains of size \( k \) that are not one of these two sets, then we can switch \( A \) to that antichain. Our theorem only doesn't work when every antichain \( A \) of size \( k \) is either the set of all minimal or maximal elements.
+\end{description}
+\end{proof}
+
+\end{document}

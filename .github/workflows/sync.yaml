@@ -14,7 +14,7 @@ jobs:
       
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: 'notes'
 
@@ -46,6 +46,6 @@ jobs:
         run: |
           git config --global user.name 'Github Actions'
           git config --global user.email 'github-actions-bot@raybb.dev'
-          git add notes.json
+          git add .
           git commit -m "automated note sync"
-          git push --set-upstream origin notes
+          git push
