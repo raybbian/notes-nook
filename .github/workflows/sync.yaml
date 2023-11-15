@@ -25,22 +25,16 @@ jobs:
           cd scripts/
           pip install -r requirements.txt
 
-      - name: Sync
+      - name: Sync and Commit
         run: |
           cd scripts/
           python main.py
+          git config --global user.name 'Github Actions'
+          git config --global user.email 'github-actions-bot@raybb.dev'
+          git add notes.json
+          git commit -m "automated note sync"
+          git push
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-
-      # may need to switch to gh pages deploy
-      - name: Commit
-        run: |
-          cd scripts/
-          git config --global user.name 'Github Actions'
-          git config --global user.email 'github-actions-bot@raybb.dev'
-          git add .
-          git commit -m "automated note sync"
-          git push
-
