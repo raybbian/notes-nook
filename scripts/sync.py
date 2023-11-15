@@ -68,12 +68,14 @@ class Sync:
     async def save_notes_to_json(self):
         courses = await self.get_course_names()
         out = {}
+        out['timestamp'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        out['courses'] = {}
         for course_name in courses:
-            out[course_name] = {}
+            out['courses'][course_name] = {}
             note_names = await self.get_note_names(course_name)
             for note_name in note_names:
                 note_content = await self.get_note_content(course_name, note_name)
-                out[course_name][note_name] = note_content
+                out['courses'][course_name][note_name] = note_content
 
         with open('notes.json', 'w') as file:
             json.dump(out, file, indent=4)
