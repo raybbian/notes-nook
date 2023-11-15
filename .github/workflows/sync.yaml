@@ -45,7 +45,7 @@ jobs:
       - name: Compile
         uses: xu-cheng/texlive-action@v2
         with: 
-        scheme: full
+          scheme: full
           run: |
             apk add inkscape
             cd notes/
