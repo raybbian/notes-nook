@@ -14,7 +14,7 @@ jobs:
       
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: 'notes'
 
@@ -41,6 +41,18 @@ jobs:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+
+      - name: Compile
+        uses: xu-cheng/texlive-action@v2
+        with: 
+        scheme: full
+          run: |
+            apk add inkscape
+            cd notes/
+            for dir in */ ; do
+              cd "$dir"
+              latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+            done
 
       - name: Commit
         run: |
