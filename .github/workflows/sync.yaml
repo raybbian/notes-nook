@@ -38,7 +38,6 @@ jobs:
 
       - name: Commit
         run: |
-          cd scripts/
           git config --global user.name 'Github Actions'
           git config --global user.email 'github-actions-bot@raybb.dev'
           git checkout -b notes
