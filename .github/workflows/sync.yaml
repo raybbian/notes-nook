@@ -43,4 +43,4 @@ jobs:
           git checkout -b notes
           git add notes.json
           git commit -m "automated note sync"
-          git push
+          git push --set-upstream origin notes
