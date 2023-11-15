@@ -35,8 +35,8 @@ class Sync:
         url = BASE_URL + SEMESTER_DIR + ":/children"
         async with httpx.AsyncClient() as client:
             response = await client.get(url, headers=self.headers)
-            # if response.status_code != 200:
-            #     raise Exception("Failed to get courses.")
+            if response.status_code != 200:
+                raise Exception("Failed to get courses.")
             out = []
             for item in json.loads(response.content)["value"]:
                 if "folder" in item:
@@ -47,8 +47,8 @@ class Sync:
         url = BASE_URL + SEMESTER_DIR + f"/{course_name}:/children"
         async with httpx.AsyncClient() as client:
             response = await client.get(url, headers=self.headers)
-            # if response.status_code != 200:
-            #     raise Exception(f"Failed to get f{course_name} notes.")
+            if response.status_code != 200:
+                raise Exception(f"Failed to get f{course_name} notes.")
             out = []
             for item in json.loads(response.content)["value"]:
                 if "file" in item and "lec_" in item["name"]:
@@ -60,10 +60,10 @@ class Sync:
         print(url)
         async with httpx.AsyncClient() as client:
             response = await client.get(url, headers=self.headers)
-
             if response.status_code == 302:
                 response = await client.get(response.headers['location'])
-
+            elif response.status_code != 200:
+                raise Exception(f"Failed to get {note_name} from {course_name}.")
             return response.text
 
     async def save_notes_to_json(self):
