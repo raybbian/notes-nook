@@ -78,5 +78,5 @@ class Sync:
                 note_content = await self.get_note_content(course_name, note_name)
                 out['courses'][course_name][note_name] = note_content
 
-        with open('notes.json', 'w') as file:
+        with open('../notes.json', 'w') as file:
             json.dump(out, file, indent=4)
