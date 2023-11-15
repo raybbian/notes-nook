@@ -57,7 +57,6 @@ class Sync:
 
     async def get_note_content(self, course_name, note_name):
         url = BASE_URL + SEMESTER_DIR + f"/{course_name}/{note_name}:/content"
-        print(url)
         async with httpx.AsyncClient() as client:
             response = await client.get(url, headers=self.headers)
             if response.status_code == 302:
