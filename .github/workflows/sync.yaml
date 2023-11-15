@@ -28,6 +28,7 @@ jobs:
       - name: Sync and Commit
         run: |
           cd scripts/
+          rm notes.json
           python main.py
           git config --global user.name 'Github Actions'
           git config --global user.email 'github-actions-bot@raybb.dev'
