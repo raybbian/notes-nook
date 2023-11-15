@@ -9,3 +9,7 @@ taken during my time at Georgia Tech. Come in and take a look!
 - [ ] Add synctex integration between source code and pdf position
 - [ ] Parse LaTeX environments and sections, etc. from source code
 - [x] Automatically pull notes from OneDrive w/ Github Actions
+
+## Methodology
+
+https://castel.dev/. That's pretty much it.
