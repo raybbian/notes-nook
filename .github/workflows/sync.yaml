@@ -40,7 +40,7 @@ jobs:
           cd scripts/
           git config --global user.name 'Github Actions'
           git config --global user.email 'github-actions-bot@raybb.dev'
-          git add notes.json
+          git add .
           git commit -m "automated note sync"
           git push
 
