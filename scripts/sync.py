@@ -1,6 +1,7 @@
 import httpx
 import os
 import json
+from datetime import datetime
 
 BASE_URL = "https://graph.microsoft.com/v1.0/me/drive/root:/Notes"
 SEMESTER_DIR = "/bachelor-1/semester-1"
@@ -68,7 +69,7 @@ class Sync:
     async def save_notes_to_json(self):
         courses = await self.get_course_names()
         out = {}
-        out['timestamp'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        out['timestamp'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         out['courses'] = {}
         for course_name in courses:
             out['courses'][course_name] = {}

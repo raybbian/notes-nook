@@ -28,7 +28,6 @@ jobs:
       - name: Sync
         run: |
           cd scripts/
-          rm notes.json
           python main.py
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
