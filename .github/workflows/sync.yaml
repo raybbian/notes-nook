@@ -46,6 +46,7 @@ jobs:
         uses: xu-cheng/texlive-action@v2
         with: 
           scheme: full
+          texlive_version: 2023
           run: |
             apk add inkscape
             cd notes/
