@@ -35,7 +35,7 @@ class Sync:
     async def get_course_names(self):
         url = BASE_URL + SEMESTER_DIR + ":/children"
         async with httpx.AsyncClient() as client:
-            response = await client.get(url, headers=self.headers)
+            response = await client.get(url, headers=self.headers, follow_redirects=True)
             if response.status_code != 200:
                 raise Exception("Failed to get courses.")
             out = []
@@ -47,7 +47,7 @@ class Sync:
     async def get_note_names(self, course_name):
         url = BASE_URL + SEMESTER_DIR + f"/{course_name}:/children"
         async with httpx.AsyncClient() as client:
-            response = await client.get(url, headers=self.headers)
+            response = await client.get(url, headers=self.headers, follow_redirects=True)
             if response.status_code != 200:
                 raise Exception(f"Failed to get f{course_name} notes.")
             out = []
@@ -59,10 +59,8 @@ class Sync:
     async def get_note_content(self, course_name, note_name):
         url = BASE_URL + SEMESTER_DIR + f"/{course_name}/{note_name}:/content"
         async with httpx.AsyncClient() as client:
-            response = await client.get(url, headers=self.headers)
-            if response.status_code == 302:
-                response = await client.get(response.headers['location'])
-            elif response.status_code != 200:
+            response = await client.get(url, headers=self.headers, follow_redirects=True)
+            if response.status_code != 200:
                 raise Exception(f"Failed to get {note_name} from {course_name}.")
             return response.text
 
@@ -70,7 +68,7 @@ class Sync:
     async def get_figure_names(self, course_name):
         url = BASE_URL + SEMESTER_DIR + f"/{course_name}/figures:/children"
         async with httpx.AsyncClient() as client:
-            response = await client.get(url, headers=self.headers)
+            response = await client.get(url, headers=self.headers, follow_redirects=True)
             if response.status_code != 200:
                 raise Exception(f"Failed to get {course_name} figures.")
             out = []
@@ -82,10 +80,8 @@ class Sync:
     async def get_figure_content(self, course_name, figure_name):
         url = BASE_URL + SEMESTER_DIR + f"/{course_name}/figures/{figure_name}:/content"
         async with httpx.AsyncClient() as client:
-            response = await client.get(url, headers=self.headers)
-            if response.status_code == 302:
-                response = await client.get(response.headers['location'])
-            elif response.status_code != 200:
+            response = await client.get(url, headers=self.headers, follow_redirects=True)
+            if response.status_code != 200:
                 raise Exception(f"Failed to get {figure_name} from {course_name}.")
             return response.content
 
