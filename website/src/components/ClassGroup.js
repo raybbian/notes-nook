@@ -15,7 +15,8 @@ export default function ClassGroup({title, type, color}) {
                         description={courses[type][courseID]["description"]}
                         year={courses[type][courseID]["year"]}
                         semester={courses[type][courseID]["semester"]}
-                        color={color}
+                        status={courses[type][courseID]["status"]}
+                        notes={courses[type][courseID]["notes"]}
                         active={type !== "future"}
                     />
                 ))}

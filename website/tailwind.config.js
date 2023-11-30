@@ -9,7 +9,9 @@ module.exports = {
         'cream': '#fffef4',
         'light-green': '#9db445',
         'teal': '#376f5c',
-        'sakura-pink': '#eb80a8'
+        'sakura-pink': '#eb80a8',
+        'pastel-orange': '#fcdaba',
+        'pastel-pink': '#ffe3ed',
       },
       screens: {
         'mobile': {'max': '575px'},
