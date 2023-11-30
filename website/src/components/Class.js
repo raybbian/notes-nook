@@ -26,10 +26,6 @@ export default function Class({courseID, name, professor, description, year, sem
                     backgroundImage: `url(${process.env.PUBLIC_URL}/class-backgrounds/${courseID}.svg)`
                 }}
             >
-                <div
-                    className={"absolute top-0 left-0 w-full h-full bg-no-repeat bg-center opacity-50"}
-                >
-                </div>
                 <p className={"text-sm opacity-70 font-bold"}>{getFormattedSchoolYear(year)} • {`S${semester}`} • {getFormattedDateYear(year)} • {courseID.toUpperCase()} • {getLastName(professor)}</p>
                 <p className={"text-xl font-bold"}>{name}</p>
             </div>
