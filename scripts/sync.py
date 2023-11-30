@@ -1,7 +1,7 @@
 import httpx
 import os
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 
 BASE_URL = "https://graph.microsoft.com/v1.0/me/drive/root:/Notes"
 SEMESTER_DIR = "/bachelor-1/semester-1"
@@ -91,7 +91,7 @@ class Sync:
             print(f"Processing course {course_name}...")
             with open(f'../notes/{course_name}/{course_name}.tex', 'w') as file:
                 lines = [
-                    fr'% updated {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}',
+                    fr'% updated {datetime.now().astimezone(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")}',
                     r'\documentclass[a4paper]{article}',
                     r'\input{../preamble.tex}',
                     fr'\title{{{course_name}}}',
