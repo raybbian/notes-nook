@@ -98,6 +98,7 @@ class Sync:
                     r'\begin{document}',
                     r'    \maketitle',
                     r'    \tableofcontents',
+                    '',
                 ]
                 file.write('\n'.join(lines))
                 note_names = await self.get_note_names(course_name)
