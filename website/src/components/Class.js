@@ -1,3 +1,5 @@
+import {lazy} from "react";
+
 export default function Class({courseID, name, professor, description, year, semester, color, active}) {
     function getFormattedSchoolYear(yearNum) {
         if (yearNum <= 3) {
