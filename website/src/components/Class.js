@@ -31,16 +31,16 @@ export default function Class({courseID, name, professor, description, year, sem
                 <p className={"text-sm opacity-70 font-bold"}>{getFormattedSchoolYear(year)} • {`S${semester}`} • {getFormattedDateYear(year)} • {courseID.toUpperCase()} • {getLastName(professor)}</p>
                 <p className={"text-xl font-bold"}>{name}</p>
             </div>
-            <div className={"p-4 -mt-2 text-left"}>
-                <p className={`text-lg font-bold ${active && "hover:text-koi-red"}`}>
+            <div
+                className={`px-4 pb-4 pt-2 text-left ${active && "hover:cursor-pointer"}`}
+                onClick={() => {
+                    if (!active) return;
+                    window.open(`https://raw.githubusercontent.com/raybbian/notes-nook/notes/notes/${courseID}/${courseID}.pdf`, "_blank")
+                }}
+            >
+                <p className={`text-lg font-bold`}>
                     {active ?
-                        <a
-                            href={`https://raw.githubusercontent.com/raybbian/notes-nook/notes/notes/${courseID}/${courseID}.pdf`}
-                            target={"_blank"}
-                            rel={"noreferrer"}
-                        >
-                            Lecture Notes
-                        </a> :
+                        <span>Lecture Notes</span> :
                         <span>Unavailable</span>
                     }
                 </p>
