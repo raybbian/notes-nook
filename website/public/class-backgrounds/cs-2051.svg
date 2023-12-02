@@ -68,7 +68,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#cedaa2;fill-opacity:1;stroke:#ff0000;stroke-width:0.589;stroke-dasharray:0.589, 1.767"
+       style="fill:#b4c9c2;fill-opacity:1;stroke:#ff0000;stroke-width:0.589;stroke-dasharray:0.589, 1.767"
        id="rect1"
        width="128.25223"
        height="61.007294"
@@ -80,194 +80,194 @@
        stroke-width="0"
        transform="matrix(0.00414661,0,0,-0.00414661,6.7368145,15.058964)"
        id="g21"
-       style="fill:#9db445;fill-opacity:1">
+       style="fill:#699385;fill-opacity:1">
       <g
          data-mml-node="math"
          id="g20"
-         style="fill:#9db445;fill-opacity:1">
+         style="fill:#699385;fill-opacity:1">
         <g
            data-mml-node="mi"
            id="g1"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="AC"
              xlink:href="#MJX-21-TEX-N-AC"
              id="use1"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mtext"
            transform="translate(667)"
            id="g2"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="A0"
              xlink:href="#MJX-21-TEX-N-A0"
              id="use2"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mo"
            transform="translate(917)"
            id="g3"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="28"
              xlink:href="#MJX-21-TEX-N-28"
              id="use3"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mi"
            transform="translate(1306)"
            id="g4"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="1D45D"
              xlink:href="#MJX-21-TEX-I-1D45D"
              id="use4"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mo"
            transform="translate(2031.2)"
            id="g5"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="2227"
              xlink:href="#MJX-21-TEX-N-2227"
              id="use5"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mi"
            transform="translate(2920.4)"
            id="g6"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="1D45E"
              xlink:href="#MJX-21-TEX-I-1D45E"
              id="use6"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mo"
            transform="translate(3380.4)"
            id="g7"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="29"
              xlink:href="#MJX-21-TEX-N-29"
              id="use7"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mstyle"
            transform="translate(3769.4)"
            id="g9"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <g
              data-mml-node="mspace"
              id="g8"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mo"
            transform="translate(4325.2)"
            id="g10"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="27F9"
              xlink:href="#MJX-21-TEX-N-27F9"
              id="use9"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mstyle"
            transform="translate(5963.2)"
            id="g12"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <g
              data-mml-node="mspace"
              id="g11"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mi"
            transform="translate(6519)"
            id="g13"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="AC"
              xlink:href="#MJX-21-TEX-N-AC"
              id="use12"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mtext"
            transform="translate(7186)"
            id="g14"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="A0"
              xlink:href="#MJX-21-TEX-N-A0"
              id="use13"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mi"
            transform="translate(7436)"
            id="g15"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="1D45D"
              xlink:href="#MJX-21-TEX-I-1D45D"
              id="use14"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mo"
            transform="translate(8161.2)"
            id="g16"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="2228"
              xlink:href="#MJX-21-TEX-N-2228"
              id="use15"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mi"
            transform="translate(9050.4)"
            id="g17"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="AC"
              xlink:href="#MJX-21-TEX-N-AC"
              id="use16"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mtext"
            transform="translate(9717.4)"
            id="g18"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="A0"
              xlink:href="#MJX-21-TEX-N-A0"
              id="use17"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
         <g
            data-mml-node="mi"
            transform="translate(9967.4)"
            id="g19"
-           style="fill:#9db445;fill-opacity:1">
+           style="fill:#699385;fill-opacity:1">
           <use
              data-c="1D45E"
              xlink:href="#MJX-21-TEX-I-1D45E"
              id="use18"
-             style="fill:#9db445;fill-opacity:1" />
+             style="fill:#699385;fill-opacity:1" />
         </g>
       </g>
     </g>
