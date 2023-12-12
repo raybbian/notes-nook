@@ -25,7 +25,7 @@ const courses = {
             "year": 1,
             "semester": 1,
             "status": "incomplete",
-            "notes": "Missing lectures 4-17."
+            "notes": "Missing lectures 5-17."
         },
     },
     "future": {
