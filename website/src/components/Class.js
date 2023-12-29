@@ -89,8 +89,8 @@ export default function Class({courseID, name, professor, description, year, sem
                     backgroundImage: `url(${process.env.PUBLIC_URL}/class-backgrounds/${courseID}.svg)`
                 }}
             >
-                <p className={"text-sm opacity-70 font-bold"}>{getFormattedSchoolYear(year)} • {`S${semester}`} • {getFormattedDateYear(year)} • {courseID.toUpperCase()} • {getLastName(professor)}</p>
-                <p className={"text-xl font-bold"}>{name}</p>
+                <p className={"text-sm opacity-70 font-bold truncate"}>{getFormattedSchoolYear(year)} • {`S${semester}`} • {getFormattedDateYear(year)} • {courseID.toUpperCase()} • {getLastName(professor)}</p>
+                <p className={"text-xl font-bold truncate"}>{name}</p>
             </div>
             <div
                 className={`px-4 pb-4 pt-2 text-left ${active && "hover:cursor-pointer hover:bg-[rgb(245,245,245)]"}`}
@@ -102,13 +102,13 @@ export default function Class({courseID, name, professor, description, year, sem
                 <p className={`text-lg font-bold`}>
                     {active ?
                         <div className={"flex flex-row justify-between items-center gap-2"}>
-                            <p>Lecture Notes</p>
-                            <p className={"text-sm opacity-70"}>Updated: {lastUpdated}</p>
+                            <p className={"truncate"}>Lecture Notes</p>
+                            <p className={"text-sm opacity-70 truncate"}>Updated: {lastUpdated}</p>
                         </div> :
                         <span>Unavailable</span>
                     }
                 </p>
-                <p className={"text-sm opacity-80"}>{description}</p>
+                <p className={"text-sm opacity-80 line-clamp-5"}>{description}</p>
                 {active &&
                     <div className={"flex flex-row gap-2 items-center group pt-2 text-sm font-bold"}>
                         <p className={"opacity-70"}>Status:</p>
