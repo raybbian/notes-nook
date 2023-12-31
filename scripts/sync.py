@@ -1,10 +1,8 @@
 import httpx
 import os
 import json
-from datetime import datetime, timezone
 
 BASE_URL = "https://graph.microsoft.com/v1.0/me/drive/root:/Notes"
-SEMESTER_DIR = "/bachelor-1/semester-1"
 
 
 class Sync:
@@ -32,85 +30,27 @@ class Sync:
             response = client.post(url, data=payload)
             return json.loads(response.content)["access_token"]
 
-    async def get_course_names(self):
-        url = BASE_URL + SEMESTER_DIR + ":/children"
+    async def get_notes(self):
+        await self.get_recursively('')
+
+    async def get_recursively(self, rel_url):
+        url = f"{BASE_URL}{rel_url}:/children"
+        if rel_url == "/scripts":
+            return
+        print(f"Scanning contents of folder {rel_url}")
         async with httpx.AsyncClient() as client:
             response = await client.get(url, headers=self.headers, follow_redirects=True)
             if response.status_code != 200:
-                raise Exception("Failed to get courses.")
-            out = []
-            for item in json.loads(response.content)["value"]:
+                raise Exception("Failed to get notes.")
+            children = json.loads(response.content)["value"]
+            for item in children:
                 if "folder" in item:
-                    out.append(item["name"])
-            return out
+                    await self.get_recursively(f"{rel_url}/{item['name']}")
+                else:
+                    print(f"Writing file {rel_url}/{item['name']}")
+                    content_url = f'{BASE_URL}{rel_url}/{item["name"]}:/content'
+                    content = await client.get(content_url, headers=self.headers, follow_redirects=True)
+                    os.makedirs(f'../Notes/{rel_url}', exist_ok=True)
+                    with open(f"../Notes/{rel_url}/{item['name']}", "wb") as f:
+                        f.write(content.content)
 
-    async def get_note_names(self, course_name):
-        url = BASE_URL + SEMESTER_DIR + f"/{course_name}:/children"
-        async with httpx.AsyncClient() as client:
-            response = await client.get(url, headers=self.headers, follow_redirects=True)
-            if response.status_code != 200:
-                raise Exception(f"Failed to get f{course_name} notes.")
-            out = []
-            for item in json.loads(response.content)["value"]:
-                if "file" in item and "lec_" in item["name"]:
-                    out.append(item["name"])
-            return out
-
-    async def get_note_content(self, course_name, note_name):
-        url = BASE_URL + SEMESTER_DIR + f"/{course_name}/{note_name}:/content"
-        async with httpx.AsyncClient() as client:
-            response = await client.get(url, headers=self.headers, follow_redirects=True)
-            if response.status_code != 200:
-                raise Exception(f"Failed to get {note_name} from {course_name}.")
-            return response.text
-
-
-    async def get_figure_names(self, course_name):
-        url = BASE_URL + SEMESTER_DIR + f"/{course_name}/figures:/children"
-        async with httpx.AsyncClient() as client:
-            response = await client.get(url, headers=self.headers, follow_redirects=True)
-            if response.status_code != 200:
-                raise Exception(f"Failed to get {course_name} figures.")
-            out = []
-            for item in json.loads(response.content)["value"]:
-                if "file" in item:
-                    out.append(item["name"])
-            return out
-
-    async def get_figure_content(self, course_name, figure_name):
-        url = BASE_URL + SEMESTER_DIR + f"/{course_name}/figures/{figure_name}:/content"
-        async with httpx.AsyncClient() as client:
-            response = await client.get(url, headers=self.headers, follow_redirects=True)
-            if response.status_code != 200:
-                raise Exception(f"Failed to get {figure_name} from {course_name}.")
-            return response.content
-
-    async def save_notes_to_disk(self):
-        courses = await self.get_course_names()
-        for course_name in courses:
-            print(f"Processing course {course_name}...")
-            with open(f'../notes/{course_name}/{course_name}.tex', 'w') as file:
-                lines = [
-                    fr'% updated {datetime.now().astimezone(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")}',
-                    r'\documentclass[a4paper]{article}',
-                    r'\input{../preamble.tex}',
-                    fr'\title{{{course_name}}}',
-                    r'\begin{document}',
-                    r'    \maketitle',
-                    r'    \tableofcontents',
-                    '',
-                ]
-                file.write('\n'.join(lines))
-                note_names = await self.get_note_names(course_name)
-                for note_name in note_names:
-                    print(f"Writing note {note_name}...")
-                    note_content = await self.get_note_content(course_name, note_name)
-                    file.write(note_content + "\n")
-                file.write(r'\end{document}')
-
-            figure_names = await self.get_figure_names(course_name)
-            for figure_name in figure_names:
-                print(f"Getting figure {figure_name}")
-                figure_content = await self.get_figure_content(course_name, figure_name)
-                with open(f'../notes/{course_name}/figures/{figure_name}', 'wb') as file:
-                    file.write(figure_content)
