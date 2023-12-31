@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import httpx
 import os
 import json
@@ -31,6 +33,8 @@ class Sync:
             return json.loads(response.content)["access_token"]
 
     async def get_notes(self):
+        with open(f"../notes/timestamp.txt", "w") as f:
+            f.write(str(datetime.now()))
         await self.get_recursively('')
 
     async def get_recursively(self, rel_url):
