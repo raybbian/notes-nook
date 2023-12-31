@@ -1,0 +1,42 @@
+\lecture{30}{Mon 06 Nov 2023 14:07}{Posets}
+
+\begin{notation}
+	We can use symbols like \( \le  \), \( \preceq \), and \( \trianglelefteq \) to denote arbitrary partial orders. If there is no chance of confusion, we can write \( x\le y \) to mean \( x \mathcal{R} y \) where \( \mathcal{R} \) is a partial order.
+\end{notation}
+
+\begin{definition}
+	Let \( (X, \le ) \) be a poset. Two elements \( x,y \in X \) are \textbf{comparable} if and only if \( x\le y \) or \( y\le x \).
+\end{definition}
+
+\begin{definition}
+	A \textbf{total order} is a partial order in which every two elements are comparable.
+\end{definition}
+
+\begin{eg}
+	\( (\mathbb{N},\le ) \) is a total order.
+\end{eg}
+
+\begin{eg}
+	\( (\mathcal{P}([3]), \subseteq) \) is \textbf{not} a total order. Consider elements \( \{1\} \) and \( \{2\}   \), which are not comparable.
+\end{eg}
+
+\begin{note}
+	If \( (X, \le ) \) is a poset with \( |X|=n < \infty \) and the order is total, then the Hasse diagram is just a vertical line. In other words, the elements of \( x \) can be listed as \( x_{1},x_{2},x_{3},\ldots ,x_n \) such that \( x_{1}<x_{2}<x_{3}<\ldots <x_n \).
+\end{note}
+
+The situation with infinite sets is more complicated! There are very many Hasse diagrams you can get for a poset with infinitely many elements.
+
+\begin{definition}
+	Let \( (X, \le ) \) be a poset. A \textbf{chain} in \( X \) is a set \( A \subseteq X \) such that every two elements in \( A \) are comparable.
+\end{definition}
+
+\begin{definition}
+	Let \( (X, \le ) \) be a poset. An \textbf{antichain} is a set \( X \subseteq X \) such that no two distinc elements of \( A \) are comparable.
+\end{definition}
+
+\begin{definition}
+	The \textbf{height} of a poset is the length of its longest chain. The \textbf{width} of a poset is the size of its largest antichain.
+\end{definition}
+
+\exercise{1}
+Consider the poset \( (\mathcal{P}([n]), \subseteq) \). What is its height and width?

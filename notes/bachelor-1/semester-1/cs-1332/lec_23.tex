@@ -1,0 +1,46 @@
+\lecture{23}{Mon 23 Oct 2023 15:33}{Merge Sort}
+
+\subsection{Merge Sort}
+
+Merge sort is an example of a divide-and-conquer sort. It breaks a large problem into smaller problems, solves them, and combines the solutions into one larger solution.
+
+It takes an array of data, splits them into two, sorts them (using merge sort yet again), and merges the two sorted lists back together.
+
+\begin{algorithm}
+	\caption{Merge Sort}
+	\If{array.length == 1}{
+		return\;
+	}
+	left = arr[0:arr.length/2]\;
+	right = arr[arr.length/2:arr.length]\;
+	mergeSort(left)\;
+	merseSort(right)\;
+	merge(left, right, arr)\;
+\end{algorithm}
+
+How do we merge the two sorted sublists? We track \( i \) and \( j \), which both start at 0. We compare the two elements at left[\( i \)] and right[\( j \)], and add the smaller one to the array. We then increment the index of the smaller element. 
+
+\begin{note}
+	If there  are two equal values, we take the element from the left sublist to maintain stability.
+\end{note}
+
+\subsubsection{Runtime}
+The operation list of merge sort is \( 2\log (n) \) tall, and there are \( n \) operations per level. Therefore, the runtime is (always) \( O(n\log (n)) \).
+
+\begin{note}
+	Note that one such "worst case" (most comparisons) of merge sort for an array of size 8 is \([5, 1, 7, 3, 2, 8, 6, 4]\). This is because we have to compare every element in the first half with every element in the second half, and so on for each merge. Even still, this is \( O(n\log (n)) \).
+\end{note}
+
+\subsubsection{Conclusion}
+Merge sort is stable, but not adaptive (same runtime for all case). We also need to create a second array to split and merge the arrays, so it is not in-place.
+
+\subsection{Quicksort}
+Quicksort is also a divide-and-conquer algorithm. However, unlike merge sort, it is in place. It also can be done non-recursively, which is more efficient.
+
+The overall plan of Quicksort is as follows:
+\begin{enumerate}
+	\item Pick one data as the pivot.
+	\item Partition the data into two sublists: one with elements less than the pivot, and one with elements greater than the pivot.
+	\item We repeat this plan in each of the sublists, until the data is sorted.
+\end{enumerate}
+

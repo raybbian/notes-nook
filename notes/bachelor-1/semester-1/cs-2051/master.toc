@@ -1,0 +1,15 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Functions}{2}{}%
+\contentsline {section}{\numberline {2}Countability}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Cantor's Diagonalization Argument}{5}{}%
+\contentsline {section}{\numberline {3}Analyzing Runtimes}{6}{}%
+\contentsline {subsection}{\numberline {3.1}Big O Notation}{6}{}%
+\contentsline {section}{\numberline {4}Induction}{8}{}%
+\contentsline {subsection}{\numberline {4.1}Strong Induction}{12}{}%
+\contentsline {subsection}{\numberline {4.2}Induction and Recursion}{13}{}%
+\contentsline {section}{\numberline {5}Modular Arithmetic}{16}{}%
+\contentsline {subsection}{\numberline {5.1}Operations in \( \mathbb {Z}_m \)}{16}{}%
+\contentsline {subsection}{\numberline {5.2}Cryptography}{22}{}%
+\contentsline {section}{\numberline {6}Counting}{22}{}%
+\contentsline {subsection}{\numberline {6.1}Pigeonhole Principle}{25}{}%
+\contentsline {subsection}{\numberline {6.2}With Repetition}{26}{}%

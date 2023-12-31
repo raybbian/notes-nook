@@ -1,0 +1,68 @@
+\lecture{25}{Mon 23 Oct 2023 14:02}{Planar Graphs Continued}
+
+There exists an upgraded version of Euler's formula for disconnected planar graphs:
+
+\begin{theorem}
+	Let \( G \) be a planar graph with \( n \) vertices, \( m \) edges, \( f \) faces, and \( c \) connected components. Then \( n - m + f - c= 1 \).
+\end{theorem}
+
+\begin{corollary}
+	Every non-empty planar graph has \emph{a} vertex of degree at most 5.
+\end{corollary}
+
+\begin{proof}
+	Assume without loss of generality that \( G \) is connected. Let \( n \) be the number of vertices in \( G \), and \( m \) be the number of edges. Assume, for the sake of contradiction, that there is no vertex with degree at most 5. That is, every vertex has degree at least 6. Then, we have \( m \ge \frac{6}{2}n = 3n \) from the handshake lemma. However, we have that \( m \le 3n-6 \) (from the above corollary). This is a contradiction: therefore our assumption is false, and there must be a vertex with degree at most 5.
+\end{proof}
+
+\begin{corollary}
+	If \( G \) is a planar graph, then \( \chi(G) \le 6 \).
+\end{corollary}
+
+\begin{proof}
+	We will proceed with induction on the number of vertices of \( G \). Let \( n \) be the number of vertices of \( G \).
+	\begin{description}
+		\item[Base case] \( n=5 \). Then, we can color \( G \) in 5 colors.
+		\item[Step case] Assume \( \chi(G') \le 6 \) for every graph \( G' \) with at most \( n -1  \) vertices. By the corollary, \( G \) has a vertex \( v \) of degree at most 5. By the inductive hypothesis, \( G' = G - v \) has \( \chi(G') \le 6 \). Every proper coloring of \( G' \) with at most 6 colors can be extended to a proper coloring of \( G \) using at most 6 colors (we add \( v \) to \( G' \), which is prohibited from at most 5 colors). Therefore, \( \chi(G) \le 6 \), as desired.
+	\end{description}
+	As we have verified the base and step of induction, this corollary holds true for all \( n\ge 5 \).
+\end{proof}
+
+\begin{theorem}
+	(Appel-Haken) The Four Color theorem states that \( \chi(G) \le 4 \) for any planar graph \( G \).
+\end{theorem}
+
+\begin{note}
+	The proof of the Four Color theorem applies a strengthened version of Corollary 3 and a similar method of removing vertices.
+\end{note}
+
+\subsubsection{Graph Minors}
+
+What are graph minors?
+
+\begin{definition}
+	\( G \) "contract" \( e \), denoted \( G / e \), is the graph obtained from \( G \) by deleting \( e \) and contracting the two vertices of \( e \) into a single vertex.
+\end{definition}
+
+\begin{definition}
+	A \textbf{minor} of a graph \( G \) is a graph that can be obtained from a subgraph of \( G \) by a sequence of contractions.
+\end{definition}
+
+\begin{observe}
+	Every minor of a planar graph is planar.
+\end{observe}
+
+\begin{eg}
+	In the Peterson graph, we can contract the 5 edges that connect to the star to the pentagon to get \( K_5 \) as a minor. This also shows that the Peterson graph is not planar.
+\end{eg}
+
+\begin{theorem}
+	(Kuratowski-Wagner) A graph is planar if and only if it has no minor isomorphic to \( K_5 \) or \( K_{3,3} \).
+\end{theorem}
+
+\begin{conjecture}
+	(Hadwiger) If \( G \) has no minor isomorphic to \( K_t \), then \( \chi(G) \le t-1 \).
+\end{conjecture}
+
+\begin{note}
+	This conjecture is known for all \( t \) at most 5. It known for \( t=6 \), proved by Robertson, Seymour, and Thomas, and it is 80 addition pages beyond the proof for the Four Color Theorem.
+\end{note}

@@ -1,0 +1,31 @@
+\lecture{26}{Wed 25 Oct 2023 14:02}{Exam 2 Review}
+
+\begin{eg}
+	Is every Hamiltonian graph connected?
+\end{eg}
+
+Yes. In order to find a Hamiltonian cycle, the graph must be connected.
+
+\begin{eg}
+	Is every connected graph Hamiltonian?
+\end{eg}
+
+No. Take the graph that is a square with an edge coming off one of the corners, for example.
+
+\begin{eg}
+	How many 3-colorings does the \( n \)-cycle have?
+\end{eg}
+
+Let \( F(n) \) be the number of proper colorings of a cycle of length \( n \) with colors 1, 2, 3. We wish to find \( F(10) \). Note that \( F(n) = 3\cdot 2^{n-1}\) minus the number of colorings of an \( n \)-vertex path where the first and last vertex are colored the same, denoted \( X(n) \). The key observation is that \( X(n) = F(n-1) \). It follows that \( F(n) = 3\cdot 2^{n-1}-F(n-1)  \).
+
+\begin{eg}
+	Is \( K_{3,3} \) with the bottom edge removed planar?
+\end{eg}
+
+Yes. We can rearrange it to be. Note that it also satisfies Euler's formula, where \( v = 6 \), \( m = 8 \), and \( f = 4 \).
+
+\exercise{1}
+How many edges does the hypercube graph \( Q_n \) have?
+
+\exercise{2}
+How can we find the general formula for \( F(n) = 3^{n-1} - F(n-1) \)?

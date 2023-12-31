@@ -1,0 +1,95 @@
+\lecture{18}{Wed 04 Oct 2023 13:58}{Intro to Trees}
+
+We will continue on the idea of graphs from last lecture.
+\begin{definition}
+	A graph \( G \) is \textbf{connected} if \( V(G) \neq \varnothing \) and for all \( u,v\in V(G) \), there is a \( uv \)-walk in \( G \).
+\end{definition}
+
+\begin{figure}[ht]
+    \centering
+		\incfig[0.8]{a-disconnected-graph}
+    \caption{Examples of Graphs}
+    \label{fig:a-disconnected-graph}
+\end{figure}
+
+In general, any graph can be partitioned into (connected) components (connected induced subgraphs with no edges between them).
+
+\begin{note}
+	A graph is connected if and only if it has one component.
+\end{note}
+
+\begin{definition}
+	A \textbf{cycle} in a graph \( G \) is a walk \( (x_{0}, x_{1},\ldots, x_{L}) \) such that:
+	\begin{itemize}
+		\item \( x_{0} = x_L \)
+		\item \( x_{0}, x_{1}, \ldots, x_{L - 1} \) are distinct
+		\item \( L \geq 3 \)
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	A cycle of length 3 is called a \textbf{triangle}.
+\end{definition}
+
+\begin{definition}
+	A graph is \textbf{acyclic} if it has no cycles.
+\end{definition}
+
+\begin{definition}
+	A connected acyclic graph is called a \textbf{tree}.
+\end{definition}
+
+\begin{definition}
+	Acyclic graphs are also called \textbf{forests}.
+\end{definition}
+\begin{remark}
+	Because all components in an acyclic graph are acyclic, and connected acyclic graphs are trees!
+\end{remark}
+
+\begin{definition}
+	A \textbf{leaf} in a tree is a vertex of degree 1.
+\end{definition}
+\begin{remark}
+	Leaves are useful because deleting leaves from a tree results in a smaller tree.
+\end{remark}
+
+\begin{problem}
+	Let \( T \) be a tree, \( v \in  V(T) \) a leaf. Then \( T-v \coloneqq \) the graph obtained from \( T \) by removing \( v \) and its incident edge is also a tree. Why?
+\end{problem}
+
+\begin{prop}
+	If \( T \) is a tree with \( n \ge 2 \) vertices, then it has \( \ge 2 \) leaves.
+\end{prop}
+\begin{proof}
+	Consider a longest path! Let \( T \) be a tree with \( n\ge 2 \) vertices. Let \( (x_{0}, x_{1}, \ldots , x_L) \) be \underbar{a} path in \( T \) of max length.
+	\begin{note}
+		\( 1 \le L \le n - 1 \), because we only have \( n \) vertices available to us, and a tree with at least two vertices has at least 1 edge.
+	\end{note}
+	We claim that \( x_L \) is a leaf in \( T \). We will prove this by contradiction: suppose \( x_L \) is not a leaf. Then, \( \deg_T(x_L) \ge 2 \), so \( x_L \) has to have a neighbor \( y \) that is different from \( x_{L-1} \).
+	\begin{note}
+		\( y \) is also different from \( x_{0}, x_{1}, \ldots , x_{L - 2} \) because there are no cycles in \( T \).
+	\end{note}
+	Therefore, \( (x_{0}, x_{1}, \ldots, x_L, y) \) is a path in \( T \) of length \( L + 1 > L \) which is impossible \contra. It follows that \( x_L \) is a leaf, as claimed. \par
+	By a similar argument, \( x_{0} \) is also a leaf.
+\end{proof}
+
+\begin{theorem}
+	If \( T \) is a tree with \( n \) vertices, then it has exactly \( n-1 \) edges.
+\end{theorem}
+\begin{proof}
+	Proof by induction on \( n \). \par
+	\begin{description}
+		\item[Base:]  n = 1. Then, \( T \) has 1 vertex and 0 edges. \( 1 - 1 = 0 \), so the theorem holds.
+		\item[Step:] We wish to prove for some \( n \ge 1 \), every tree with \( n \) vertices has \( n - 1 \) edges. Let \( T \) be a tree with \( n + 1 \) vertices. We want to show that \( T \) has \( n \) edges.
+			\begin{note}
+				\( T \) has \( n + 1 \ge 1 + 1 = 2 \) vertices, so \( T \) has a leaf, denoted \( v \in  V(T) \).
+			\end{note}
+			Let \( T' \coloneqq T - v \). Then \( T' \) is a tree with \( n \) vertices. \( |E(T')| = |E(T)| - 1 \). And by our inductive hypothesis, \( T' \) has \( n - 1 \) edges. Therefore, \( |E(T)| = n \), as desired.
+	\end{description}
+\end{proof}
+
+\begin{property}
+	Every connected graph \( G \) has a spanning tree (a spanning subgraph that is a tree).
+\end{property}
+\exercise{1}
+How many spanning trees does a complete graph \( K_n \) have?

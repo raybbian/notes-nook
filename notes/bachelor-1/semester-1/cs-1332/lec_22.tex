@@ -1,0 +1,53 @@
+\lecture{22}{Fri 20 Oct 2023 15:33}{Sorting Continued}
+
+Continuing on with selection sort:
+
+\begin{algorithm}[H]
+	\caption{Selection Sort}
+	\KwIn{A, the array to sort}
+	\For{$i = A.length -1$ \KwTo \( 2 \)}{
+		Swap max(A[1..i]) with A[i]\;
+	}
+\end{algorithm}
+
+\subsubsection{Conclusion}
+
+Selection sort is in-place. However, it is not adaptive and not stable. Even still, selection sort uses the fewest swaps, which makes it applicable for applications where writing to memory is costly.
+
+\subsection{Cocktail Shaker Sort}
+Bubble sort is (kind of) adaptive. The Cocktail Shaker sort builds upon this, becoming adaptive for arrays like [2, 3, 4, 5, 6, 7, 8, 1].
+
+In one iteration of the Cocktail Shaker sort, we run bubble sort from left-to-right, then once again from right-to-left. Note that as a result, both sides of the array will be sorted.
+
+\subsubsection{Optimizations}
+We can track the last swap in both directions. Then, we can stop the algorithm once we reach the last swap in both directions.
+
+\subsubsection{Runtime}
+The best case for this sort (sorted data) is \( O(n) \).
+
+The average case for this sort is \( O(n^2) \).
+
+The worst case for this sort (reverse sorted data) is \( O(n^2) \).
+
+\subsubsection{Conclusion}
+Just like Bubble sort, it is in-place, stable, and adaptive.
+
+\begin{note}
+	Why do we study bad sorting algorithms? They are stable, adaptive, and in-place. Fast sorts often sacrifice one of these properties, and are often harder to implement. Complex sorts use these sorts as building blocks, and they aren't even the worst (Bogosort, Stalinsort, etc)!
+\end{note}
+
+\begin{note}
+	Theoretical computer scientists have found that the best possible worst case sorting algorithm sorts in \( O(n\log (n)) \).
+\end{note}
+
+\subsection{Heap Sort}
+We can achieve an \( O(n\log (n)) \) sort by adding everything to a heap in \( O(n) \), and removing data one at a time in \(  O(log(n)) \).
+
+\subsubsection{Conclusion}
+Heap sort is not in-place: while you can define and apply the heap logic on any backing array, more often than not you will be inserting your data into an external heap, which is \( O(n) \) extra memory.
+
+Because heap sort is \( O(n\log (n)) \) for every case, it is not adaptive.
+
+\begin{note}
+	What other data structures can we sort with? Are they good? Well, we can use an AVL/BST, add all the data in \( O(n\log (n)) \)/\( O(n^2) \), and get the inorder traversal in \( O(n) \). A similar implementation can be created with skiplists.
+\end{note}

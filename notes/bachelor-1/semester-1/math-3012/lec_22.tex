@@ -1,0 +1,72 @@
+\lecture{22}{Mon 16 Oct 2023 13:58}{Graph Coloring Continued}
+
+Blanche Descartes construction continued:
+
+\begin{eg}
+	\( BD(K_2) = C_9\)
+\end{eg}
+
+\begin{eg}
+	\( BD(C_9) \)? Note that to calculate this graph, we would need to make \( \binom{25}{9} = 2042975 \) copies of \( C_9 \)! This graph is very large, but is triangle-free with \( \chi(BD(C_9)) = 4 \).
+\end{eg}
+
+How do we know that the resulting graph is both triangle-free with greater chromatic number?
+
+\begin{lemma}
+	\( \chi(BD(G)) \ge  k+1 \)
+\end{lemma}
+\begin{proof}
+	Suppose not and consider a proper \( k \)-coloring. We have \( |X| = N = k(n-1) + 1 \), which means that some color must be used on at least \( n \) vertices in \( x \). In other words, there is some \( n \)-element set \( S_i \le  X \), all of whose members are colored the same, say with color \( c \). \par
+	Then, every vertex in \( G_i \) cannot be colored with \( c \), so \( G_i \) is colored with only \( k - 1 \) colors. This is impossible as \( \chi(G_i) = \chi(G) = k \) \contra.
+\end{proof}
+
+\begin{lemma}
+	If \( G \) is triangle-free, then so is \( BD(G) \).
+\end{lemma}
+\begin{proof}
+	A triangle in \( BD(G) \) must use some vertex \( x \in X \), as all copies of \( G \) are triangle free. In other words, \( x \) must be connected to two other vertices, of which are neighbors. However, as all copies \( G_i \) of \( G \) are disjoint, and \( x \) is connected by construction to different \( G_i \), such a triangle cannot exist, and \( BD(G) \) is triangle-free.
+\end{proof}
+
+In conclusion, by repeatedly applying the operation \( BD \) to, say \( K_2 \), we can construct triangle-free graphs with arbitrarily large chromatic number.
+
+\begin{theorem}
+	For all \( k,L \in \mathbb{N}\), there is a graph \( G \) with \( \chi(G) \ge k \) and cycles of length at most \( L \) (Erdo\"s).
+\end{theorem}
+
+\begin{note}
+	Because Erdo\"s has published so many papers, there is an Erdo\"s number, which is a distance of collaboration to Erdo\"s himself.
+\end{note}
+
+What are some other reasons for finding large \( \chi \)?
+
+\begin{definition}
+	\( \alpha(G) \) denotes the independence number of \( G \), the max size of an independent set in \( G \).
+\end{definition}
+
+\begin{property}
+	If \( G \) has \( n \ge 1 \) vertices, then \( \chi (G) \ge \frac{n}{\alpha (G)} \)
+\end{property}
+
+Why is this? Say \( \chi(G) = k \). This means \( V(G) \) can be partitioned into \( k \) independent sets. The size of these independent sets is then at most \( \alpha(G) \). Therefore, \( n \le k \cdot \alpha (G) \), which then means \( k \ge  \frac{n}{\alpha (G)} \).
+
+This is an exceptional situation!
+
+\begin{notation}
+	Fix some small constant \( \epsilon >0 \). Write \( a \approx b \) if \( 1 - \epsilon  \le  \frac{a}{b} \le  1 + \epsilon  \). 
+\end{notation}
+
+\begin{theorem}
+	Consider all graphs with vertex set \( [n] \) (there are \( 2^{\binom{n}{2}} \) of them). If \( n \) is large enough, then \( \approx 100\% \) of these graphs satisfy \[
+		\omega \approx 2\log_2(n), \alpha \approx 2\log_2(n), \chi \approx \frac{n}{2\log_2(n)} \approx \frac{n}{\alpha }
+	.\] 
+\end{theorem}
+
+This theorem is studied in an area called random graph theory. Essentially, we can ``guess'' such properties of graphs without running expensive calculations to find them.
+
+Next lecture, we will talk about upper bounds on \( \chi  \) in terms of vertex degrees.
+
+\exercise{1}
+Show that \( \chi(BD(G)) = k + 1 \)
+\exercise{2}
+Show that if \( G \) has no cycles of length 3, 4, or 5, then neither does \( BD(G) \). Conclude that for all \( k \), there is a graph with \( \chi(G) \ge  k \), and no 3, 4, 5 cycles.
+

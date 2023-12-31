@@ -1,0 +1,34 @@
+\lecture{22}{Tue 14 Nov 2023 14:05}{Counting Continued}
+
+\begin{eg}
+	How many strings of 10 bits are there such that there are exactly 4 1's?
+\end{eg}
+
+We can choose 4 places of 10 to place 1's, and the rest are 0's. So the answer is $\binom{10}{4}$. 
+
+\begin{eg}
+	How many strings of 10 bits are there such that there are at most 4 1's?
+\end{eg}
+
+We can use the sum rule! \[
+	\binom{10}{0} + \binom{10}{1} + \binom{10}{2} + \binom{10}{3} + \binom{10}{4} = 386
+.\] 
+
+\begin{eg}
+	Show that if \( |S| = n \), then \( |\mathcal{P}(S)| = 2^n \).
+\end{eg}
+
+A subset can be formed by choosing whether or not to include every element. Therefore, the number of subsets, the cardinality of the powerset, is \( 2^{|S|} = 2^n \).
+
+\begin{theorem}
+	\[
+		(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}
+	.\] 
+\end{theorem}
+
+\begin{proof}
+	For each term \( (a+b)(a+b)\ldots (a+b) \), we can choose to either multiply the \( a \) or the \( b \). If there are \( k \) number of \( a \)'s, then there are \( n-k \) number of \( b \)'s. Therefore, the number of terms with \( k \) number of \( a \)'s is \( \binom{n}{k} \). Therefore, the coefficient of \( a^k b^{n-k} \) is \( \binom{n}{k} \). Summing over all \( k \) gives the result.
+\end{proof}
+
+\exercise{1}
+Prove the binomial theorem with induction!

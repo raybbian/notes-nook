@@ -1,0 +1,43 @@
+\lecture{24}{Wed 25 Oct 2023 15:30}{QuickSort}
+
+How do we partition the list? After picking the pivot,
+\begin{enumerate}
+	\item We swap the pivot with arr[0],
+	\item Then we maintain two pointers \( i \) and \( j \) and walk them towards the center until both see two elements that are in the wrong spot.
+	\item We swap arr[i] and arr[j]
+	\item We then stop once the two pointers cross each other, and swap the pivot with \( j \).
+\end{enumerate}
+
+\subsubsection{Runtime}
+The average runtime is \( O(n \log n) \), and the worst case is \( O(n^2) \). Note that the best pivot is the median. Below are some sample pivots:
+
+\begin{itemize}
+	\item arr[0] as the pivot runs in \( O(n^2) \) if the data is already sorted.
+	\item Median as the pivot runs in \( O(n^2) \) when we have a malicious user.
+	\item Random pivot runs in \( O(n \log n) \) on average. But you could pick the worst pivot every time, which would have worst case \( O(n^2) \).
+\end{itemize}
+
+\begin{remark}
+	In this class, QuickSort refers to QuickSort with a random pivot.
+\end{remark}
+
+\begin{note}
+	There is an algorithm called Median-of-medians (grad algo), which gives you a guaranteed ``good enough'' pivot and runs fast enough such that the worst case is \( O(n\log (n)) \). However, due to constant time factors, it is not used in practice.
+\end{note}
+
+\subsubsection{Conclusion}
+QuickSort is in-place, but not adaptive or stable. Note that QuickSort with recursion is technically not in-place due to the \( \log (n) \) to \( n \) memory complexity of the call stack.
+
+\subsubsection{QuickSelect}
+Given an array of \( n \) elements, find the \( k \)-th smallest element in the array. Note that if \( k=1 \) or \( k=n \), we can find the smallest or largest element in \( O(n) \) timewith linear search. Also, if the array was already sorted, we can find the \( k \)-th smallest element in \( O(1) \) time.
+
+QuickSelect is important because it beats the obvious plan of first sorting the array and getting the \( k \)-th element, instead running in \( O(n) \) time on average. Instead of recursing to both sides as in QuickSort, we recurse only to the side with the \( k \)-th smallest element. 
+
+\begin{enumerate}
+	\item Same as steps of QuickSort
+	\item If \( j=k+1 \), we return the pivot. If \( j > k-1 \), we find the \( k \)-th smallest element in the left subarray. If \( j < k+1 \), we find the \( k-j-1 \)-th smallest element in the right subarray.
+\end{enumerate}
+
+Note that because each time we pick an array, we do half as much work, such that we have a runtime of \[
+	n + \frac{n}{2} + \frac{n}{4} + \ldots = 2n = O(n)
+.\] on average. In the worst case, we have a runtime of \( O(n^2) \).

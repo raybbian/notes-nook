@@ -1,0 +1,76 @@
+\lecture{1}{Wed 04 Oct 2023 13:07}{Counting and Formulas}
+
+\section{Intro to Combinatorics}
+
+What is combinatorics? It is related to discrete math (finite structures) - things we can count.
+
+\subsection{Counting}
+\begin{eg}
+	Count the number of binary strings with length 10.
+\end{eg}
+
+For this problem, we can choose the characters in the string from \( \{0, 1\}   \). We make this choice 10 times. Therefore, there are \( 2^{10}  \) number of binary strings of length 10.
+
+\begin{eg}
+	Count the number of binary strings with length \( n \), such that there are no two consecutive ones. 
+\end{eg}
+
+This problem is a little less straight forward. Let \( F(n) \) be the number of binary strings of length \( n \). To form a string of \( n \), we can:
+\begin{itemize}
+	\item Choose 1 as our starting digit. Then, we must choose 0 as the next digit. Then, there are \( F(n-2) \) ways to choose the rest of the digits.
+	\item Choose 0 as our starting digit. Then, there are \( F(n-1) \) ways to choose the rest of the digits.
+\end{itemize}
+This problem has a recursive solution: \( F(n) = F(n-1) + F(n-2) \). We will learn more on how to find general formulas for these relations later.
+
+\begin{note}
+	Note that these are actually the fibonnaci numbers. There exists a general formula given by \[
+		F(n) = \frac{1}{\sqrt{5} }\left( \frac{1+\sqrt{5} }{2} \right)^{n+2} - \frac{1}{\sqrt{5} }\left( \frac{1-\sqrt{5} }{2} \right)^{n+2} 
+	.\] 
+\end{note}
+
+\begin{remark}
+The right term approaches 0 as \( n \to \infty \). Therefore, this function's growth is exponential (\( 1.6^n \)). Sometimes, knowing how fast a function grows is more informative that knowing its specific equation.
+\end{remark}
+
+\subsection{Approximate Counting}
+Sometimes, we cannot easily find a formula like this one to count things. And even if we do, it might not be very informative. 
+
+\begin{definition}
+	A \textbf{partition} of \( n \) is an expression of \( n \) as a sum of positive integers (where the order of the summands does not matter).
+\end{definition}
+
+\begin{eg}
+	Let \( P_n \) be the number of partitions of a positive integer. How do you calculate \( P_n \)?
+\end{eg}
+
+Well, we can calculate it by hand for smaller cases. We have:
+
+\begin{align*}
+	P_1 &= 1 \\
+	P_2 &= 2 \\
+	P_3 &= 3 \\
+	P_4 &= 5 \\
+	P_5 &= 7 \\
+.\end{align*}
+
+\begin{note}
+We must be careful! It is easy to assume that \( P_n = 8 \) from our calculations. However, this is not the case.
+\end{note}
+
+There actually doesn't exist any known equation for this sequence. However, there exists a really handy estimation formula:\[
+	P_n \approx \frac{1}{4n\sqrt{3} }e^{\pi \sqrt{\frac{2n}{3} } }
+.\] 
+This is what it means to approximately count. We don't know the exact value of \( P_n \) for all \( n \), but we are interested in how fast it grows, and a rough estimate of its actual value.
+
+\subsection{Preface to Graphs}
+Graphs are commonly used to model real world problems.
+\begin{definition}
+	A \textbf{graph} is a network of vertices with pairwise edges between them.
+\end{definition}
+
+\begin{definition}
+	A graph is \textbf{planar} if it can be drawn without edge-crossings.
+\end{definition}
+
+\exercise{1}
+Is the pentagonal graph planar?

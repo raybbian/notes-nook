@@ -1,0 +1,48 @@
+\lecture{29}{Mon 06 Nov 2023 15:44}{KMP Continued Continued}
+
+Here is the pseudocode for KMP:
+
+\begin{algorithm}[H]
+	\caption{KMP}
+	\KwIn{Pattern $P$ of length $m$, text $T$ of length $n$}
+	\KwOut{All indices $i$ such that $T[i..i+m-1] = P$}
+	ft = makeFT(\( P \))\;
+	i = 0\;
+	j = 0\;
+	\While{\( i \le n - m \)}{
+		\uIf{T[i] == P[j]}{
+			\uIf{j == m - 1}{
+				j = ft[j]\;
+				i++\;
+			}
+			\Else{
+				i++\;
+				j++\;
+			}
+		}
+		\Else{
+			\uIf{j == 0}{
+				i++\;
+			}
+			\Else{
+				j = ft[j] - 1\;
+			}
+		}
+	}
+\end{algorithm}
+
+\subsubsection{Runtime}
+
+The worst case time is \( O(m+n) \). Note that the trivial best case is when you are trying to find one occurrence and it is at the start of the case, which is \( O(m) \).
+
+\begin{note}
+	Note that KMP can get stuck sometimes.
+\end{note}
+
+\begin{eg}
+	Let the text be aaab..., and the pattern be aaaa. Then, we would check the pattern 4 times here, which is less efficient that Boyer-Moore. In other words, KMP does not recognize that b is not in the pattern.
+\end{eg}
+
+\begin{note}
+	Boyer Moore has a better best case with \( O(\frac{n}{m} + m) \), but a worse worst case with \( O(mn) \). Of the two, KMP is preferred for smaller alphabets, and Boyer-Moore is preferred for large alphabets.
+\end{note}

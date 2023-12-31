@@ -1,0 +1,100 @@
+\lecture{38}{Fri 01 Dec 2023 14:03}{Generating Functions}
+
+\begin{eg}
+	\( a_k=2^k \) for the sequence \( 1,2,4,8,16,32,\ldots  \) What is the generating function?
+\end{eg}
+
+Our generating function would be \[ \sum_{k=0}^{\infty} 2^{k}x^{k} = \sum_{k=0}^{\infty} (2x)^k.\] This is a geometric series with \( r = 2x \), of which the closed form is \( \frac{1}{1-2x} \).
+
+\begin{eg}
+	What is the generating function for the sequence \( 1,2,3,4,5\ldots  \)?
+\end{eg}
+
+Our generating function would be \[
+	1+2x+3x^2+4x^3+5x^4+\ldots = \sum_{k=0}^{\infty}(k+1)x^{k}
+.\] Note that the derivative of \( 1+x+x^2+x^3+x^4+\ldots  \) is exactly this function. The closed form of this is \( \frac{1}{1-x} \), so we just need to find the derivative of \( \frac{1}{1-x} \), which is \( \frac{1}{(1-x)^2} \).
+
+Another approach is to write out the generating function in a unique way:
+\begin{align*}
+	(1 + 2x + 3x^2 + 4x^3 + \ldots) &= (1 + x + x^2 + x^3 + \ldots) + (x + 2x^2 + 3x^3 + \ldots) \\
+																	&= \frac{1}{1-x} + x\left( 1 + 2x + 3x^2 + \ldots \right)
+.\end{align*}
+Noticing this pattern, if \( A(x) = 1 + 2x + 3x^2 + 4x^3 + \ldots  \), then 
+\begin{align*}
+	A(x) &= \frac{1}{1-x} + x\cdot A(x) \\
+	(1-x)A(x) &= \frac{1}{1-x} \\
+	A(x) &= \frac{1}{(1-x)^2}
+.\end{align*}
+
+There is yet another way of doing this: by writing out the generating function further.
+\begin{align*}
+	1+2x+3x^2+\ldots &= (1+x+x^2+\ldots ) + x(1+x+x^2+\ldots  ) + x^2(1+x+x^2+\ldots  ) + \ldots  \\
+												&= (1+x+x^2+x^3+\ldots )\cdot (1+x+x^2+x^3+\ldots ) \\
+												&= \frac{1}{(1-x)^2}
+.\end{align*}
+
+In general, given \( m \in \mathbb{N} \), we have:\[
+	\frac{1}{(1-x)^{m}} = \sum_{k=0}^{\infty} ~(?)~x^{k}
+.\] 
+To find \( ? \), we can take the derivative of \( \frac{1}{1-x} \) several times. Otherwise, we can do it in a more combinatorial way:
+\begin{align*}
+	\frac{1}{(1-x)^m} &= (1+x+x^2+\ldots )^m \\
+										&= 1 + mx + \ldots  \\
+.\end{align*}
+Note that the coefficient in front of \( x^k \) is equal to the number of ways to pick \( x^{c_1}  \) from the first term, \( x^{c_2}  \) from the second one, and \( x^{c_m}  \) from the \( m \)th term such that \[
+	x^{c_1} \cdot  x^{c_2} \cdot  \ldots \cdot  x^{c_m} = x^k
+.\] In other words, it is the number of non-negative integer solutions to \( c_{1}+c_{2}+\ldots +c_m =k\). This is just \( \binom{k+m-1}{m-1} \). Therefore, \[
+	\frac{1}{(1-x)^{m}} = \sum_{k=0}^{\infty} \binom{k+m-1}{m-1} x^{k}
+.\] 
+
+Generating functions can also be very helpful for working with recurrence relations, as well.
+
+\begin{eg}
+	Given \( a_0=0 \), \( a_{k+1}=2a_k + 1 \), how would we come up with the closed form of the generating function?
+\end{eg}
+
+Our generating function, by definition, is \[
+	A(x) = \sum_{k=0}^{\infty}a_k x^k
+.\] From our recurrence relation (note how it is written, with ``push'' instead of ``pull''), we have 
+\begin{align*}
+	\sum_{k=0}^{\infty} a_{k+1} x^k = \sum_{k=0}^{\infty}(2a_k + 1)x^k
+.\end{align*}
+Looking at the left hand side, we have 
+\begin{align*}
+	\sum_{k=0}^{\infty}a_{k+1}x^k &= a_{1}+a_{2}x+a_{3}x^2+\ldots  \\
+	&= \frac{A(x) - a_{0}}{x} = \frac{A(x)}{x} \tag{\( a_{0}=0 \)}
+.\end{align*}
+And for the right hand side, we have
+\begin{align*}
+	\sum_{k=0}^{\infty}(2a_k +1)x^k &= 2\sum_{k=0}^{\infty}a_kx^k + \sum_{k=0}^{\infty}x^k \\
+	&= 2A(x) + \frac{1}{1-x}
+.\end{align*}
+Thus,
+\begin{align*}
+	\frac{A(x)}{x} &= 2A(x) + \frac{1}{1-x} \\
+	A(x) &= 2xA(x) + \frac{x}{1-x} \\
+	(1-2x)A(x) &= \frac{x}{1-x} \\
+	A(x) &= \frac{x}{(1-x)(1-2x)}
+.\end{align*}
+
+\begin{eg}
+	Let \( a_0=1 \), \( a_{k+1}=2a_k+k \). What is the closed form of the generating function for this recurrence relation?
+\end{eg}
+
+Our generating function is \[
+	A(x) = \sum_{k=0}^{\infty}a_k x^k 
+.\] Continuing like last time, we have 
+\begin{align*}
+	\sum_{k=0}^{\infty}a_{k+1} x^k &= \sum_{k=0}^{\infty} (2a_k+k)x^k \\
+.\end{align*}
+We have LHS = \[
+	\frac{A(x)-a_{0}}{x} = \frac{A(x)-1}{x}
+.\] And RHS =\[
+	\sum_{k=0}^{\infty} (2a_k)x^k + \sum_{k=0}^{\infty}  kx^k = 2A(x) + \frac{x}{(1-x)^2}
+.\] 
+Then, solving for \( A(x) \) yields \[
+	A(x) = \frac{1-2x+2x^2}{(1-2x)(1-x)^2}
+.\] 
+
+\exercise{1}
+Find the closed form of the generating function of the Fibonacci numbers with generating functions.

@@ -1,0 +1,91 @@
+\lecture{3}{Wed 04 Oct 2023 13:08}{Intro to Sets}
+
+\section{Intro to Sets}
+
+What exactly are sets?
+
+\begin{definition}
+	A \textbf{set} is a collection of unordered, unique, elements.
+\end{definition}
+
+\begin{notation}
+	We say that \( x \in  X \) when \( x \) is an element/member of the set \( X \).
+\end{notation}
+
+\begin{definition}
+	The \textbf{Principle of Extensionality} states that if two sets have the same elements, then they are equal.
+\end{definition}
+
+\begin{note}
+	Order does not matter! Only whether or not the element is in the set.
+\end{note}
+
+\begin{eg}
+	\( \{a, b, c\} = \{a, c, b\} =\{a, b, a, b, c\}     \)
+\end{eg}
+
+What are some well known infinite sets?
+\begin{itemize}
+	\item \( \mathbb{N} \) is the set of all natural numbers (including 0 in this class).
+	\item \( \mathbb{Z} \) is the set of all integers.
+	\item \( \mathbb{Q} \) is the set of all rational numbers.
+	\item \( \mathbb{R} \) is the set of all real numbers.
+\end{itemize}
+
+\begin{notation}
+	If we say that \( n \in \mathbb{N} \), that means that \( n \) is a natural number.
+\end{notation}
+
+\begin{definition}
+	A set with no elements is called the empty set, denoted by \( \O \).
+\end{definition}
+
+\begin{note}
+	\( \{\O\} \neq \O  \)! The set \( \{\O\}   \) has one element: the empty set!
+\end{note}
+
+\begin{notation}
+	We can write use set builder notation to write \( \{0, 2, 4, 6, \ldots \}   \) as \( \{n ~|~ n \in \mathbb{N}, n \text{ is even}\} \).
+\end{notation}
+
+\begin{definition}
+	We say a set \( A \) is a subset of a set \( B \) (\( A \subseteq B\)) if every element in \( A \) belongs to \( B \).
+\end{definition}
+
+\begin{eg}
+	\( \mathbb{N} \subseteq \mathbb{Z} \), \( \{a, c\} \subseteq \{a, b, c\}    \).
+\end{eg}
+
+\begin{property}
+	The empty set \( \O \) is a subset of every set.
+\end{property}
+
+\begin{note}
+	The elements of a set's elements are not their own elements! Be careful when there are sets within sets.
+\end{note}
+
+\subsection{Set Operations}
+Let \( A,B \) be sets. There are 5 key operations on sets:
+\begin{itemize}
+	\item The \textbf{union} of a set \( A \cup B \) is defined by \( \{x ~|~ x \in A \lor x \in B\}   \).
+	\item The \textbf{intersection} of a set \( A \cap B \) is defined by \( \{x ~|~ x \in A \land x \in B \}   \).
+	\item The \textbf{difference} of a set \( A \setminus B \) is defined by \( \{x ~|~ x \in A \land x \not\in B \}   \).
+	\item The \textbf{symmetric diffference} of a set \( A \triangle B \) is defined by \( (A \setminus B) \cup (B \setminus A) \).
+	\item The \textbf{cartesian product} \( A \times B \) is defined by \( \{(a,b) ~|~ a \in A \land b \in B\}  \)
+		\begin{note}
+			\( (a,b) \) is the ordered pair with the first element \( a \) and second element \( b \). \( (a,b) \neq  (b,a) \) unless \( a = b \).
+		\end{note}
+\end{itemize}
+
+\begin{eg}
+	\[ \{1,2\} \times \{a,b\} \times \{x,y\} = \{ (1, a, x), (1, a, y), (2, a, x), (2, a, y), (1, b, x), (1, b, y), (2, b, x), (2, b, y) \} .\]
+\end{eg}
+
+More generally, given set \( A_{1}, A_{2}, A_{3}, \ldots, A_k \), their cartesian product is the set of all ordered tuples \( (a_{1}, a_{2}, a_{3}, \ldots , a_k) \) where \( a_{1} \in A_1, a_{2} \in A_2, \ldots , a_k \in A_k \).
+
+\begin{notation}
+	\( A^k = \underbrace{A \times A \times  A \times \ldots \times A}_{k \text{ times}}\)
+\end{notation}
+
+\exercise{1}
+\( \{0,1\}^3 = \{?\}   \), \( \O \times A = ~?\)

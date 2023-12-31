@@ -1,0 +1,140 @@
+\lecture{18}{Tue 31 Oct 2023 14:00}{Modular Arithmetic}
+
+\section{Modular Arithmetic}
+
+Consider the relation \( \equiv_m \) defined by the following: \[
+	a \equiv_m b \iff (a - b) \text{ is a multiple of } m
+.\] 
+
+\begin{note}
+	This is an equivalence relation because it is reflexive, symmetric, and transitive.
+\end{note}
+
+We can establish this relation because we know the following theorem (that defines a remainder):
+
+\begin{theorem}
+	Let \( b,m \in \mathbb{Z},m>0 \). There exists a unique pair of integers \( q,r \) such that \( b = qm + r \) and \( 0 \le r < m \).
+\end{theorem}
+
+\begin{eg}
+	13 = 2(5) + 3, such that \( q=2,r=3 \), so \( 13 \equiv_5 3 \). 
+\end{eg}
+
+\begin{definition}
+	\( \mathbb{Z}_m = \{\overline{0}   ,\overline{1} ,\overline{2} ,\ldots ,\overline{m-1} \}  \) is the set of remainders when \( m \) is divided by a number.
+\end{definition}
+
+\begin{eg}
+	Let \( m=4 \). \( \mathbb{Z}_4 = \begin{Bmatrix} \overline{0}&=&\{0,\pm 4,\pm 8,\pm 12,\ldots \} \\ \overline{1}&=&\{\ldots ,-7,-3, 1,5,9,\ldots \} \\ \overline{2}&=&\{\pm 2, \pm 6, \pm 10, \ldots \} \\ \overline{3}&=&\{\ldots ,-5,-1,3,7,11,\ldots \}           \end{Bmatrix}   \) 
+\end{eg}
+
+\begin{notation}
+	We write \( b \pmod m \) to denote the remainder of \( b \) when divided by \( m \).
+\end{notation}
+
+\begin{notation}
+	We write \( a \equiv b \pmod m \) to denote that \( a \equiv_m b \).
+\end{notation}
+
+\subsection{Operations in \( \mathbb{Z}_m \)}
+
+How do we perform operations?
+
+\begin{definition}
+	We define \textbf{addition} to be \( \overline{a}+\overline{b} \coloneq \overline{a+b}     \).
+\end{definition}
+
+\begin{eg}
+	\( \overline{10}+\overline{8}=\overline{10+8}=\overline{18}=\overline{2}    \) when \( m=4 \).
+\end{eg}
+
+\begin{definition}
+	We define \textbf{multiplication} to be \( \overline{a}\cdot \overline{b}=\overline{ab}    \).
+\end{definition}
+
+\begin{eg}
+	\( \overline{2}+\overline{13}=\overline{5} \pmod {10}   \) when \( m=10 \).
+\end{eg}
+
+\begin{note}
+	Integers are not closed under division, so we must be careful. 
+\end{note}
+
+As we can see, the zero property and identity property in modular multiplication does not hold. Just like in linear algebra, we must define the inverse of a number in order to perform division.
+
+\begin{definition}
+	Let \( m>1 \). We say \( a\in \mathbb{Z} \) is a \textbf{divisor of of zero} if \( \exists b \in \mathbb{Z} \), \( b \not\equiv 0 \pmod m \) such that \( a \cdot b \equiv 0 \pmod m \). In other words, \( \exists \overline{b}\in \mathbb{Z}_m,\overline{b}\neq \overline{0}\land \overline{a}\neq \overline{0}  \land \overline{a}\overline{b}=\overline{0}       \)
+\end{definition}
+
+\begin{definition}
+	Let \( a \in \mathbb{Z} \). We say \( a \) is \textbf{invertible} if \( \exists b \in \mathbb{Z} \) such that \( a \cdot b \equiv 1 \pmod m \).
+\end{definition}
+
+\begin{note}
+	These two properties are mutually exclusive.
+\end{note}
+
+\begin{definition}
+	Let \( a,b \in \mathbb{Z} \). We define their greatest common divisor (\( \gcd \)) of \( a \) and \( b \) as \[
+		\gcd(a,b) = \max\{d \in \mathbb{Z} : d|a \land d|b\}  
+	.\] 
+\end{definition}
+
+\begin{prop}
+	Let \( a>b>0 \) be integers. Then, it holds that \[
+		\gcd (a,b) = \gcd (a-b,b)
+	.\]
+\end{prop}
+
+\begin{proof}
+	Let \( d=\gcd(a,b) \), \( \hat{d}=\gcd(a,a-b) \). Note that if \( x|y \) and \( x|z \), then \( x|\alpha y+\beta z \) for \( x,y,z,\alpha ,\beta \in \mathbb{Z} \). Then, we know that \[
+		d|a \land d|b \text{ by definition of } \gcd(a,b)
+	.\] Set \( \alpha =1,\beta =-1 \) to get \( d|a-b \) fron our note. Then, \( d \) is a common divisor of both \( a \) and \( a-b \). However, \( \hat{d}\ge d \) because \( \hat{d} = \gcd(a,a-b) \) (\( \hat{d} \) is the \emph{greatest} common divisor). We also know that \[
+		\hat{d}|a \land \hat{d}|a-b \text{ by definition of } \gcd(a,a-b)
+	.\] Set \( \alpha =1,\beta =-1 \). then, we have \[
+		\hat{d}|\alpha a+\beta (a-b) = a + (b-a) = b
+	.\] Now, we know that \( \hat{d} \) is a common divisor of both \( a \) and \( b \). Then, \( d \ge \hat{d} \) because \( d=\gcd(a,b) \). Because \( \ge   \) is antisymmetric, we conclude that \( d=\hat{d} \).
+\end{proof}
+
+\begin{algorithm}[H]
+	\caption{Euclidean Algorithm}
+	\KwIn{ $a \ge b\ge 0$ }
+	\KwOut{ $\gcd(a,b)$ }
+	\If{b = 0}{
+		return \( a \)\;
+	}
+	return $\gcd(b,a \mod b)$\;
+\end{algorithm}
+
+\begin{lemma}
+	Let \( d=\gcd(a,m) > 1 \). Then \( a \) is a divisor of zero \( \pmod m \).
+\end{lemma}
+
+\begin{proof}
+	Let \( b=\frac{m}{d} \). Then, \( a\cdot b=a\cdot \frac{m}{d}=\frac{a}{d}\cdot m \equiv 0 \pmod m \). The last equality follows from the fact that \( d|a \).
+\end{proof}
+
+\begin{eg}
+	Let \( a=2 \), \( m=10 \). Then, \( b=\frac{10}{2}=5 \), and \( 2 \cdot 5 \equiv 0 \pmod {10} \).
+\end{eg}
+
+\begin{theorem}
+	Let \( a\ge b \), \( a,b \in \mathbb{N} \). Then, \[
+		\gcd(a,b) = \min \{d > 0 : \exists \alpha ,\beta ~ d = \alpha a + \beta b\}  
+	.\] 
+\end{theorem}
+
+We will prove this next lecture!
+
+\begin{lemma}
+	Let \( 1=\gcd(a,m) \). Then, \( \exists ! b \in \mathbb{Z}_m \) such that \( \overline{a}  \cdot \overline{b} = \overline{1} \). In other words, \( a \) is invertible \( \pmod m \).
+\end{lemma}
+
+\begin{proof}
+	From the theorem, we have \( \exists \alpha ,\beta : 1 = \alpha a + \beta m \). If we take this expression \( \pmod m \), we have \( \overline{1}=\overline{\alpha }\cdot \overline{a}+\cancelto{0}{\overline{\beta }\cdot \overline{m}}      \). So, \( \alpha  \) is the inverse of \( a \) \( \pmod m \)
+\end{proof}
+
+\begin{note}
+	From these two lemmas, we can classify every integer \( a \) as invertible, or a divisor of 0.
+\end{note}
+

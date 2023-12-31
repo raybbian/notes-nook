@@ -1,0 +1,41 @@
+\lecture{33}{Mon 13 Nov 2023 14:05}{Proof of Dilworth's Theorems}
+
+We will proceed by proving Dual Dilworth/Mirsky's Theorem:
+
+\begin{proof}
+	Let \( (X,\le ) \) be a finite poset. Let the height of this poset be \( k \). Because we already know that \( \chi_a \ge k \), it suffices to show \( \chi_a \le k \). We can show this by finding a coloring of \( X \) using \( k \) or fewer colors such that elements of the same color to be incomparable.
+
+	For an element \( x \in X \), let \( c(x) \) be the maxmimum size of a chain whose maximum element is \( x \). 
+	\begin{observe}
+		\( 1 \le c(x) \le k \).
+	\end{observe}
+	\begin{observe}
+		If \( c(x) = c(y) \) and \( x\neq y \), then \( x \) and \( y \) are incomparable.
+	\end{observe}
+	Why is this? Suppose that \( x \) and \( y \) are comparable. Say \( x > y \). Then, \( x \) is the maxmimum element of a chain with size \( c(y)+1 \), so \( c(x) \ge c(y)+1 > c(y) \), which is a contradiction.
+
+	Therefore, \( c \) is a coloring of \( X \) using \( k \) colors such that elements of the same color are incomparable, as desired.
+\end{proof}
+
+Now, for the proof of Dilworth's theorem:
+
+\begin{proof}
+	Let \( (X, \le ) \) be a finite poset. Let \( k \) be the width of this poset. We wish to show that \( \chi_c(X) \le k \), i.e. there is a partition of \( X \) into \( k \) chains. We will use strong induction on \( n = |X|\).
+	\begin{description}
+		\item[Base case:] \( n=0 \), i.e. \( X = \emptyset \). Then, \( \chi_c(X) \le k = 0 \), as desired.
+		\item[Step case:] Assume that the theorem is true for all posets with \( <n \) elements. We want to show that this theorem holds for a poset \( (X,\le ) \) with \( n \) elements. Take any antichain \( A \subseteq X \) of size \( |A|=k \).
+			\begin{observe}
+				No strictly larger antichain exists.
+			\end{observe}
+			In other words, we cannot add an element to \( A \) while maintaining that \( A \) is an antichain. Therefore, \( x \in X\setminus A \) is comparable to some element of \( A \) i.e. it is \( \le  \) or \( \ge  \) some element in \( a \in A \). Partition \( X \) into 
+			\begin{align*}
+				X^+ &= \{x \in X \colon x \ge a \text{ for some } a \in A\}  \\
+				X^- &= \{x \in X \colon x \le a \text{ for some } a \in A\}  
+			.\end{align*}
+			Note that \( X^+ \cap X^- = A \). Why? It is clear that \( A \subseteq X^+\cap X^- \). For the other direction, suppose \( x \not\in A \) belongs to both \( X^+ \) and \( X^- \). This means that \( x > a \) for some \( a \in A \) \textbf{and} \( x<b \) for some \( b \in A \). This means that \( a<x<b \implies a<b \), which is a contradiction because \( A \) is an antichain, and elements in \( A \) are not comparable.
+
+			Consider the poset \( (X^+, \le) \). Its width is at most \( k \) because \( A \) is an antichain in \( X^+ \). By the inductive hypothesis, \( X^+ \) can be partitioned into \( k \) chains. Since all elements of \( A \) belong to different chains, we can list these \( k \) chains as \( c_{1}^+,c_{2}^+,\ldots ,c_k^+ \) where the minimum element of \( c_i^+ \) is \( a_i \). Similarly, \( X^- \) can be partitioned into \( k \) chains. We can list these \( k \) chains as \( c_{1}^-,c_{2}^-, \ldots , c_k^- \) where the maximum element of \( c_i^- \) is \( a_i \). Then \( X \) can be partitioned into \( k \) chains \( c_{1},c_{2},\ldots c_k \) where \( c_i=c_i^+ \cup c_i^- \), as desired.
+
+			However, there occurs a problem: what if one of \( X^+ \) or \( X^- \) contains only \( A \)? Then \( X^+=X \), which means that \( A \) is the set of minimal elements, or \( X^-=X \), which means that \( A  \) is the set of maximal elements, and we therefore cannot use the inductive hypothesis. If there are antichains of size \( k \) that are not one of these two sets, then we can switch \( A \) to that antichain. Our theorem only doesn't work when every antichain \( A \) of size \( k \) is either the set of all minimal or maximal elements.
+\end{description}
+\end{proof}

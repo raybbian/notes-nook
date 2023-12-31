@@ -1,0 +1,21 @@
+\lecture{24}{Tue 28 Nov 2023 14:01}{}
+
+\subsection{With Repetition}
+
+\begin{eg}
+	Let \( n \) be the number of objects, and \( t_{1},t_{2},\ldots ,t_k \) denote the \( k \) types. We want to find a permutation of these objects such that  \( t_{1} + t_{2} + \ldots  + t_k = n \). How should we do this?
+\end{eg}
+
+We can use the division rule, dividing out every permutation between identical objects. There are \( t_{i} \) ways to permute objects of type \( i \). Therefore, our answer is \[
+	\frac{n!}{t_{1}!t_{2}!\ldots t_k!}
+.\] 
+
+\begin{eg}
+	What if we don't want to find a permutation of these objects, but instead a combination?
+\end{eg}
+
+We visualize this combination as a permutation of stars and bars. There are total of \( n+k-1 \) stars and bars, of which \( n \) are stars and \( k-1 \) are bars. Therefore, our answer is then \[
+	\frac{(n+k-1)!}{n!(k-1)!} = \binom{n+k-1}{k-1}
+.\] 
+
+TODO: Complete the rest of these notes.

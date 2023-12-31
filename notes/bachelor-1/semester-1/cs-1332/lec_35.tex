@@ -1,0 +1,82 @@
+\lecture{35}{Mon 27 Nov 2023 15:31}{Minimum Spanning Trees}
+
+\subsection{Prim's Algorithm}
+
+A Minimum Spanning Tree is a spanning tree of a graph with the smallest possible weight. 
+
+\begin{note}
+	A tree always has \( |V|-1 \) edges.
+\end{note}
+
+How do we find this MST? One plan is to pick a start vertex and explore the graph the usual way, growing a single conneced tree throughout our algorithm. We add the lightest edge that:
+\begin{itemize}
+	\item Does not form any cycles
+	\item Is connected to the rest of the tree
+\end{itemize}
+
+Note that we can accomplish the first point with a visited set, and the second point by only adding adjacent vertices. We can get the lightest edge with a priority queue. 
+
+\begin{algorithm}
+	\caption{Prim's Algorithm}
+	visited = Set<vertex>\;
+	PQ = PriorityQueue<edge>\;
+	MST = Set<edge>\;
+	\For{e incident to s}{
+		PQ.insert(e)\;
+	}
+	visited.add(s)\;
+
+	\While{!PQ.isEmpty()}{
+		e = PQ.dequeue()\;
+		u,v = e.endpoints()\;
+		\If{v is not in visited}{
+			MST.add(e)\;
+			visited.add(v)\;
+			\For{f incident to v}{
+				\If{f.getOtherEndpoint(v) is not in visited}{
+					PQ.insert(f)\;
+				}
+			}
+		}
+	}
+\end{algorithm}
+
+\subsubsection{Runtime}
+
+The priority queue could contain every edge, and could be \( O(|E|) \). Removing is \( O(|E|) \). Therefore, the total runtime is \( O(|E| \log |E|) \). 
+
+\subsection{Kruskal's Algorithm}
+
+The other option to find a MST is using Kruskal's Algorithm.
+
+\begin{definition}
+	A \textbf{greedy} algorithm is an approach that makes the locally optimal choice at each step. 
+\end{definition}
+
+To greedily build an MST, we want the minimum edge sum. Therefore, we add all the minimum edges that do not create cycles.
+
+\begin{algorithm}[H]
+	\caption{Kruskal's Algorithm}
+	PQ = PriorityQueue<edge>(G.edges())\;
+	MST = new Set<edge>\;
+	\While{PQ is not empty and MST is not full}{
+		e = PQ.dequeue()\;
+		\If{e does not create a cycle in MST}{
+			MST.add(e)\;
+		}
+	}
+\end{algorithm}
+
+To check that an edge does not create a cycle, we can use the union-find data structure. 
+
+\subsubsection{Union-Find}
+
+Find(\( v \)) returns the label of vertex \( v \). All connected vertices have the same label.
+
+\begin{note}
+	For our case, adding an edge between \( x \) and \( y \) would create a cycle if the label of \( x \) is the same as the label of \( y \). 
+\end{note}
+
+Union(\( x \), \( y \)) updates the labels of everything connected to \( x \) or \( y \) to be the same.
+
+With the best possible optimizations, we can get a runtime of \( O(A^{-1}(G) ) \) for these operations. However, note that \( A^{-1}(\text{number of atoms in the universe})=5  \). Therefore, this data structure does not affect the runtime of Kruskal's in a significant way.

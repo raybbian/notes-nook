@@ -1,0 +1,53 @@
+\lecture{31}{Wed 08 Nov 2023 14:02}{Posets Continued}
+
+Continuing on with partial order:
+
+\begin{prop}
+	The height of \( (\mathcal{P}([n]), \subseteq) = n+1\)
+\end{prop}
+
+\begin{proof}
+	To show that two numbers \( a \) and \( b \) are equal, we can show \( a\le b \) and \( b\le a \). Therefore, we wil show that the height \( \ge n+1 \). We can do this by finding a chain of size \( n+1 \). The chain \[
+		\{\varnothing \subset \{1\} \subset \{1,2\} \subset \{1,2,3\} \subset \ldots \subset \{1,2,\ldots ,n\}\}
+	.\] is one such chain of size \( n+1 \). Next, we show that the height of this poset is at most \( n+1 \). We need to argue that every chain has size at most \( n+1 \). \par
+	Take an arbitrary chain \( A_{1}\subset A_{2}\subset \ldots \subset A_k \). We want to show that \( k\le n+1 \). Note that \( |A_{1}|\ge 0 \), \( |A_{2}|\ge |A_{1}|+1\ge 0+1=1 \), \( |A_{3}|\ge |A_{2}|+1\ge 1+1=2 \), etc. such that \( |A_k| \ge k-1 \). However, \( |A_k| \le n \) since \( A_k \subseteq [n] \). Therefore, \( k-1 \le |A_k| \le n \) and \( k\le n+1 \).
+\end{proof}
+
+What about the width of the poset?
+
+\begin{notation}
+	\( \left\lfloor x \right\rfloor \) denotes the largest integer at most \( x \).
+\end{notation}
+
+\begin{notation}
+	\( \left\lceil x \right\rceil  \) denotes the smallest integer at least \( x \).
+\end{notation}
+
+\begin{theorem}
+	(Sperner) The width of \( (\mathcal{P}([n]), \subseteq) = \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \).
+\end{theorem}
+
+\begin{proof}
+	For any \( k \), the set \( A \subseteq [n] \colon |A| = k \) is an antichain in \( (\mathcal{P}([n]), \subseteq) \) of size \( k \). Therefore, the width of our poset is at least \( \binom{n}{k} \). Therefore, \[
+		\text{width} \ge \max_{k=0}^{n}\binom{n}{k} = \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor }
+	.\] Now, we need to show that every antichain in \( (\mathcal{P}([n])) \) has size at most \( \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \). Take arbitrary antichain \( \mathcal{A} \). In other words, \( \mathcal{A} \) is a collection of subsets of \( [n] \), none of which is a subset of another one. We wish to show that \( |\mathcal{A}| \le \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \). Let 
+	\[
+		\mathbb{S} \coloneq \{\text{all permutations of }[n]\}  \qquad |\mathbb{S}| = n!
+	.\] 
+	Say that a set \( A \subseteq [n] \) of size \( |A| = k \) is a prefix of a permutation \( \pi =(x_{1},x_{2},x_{3},\ldots ,x_n) \in \mathbb{S}_n \) if \( A=\{x_{1},x_{2},\ldots ,x_k\}   \). For example, if \( n=3 \), \( \pi =(3,1,2) \), then \( \{1,3\}   \) is one such prefix. Then, for a permutation \( \pi =(x1,x_{2},\ldots ,x_n) \), its prefixes are \[
+		\varnothing \qquad \{x_{1}\} \qquad \{x_{1},x_{2}\} \qquad \{x_{1},x_{2},x_{3}\} \qquad \ldots \qquad \underbrace{\{x_{1},x_{2},\ldots ,x_{n}\}}_{[n]}
+	.\] Observe that \( \pi  \) has exactly one prefix of each size between \( 0 \) and \( n \). Also, observe that the prefixes of \( \pi  \) form a chain. Then, we look at \[
+	(*) = \sum_{\pi \in \mathbb{S}} \underbrace{\sum_{A \in \mathcal{A}} \underbrace{1[A \text{ is a prefix of } \pi ]}_{A \text{ is a prefix of } \pi ? 1 : 0}}_{\le 1} \le \sum_{\pi  \in \mathbb{S}_n} 1 = n!
+	.\] Note that this is because no two sets in \( \mathcal{A} \) are comparable, and therefore no two sets can belong in the same chain as mentioned before. Then, we switch the order of the summations: \[
+	(*) = \sum_{A \in \mathcal{A}} \sum_{\pi  \in \mathbb{S}} 1[A \text{ is a prefix of } \pi ]
+	.\] How many permutations \( \pi  \) are there such that fixed \( A \) is a prefix of \( \pi  \)?
+\end{proof}
+
+\exercise{1}
+How many chains of size \( n+1 \) are there in \( (\mathcal{P}([n]), \subseteq) \)?
+
+\exercise{2}
+Show that if \( B \) is a set of size \( \neq k \), then \(\{\text{subsets of } [n] \text{ of size } k \}  \cup \{B\}\) is not an antichain.
+
+\exercise{3}
+Given a set \( A \subseteq [n] \) of size \( |A|=k \), how many permutations \( \pi  \in \mathbb{S} \) are there such that \( A  \) is a prefix of \( \pi  \)?

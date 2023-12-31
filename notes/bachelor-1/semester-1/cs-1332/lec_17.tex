@@ -1,0 +1,102 @@
+\lecture{17}{Wed 04 Oct 2023 15:24}{AVL}
+\section{AVL Tree}
+
+What if we want guaranteed \( O(\log(n)) \) operations on everything?
+\begin{definition}
+	An AVL is a BST that is \textit{always} balanced. It stores a balance factor that is the difference between the left node's and right node's height.
+\end{definition}
+
+If the balance factor has magnitude greater than or equals to 2, then it is learning too far left (positive) or too far right (negative). We can maintain the tree's balance with rotations.
+
+\begin{note}
+	Getting the height of a BST is \( O(n) \). However, we can store the height of a node in the node itself. This makes getting the height of a node \( O(1) \).
+\end{note}
+
+\subsection{Operations}
+\subsubsection{Update}
+When we add or remove data, the heights and balance factors of each ancestor will change. Therefore, we must update these values.
+
+\begin{algorithm}[H]
+	\KwIn{curr, the node to update}
+	curr.height = max(kids.height) + 1\;
+	curr.bf = curr.left.height - curr.right.height; \tcp{Children must be updated first!}
+	\caption{Update} 
+\end{algorithm}
+\subsubsection{Add}
+How do we add data?
+\begin{enumerate}
+	\item We add the data to the leaf position, as you would in a BST.
+	\item If the tree is no longer balanced, we then rotate the tree to balance it.
+\end{enumerate}
+Note that when a node is added, at most \( \log (n) \) nodes (its ancestors) have a new balance factor.
+
+
+\begin{algorithm}[H]
+	\uIf{curr = null} {
+		add new node\;
+	}
+	\uElseIf{curr.data < data}{
+		recurse left\;
+	}
+	\uElseIf{curr.data > data}{
+		recurse right\;
+	}
+	\ElseIf{curr.data = data}{
+		\tcp{Duplicate, do nothing}
+	}
+	\ForEach{node : curr \( \to \) root}{
+		update(node)\;
+		\If{node.bf is bad}{
+			rotate
+		}
+	}
+	\caption{Add}
+\end{algorithm}
+
+\begin{note}
+You should update after recursion so the height values for the children are correct.
+\end{note}
+
+\subsection{Rotations}
+There are four types of rotations: left, right, left-right, right-left.
+\subsubsection{Left Rotation}
+This type of rotation is used when:
+\begin{itemize}
+	\item The node is leaning right (balance factor is -2)
+	\item The right child is also leaning right (balance factor is -1)
+\end{itemize}
+
+\begin{algorithm}[H]
+	\caption{Left Rotation}
+	\KwIn{A, the root of the tree}
+	\KwOut{the new root of the tree}
+	B = A.right\;
+	A.right = B.left\;
+	B.left = A\;
+	update(A)\;
+	update(B)\;
+	\Return{B}
+\end{algorithm}
+
+\begin{note}
+This is an O(1) operation.
+\end{note}
+
+\subsubsection{Right Rotation}
+This type of rotation is used when:
+\begin{itemize}
+	\item The node is leaning left (balance factor is 2)
+		\item The left child is also leaning left (balance factor is 1)
+\end{itemize}
+
+\begin{algorithm}[H]
+	\caption{Right Rotation}
+	\KwIn{A, the root of the tree}
+	\KwOut{the new root of the tree}
+	B = A.left\;
+	A.left = B.right\;
+	B.right = A\;
+	update(A)\;
+	update(B)\;
+	\Return{B}
+\end{algorithm}

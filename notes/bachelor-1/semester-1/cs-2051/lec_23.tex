@@ -1,0 +1,64 @@
+\lecture{23}{Tue 21 Nov 2023 14:06}{Pigeonhole Principle}
+
+Going back to functions and countability,
+
+\begin{prop}
+	Let's say we have a function \( f : A \to B \) and \( |A| > |B| \). Then, \( f \) cannot be one-to-one. 
+\end{prop}
+
+\subsection{Pigeonhole Principle}
+
+The following is called a priciple because it is so obvious that it is not worth proving.
+
+\begin{theorem}
+	(Pigeonhole Principle) If \( k+1 \) pigeons nest on \( k \) pigeonholes, then at least one pigeonhole must have more than one pigeon. 
+\end{theorem}
+
+\begin{eg}
+	There are 56 students in this class. Prove that at least two of them will have birthdays on the same month of the year. 
+\end{eg}
+
+Let the students be the pigeons, and the months of the year be the pigeonholes. We have 56 > 13 > 12, such that by the pigeonhole principle, at least two students with share the same birthday month.
+
+\begin{theorem}
+	(Generalized Pigeonhole Principle) If \( N \) pigeons nest on \( k \) pigeonholes, then at least one pigeonhole must have at least \( \left\lceil \frac{N}{k} \right\rceil \) pigeons. 
+\end{theorem}
+
+\begin{eg}
+	In some CS2051 class, final letter grades are from the set \( \{A,B,C,D,F\}   \). What's the minimum number of students to guarantee:
+	\begin{itemize}
+		\item 10 students will get the same grade?
+			We need \( N \) such that \( \left\lceil \frac{N}{k} \right\rceil \ge 10 \) for \( k=5=|\{A,B,C,D,F\} |  \). The minimum such \( N=(\text{Ans}-1)\cdot k + 1 = 46\).
+		\item 3 students will get an \( A \)? There is no minimum number of students that will guarantee this. 
+	\end{itemize}
+	This example will be on the HW!
+\end{eg}
+
+\begin{eg}
+	Show that every natural number \( n > 0 \) has a multiple whose decimal expansion is made of 1's and 0's only. 
+\end{eg}
+
+Note that for any \( n \), we will have \( n \) possible remainders. These possible remainders will be the pigeonholes. Consider the infinite set of numbers \( \{1,11,111,1111,\ldots \}   \). By the pigeonhole principle, there are two numbers in this set \( a>b \), such that \( a \equiv b \pmod{n} \) (they are in the same pigeonhole). If \( a = 111\ldots 1 \) and \( b=11\ldots 1 \). Then, \( a-b = 111\ldots 10\ldots 000 \) is a multiple of \( n \).
+
+\begin{eg}
+	You choose \( n+1 \) numbers from the set \( \{1,2,3,\ldots 2n\}   \). Show that there is a pair of numbers \( a<b \) such that \( a|b \).
+\end{eg}
+
+Consider the odd part of a number \( k \). If \( 1 \le k\le 2n \)< then its odd part is in the set \( \{1,3,5,7,\ldots 2n-1\}   \), which has cardinality \( n \)! By the pigeonhole principle, at least two numbers \( a,b \) have the same odd part. Write \[
+	a = 2^\alpha \cdot p \qquad b = 2^{\beta }   \cdot p
+.\] Because \( a < b \), \( \alpha <\beta  \) such that \( a | b \).
+
+\begin{eg}
+	Five points are placed inside a equare of side 2. Show that there are two points at a distance at most \( \sqrt{2}  \).
+\end{eg}
+
+We can break the square into 4 squares of side 1, which means two points must go inside one box. Therefore, these two points are at most \(\sqrt{2}\) away from each other.
+
+\begin{eg}
+	Color the plane using three colors. Show that there are two points of the same color separated by an integer distance.
+\end{eg}
+
+Consider a rectangle on the plane with side lengths 3 and 4. Then, it's diagonal is of length 5. Because there are 3 colors, 2 of 4 of the corners must be colored the same color. Then, the distance between these 2 colors is an integer distance.
+
+\exercise{1}
+Show that for all \( n \in \mathbb{N} > 0 \), there exists a power of 2 such that the first digits are those of \( n \).

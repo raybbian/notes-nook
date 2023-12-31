@@ -1,0 +1,90 @@
+\lecture{21}{Fri 13 Oct 2023 14:03}{Graph Coloring}
+
+\subsection{Graph Coloring}
+
+Another property of graphs.
+
+\begin{definition}
+	A proper \( k \)\textbf{-coloring} of a graph \( G \) is an assignment of labels ("colors") from an \( k \)-element set to the vertices of \( G \) such that adjacent vertices are assigned different labels.
+\end{definition}
+
+\begin{definition}
+	The \textbf{chromatic number} of \( G \), denoted \( \chi(G) \), is the minimum \( k \) such that \( G \) has a proper \( k \)-coloring.
+\end{definition}
+
+\begin{note}
+	If \( G \) has \( n \) vertices, then \( \chi(G) \le n \).
+\end{note}
+
+\begin{notation}
+	\( C_n \) denotes the \( n \)-cycle.
+\end{notation}
+
+\begin{eg}
+	\( \chi(C_n) = 2\) if \( n \) is even, and \( \chi(C_n) = 3 \) if \( n \) is odd.
+\end{eg}
+
+\begin{eg}
+	\( \chi(\text{tree}) = 2 \) if there are at least two vertices.
+\end{eg}
+
+\begin{note}
+	In a proper coloring, vertices of the same color form an independent set. In other words, \( \chi(G) \) is the minimum \( k \) such that it is possible to partition \( V(G) \) into \( k \) independent sets.
+\end{note}
+
+Why is coloring useful?
+\begin{itemize}
+	\item It's fun. 
+	\item Practical uses, e.g. scheduling problems and register allocation (in compilers), radio bandwidth allocation, etc.
+	\item It is a useful auxiliary tool for other problems, e.g. an algorithm that may process one independent set in a graph at a time.
+	\item It can capture in a single number some complex structural information about a graph.
+\end{itemize}
+
+\begin{eg}
+	You are trying to assign a set of jobs \( J_{1}, J_2, \ldots , J_n \) into time slots, where some jobs conflict with each other and can't be assigned to the same time slot (if they use the same equipment). Define a graph \( G \colon V(G) = \{J_{1}, J_{2},\ldots , J_n \}   \) where edges are inserted between every conflicting job. Then, we know that every valid time slot assignment is a proper coloring of \( G \). Note that \( \chi (G) \) is the minimum number of time slots required to complete all jobs.
+\end{eg}
+
+\begin{definition}
+	\( G \) is \textbf{bipartite} if \( \chi(G) \le 2 \).
+\end{definition}
+
+\begin{theorem}
+	\( G \) is bipartite if and only if \( G \) has no odd cycles.
+\end{theorem}
+
+If \( \chi(G) \ge 3 \) is because there are cycles of odd length, then what makes \( \chi (G) \) large?
+
+\begin{definition}
+	\( \omega(G) \), the \textbf{clique number} of \( G \), is the maxmimum size of a clique in \( G \).
+\end{definition}
+
+\begin{property}
+	\( \chi(G) \ge \omega (G) \)
+\end{property}
+
+\begin{note}
+	We can also have \( \chi(G) > \omega (G) \): \( \chi (C_5) = 3\), but \( \omega (C_5) = 2\) (works for any cycle of odd length).
+\end{note}
+
+\begin{definition}
+	A graph \( G \) is \textbf{triangle-free} if there are no cliques of size 3 (which look like triangles) in \( G \).
+\end{definition}
+
+\begin{theorem}
+	For any \( k \in \mathbb{N} \), there is a graph \( G \) such that \( \chi (G) \ge k \) and \( \omega (G) = 2 \).
+\end{theorem}
+
+There are many proofs for this theorem. We will use the Blanche Descartes construction.
+
+\begin{note}
+	Blanche Descartes is the pen name of 4 undergrads at Cambridge in 1935. One of them was W. T. Tutte, who went on to become a founder of modern discrete math. He was also a codebreaker in World War 2.
+\end{note}
+
+\begin{proof}
+	Our plan is to start with a triangle-free graph \( G \) with \( \chi(G) = k \), and construct a triangle-free graph \( BD(G) \) with \( \chi (BG(G))= k+1 \). One way we could do this is by adding a vertex adjacent to every vertex in \( G \). However, a problem occurs: adding this vertex creates lots of triangles. \par
+	Instead, we can connect all vertices in \( G \) to separate other vertices, where all of those vertices need to have the same color. How do we do this? We use many copies of \( G \). \par
+	Let \( n \coloneq |V(G)| \), and \( k \coloneq \chi (G) \). Define \( N \coloneq k\cdot (n - 1) + 1 \). Define \( r \coloneq \binom{N}{n} \). Take a set of vertices \( X \) of size \( N \). List all \( n \)-element subsets of \( X \) as \( S_{1}, S_{2}, \ldots , S_r \). Let \( G_{1}, G_{2}, \ldots , G_r \) be copies of \( G \), disjoint from each other and from \( X \). Note that \( |V(G_i)| = n = |S_i| \) such that we can connect vertices in \( G_i \) to \( S_i \) by \( n \) disjoint edges. The resulting graph is \( BD(G) \).
+\end{proof}
+
+\exercise{1}
+What is \( BD(K_2) \)?

@@ -1,0 +1,53 @@
+\lecture{37}{Mon 27 Nov 2023 14:00}{Generating Functions}
+
+\section{Generating Functions}
+
+Solving combinatorial problems with algebra.
+
+\begin{definition}
+	Given a sequence of numbers \( a_{0},a_{1},a_{2},\ldots  \), its \textbf{generating function} is the series \[ a_{0}+a_{1}x+a_{2}x^2+a_{3}x^3 + \ldots = \sum_{k=0}^{\infty} a_kx^k .\]
+\end{definition}
+
+\begin{eg}
+	Consider the case where \( a_k = \binom{n}{k} \), where \( \binom{n}{k}=0 \) if \( k>n \).
+\end{eg}
+
+The generating function for this sequence is \[
+	\sum_{k=0}^{\infty} \binom{n}{k}x^k = \sum_{k=0}^{n} \binom{n}{k}x^k = (1+x)^n
+.\] 
+
+\begin{eg}
+	Consider the sequence \( 1,1,1,1,1,1,\ldots  \) (\( a_k =1\) for all \( k \)).
+\end{eg}
+
+The generating function is then \[
+	1 + x + x^2 + x^3 + \ldots = \sum_{k=0}^{\infty}x^k = \frac{1}{1-x}
+.\] 
+
+\begin{note}
+	This is because
+	\begin{align*}
+		\left( \sum_{k=0}^{\infty}x^k  \right)(1-x) &= (1 + x + x^2 + \ldots )(1 - x) \\
+		&= 1 + x + x^2 + \ldots - x - x^2 - x^3 - \ldots \\
+		&= 1
+	.\end{align*}
+	for \( |x|<1 \) (We need to make sure the series actually converges, first).
+\end{note}
+
+There are two ways to deal with these convergence issues:
+\begin{enumerate}
+	\item When dealing with generating functions, all equalities are assumed to hold for \( x \) sufficiently close to 0 (when all the relevant series do converge). This is sufficient for the purposes of this course.
+	\item Restrict ourselves to ``formal manipulations'' of algebraic expressions. This is more rigorous, but more complicated and needs a background in Abstract Algebra. Roughly, this means we can add, multiply, etc. generating functions term-by-term without worrying about convergence.
+\end{enumerate}
+
+\begin{eg}
+	\[
+		\sum_{k=0}^{\infty} a_kx^k + \sum_{k=0}^{\infty} b_kx^k = \sum_{k=0}^{\infty} (a_k + b_k)x^k
+	.\] 
+\end{eg}
+
+\begin{eg}
+	\[
+		\sum_{k=0}^{\infty} a_kx^k \cdot \sum_{k=0}^{\infty} b_kx^k = \sum_{k=0}^{\infty} \left( \sum_{j=0}^{k}a_j b_{k-j}  \right) x^k
+	.\] 
+\end{eg}

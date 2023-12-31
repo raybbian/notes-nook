@@ -1,0 +1,94 @@
+\lecture{32}{Fri 10 Nov 2023 14:05}{More Posets}
+
+Continuing with the proof from last time:
+
+\begin{proof}
+	We know the first \( k \) elements in \( \pi  \) must be equal to \( A \), such that we have \( (n-k)! \) ways to order the rest of the elements. There is also \( k! \) factorial ways to order the first \( k \) elements, because \( A \) is a set and doesn't care about order! Therefore, the answer to our subproblem (inner sum) is \( k!\cdot (n-k)! = \frac{n!}{\binom{n}{k}} \ge \frac{n!}{\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}}\). Then, we have \[
+		\sum_{A \in \mathcal{A}} \frac{n!}{\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}} = |A| \cdot \frac{n!}{\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}} \le (*) \le n!
+	.\] Dividing on \( n! \) on both sides, and multiplying by \( \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \), we havae \( |A| \le \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \), as desired.
+\end{proof}
+
+\subsection{Maximal vs Maximum Elements}
+
+Some more definitions:
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. An element \( x \in X \) is \textbf{maximal} if there is no \( y \in X \) such that \( x<y \).
+\end{definition}
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. An element \( x \in X \) is \textbf{maxmimum} if for all \( y \in X \), \( y \le x \).
+\end{definition}
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. An element \( x \in X \) is \textbf{minimal} if there is no \( y \in X \) such that \( x>y \).
+\end{definition}
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. An element \( x \in X \) is \textbf{minimum} if for all \( y \in X \), \( y \ge x \).
+\end{definition}
+
+\begin{note}
+	If an element is a maximum, every element is comparable to it and it is greater than all other such elements. 
+\end{note}
+
+\begin{note}
+	There can be be at most 1 maxmimum element, but multiple maximal elements. Also, there can be at most 1 minimum element, but multiple minimal elements.
+\end{note}
+
+\begin{note}
+	The poset with two incomparable elements is an example of a poset with no maximum or minimum element!
+\end{note}
+
+\begin{eg}
+	\( (\mathbb{N}, \le ) \) and \( (\varnothing, \varnothing) \) are posets with no maximal elements.
+\end{eg}
+
+\begin{prop}
+	A non-empty finite poset has a maximal element.
+\end{prop}
+
+\begin{proof}
+	Suppose, for the sake of contradiction, that there is no maximal element. Since \( X \neq \varnothing \), we can take some \( x_{0} \in X\). By assumption, \( x_{0} \) is not maximal, so there is some \( x_{1}\in X \) such that \( x_{0}<x_{1} \). \( x_{1} \) is also not maximal, so there is some \( x_{2} \in X \) such that \( x_{1}<x_{2} \), etc. This is a contradiction, because our set is finite!
+\end{proof}
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. Define \[
+		\chi_c(X) = \text{minimum } k \text{ such that } X \text{ can be partitioned into } k \text{ chains}
+	.\] 
+\end{definition}
+
+\begin{note}
+	In other words, this is the minimum \( k \) such that \( X \) can be colored with \( k \) colors such that elements of the same color are comparable.
+\end{note}
+
+\begin{definition}
+	Let \( (X,\le ) \) be a poset. Define \[
+		\chi_a(X) = \text{minimum } k \text{ such that } X \text{ can be partitioned into } k \text{ antichains}
+	.\] 
+\end{definition}
+
+\begin{eg}
+	For the poset \( X=([3],\subseteq) \), what is \( \chi_c \) and \( \chi_a \)? 
+\end{eg}
+
+We know that \( \chi_c \le 3 \) by example. We know that \( \chi_c \ge 3 \) because there is an antichain of size 3, and each element in this antichain must be in different chains. Therefore, \( \chi_c = 3 \).
+
+Similarly, we know that \( \chi_a \le 4 \) by example. We also know that \( \chi_a \ge 4 \) because there is a chain of size 4, and each element in this chain must be in different antichains. Therefore, \( \chi_a = 4 \).
+
+\begin{note}
+	Just like we have \( \chi(G) \ge \omega(G) \) in a graph, for a poset \( (X, \le ) \), we can write \[
+		\chi_c(X) \ge \text{width}(X) \qquad \chi_a(X) > \text{height}(X)
+	.\] 
+\end{note}
+
+\begin{theorem}
+	(Dilworth) If \( (X, \le ) \) is a finite poset, then \( \chi_c(X) = \text{width of } (X,\le )\).
+\end{theorem}
+
+\begin{theorem}
+	(Dual Dilworth) If \( (X, \le ) \) is a finite poset, then \( \chi_a(X) = \text{height of } (X,\le )\).
+\end{theorem}
+
+\exercise{1}
+Show that if \( (X,\le ) \) is a finite poset and \( x \in X \) is any element, then there exists a minimal element \( m \in X \) and a maximal element in \( M \in X \) such that \( m \le x \le M \).

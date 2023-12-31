@@ -1,0 +1,86 @@
+\lecture{21}{Thu 09 Nov 2023 14:11}{Counting}
+
+\section{Counting}
+
+We can use the product rule for counting (when counting happens sequentially).
+
+\begin{eg}
+	Let a license plate be defined by 3 letters followed by 3 digits. How many possible license plates are there?
+\end{eg}
+
+We can choose 26 for the first letter, 26 for the second, and 26 for the third. Then, we can choose 10 for the first digit, 10 for the next, and 10 for the last. Therefore, our answer is \[
+	26\cdot 26\cdot 26\cdot 10\cdot 10\cdot 10=(260)^3
+.\] 
+
+\begin{eg}
+	Let \( |A|=n \), \( |B|=m \). How many functions are there such that \( f:A\to B \)?
+\end{eg}
+
+Every element in \( A \) can be mapped to an element in \( B \), such that there are \( m \) choices for all \( n \) elements. Then, the total number of functions is \( m^n\).
+
+\begin{eg}
+	Let \( |A|=n \), \( |B|=m \). How many functions \( f:A\to B \) are there such that \( f \) is onto?
+\end{eg}
+
+Note that \( a_{1} \) must be mapped to an element in \( B \). There are \( m \) choices to do so. Then, \( a_{2} \) must be mapped to an element in \( B \), not equal to \( f(a_{1}) \). There are \( m-1 \) choices to do so. Then, \( a_{3} \) must be mapped to an element in \( B \), not equal to \( f(a_{1}) \) and \( f(a_{2}) \). There are \( m-2 \) choices to do so. It follows that the total number of functions is \[
+	\begin{cases}
+		m(m-1)(m-2)\cdots(m-n+1)=(m)_n & m \ge n\\
+		0 & m < n
+	\end{cases}
+.\] 
+
+\begin{notation}
+	\( (m)_n = \frac{m!}{(m-n)!} = m(m-1)(m-2)\ldots (m-n+1)\) 
+\end{notation}
+
+We can use the sum rule to add together cases in counting:
+
+\begin{eg}
+	Count the number of passwords consisting of letters and digits, with length 8-10.
+\end{eg}
+
+We can count passwords of length 8, 9, and 10 separately. \[
+	36^8+36^9+36^{10}
+.\] 
+
+We can also use the subtraction rule! We can count the number of things that do not satisfy our condition, then subtract that number from the total number of things.
+
+\begin{eg}
+	Count the number of passwords with at least one digit.
+\end{eg}
+Note that if we naively fix the position of the digit, make it a digit, and fill the rest of the letters (with 36 options), then we will be over-counting passwords!
+
+Instead, we count the total number of passwords with no constraints, and subtract the number of passwords with no digits, yielding solution \[
+	36^8+36^9+36^{10} - (26^8+26^9+26^{10})
+.\] 
+
+\begin{notation}
+	We will define factorial (!) as \[
+		n! \coloneq \begin{cases}
+			1 & n=0\\
+			n(n-1)! & n>0
+		\end{cases}
+	.\]
+\end{notation}
+
+There is also a division rule, where we count every element exactly \( N \) times.
+
+\begin{definition}
+	\textbf{Permutations} count the number of something where order matters! It is written as \[
+		P(n,k)=\frac{n!}{(n-k)!}= \text{\# of ordered }k\text{-tuples from } n \text{ elements}
+	.\] 
+\end{definition}
+
+We derive this formula from the division rule: if we have a permutation of length \( n \) of \( n \) elements, we are counting the number of permutations of length \( k \) of \( n \) elements \( n-k \) times!
+
+\begin{definition}
+	\textbf{Combinations} count the number of something where order \textit{order doesn't matter}. It is written as \[
+		\binom{n}{k} = \frac{n!}{k!(n-k)!}
+	.\] 
+\end{definition}
+
+Note that permutations also counts this, but there are \( k! \) ways to order a combination. Therefore, we divide the number of permutations by \( k! \) to yield this amount.
+
+We can also use recursion for counting sets. Let \( 1,2,3,\ldots ,n \) be the elements we can choose from. We can add \( k \) to the number of sets of size \( n-1 \) without \( k \), of which there are \( \binom{n-1}{k-1} \) of them. We can add \( k \) to the number of sets of size \( n-1  \) with \( k \), of which there are \( \binom{n-1}{k} \) of them. Therefore, we have Pascal's identity: \[
+	\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}
+.\]

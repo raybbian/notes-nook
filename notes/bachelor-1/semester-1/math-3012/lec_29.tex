@@ -1,0 +1,76 @@
+\lecture{29}{Fri 03 Nov 2023 14:01}{Partial Orderings}
+
+What do we mean when we say that every equivalence relation arises in this way?
+
+\begin{definition}
+	Let \( E \) be an equivalence relation on a set \( X \). For each \( x \in X \), let \( \left[ x \right]_E = \left\{ y \in X \colon y ~E~ x \right\}  \). This subset is called the \textbf{equivalence class} of \( x \).
+\end{definition}
+
+\begin{definition}
+	The \textbf{quotient} of \( X \) by \( E \) is the set of all equivalence classes \( \frac{X}{E} \) defined by \( \{[x]_E \colon x \in X\}   \).
+\end{definition}
+
+\begin{eg}
+	Let \( X = \{0,1,2,\ldots ,20\}   \). Let \( E=\{(x,y) \in X^2 \colon x \text{ and } y \text{ have the same last digit}\}   \). Then, 
+	\begin{itemize}
+		\item \( [5]_E =  \{5,15\}   \).
+		\item \( [11]_E=\{1,11\}   \).
+		\item \( [0]_E=\{0,10,20\}   \).
+		\item \( [10]_E=\{0,10,20\}   =[20]_E\)!
+		\item \( \frac{X}{E}=\{[0]_E,[1]_E,[2]_E,\ldots ,[9]_E\} \).
+		\item \( |\frac{X}{E}|=10 \).
+	\end{itemize}
+	Note that we don't need to include \( [10]_E \) in \( \frac{X}{E} \) because the element is already listed!
+\end{eg}
+
+\begin{theorem}
+	If \( E \) is an equivalence relation on a set \( X \), then \( \frac{X}{E} \) is a partition of \( X \) and \( E=E_{\frac{X}{E}} \)
+\end{theorem}
+
+The moral of this is that equivalence relations and partitions are two different ways of describing the same structure.
+
+\begin{eg}
+	Let \( G \) be a graph, \( E=\{(u,v) \in V(G)^2 \colon \text{there is a } uv\text{-path in }G \} \) is an equivalence relation on \( V(G) \). The equivalence classes are the connected components of \( G \).
+\end{eg}
+
+\begin{definition}
+	A \textbf{partial order} on a set \( X \) is a relation that is reflextive, antisymmetric, and transitive.
+\end{definition}
+
+\begin{eg}
+	\( \le  \) and \( \ge  \) on \( \mathbb{N} \) or \( \mathbb{R} \) are partial orders.
+\end{eg}
+
+\begin{eg}
+	For any set \( X \), the relation \( \subseteq \) or (\( \supseteq \)) on \( \mathcal{P}(X) \) is a partial order.
+\end{eg}
+
+\begin{eg}
+	Consider the relation \( R \) on \( \mathbb{N}^2 \): \[
+		R \coloneq \{((n_{1},m_{1}),(n_{2},m_{2})) \in (\mathbb{N}^2)^2 \colon n_{1} \le  n_{2}, m_{1} \ge  m_{2}\}
+	.\] (Show that) this is a partial order on \( \mathbb{N}^2 \)
+\end{eg}
+
+\begin{definition}
+	A partially ordered set, or a \textbf{poset}, is a pair \( (X,R) \) where \( X  \) is a set and \( R \) is a partial order on \( X \).
+\end{definition}
+
+\begin{eg}
+	\( (P([3]),\subseteq) \) is a poset.
+\end{eg}
+
+\begin{definition}
+	Let \( (X,R) \) be a poset. We say that an element \( y \in X \) \textbf{covers} an element \( x \in X \) if (1) \( x\neq y \), (2) \( xRy \), and (3) there is no \( z \in X \) such that \( x\neq z \),\( y\neq z \), \( xRz \), and \( zRy \)
+\end{definition}
+
+\begin{definition}
+	A \textbf{Hasse Diagram} of \( (X,R) \) is a graph with vertex set \( X \) and an edges from \( x \) to \( y \) if \( y \) covers \( x \) with the extra condition that if \( y \) covers \( x \), then \( y  \) is drawn above \( x \).
+\end{definition}
+
+\exercise{1}
+How many equivalence relations/partitions are there on a set of size \( n \)?
+
+\exercise{2}
+Show that if \( R \) is a partial order, so is \[
+	R^* = \{(x,y) \in X^2 \colon yRx \} 
+.\] 

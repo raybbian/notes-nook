@@ -1,0 +1,49 @@
+\lecture{23}{Wed 18 Oct 2023 14:00}{Chromatic Numbers and Maximum Degrees}
+
+How is the chromatic number of a graph \( G \) related to the maximum degree of any vertex in \( G \)?
+
+\begin{definition}
+	\( \Delta (G) \) refers to the \textbf{maximum degree} of any vertex in \( G \).
+\end{definition}
+
+\begin{prop}
+	\( \chi(G) \le \Delta(G) + 1 \).
+\end{prop}
+
+\begin{proof}
+	We can use the greedy coloring algorithm. We color any vertex with the least available color in any order. For any vertex \( v \), we forbid at most \( \deg(v)	 \) colors. In other words, if we have \( \Delta(G) + 1 \) colors to use, there will always be one available color to color the vertex \( v \).
+\end{proof}
+
+\begin{note}
+	This is not necessarily a tight upper bound on \( \chi(G) \)!
+\end{note}
+
+\begin{theorem}
+	(Brooks) Let \( G \) be a connected graph. Then \( \chi(G) = \Delta(G) + 1 \) can only happen if \( G \) is complete, or an odd cycle.
+\end{theorem}
+
+We must ask ourselves again, when is this bound tight? If \( G \) is not complete or odd cycle, then when is \( \chi(G) = \Delta(G) \)?
+
+Take the graph consisting of five triangles in the shape of a pentagon, vertices of which are adjacent to all vertices in the neighboring triangles. This is a graph with \( \Delta = 8 \), \( \alpha =2 \), \( \chi \ge \frac{n}{\alpha } = \frac{15}{2} = 7.5 \). In other words, we have \( \chi \ge 8 \). From Brooks' theorem, we have \( \chi \le 8 \). Therefore, \( \chi =8 \).
+
+\begin{conjecture}
+	(Borodin-Kostochka) If \( \Delta(G) \ge 9 \), and \( G \) is not a complete graph, then \( \chi(G) \le  \triangle(G) - 1 \). 
+\end{conjecture}
+
+\begin{note}
+	This conjecture has been proved true for \( \Delta(G) \ge 10^{14} \)
+\end{note}
+
+\subsection{Planar Graphs}
+
+Remember that a tree is planar if it can be drawn in the plane without edges crossing.
+
+\begin{eg}
+	All trees are planar. \( K_4 \) is planar. \( K_5 \) is not planar. All cycles are planar.
+\end{eg}
+
+How would one prove that a certain graph is not planar?
+
+\begin{theorem}
+	(Euler) For any connected planar graph, we can count the number of regions the graph separates the plane into. Let \( n \) be the number of vertices, and \( m \) be the number of edges in such a graph. Let \( f \) be the number of regions the graph separates the plane into. Then, we have \( n - m + f = 2\).
+\end{theorem}

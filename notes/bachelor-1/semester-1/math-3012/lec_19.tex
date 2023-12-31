@@ -1,0 +1,94 @@
+\lecture{19}{Fri 06 Oct 2023 14:01}{Spanning Trees; Eulerian and Hamiltonian Graphs}
+
+Why does every connected graph have a spanning tree?
+\begin{proof}
+	If \( G \) is a tree, then \( G \) itself is the spanning tree. If \( G \) is not a tree, then it contains one or more cycles. It can be shown that deleting edges from any cycle removes the cycle, but maintains connectivity of the graph.
+\end{proof}
+
+There is another proof using extremal configurations:
+\begin{proof}
+	Let \( T \) be a connected spanning subgraph of \( G \) with the fewest edges.
+	\begin{note}
+		\( G \) itself is a connected spanning subgraph of \( G \). Therefore, there must exist \( T \) with the fewest edges.
+	\end{note}
+	\begin{remark}
+		This argument assumes \( G \) is finite (even though the fact holds true for infinitely connected graphs as well).
+	\end{remark}
+	We claim that \( T \) is a tree (as desired). We will proceed with proof by contradiction. Suppose that \( T \) is not a tree. Then, \( T \) has a cycle \( (x_{0}, x_{1}, \ldots , x_l = x_{0}) = C\). Let \( T' \) be the graph obtained from \( T \) by removing one of the edges of the cycle. The graph \( T' \) is connected as well. \par
+	For any \( u,v \in V(G) \), then, since \( T \) is connected, there is a \( uv \)-walk in \( T \). Then, by replacing the removed edge in this walk by the other edges of \( C \), there still remains a \( uv \)-walk in \( T' \). However, this is impossible as \( |E(T')| < |E(T)| \) \contra. We conclude that \( T \) is a spanning tree.
+\end{proof}
+
+\exercise{1}
+Let \( F \) be a spanning forest in \( G \) with the most edges. Show that \( F \) is a tree.
+
+\begin{corollary}
+	A connected graph with \( n \) vertices has at least \( n-1 \) edges.
+\end{corollary}
+
+\subsection{Eulerian and Hamiltonian Graphs}
+
+Let \( G \) be a connected graph.
+\begin{definition}
+	A closed walk in a graph \( G \) is a walk that starts and ends at the same vertex (e.g. a cycle).
+\end{definition}
+
+\begin{definition}
+	An \textbf{Euler circuit} in \( G \) is a closed walk that uses every edge exactly once.
+\end{definition}
+
+\begin{definition}
+	\( G \) is \textbf{Eulerian} if it has an Euler circuit.
+\end{definition}
+
+\begin{definition}
+	A \textbf{Hamiltonian cycle} in \( G \) is a cycle that uses every vertex exactly once.
+\end{definition}
+
+\begin{definition}
+	\( G \) is \textbf{Hamiltonian} if it has a Hamiltonian cycle.
+\end{definition}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{example-graphs}
+    \caption{Eulerian and Hamiltonian Graph}
+    \label{fig:example-graphs}
+\end{figure}
+
+This graph is Eulerian because it conains an Euler circuit: \( (1, 2, 4, 5, 2, 3, 5, 6, 3, 1, 6, 4, 1) \). This graph is also Hamiltonian because it contains a Hamiltonian Cycle: \( (1, 4, 5, 6, 3, 2, 1) \).
+
+\begin{definition}
+	A graph is \textbf{even} if every vertex has even degree.
+\end{definition}
+
+\begin{observe}
+	For a graph to be Eulerian, it must be even. This is because an Euler circuit enters and leaves each vertex the same number of times.
+\end{observe}
+
+\begin{definition}
+	A \textbf{trail} is a walk that uses each edge at most once.
+\end{definition}
+
+\begin{lemma}
+	If \( G \) is an even graph, and \( v \in  V(G) \) is a vertex of degree greater than 0, then there is a closed trail of positive length in \( G \) starting and ending at \( v \).
+\end{lemma}
+
+\begin{proof}
+	Let \( T = (v=x_{0}, x_{1}, x_{2}, \ldots , x_L)\) be a trail starting at \( v \) of maximum length.
+	\begin{note}
+		\( L \ge 1 \) because \( \deg_G(v)>0 \).
+	\end{note}
+	We want to argue that \( T \) is closed (\( x_L=v \)). Suppose that this is not the case. Then, the trail \( T \) enters \( x_L \) \( k \) times and leaves it \( k-1 \) times, for some \( k\ge 1 \). In total, \( T \) uses \( k + (k-1)=2k-1 \) edges incident to \( x_L \). But \( \deg_G(x_L) \) must be even, so there is an unused edge, say \( x_Ly \) incident to \( x_L \) \contra. This is impossible because \( v=x_{0}, x_{1}, \ldots , x_L, y \) would be a longer trail starting at \( v \).
+\end{proof}
+
+\begin{theorem}
+	A connected even graph is Eulerian (Euler).
+\end{theorem}
+
+\begin{proof}
+	Next time!
+\end{proof}
+
+\begin{note}
+	Mathematicians like these theorems: ``obvious necessary condition is sufficient.''
+\end{note}

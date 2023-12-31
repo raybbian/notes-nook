@@ -1,0 +1,86 @@
+\lecture{15}{Thu 19 Oct 2023 14:02}{Induction Continued}
+
+\begin{eg}
+	Given \( \alpha  \in \mathbb{R} \), \( \alpha  >  0\), \( \alpha  \neq  1 \). Show that \[
+		1 + \alpha  + \alpha ^2 + \ldots + \alpha ^n = \frac{1-\alpha ^{n+1}}{1 - \alpha }
+	.\] 
+\end{eg}
+
+\begin{proof}
+	We will proceed with induction on \( n \).
+	\begin{description}
+		\item[Base case:] \( n = 0 \). Then, we have \[
+			1 = \alpha ^0 = \frac{1-\alpha ^{0+1}}{1-\alpha } = \frac{1-\alpha }{1-\alpha } = 1
+		.\] 
+		\item[Step:] Assume that \[
+			1 + \alpha  + \alpha ^2 + \ldots  + \alpha ^k = \frac{1-\alpha ^{k+1}}{1-\alpha } \qquad \text{for some } k \ge 0
+		.\] From the assumption (inductive hypothesis), we have 
+		\begin{align*}
+			1 + \alpha  + \alpha ^2 + \ldots  + a^{k+1} &= (1 + \alpha  + \alpha^2 + \ldots  + \alpha ^k) + \alpha^{k+1} \\
+																									&= \frac{1-\alpha ^{k+1}}{1-\alpha } + \alpha ^{k+1} \\
+																									&= \frac{1-\alpha ^{k+1} + (1-\alpha )\alpha ^{k+1}}{1-\alpha } \\
+																									&= \frac{1-\alpha ^{k+1} + \alpha ^{k+1} - \alpha ^{k+2}}{1-\alpha } \\
+																									&= \frac{1-\alpha ^{(k+1) + 1}}{1-\alpha }
+		.\end{align*}
+		which was what we wanted.
+	\end{description}
+\end{proof}
+
+\begin{eg}
+	Show that for every \( n \in \mathbb{N} \), \( n \ge 1 \), 21 divides \( 4^{n+1} + 5^{2n-1} \).
+\end{eg}
+
+\begin{proof}
+	We will proceed with induction on \( n \). Let \( P(n) \) be the statement that \( 21 \mid 4^{n+1} + 5^{2n-1} \). We wish to prove that \( P(n) \) is true for every \( n \in \mathbb{N} \), \( n \ge 1 \).
+	\begin{description}
+		\item[Base case:] \( n = 1 \). Then, we have \[
+				4^1+5^{2 \cdot 1 - 1} = 4^2 + 5 = 9 = 21
+		.\] 
+		\item[Step:] We assume \( P(k) \) is true for \( k \ge 1 \). We wish to show that \( P(k+1) \) is true as well. In other words, we wish to show that 21 divides \[
+			4^{(k+1)+1} + 5^{2(k+1)-1}
+		.\] We have:
+		\begin{align*}
+			4^{(k+1)+1} + 5^{2(k+1)-1} &= 4 \cdot 4^{k+1} + 5^2 \cdot 5^{2k-1} \\
+																	&= 4 \cdot 4^{k+1} + 25 \cdot 5^{2k-1} \\
+																	&= 4 \cdot 4^{k+1} + (21 + 4) \cdot 5^{2k-1} \\
+																	&= 4 \cdot 4^{k+1} + 21 \cdot 5^{2k-1} + 4 \cdot 5^{2k-1} \\
+																	&= 4 \cdot \left( 4^{k+1} + 5^{2k-1}\right) + 21 \cdot 5^{2k-1}
+		.\end{align*}
+		Then, from our assumption, we have 
+		\begin{align*}
+			4^{(k+1)+1} + 5^{2(k+1)-1}  &= 4 \cdot 21\cdot q + 21 \cdot 5^{2k-1}  \\
+																	&= 21 \cdot (4q + 5^{2k-1})
+		.\end{align*}
+		By definition, this means that 21 divides \( 4^{(k+1)+1} + 5^{2(k+1)-1} \), or \( P(k+1) \) is true, which was what we wanted.
+	\end{description}
+\end{proof}
+
+\begin{eg}
+	Given a complete set of triominoes, we want to tile an \( n\times n \) board. 
+	\begin{observe}
+		The board cannot be tiled if \( n \) is not divisible by 3, because \( n^2 \) must be divisible by 3 for the board to be tiled.
+	\end{observe}
+	We want to show that we can tile any \( n \times n \) board with top left corner removed if \( n \) is a power of 2.
+\end{eg}
+
+\begin{proof}
+	We will proceed with induction on \( n \).
+	\begin{description}
+		\item[Base case:] \( n = 1 \). It is clear that we can fit a triomino in the 3 squares of the board.	
+		\item[Step:] \( n > 1 \). We assume it is possible to tile some \( 2^k \times 2^k \) board with top left corner removed. We wish to show that it is possible to tile the \( 2^{k+1} \times 2^{k+1}   \) board with top left corner removed as well. Here \( k \in \mathbb{N} \), \( k \ge 1 \). By partitioning the board into 4 smaller squares, we can apply our assumption to tile the entire board (see figure below).
+	\end{description}
+\end{proof}
+
+\begin{figure}[H]
+    \centering
+    \incfig{triomino-tiling}
+    \caption{Triomino Tiling}
+    \label{fig:triomino-tiling}
+\end{figure}
+
+\begin{eg}
+	We have a group of  \( N \) people. One person is a celebrity if everybody knows that person \textbf{and} that person knows no one.
+\end{eg}
+
+\exercise{1}
+Is \( 4^n - 1 \) a multiple of 3?

@@ -1,0 +1,17 @@
+\lecture{27}{Wed 01 Nov 2023 15:32}{Pattern Matching Continued}
+
+\subsubsection{Runtime}
+
+The worst case runtime is \( O(mn) \). The best case for finding a single occurence is \( O(m) \). The best case for failing to find an occurence or finding all occurences is \( O(\frac{n}{m}) \). However, be careful that building the lookup table takes \( O(m) \) time, so technically our best case runtime for these two cases is \( O(\frac{n}{m} +m) \).
+
+\begin{note}
+	We should use Boyer-Moore whenever the text has characters not in the pattern. This is more likely as the alphabet grows, so it is better for larger alphabets. 
+\end{note}
+
+Traditional Boyer-Moore includes a good suffix rule, which improves big O runtime, but doesn't really speed up runtime in real life scenarios. It is also quite similar to KMP, but we will not cover it.
+
+\subsection{Knuth-Morris-Pratt}
+
+What is the longest word that you can think of which has no repeated letters? Demographic.
+
+Note that when we try to find pattern	``demographic'' in a text, we can shift, no matter what, the d all the way to under the c. However, if there are repeated patterns, we can shift the word to align with another pattern to save work. That is the core idea of KMP.

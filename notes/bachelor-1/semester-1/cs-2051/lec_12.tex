@@ -1,0 +1,91 @@
+\lecture{12}{Thu 05 Oct 2023 13:35}{Properties of Countable Sets; Cantor's Diagonalization Argument}
+
+Continuing on from last time, we also have that \( \mathbb{Z} \) is countable as well.
+
+\begin{theorem}
+	\( \mathbb{Z} \) is countable.
+\end{theorem}
+\begin{proof}
+	Construct \( f \colon \mathbb{Z} \to  \mathbb{N} \). Define:
+	\[
+		f(n) = \begin{cases}
+			0 & n = 0 \\
+			2n & n > 0 \\
+			-2n + 1 & n < 0
+		\end{cases}
+	.\] We wish to prove that \( \forall x,y (x \neq  y \implies f(x) \neq  f(y)) \). Proceeding by contraposition, given \( f(n)=f(m) \), we have the following cases:
+	\begin{description}
+		\item[Case 1:] \( n = 0 \). Then \( f(n) = 0 = f(m) \implies m = 0\).
+		\item[Case 2:] \( n > 0, m > 0 \). Then \( f(n) = 2n = f(m) = 2m \implies 2n = 2m \implies n = m \)
+		\item[Case 3:] \( n > 0, m < 0 \). Then \( f(n) \) is even and \( f(m) \) is odd \contra. Vacuously true.
+	\end{description}
+	The other cases are analogous!
+\end{proof}
+
+\begin{property}
+	Let \( A,B \) be countable sets. There are the following properties of countable sets:
+	\begin{itemize}
+		\item \( \{a\} \cup A  \) is countable.
+			\begin{proof}
+				We wish to find \( g \colon \{a\}  \cup  A \to \mathbb{N}  \). Construct \[
+					g(x) = \begin{cases}
+						0 & x = a \\
+						f(x) + 1 & x \in A
+					\end{cases}
+				.\] 		
+			\end{proof}
+		\item \( F \cup A \) is also countable for any finite set \( F \).
+		\item \( A \cup  B \) is also countable.
+		\item If \( f \colon S \to A \) is one-to-one and \( A \) is countable, then \( S \) is countable.
+		\item \( A \times B \) is countable.
+		\item \( S \subseteq A \) is countable.
+			\begin{proof}
+				Given \( f \colon A \to  \mathbb{N} \) is one-to-one, its restriction to \( S \) is also one-to-one.
+			\end{proof}
+		\item \( \mathbb{Q} \) is countable.
+			\begin{proof}
+				This is because \( \mathbb{Q} \subseteq \mathbb{Z} \times \mathbb{Z} \). 
+			\end{proof}
+	\end{itemize}
+\end{property}
+
+\subsection{Cantor's Diagonalization Argument}
+What about the real numbers?
+\begin{theorem}
+	\( \mathbb{R} \) is not countable (Cantor).
+\end{theorem}
+\begin{proof}
+	Prove instead that \( (0,1) \) (a subset of \( \mathbb{R} \)) is \textbf{not} countable. We will argue by contradiction. We assume that \( (0,1) \) is countable. Hence, there exists \[
+		f \colon (0,1) \to \mathbb{N} 
+	.\] shown below.
+
+	\begin{table}[H]
+		\caption{Our one-to-one mapping (pages of our book)}\label{tab:}
+		\begin{center}
+			\begin{tabular}[c]{|l|l|}
+				\hline
+				\multicolumn{1}{|c|}{\textbf{\( \mathbb{N} \)}} & 
+				\multicolumn{1}{c|}{\textbf{\( (0,1) \)}} \\
+				\hline
+				0 & \( 0.d_{11} d_{12} d_{13} d_{14} \ldots  \) \\
+				1 & \( 0.d_{21} d_{22} d_{23} d_{24} \ldots  \) \\
+				2 & \( 0.d_{31} d_{32} d_{33} d_{34} \ldots  \) \\
+				3 & \( 0.d_{41} d_{42} d_{43} d_{44} \ldots  \) \\
+				\vdots & \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+	Let's define \( b \in \mathbb{R} \) as follows: \[
+		b = 0.b_1b_2b_3b_4 \ldots
+	.\] where \[
+		b_i = \begin{cases}
+			3 & d_{ii} \neq 3 \\
+			0 & d_{ii} = 3
+		\end{cases}
+	.\] Then, we claim that \( f(b) \) is not well defined! In other words, there should exist \( k \in \mathbb{N}\) in our book such that \( f(b) = k \). However, we have constructed \( b \) such that \( b_k \neq d_{kk} \): there is no \( k \in \mathbb{N} \) that exists in our book \contra (\( b \) will always have one bit that is different from all entries in our mapping)!
+\end{proof}
+
+\exercise{1}
+Prove that \( |S| \neq |\mathcal{P}(S)| \).

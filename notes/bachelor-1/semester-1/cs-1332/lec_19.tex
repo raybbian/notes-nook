@@ -1,0 +1,56 @@
+\lecture{19}{Wed 11 Oct 2023 15:31}{2-4 Trees}
+
+\section{2-4 Trees}
+
+Another \( O(\log n) \) data structure.
+\begin{definition}
+	A \textbf{perfect} binary search tree is a full binary search tree where all leaves are at the same depth.
+\end{definition}
+
+We maintain the perfect shape for any operation on a 2-4 tree. However, this means that they can only have 1, 3, 7, 15, 31 nodes, etc. Our solution is to add multiple data items to each node.
+
+\begin{property}
+	Every node has 1-3 data items, and 2-4 children. Every internal node always has one more child than the number of data items.
+\end{property}
+
+\begin{note}
+	Note that 2-4 trees are not binary trees.
+\end{note}
+
+\begin{property}
+	Let \( d_{1}, d_{2}, d_{3} \) be the data in the node, and \( t_{1}, t_{2}, t_{3}, t_{4} \) be the data of the children.
+	\begin{itemize}
+		\item The data in each node must be sorted (\( d_{1} < d_{2} < d_{3} \)).
+		\item The data of each children must be sorted between the node's data: \( t_{1} < d_{1} \), \( d_{1} < t_{2} < d_{2} \), \( d_{2} < t_{3} < d_{3} \), \( d_{3} < t_{4} \).
+	\end{itemize}
+\end{property}
+
+\subsection{Operations}
+
+\subsubsection{Contains}
+Very similar to a binary search tree.
+
+\begin{algorithm}[H]
+	\caption{Contains}
+	\uIf{data < \( d_{1} \)}{
+		explore \( t_{1} \)\;
+	}\uElseIf{data < \( d_{2} \)}{
+		explore \( t_{2} \)\;
+	}\uElseIf{data < \( d_{3} \)}{
+		explore \( t_3 \)\;
+	}\Else{
+		explore \( t_{4} \)\;
+	}
+\end{algorithm}
+
+\subsubsection{Add}
+A little bit harder. We must maintain the property that all leaves have the same height. We use the same logic as the contains algorithm, and add it to the node. \par
+If there are already three data items in the leaf (overflow), we solve it with a process called promotion. We push one data item into the parent (either \( d_{2},d_{3} \)), and split the rest of the data into two leaves around the promoted data. \par
+If the parent is now too full, repeat the process again. If the root is too full, then the promoted data becomes the new root, and the root splits into two children.
+
+\subsubsection{Remove}
+There are several cases to consider:
+\begin{description}
+	\item[Case 1:] Removing from a leaf with 2 or 3 data items. This case is very easy, as we just remove the data from the leaf.
+	\item[Case 2:] Removing from an internal node. This case is simple as well, as we maintain the structure of the tree, replacing the data with its predecessor or successor. Because the predecessor or successor is always in a leaf, we can use Case 1, 3 or 4 to remove the predecessor or successor.
+\end{description}

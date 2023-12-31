@@ -1,0 +1,91 @@
+\lecture{28}{Wed 01 Nov 2023 14:00}{Relations Continued}
+
+\begin{eg}
+	\( \le  \) is...
+\end{eg}
+
+\begin{itemize}
+	\item reflexive because \( x\le x \) for all \( x \in \mathbb{N} \).
+	\item not symmetric because \( 1 \le 2 \) but \( 2 \not\le 1 \).
+	\item not asymmetric because \( 1 \le 1 \).
+	\item antisymmetric because \( x \le y \) and \( y \le x \) implies \( x = y \).
+	\item transitive because \( x \le y \) and \( y \le z \) implies \( x \le z \).
+\end{itemize}
+
+\begin{eg}
+	< is...
+\end{eg}
+
+\begin{itemize}
+	\item irreflexive because \( x < x \) is false for all \( x \in \mathbb{N} \).
+	\item asymmetric because \( x < y \) implies \( y \not< x \).
+	\item antisymmetric because the conditional is vacuously true.
+	\item transitive because \( x < y \) and \( y < z \) implies \( x < z \).
+\end{itemize}
+
+\begin{eg}
+	= is reflexive, symmetric, transitive, and antisymmetric.
+\end{eg}
+
+\begin{eg}
+	``\( x + y \) is even'' is reflexive, symmetric, and transitive.
+\end{eg}
+
+\begin{eg}
+	``\( x+y \) is odd'' is irreflexive and symmetric.
+\end{eg}
+
+\begin{eg}
+	``\( x \) and \( y \) have the same last digit'' is reflexive, symmetric, and transitive.
+\end{eg}
+
+\begin{definition}
+	An \textbf{equivalence relation} is a relation that is reflexive, symmetric, and transitive.
+\end{definition}
+
+\begin{eg}
+	Let \( X=\{\text{all triangles in } \mathbb{R}^2\}   \). Let \( \mathcal{R} = \{(T_{1},T_{2})\in X^2 \colon T_{1} \text{ and } T_{2} \text{ are congruent}\)\} is an example of an equivalnce relation.
+\end{eg}
+
+\begin{eg}
+	Let \( G \) be a graph. Let \( \mathcal{R}= \{(u,v) \in V(G)^2 \colon \text{there is a } uv\text{-path in } G  \)\}.
+\end{eg}
+
+This example is transitive because if \( (u,v) \in \mathcal{R} \) and \( (v,w) \in \mathcal{R} \) (there is a \( uv \)-path \( P_{1} \) and a \( vw \)-path \( P_{2} \)), then by putting \( P_{1}  \) and \( P_{2} \) together we get a \( uw \)-walk. We know that if there is a \( uw \)-walk, then there must be a \( uw \)-path, as desired.
+
+\begin{eg}
+	For any set \( X \), \( X^2 \) is an equivalence relation.
+\end{eg}
+
+\begin{note}
+	The empty relation on \( X \) is not an equivalence relation, because nothing in \( X \) is related to itself (unless, of course, \( X \) is the empty set).
+\end{note}
+
+\begin{definition}
+	A \textbf{partition} of a set \( X \) is a set \( P \) such that every element of \( P \) is a non-empty subset of \( X \), the union of all of sets in \( P \) is \( X \), and the sets in \( P \) are pairwise disjoint. 
+\end{definition}
+
+\begin{eg}
+	Let \( X=\{1,2,3,4,5,6\}   \). Then, \( P = \{\{1,2,3\}, \{4\}, \{5,6\}    \}   \) is a valid partition of \( X \).
+\end{eg}
+
+Given a partition \( P \) of \( X \), define a relation \( E_p \) on \( X \) as follows: \[
+	E_p \coloneq \{(x,y)\in X^2 \colon x,y \text{ are in the same set in } P\}  
+.\] 
+
+\begin{eg}
+	Let \( X=\{1,2,3,4\}   \), \( P=\{\{1,2\} ,\{3,4\}   \}   \). Then, \[ E_p=\{(1,1),(1,2),(2,2),(2,1),(3,3),(3,4),(4,4),(4,3)\}   .\]
+\end{eg}
+
+\begin{property}
+	\( E_p \) is an equivalence relation on \( X \) (In our homework!).
+\end{property}
+
+It turns out that \emph{every} equivalence relation arises in this way.
+
+\exercise{1}
+Prove that the relation \( x-y \in \mathbb{Z} \) on \( \mathbb{R} \) is an equivalence relaion.
+
+\exercise{2}
+What are the partitions of the empty set?
+

@@ -1,0 +1,88 @@
+\lecture{34}{Wed 15 Nov 2023 14:01}{Dilworth's Theorem Continued}
+
+Continuing from last time with the proof of Dilworth's theorem:
+
+\begin{proof}
+	Suppose we arrive at a case where every antichain \( A \) of size \( k \) is the set of minimal or maximal elements. Pick a minimal elements in \( m \in X \), and a maximal element \( M \) such that \( m\le M \). We can do this because we have shown every finite non-empty set has a minimal and maximal element. Let \( X' = X \setminus  \{m,M\}   \). Note that \( |X'| < n \).
+	\begin{observe}
+		The width of \( (X',\le ) \) is \( < k \). This is because every antichain of size \( k \) in \( X \) must contain either \( m \) or \( M \).
+	\end{observe}
+	By the inductive hypothesis, \( X' \) can be partitioned into \( k-1 \) chains, say \( C_{1},C_{2},\ldots ,C_{k-1} \). But \( \{m, M\}  \) is also a chain, as \( m\le M \). Therefore, \( C_{1},C_{2},\ldots ,C_{k-1},\{m,M\}   \) are \( k \) chains that partition \( X \), as desired.
+\end{proof}
+
+\begin{note}
+	If we want to know more, look up ``perfect graphs''.
+\end{note}
+
+\section{Inclusion Exclusion}
+
+This is another method that we can use to count things.
+
+\begin{eg}
+	There are 70 students in a class, and 10 failed a midterm. How many didn't fail a midterm?
+\end{eg}
+
+70 - 10 = 60.
+
+\begin{eg}
+	What if there are 2 midterms, and 10 students failed the first midterm, and 15 failed the second midterm. How many didn't fail either?
+\end{eg}
+
+The naive solution = 45 = 70 - 10 - 15. However, some students may have failed twice! Therefore, we need to know how many students failed both.
+
+\begin{eg}
+	What if there are 2 midterms, and 10 students failed the first midterm, 15 failed the second midterm, and 5 failed both. How many didn't fail either?
+\end{eg}
+
+70 - 10 - 15 + 5 = 50.
+
+\begin{eg}
+	What about 3 midterms?
+\end{eg}
+
+Then, the number of students who didn't fail any midterms is 
+\begin{align*}
+	&= \text{total} - \text{failed M1} - \text{failed M2} - \text{failed M3} \\
+	&+ \text{failed M1 and M2} + \text{failed M2 and M3} + \text{failed M1 and M3} \\
+	&- \text{failed M1 and M2 and M3}
+.\end{align*}
+
+Do you start to see a pattern here? In general, if \( X \) is a finite set, with \( A,B,C \subseteq X \),
+\begin{align*}
+	|X \setminus A| &= |X| - |A| \\
+	|X \setminus (A \cup B)| &= |X| - |A| - |B| + |A \cap B| \\
+	|X \setminus (A \cup B \cup C)| &= |X| - |A| - |B| - |C|  + |A \cap B| + |A \cap C| + |B \cap C| - |A \cap B \cap C|
+.\end{align*}
+
+\begin{notation}
+	For \( S \subseteq [k] \), 
+	\begin{align*}
+		N(S) &= \text{the number of elements } x \in  X \text{ that belong to all sets } A_i \text{ with } i \in S \\
+									&= \left| \bigcap_{i \in S} A_{i} \right| 
+	.\end{align*}
+\end{notation}
+
+\begin{eg}
+	\( N(\{1,3\}  ) = |A_{1} \cap A_3|\)
+\end{eg}
+
+\begin{eg}
+	\( N(\varnothing) = |X| \)
+\end{eg}
+
+\begin{theorem}
+	(Inclusion Exclusion Principle) Let \( X \) be a finite set, with some subsets \( A_{1},A_{2},\ldots ,A_k \subseteq X \). Then, \[
+		\left|X \setminus \bigcup_{i=1}^{k} A_{i}\right| = \sum_{S \subseteq [k] } (-1)^{|S|} N(S)
+	.\] 
+\end{theorem}
+
+\begin{eg}
+	When \( k=3 \),  
+	\begin{align*}
+		\sum_{S \subseteq [3] } (-1)^{|S|} N(S) &= N(\varnothing) - N(\{1\} ) - N(\{2\} ) - N(\{3\} ) \\
+																																				&= (-1)^0|X| \\
+																																				&+ (-1)^1|A_{1}| + (-1)^1|A_{2}| + (-1)^1|A_{3}| \\
+																																				&+ (-1)^2|A_{1} \cap A_2| + (-1)^2|A_{1} \cap A_3| + (-1)^2|A_{2} \cap A_3| \\
+																																				&+ (-1)^3|A_{1} \cap A_2 \cap A_3|
+	.\end{align*}
+\end{eg}

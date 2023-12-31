@@ -1,0 +1,115 @@
+\lecture{28}{Fri 03 Nov 2023 15:31}{KMP Continued}
+
+Depending on which letter we failed on when checking the pattern, we can shift by a predetermined amount. Note that we keep track of \( j - \text{shift} - 1 \) (\( j \) is index of pattern) and insert this value into the failure table into \( j-1 \), as this is the number of characters in our pattern that are already matched for the next iteration of the algorithm.
+
+How do we get the failure table? We need to know how much of the beginning matches the end, i.e. is there a matching prefix/suffix? More formally, the failure table at \( j \) is the length of the longest string which is both a prefix of the pattern and a proper suffix of \( p[0\ldots 1] \).
+
+\begin{eg}
+	Let the pattern be ``axabaxax''. The failure table is as follows:
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Prefix} & \textbf{Longest Prefix/Suffix} \\
+			\hline
+			a & 0 \\
+			ax & 0 \\
+			axa & 1 \\
+			axab & 0 \\
+			axaba & 1 \\
+			axabax & 2 \\
+			axabaxa & 3 \\
+			axabaxax & 2 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{eg}
+
+\begin{eg}
+	Let the pattern be ``eminem''. The failure table is as follows:
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Prefix} & \textbf{Longest Prefix/Suffix} \\
+			\hline
+			e & 0 \\
+			em & 0 \\
+			emi & 1 \\
+			emin & 0 \\
+			emine & 1 \\
+			eminem & 2 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{eg}
+
+\begin{eg}
+	Let the pattern be ``ababaab''. The failure table is as follows:
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Prefix} & \textbf{Longest Prefix/Suffix} \\
+			\hline
+			a & 0 \\
+			ab & 0 \\
+			aba & 1 \\
+			abab & 2 \\
+			ababa & 3 \\
+			ababaa & 1 \\
+			ababaab & 2 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{eg}
+
+\begin{eg}
+	Let the pattern be ``salsas''. The failure table is as follows:
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Prefix} & \textbf{Longest Prefix/Suffix} \\
+			\hline
+			s & 0 \\
+			sa & 0 \\
+			sal & 0 \\
+			sals & 1 \\
+			salsa & 2 \\
+			salsas & 1 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{eg}
+
+How do we run KMP?
+\begin{enumerate}
+	\item We iterate L to R through the pattern
+	\item If we fail at an index \( j \) (in the pattern), suppose \( FT[j-1]=k \).
+	\item If \( k > 0  \), we can save some matched characters, so we shift until \( k \) characters of the patterns still overlap with previous matched characters (i.e. shift by \( j - k + 1 \)). Note that we don't need to recompare these still overlapping characters!
+	\item If \( k=0 \), then there is no useful repetition. Therefore, we should align the pattern with the mismatched character.
+	\item If \( j=0 \), then we cannot access the failure table. Therefore, we should just shift by one.
+	\item If we have a complete match, use the last entry in the failure table (i.e. \( FT[m-1] \) where \( m \) is the length of the pattern).
+\end{enumerate}
+
+\begin{algorithm}[H]
+	\caption{Failure Table Generation}
+	\KwIn{Our pattern}
+	i = 0 \tcp*{prefix}
+	j = 1 \tcp*{suffix, also current ft entry index}
+	ft = int[len(pattern)]\;
+	ft[0] = 0\;
+	\While{j < len(pattern)}{
+		\uIf{pattern[i] == pattern[j]}{
+			ft[j] = i + 1\;
+			i++; j++\;
+		}
+		\Else{
+			\uIf{i == 0}{
+				ft[j] = 0\;
+				j++\;
+			}
+			\Else{
+				i = ft[i-1] \tcp*{progress before, try smaller prefix suffix pair}
+			}
+		}
+	}
+\end{algorithm}
+

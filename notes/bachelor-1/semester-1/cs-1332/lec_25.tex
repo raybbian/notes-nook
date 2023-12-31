@@ -1,0 +1,45 @@
+\lecture{25}{Fri 27 Oct 2023 15:31}{RadixSort}
+
+\subsection{RadixSort}
+
+RadixSort has an average case runtime of \( O(n) \)! But the best case we can do with sorting is \( n\log (n) \), so what's the catch?
+
+\begin{note}
+	The bound of \( n\log (n) \) only applies to comparison-based sorting algorithms.
+\end{note}
+
+Because RadixSort cannot do comparisons, it can only sort string like things, including integers. Suppose you have a ton of integers. The idea of RadixSort is to sort by ones digit, then tens digit, then hundreds digit, etc. This order guarantees stability of the sort.
+
+However, we don't use the other sorts to sort by digits. Instead, we create buckets/queues and place items in their proper buckets.
+
+\begin{algorithm}[H]
+	\caption{RadixSort}
+	\For{i = 0 to max number of digits}{
+		\For{each item}{
+			enqueue item into bucket corresponding to digit i
+		}
+		\For{each bucket}{
+			dequeue all items into original list
+		}
+	}
+\end{algorithm}
+
+\begin{note}
+	Note for negative digits, you can use 19 buckets to store all possible digits. 
+\end{note}
+
+How are we going to manipulate the digits of a number? We could convert this string to a char array, but that would be expensive. Instead, we can use the mod operator and integer division to get the digits.
+
+\begin{property}
+	For digit number \( i \), we can divide the number by \( 10^{i-1} \) and then mod by 10. This will give us the digit we want.
+\end{property}
+
+What base should we choose for RadixSort? Note that if we choose a super large base, such as 2000, then we need to use 2000 buckets! The optimal base is usually \( 2^8 \), but varies depending on use case.
+
+\subsubsection{Runtime}
+
+We have to make \( n \) operations for each digit, and we have to do this for each digit. So the runtime is \( O(nk) \), where \( k \) is the number of digits in the largest number. 
+
+\subsubsection{Conclusion}
+
+RadixSort is stable, but it is not adaptive and in-place.

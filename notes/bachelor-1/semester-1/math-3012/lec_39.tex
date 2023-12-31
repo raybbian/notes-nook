@@ -1,0 +1,110 @@
+\lecture{39}{Mon 04 Dec 2023 14:00}{Using Generating Functions to Solve Recurrence Relations}
+
+\begin{note}
+	Remember \[
+		\frac{1}{(1-x)^m} = \sum_{k=0}^{\infty}\binom{k+m-1}{m-1}x^{k} 
+	.\] 
+\end{note}
+
+Our main tool will be using partial fraction decomposition. Suppose we have:
+\begin{itemize}
+	\item positive integers \( n_{1},n_{2},\ldots ,n_k \) such that \( n_{1}+n_{2}+\ldots +n_k=n \)
+	\item non-zero real numbers \( r_{1},r_{2},\ldots ,r_k \)
+	\item \( p(x) \), a polynomial of degree \( \le n \)
+\end{itemize}
+Then, the expression \[
+		\frac{p(x)}{(1-r_{1}x)^{n_{1}}(1-r_{2}x)^{n_{2}}\ldots (1-r_kx)^{n_k}}
+.\] can be written as a sum of terms of the form \[
+	\frac{c}{(1-r_ix)^t}
+.\] where \( 1 \le t\le n_i \) and \( c \) is some real number.
+
+\begin{eg}
+	What is the closed form expression for \( a_k \) given the reccurence relation \( a_{0}=0, a_{k+1}=2a_k + 1 \)?
+\end{eg}
+
+From last lecture, we have the generating function \[
+	\sum_{k=0}^{\infty}a_{k}x^{k} = \frac{x}{(1-x)(1-2x)}
+.\] Then, by PFD, we can write this generating function in the form \[
+	\frac{\alpha}{1-x} + \frac{\beta}{1-2x}
+.\] for some \( \alpha,\beta \in \R \). How do we find this \( \alpha ,\beta  \)? Multiply both sides by \( 1-x \):
+\begin{align*}
+	\frac{x}{1-2x} &= \alpha  + \beta \frac{1-x}{1-2x} \\
+	\frac{1}{1-2(1)} &= \alpha = -1 \tag{Plugging in \( x=1 \)}
+.\end{align*}
+Multiplying both sides by \( 1-2x \) now:
+\begin{align*}
+	\frac{x}{1-x} &= \alpha \frac{1-2x}{1-x} + \beta \\
+	\frac{1}{1-\frac{1}{2}} &= \beta = 1 \tag{Plugging in \( x=\frac{1}{2} \)}
+.\end{align*}
+Concluding,\[
+	\frac{x}{(1-x)(1-2x)} = \frac{-1}{1-x} + \frac{1}{1-2x}
+.\] 
+
+\begin{note}
+	This is a little sketchy - why can we plug in 1 and \( \frac{1}{2} \) when they yield and undefined value in the generating function? The long answer: can use limits.
+\end{note}
+
+We know that \[
+	\frac{1}{1-x} = \sum_{k=0}^{\infty}x^{k}, \qquad \frac{1}{1-2x} = \sum_{k=0}^{\infty}2^kx^{k}
+.\] 
+
+Therefore, \[
+	\sum_{k=0}^{\infty}a_kx^k  = \sum_{k=0}^{\infty}(-1)x^{k} + \sum_{k=0}^{\infty}2^kx^{k} = \sum_{k=0}^{\infty}(2^k-1)x^{k}
+.\] Then, we know that \( a_k = 2^k-1 \).
+
+\begin{eg}
+	What is the closed from expression for \( a_k \) given the recurrence relation \( a_0=1, a_{k+1}=2a_k+k \)?
+\end{eg}
+From last lecture, we have \[
+	\sum_{k=0}^{\infty} a_kx^{k} = \frac{1-2x+2x^2}{(1-x)^2(1-2x)}
+.\] This can then by written as \[
+	\frac{\alpha}{1-2x} + \frac{\beta}{1-x} +\frac{\gamma}{(1-x)^2}
+.\] It turns out that \( \alpha = 2, \beta = 0, \gamma = -1 \). Therefore,
+\begin{align*}
+	\sum_{k=0}^{\infty}a_kx^k&=\frac{1-2x+2x^2}{(1-2x)(1-x)^2} = \frac{2}{1-2x} - \frac{1}{(1-x)^2} \\
+														&= \sum_{k=0}^{\infty}(2^{k+1}-(k-1)) x^k
+.\end{align*}
+Therefore, \( a_k=2^{k+1}-k-1  \).
+
+\begin{eg}
+	What about the Fibonacci sequence? Recall that \( F_0=0, F_1=1, F_{k+2}=F_{k+1}+F_k \).
+\end{eg}
+
+We have a generating function \[
+	F(x) = \sum_{k=0}^{\infty}F_kx^k = \frac{x}{1-x-x^2}
+.\] 
+Solving for the LHS:
+\begin{align*}
+	\sum_{k=0}^{\infty} F_{k+2}x^k &= \sum_{k=0}^{\infty}(F_{k+1} + F_{k})x^k \\
+																	&= \frac{F(x) - F_{0}x - F_{1}x}{x^2} \\
+																	&= \frac{F(x) - x}{x^2}
+.\end{align*}
+And then for the RHS:
+\begin{align*}
+	\frac{F(x)-F_{0}}{x} + F(x) = \frac{F(x)}{x} + F(x)
+.\end{align*}
+Therefore,
+\begin{align*}
+	\frac{F(x)-x}{x^2} &= \frac{F(x)}{x}+F(x) \\
+	F(x) - x &= xF(x) + x^2F(x) \\
+	(1 - x - x^2)F(x) &= x \\
+	F(x) &= \frac{x}{1-x-x^2}
+.\end{align*}
+
+To apply, PFD, we wish to write \[
+	1-x-x^2=(1-r_{1}x)(1-r_{2}x), \qquad r_{1},r_{2} \in \R
+.\] 
+Pluging in \( \frac{1}{r_{1}} \) for \( x \): \( 0 = 1-\frac{1}{r_{1}} - \frac{1}{r_{1}^2} \implies r_1^2-r_{1}-1=0 \). And plugging in \( \frac{1}{r_{2}} \) for \( x \): \( 0 = 1 - \frac{1}{r_{2}} - \frac{1}{r_2^2} \implies r_2^2-r_{2}-1=0\). Using the quadratic formula, we yield roots \( \frac{1\pm \sqrt{5} }{2} \). Therefore, we have \[
+	1-x-x^2 = \left(1-\frac{1+\sqrt{5} }{2}x\right)\left(1-\frac{1-\sqrt{5} }{2}x\right)
+.\] Now, applying the PFD: \[
+	\frac{x}{1-x-x^2} = \frac{\alpha}{1-\frac{1+\sqrt{5} }{2}x} + \frac{\beta}{1-\frac{1-\sqrt{5} }{2}x}
+.\] which yields \( \alpha =\frac{1}{\sqrt{5} }, \beta =-\frac{1}{\sqrt{5} }\) (exercise!). Continuing, 
+\begin{align*}
+	\frac{1}{1-r_{1}x} &= \sum_{k=0}^{\infty} r_{1}^kx^k \\
+	\frac{1}{1-r_{2}x} &= \sum_{k=0}^{\infty} r_{2}^kx^k
+.\end{align*}
+Therefore, \[
+	\sum_{k=0}^{\infty} F_kx^k = \sum_{k=0}^{\infty} (\alpha r_{1}^k + \beta r_{2}^k)x^k
+.\] Thus, \( a_k = \alpha r_{1}^k + \beta r_{2}^k \), which is equal to \[
+	\frac{1}{\sqrt{5} }\left( \frac{1+\sqrt{5} }{2} \right)^k - \frac{1}{\sqrt{5} }\left( \frac{1-\sqrt{5} }{2} \right)^k
+.\] 

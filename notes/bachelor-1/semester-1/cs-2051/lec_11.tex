@@ -1,0 +1,106 @@
+\lecture{11}{Tue 03 Oct 2023 14:01}{Cardinality; Countable Sets}
+
+We used sets to talk about \textit{relations}. Depending what relations we were looking at, we could determine whether they were \textit{reflextive, symmetric, antisymmetric, or transitive.}
+
+\begin{definition}
+	An \textbf{equivalence relation} is one that is reflexive, symmetric, and transitive.
+\end{definition}
+
+\begin{definition}
+	An \textbf{ordering relation} is one that is reflexive, antisymmetric, and transitive.
+\end{definition}
+
+\section{Functions}
+
+Below are some definitions that we use for functions.
+
+\begin{definition}
+	A \textbf{function} is a relation such that \( \forall a \exists !b (f(a) = b) \).
+\end{definition}
+
+\begin{definition}
+	For a particular function \( f \colon A \to B  \), we call \( A \) the \textbf{domain} and \( B \) the \textbf{codomain}.
+\end{definition}
+
+\begin{definition}
+	The \textbf{range} of \( f \) is \( \{b \in  B ~|~ \exists  a \in  A (f(a) = b)\}   \)
+\end{definition}
+
+\begin{definition}
+	We say \( f \) is \textbf{one-to-one} if \( \forall x,y \in A(x \neq  y \implies f(x) \neq f(y)) \). Another word for this is \textbf{injective}. We can use the contrapositive to prove a function \( f \) is injective.
+\end{definition}
+
+\begin{definition}
+	We say \( f \) is \textbf{onto} if \( \forall b \in B (\exists a \in  A(f(a) = b)) \).
+\end{definition}
+
+\begin{definition}
+	A \textbf{bijection} is a function \( f \) that is one-to-one and onto.
+\end{definition}
+
+\begin{definition}
+	Given a bijection \( f \), we define the \textbf{inverse function} \( f^{-1} \)
+\begin{align*}
+	& f^{-1} \colon B \to A \\
+	& f^{-1}(b) = a \iff f(a) = b
+\end{align*}
+\begin{property}
+	\( f^{-1} \) is a bijection.
+\end{property}
+\end{definition}
+
+\begin{eg}
+	Consider:
+	\begin{align*}
+		f \colon & \mathbb{R} \to \mathbb{R}^+ \\
+						 & x \to  x^2
+	.\end{align*}
+	This function by itself is not one-to-one. But note that we can make restrictions in our domain and codomain to make this function a bijection.
+\end{eg}
+\begin{eg}
+	Consider:
+	\[
+		\sin \colon \mathbb{R} \to \mathbb{R}
+	.\] 
+	This function is not one-to-one and onto (not a bijection). Therefore, to find the inverse of the function, we restrict the domain and codomain.	\[
+		\sin \colon \left[-\frac{\pi}{2}, \frac{\pi}{2}\right] \to [-1,1]
+	.\] 
+\end{eg}
+
+\begin{definition}
+	Let \( S \) be a set. We say \( S \) has \textbf{cardinality} \( n \) if \( S \) has exactly \( n \) elements (there is a bijection from \( S \) to the set \( [n]=\{1, 2, 3, \ldots , n\}   \)). We write \( |S|=n \).
+\end{definition}
+\begin{remark}
+	Cardinality is \textit{well defined} because you have no bijection between \( [n] \) and \( [m] \) for \( n \neq  m \).
+\end{remark}
+\begin{remark}
+	If \( S \) is infinite, then we say \( |S| = \infty \). In other words, there does not exist a biection from \( S \) to any \( [n] \).
+\end{remark}
+
+\begin{definition}
+	Let \( A \) and \( B \) be sets. We say \( |A| = |B| \) if there is a bijection from \( A \) to \( B \).
+\end{definition}
+
+\begin{eg}
+	Let \( \sim \) be a relation on \( \mathcal{P}(U) \). \( A \sim B \) if there is a bijection from \( A \) to \( B \). Are all infinite sets the same?
+\end{eg}
+
+\section{Countability}
+What does it mean for a set to be countable?
+
+\begin{definition}
+	A set \( S \) is \textbf{countable} if there is a one-to-one mapping (\( \exists f \colon S \to \mathbb{N} \) that is a bijection) from \( S \) to \( \mathbb{N} \).
+\end{definition}
+\begin{itemize}
+	\item Every finite set is countable.
+	\item \( \mathbb{N} \) is countable (you can map \( \mathbb{N} \) to itself).
+	\item \( 2 \mathbb{N} = \{2a ~|~ a \in  \mathbb{N}\}   \) is countable.
+		\begin{align*}
+			f \colon & 2 \mathbb{N} \to  \mathbb{N} \\
+							 & 2a \to a
+		.\end{align*}
+		\begin{remark}
+			There is a one-to-one mapping between sets \( 2\mathbb{N} \) and \( \mathbb{N} \). That means they have the same cardinality, even if this goes against our intuition.
+		\end{remark}
+\end{itemize}
+

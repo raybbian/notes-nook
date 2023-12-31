@@ -1,0 +1,115 @@
+\lecture{31}{Fri 10 Nov 2023 15:42}{Graphs}
+
+\section{Graphs}
+
+For motivation, think about landlocked and doubly landelocked countries. How would we find the number of doubly landlocked countries? We could use a graph where countries are nodes, and edges are placed between two things that are touching.
+
+\begin{definition}
+	A \textbf{vertex} is a node in a graph. 
+\end{definition}
+
+\begin{definition}
+	An \textbf{edge} connects two vertices in a graph.
+\end{definition}
+
+\begin{note}
+	The way you draw the graph doesn't matter!
+\end{note}
+
+\begin{definition}
+	Two vertices are \textbf{adjacent} if they share an edge.
+\end{definition}
+
+\begin{definition}
+	A vertex is \textbf{incident} to an edge if it is an endpoint of that edge.
+\end{definition}
+
+\begin{definition}
+	The \textbf{degree} of a vertex is the number of vertices it is adjacent to.
+\end{definition}
+
+\begin{definition}
+	A vertex is \textbf{isolated} if its degree is 0.
+\end{definition}
+
+\begin{definition}
+	A \textbf{simple} graph is a graph without self-loops and multiple edges.
+\end{definition}
+
+\begin{definition}
+	The number of vertices in \( G \), denoted the \textbf{order} of \( G \), is \( |V| \).
+\end{definition}
+
+\begin{definition}
+	The number of edges in \( G \), denoted the \textbf{size} of \( G \), is \( |E| \).
+\end{definition}
+
+\begin{definition}
+	A \textbf{directed} graph is a graph where edges have a direction.
+\end{definition}
+
+\begin{eg}
+	Currency exchange rates can be modeled with a directed graph.
+\end{eg}
+
+\begin{eg}
+	Flights can be modeled with a directed graph.
+\end{eg}
+
+\begin{eg}
+	Pathfinding between locations in a map.
+\end{eg}
+
+How do we traverse a graph?
+
+\begin{definition}
+	A \textbf{walk} is a traversal across a graph through a series of edges.
+\end{definition}
+
+\begin{definition}
+	A \textbf{path} is a walk in which no vertex or edge is repeated.
+\end{definition}
+
+\begin{definition}
+	A \textbf{trail} is a walk in which no edge is repeated.
+\end{definition}
+
+\begin{definition}
+	A \textbf{cycle} is a path in which the first and last vertices are the same.
+\end{definition}
+
+\begin{definition}
+	A \textbf{circuit} is a trail in which the first and last vertices are the same.
+\end{definition}
+
+\begin{definition}
+	Two vertices are \textbf{connected} if there is a path from one to another.
+\end{definition}
+
+\begin{definition}
+	A graph is \textbf{connected} if every pair of vertices is connected.
+\end{definition}
+
+\begin{definition}
+	A \textbf{tree} is an acyclic connected graph.
+\end{definition}
+
+\begin{note}
+	All trees have \( |V|-1 \) edges.
+\end{note}
+
+\begin{definition}
+	A \textbf{clique} is a graph with the maximum number of edges.
+\end{definition}
+
+\begin{note}
+	All cliques have \( \frac{n(n-1)}{2} \approx O(|V|^2)\) edges.
+\end{note}
+
+\begin{definition}
+	A \textbf{sparse} graph has \( \approx |V| \) edges (tree).
+\end{definition}
+
+\begin{definition}
+	A \textbf{dense} graph has \( \approx |V|^2 \) edges (clique).
+\end{definition}

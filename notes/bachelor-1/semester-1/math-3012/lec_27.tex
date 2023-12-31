@@ -1,0 +1,98 @@
+\lecture{27}{Mon 30 Oct 2023 14:00}{Partially Ordered Sets}
+
+One last bit about graphs:
+
+\begin{note}
+	If \( G \) is a graph with chromatic number \( k \), then \( G \) contains a subgraph \( H \) such that \( \chi (H)=k \) and \( \chi (H-v) < k \) for all \( v \in  V(H) \). Such graphs are called \textbf{critical graphs}.
+\end{note}
+
+\section{Partially Ordered Sets}
+
+\subsection{Relations}
+
+Finally, a new section!
+
+\begin{definition}
+	A \textbf{binary relation} on a set \( X \) is a subset \( \mathcal{R} \subseteq X^2 = X \times X \).
+\end{definition}
+
+In other words, \( R \) is a set of some ordered pairs \( (x,y) \) with \( x,y \in  X \).
+
+\begin{eg}
+	Let \( X=\{a,b,c\}   \). Then, one such relation is \( \mathcal{R}=\{(a,a),(a,b),(b,a),(b,c),(c,c)\}   \).
+\end{eg}
+
+\begin{note}
+	These relations can be related to a directed graph where there can be loops and multiple edges between vertices.
+\end{note}
+
+\begin{eg}
+	The empty set \( \varnothing \) is a relation.
+\end{eg}
+
+We use the word relation because it is a set of pairs \( (x,y) \) where \( x \) is ``related'' to \( y \) in some sense. We say that \( (x,y) \in \mathcal{R} \) if \( y \) is \( \mathcal{R} \)-related to \( x \).
+
+\begin{eg}
+	Let \( X=\{1,2,3,4,5\}   \). \( \mathcal{R}=\{ (x,y) \in X^2 \colon x < y\} \) is another way of writing \( \{(1,2),(1,3),(1,4),(1,5),(2,3),(2,4),(2,5),(3,4),(3,5),(4,5)\}    \)
+\end{eg}
+
+Note that relations can exist on infinite sets as well!
+
+\begin{eg}
+	\( \{(n,m) \in \mathbb{N}^2 \colon n \le m\}   \) is an ordering relation of the natural numbers.
+\end{eg}
+
+\begin{eg}
+	\( \{(x,y) \in \mathbb{R}^2 \times \mathbb{R}^2 \colon x \text{ and } y \text{ are orthogonal}\} \) is another relation containing all pairs of orthogonal vectors.
+\end{eg}
+
+\begin{remark}
+	In this course, we will focus on relations on two elements in the same set. However, more generally, relations can exist between a set \( X \) and another set \( Y \) (subsets of \( X \times  Y \)).
+\end{remark}
+
+\begin{eg}
+	Let \( X \) be the set of GT students enrolled in Fall 2023, let \( Y \) be the set of classes offered at GT in Fall 2023. Then, \[
+		\{(S,C) \in X \times Y \colon S \text{ is registered for } C\}
+	.\] is one such valid, real-life relation.
+\end{eg}
+
+\begin{notation}
+	When \( \mathcal{R} \) is a relation, we often write \( x \mathcal{R}y \) to mean \( (x,y) \in \mathcal{R} \)
+\end{notation}
+
+\begin{eg}
+	We write \( x < y \) instead of \( (x,y) \in < \).
+\end{eg}
+
+\begin{eg}
+	If \( X \) is a set of size \( n \), how many binary relations on \( X \) are there?
+\end{eg}
+
+There are \( n \cdot n = n^2\) elements in \( X \times X \), such that there are \( 2^{n^2} \) relations. Note that this value is \( |\mathcal{P}(X^2)| \).
+
+\subsubsection{Properties of Relations}
+
+\begin{property}
+	Let \( \mathcal{R} \subseteq X^2 \) be a relation on \( X \). \( R \) is:
+	\begin{enumerate}
+		\item reflexive: for all \( x \in X \), \( x \mathcal{R}x \).
+		\item irreflexive: for all \( x \in X \), not \( x \mathcal{R}x \).
+		\item symmetric: for all \( x,y \in X \), if \( x\mathcal{R}y \), then \(y\mathcal{R}x \).
+		\item asymmetric: for all \( x,y \in X \), if \( x \mathcal{R}y \), then not \( y\mathcal{R}x \). Note that all asymmetric relations are irreflexive.
+		\item antisymmetric: for all \( x,y \in X \), if \( x \mathcal{R}y \) and \( y\mathcal{R}x \), then \( x=y \).
+		\item transitive: for all \( x,y,z \in X \), if \( x \mathcal{R}y \) and \( y\mathcal{R}z \), then \( x\mathcal{R}z \).
+	\end{enumerate}
+\end{property}
+
+\begin{eg}
+	Let \( X=\{1,2,3\}   \), \( R=\{(1,1),(1,3),(2,2),(3,3)\}   \). What properties does this relation fall under?
+\end{eg}
+
+This relation is reflexive, not irreflexive, not symmetric, not asymmetric, antisymmetric.
+
+\begin{note}
+	The only relation on the empty set \( \varnothing \) is the empty set \( \varnothing \).
+\end{note}
+
+\exercise{1}
+What properties are the relations on the lecture notes?

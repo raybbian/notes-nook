@@ -1,0 +1,18 @@
+\lecture{30}{Wed 08 Nov 2023 15:33}{Robin Karp}
+
+\subsection{Robin Karp}
+
+Instead of comparing character by character, we can use a rolling hash function to compare substrings. For each alignment, compare \( hash(pattern) \) to \( hash(text[i\ldots i+m-1]) \). If the hashes are different, we know the two strings are different. However, if they are the same, then you have to check character by character. Can we optimize finding the hash of the substring \( O(1) \)?
+
+\subsubsection{Rolling Hash}
+The first hash we calculate is \( O(m) \), but updating the hash is \( O(1) \). Each hash is calculated from the previous hash in \( O(1) \) time. A potential hash is to add all the algorithms together. Then, we can subtract the first one and add the next one to roll the hash. However, this leads to many collisions.
+
+The actual hash uses a base \( B \), which is prime. Then, we treat the string as a base \( B \) number. Then, abcd would be represented as \[
+	a \times B^3 + b \times B^2 + c \times B + d
+.\] Note that we can roll our hash by subtracting \( a \times B^3 \), multiplying what remains by \( B \), and then adding the new character \( e \). 
+
+\subsubsection{Runtime}
+The best case runtime is when we find one occurence at the beginning, which is \( O(m) \). For all occurences, the hash never matches, so we have a runtime of \( O(n+m) \). In the worst case, the hash always matches the text, so we have to compare character by character, which is \( O(nm) \). 
+
+\subsection{Galil Rule}
+The Galil rule is a combination of KMP and Boyer Moore. Essentially, when we have a full match in Boyer Moore, we can shift by the period (\( m-ft[m-1] \)) as we do in KMP. This optimizes the worst case in which the text consists of many patterns.

@@ -1,0 +1,95 @@
+\lecture{2}{Wed 04 Oct 2023 13:07}{Intro to Graphs}
+
+Continuing on the idea of graphs: Graphs can be represented with a vertex set and an edge set.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{example-graph}
+    \caption{Example Graph}
+    \label{fig:example-graph}
+\end{figure}
+
+Here, the vertex set is \( V=\{a, b, c, d, e, f, g\}   \), and the edge set is \( E = \{ab, ad, bd, fg, fe\}   \). In this graph, there are 7 vertices and 5 edges. However, real life applications have lots more vertices and lots more edges. \par
+
+In this class, we will only consider simple graphs:
+
+\begin{definition}
+	A \textbf{simple} graph is a graph in which:
+	\begin{itemize}
+		\item A vertex cannot have an edge to itself.
+		\item Two vertices cannot have more than one edge between them.
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	If there is an edge between vertices \( u \) and \( v \), we say that \( u \) and \( v \) are \textbf{adjacent} or \textbf{neighbors}.
+\end{definition}
+
+\begin{definition}
+	A \textbf{complete graph} \( K_n \) is a graph with \( n \) vertices, all of which are adjacent to each other.
+\end{definition}
+
+We know that the planar graph \( K_5 \) is not planar. But why is this? Well, it is implied by the four color theorem.
+
+\subsubsection{Four Color Theorem}
+The four color theorem states that:
+\begin{theorem}
+	If \( G \) is a planar graph, then it is possible to color the vertices of \( G \) using at most 4 colors such that adjacent vertices are colored differently.
+\end{theorem}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{coloring-of-a-graph}
+    \caption{Coloring of a graph}
+    \label{fig:coloring-of-a-graph}
+\end{figure}
+
+\begin{note}
+	We cannot color this graph with only 3 colors, because it contains the complete graph \( K_4 \).
+\end{note}
+
+The four color theorem was conjectured in 1852 by Gunthrie. It was experimentally observed when counting a map of the counties in England. Gunthrie observed that 4 colors were enough. \par
+
+The four color theorem was proven in 1879 by Kempe, then in 1880 by Tait. However, errors were found in their proofs in 1890 and 1891 respectively. Finally, it was solved in 1976 by Appel and Haken.
+
+\begin{note}
+	This was the first example of a significant mathematical problem in which a solution was found by a computer.
+\end{note}
+
+Why was the four color theorem so hard to prove? Because it says something about \textit{every} planar graph.
+
+\subsubsection{Ramsey's Numbers}
+
+Here are some definitions that we will need for Ramsey's theorem:
+
+\begin{definition}
+	A \textbf{clique} in a graph is a set of vertices that are all adjacent to each other.
+\end{definition}
+
+\begin{definition}
+	An \textbf{independent set} in a graph is a set of vertices that are not adjacent to each other.
+\end{definition}
+
+\begin{theorem}
+	For any \( k \), there exists \( N \in  \mathbb{N} \) such that every graph with at least \( N \) vertices has a clique or an independent set of size \( k \) (or both).
+\end{theorem}
+
+This \( N \) is known as the \( k \)th Ramsey number and is denoted \( R(k) \). It is the smallest number \( N \) that satisfies the theorem. Let us compute some values of \( R(k) \):
+\begin{itemize}
+	\item \( R(2)=2 \).
+		\begin{proof}
+			We only need the two vertices, which are either part of the same clique, or part of the same independent set.
+		\end{proof}
+	\item \( R(3)=6 \). To prove this, we need to show that 5 does not work, but 6 does.
+		\begin{proof}
+			\( R(3)>5 \) because there exists a graph of size 5 in which there is no clique and no independent set of size 3. This is the "pentagonal" graph. \par
+			\( R(3) \le 6 \). Let \( G \) be a graph such that \( |V(G)| \ge 6 \). Pick a vertex \( v \in  V(G) \). \( v \) must be adjacent to or not adjacent to at least 5 other vertices. \par
+			Let \( A \) be the set of vertices \( v \) is adjacent to, and \( B \) the set of vertices \( v \) is not adjacent to. Note that because \( |A| + |B| \ge 5 \), at least one of \( |A| \) or \( |B| \) is greater than or equal to 3. \par
+			Assume \( |A| \ge 3 \). Then, if \( A \) is an independent set, we have found an independent set of at least size \( 3 \). Otherwise, if \( A \) is not an independent set, then at least two vertices in \( A \) must be adjacent. Therefore, those two vertices and \( v \) form a clique of size at least 3. The case where \( |B| \ge 3 \) can be proven similarly.
+		\end{proof}
+	\item \( R(4) = 18 \).
+		\begin{note}
+			There was a study in Budapest which found that in a group of 18 teenagers, there was either a group of 4 that were all friends, or a group of 4 that were not friends. This was not a discovery in psychology!
+		\end{note}
+	\item \( R(5) = ~? \). The 5th Ramsey number is an open problem. All we know is that \( 43 \le  R(5) \le 48 \). This illustrates an example of a \textit{small number} problem that computers cannot solve.
+\end{itemize}

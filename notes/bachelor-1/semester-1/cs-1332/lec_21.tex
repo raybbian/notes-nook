@@ -1,0 +1,92 @@
+\lecture{21}{Mon 16 Oct 2023 15:31}{Sorting}
+
+\section{Sorting}
+What is an algorithm?
+
+\begin{itemize}
+	\item A sequential list of instructions to accomplish some goal.
+\end{itemize}
+
+For each sorting algorithm, we will look at:
+\begin{itemize}
+	\item Time complexity (best, average, worst)
+	\item Stability: equal valued items maintain their relative order. This is important because it allows us to sort by multiple criteria.
+	\item Adaptivity: an algorithm is faster if data is (partially) sorted.
+	\item In place: uses O(1) extra memory to sort the data.
+\end{itemize}
+
+There are also two types of sorting algorithms:
+\begin{itemize}
+	\item Iterative: uses loops to iterate over the data. It is easier to implement and is usually in-place, but only sorts one item at a time.
+	\item Divide and Conquer: (usually) uses recursion that splits the data into smaller pieces, sorts them, and then merges them. It is usually faster, but requires more memory.
+	\item Non-Comparitive: uses special properties of the data to sort it. It is usually faster, but is only applicable to certain data.
+\end{itemize}
+
+\subsection{Bubble Sort}
+
+For bubble sort, we iterate through the array from beginning to end, comparing pairs of adjacent items, which are swapped if they are out of order. We repeat this process, stopping at an earlier ending value until no swaps are made.
+
+\begin{algorithm}
+	\caption{Bubble Sort}
+	\KwIn{A, the data to be sorted}
+	\For{i from \( 0 \to n-1 \)}{
+		\For{j from \( 0 \to n-1-i \)}{
+			\If{A[j] > A[j+1]}{
+				swap(A[j], A[j+1])\;
+			}
+		}
+	}
+\end{algorithm}
+
+\subsubsection{Optimizations}
+\begin{enumerate}
+	\item If we make no changes, we know that the array is sorted. This means that we can stop the algorithm early.
+	\item Track the last index where a swap was made, and only iterate up to that index. We can do this because we know that all elements after that index are sorted.
+\end{enumerate}
+
+\begin{algorithm}
+	\caption{Optimized Bubble Sort}
+	\KwIn{A, the data to be sorted}
+	end = n - 2\;
+	\While{end > -1}{
+		lastSwap = -1\;
+		\For{i : \( 0 \to end \)}{
+			\If{A[i] > A[i+1]}{
+				swap(A[i], A[i+1])\;
+				lastSwap = i\;
+			}
+		}
+		end = lastSwap - 1\;
+	}
+\end{algorithm}
+
+\subsubsection{Runtime}
+The best case for bubble sort occurs when the data is already in sorted order. We still have to check that the data is sorted, so the best case is \( O(n) \).
+
+The worst case for bubble sort occurs when the data is in reverse sorted order. We then do \( n + n - 1 + n - 2 + \ldots + 1 = \frac{n}{2}(n+1) = \frac{n^2 + n}{2}\) operations, which is \( O(n^2) \).
+
+The average case is, unfortunately, very close to the worst case. Therefore, it is \( O(n^2) \). Why is this?
+
+If we randomly order the data, then on average half of the pairs are out of order. Every swap in our algorithm fixes one pair. There are on average \( \frac{n(n-1)}{4} \) pairs that are out of order, therefore our runtime is \( O(n^2) \) on average.
+
+\subsubsection{Conclusion}
+Bubble sort is stable, adaptive, and in-place.
+
+\subsection{Insertion Sort}
+We iterate over the elements, swapping the current element backwards until they are at the proper position in the first part of the array.
+
+\subsubsection{Runtime}
+The best case for insertion sort occurs when the data is already in sorted order. We iterate over all data, and we do one comparison for each item, which results in a runtime of \( O(n) \).
+
+The worst case for insertion sort is when the data is in reverse sorted order. Similar to bubble sort, the worst case is \( O(n^2) \).
+
+The average case, also like bubble sort, is \( O(n^2) \).
+
+\subsubsection{Conclusion}
+Insertion sort is stable, adaptive, and in-place.
+
+\subsection{Selection Sort}
+We find the largest item in our data, and swap it to the end of the array. We then repeat this process, swapping the next largest item to the second to last position, and so on until the data is sorted.
+
+\subsubsection{Runtime}
+All cases for selection sort is \( O(n^2) \). We don't do anything depending on the data, so our runtime is quadratic even if our data is sorted!

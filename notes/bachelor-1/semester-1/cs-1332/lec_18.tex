@@ -1,0 +1,36 @@
+\lecture{18}{Fri 06 Oct 2023 15:22}{AVL Continued}
+
+\subsubsection{Right Left Rotation}
+This type of rotation is used when:
+\begin{itemize}
+	\item The node is leaning right (balance factor is -2)
+	\item The right child is leaning left (balance factor is 1)
+\end{itemize}
+We rotate the right child to the right. Then, we rotate the root to the left. Even though this is a combination of two rotations, it is still considered a single operation.
+
+\subsubsection{Left Right Rotation}
+This type of rotation is used when:
+\begin{itemize}
+	\item The node is leaning left (balance factor is 2)
+	\item The left child is leaning right (balance factor is -1)
+\end{itemize}
+This is just the mirror of the previous operation: we rotate the left child to the left, and the root to the right.
+
+\subsection{Runtime}
+How long do operations on an AVL tree take?
+\begin{itemize}
+	\item When you add data into an AVL tree, you do at most one rotation, so the runtime is \( O(\log (n)) \).
+	\item When you remove from an AVL tree, you do at most \( \log (n) \) rotations. Even still, the runtime is still \( O(\log (n)) \).
+	\item Remember that each rotation is \( O(1) \).
+\end{itemize}
+
+\begin{note}
+	An AVL can be at most \( 1.44\log (n) =\log (n)\) tall. This is derived from \( \frac{1}{\log_2(\phi )} \).
+\end{note}
+
+\exercise{1}
+What does the following AVL tree look like after these operations?
+\begin{itemize}
+	\item add(56, 75, 61, 88, 93, 77)
+	\item remove(61)
+\end{itemize}

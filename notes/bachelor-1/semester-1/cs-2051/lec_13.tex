@@ -1,0 +1,97 @@
+\lecture{13}{Thu 12 Oct 2023 14:15}{Runtime Complexity}
+
+\section{Analyzing Runtimes}
+
+How many comparisons should we make to choose the best out of \( n \) restuarants?
+
+\subsection{Big O Notation}
+Big O Notation does not care about constants.
+
+\begin{definition}
+	Given \( f,g \colon \mathbb{R} \to \mathbb{R} \), we say \( f \) is big-O of \( g \) (write \( f=O(g) \)) if \[ \exists C>0, k \in \mathbb{R}(|f(x)| \le  C \cdot |g(x)| \quad \forall  x \ge  k) \] where \( C \) and \( k \) are arbitrary constants (witnesses).
+\end{definition}
+
+\begin{eg}
+	Given \( f,g \colon \mathbb{N} \to \mathbb{R} \), is \( f=O(g) \):
+	\begin{itemize}
+		\item \( f(n) = 2n+1 \), \( g(n) = n - 10 \)? Yes.
+		\item \( f(n) = 2n+1 \), \( g(n) = n + \sqrt{n}  \)? Yes.
+			\begin{proof}
+				We have:
+				\begin{align*}
+					2n & \le 2n && \forall  n \in \mathbb{N} \\
+					1 & \le 2\sqrt{n} && \forall n \in  \mathbb{N}, n > 0
+				.\end{align*}
+				Adding both sides, we have \[
+					f(n) \le  2g(n) \quad \forall n\ge 1
+				.\] Therefore, \( f = O(g) \) for \( C = 2, k = 1 \).
+			\end{proof}
+		\item \( f(n) = n\log (n) \), \( g(n) = n + \sqrt{n}  \)? No.
+			\begin{proof}
+				We proceed by contradiction. Assume \( f = O(g) \). Then, there exists \( C>0 \) and \( k \in \mathbb{N} \) such that \[
+					n\log (n) \le  C(n + \sqrt{n} ) \quad \forall n \ge k
+				.\] Simplifying, we have: 
+				\begin{align*}
+					\log (n) & \le  C \left(\frac{n+ \sqrt{n}}{n}\right) \\
+										& = C\left(\frac{n}{n} + \frac{\sqrt{n}}{n}\right) \\
+										& = C\left(1 + \frac{1}{\sqrt{n} }\right) \\
+										& \le 2C \qquad \forall n \ge  1
+				.\end{align*}
+				This inequality yields a contradiction, as \( \log (n) \) grows to infinity as \( n \to \infty \) and therefore cannot be bounded by a constant \contra.
+			\end{proof}
+	\end{itemize}
+\end{eg}
+
+\begin{notation}
+	Let \( \mathcal{F} = \{f \colon \mathbb{N}\to \mathbb{R}\}   \). We say \( f \sim g \) if \( f = O(g) \) and \( g = O(f) \).
+	\begin{note}
+		This relation between functions \( f\sim g \) is reflextive, symmetric, and transitive.
+	\end{note}
+\end{notation}
+
+Note that proving the big-O of a function with witnesses is very time-consuming. There are several properties of big-O that we can use to simplify proofs. 
+\begin{property}
+	Let \( f_i,g_i \colon \mathbb{N} \to  \mathbb{R}\)
+	\begin{itemize}
+		\item If \( f = O(G) \), then \( f + \alpha = O(g) \) for \( \alpha \in \mathbb{R} \).
+			\begin{note}
+				As long as \( g \not\to 0 \) as \( x \to \infty \).
+			\end{note}
+		\item If \( f_{1}=O(g)\), \( f_{2} = O(g) \), then \( f_{1} + f_{2} = O(g) \)
+		\item If \(	p(x) = a_n x^n + a_{n-1}x^{n-1} + \ldots + a_1 x + a_0 \), then \( p(x) = O(x^n) \).
+		\item If \( f_{1}=O(g_{1}), f_{2}=O(g_{2}) \), then \( f_{1}f_{2} = O(g_{1}g_{2}) \).
+		\item \( 1 \le  \log (n) \le  n^{\alpha} \le n^{\beta} \le n^{\beta}\log (n) \le 2^n \) for \( \beta > \alpha > 0 \)
+	\end{itemize}
+\end{property}
+
+\begin{eg}
+	Going back to the restaurants, we have two forming strategies:
+	\begin{enumerate}
+		\item Compare one restuarant at a time.
+		\item Pair the restaurants. Keep the best of each pair. Repeat.
+	\end{enumerate}
+	Let \( T(n) =  \) the number of meals needed to find the best restaurant out of a list of length \( n \). Then, for the first strategy, we have: \[
+		T(n) = T(n - 1) + 2
+		.\] For the second strategy, we have: \[
+			T(n) = T\left(\frac{n}{2}\right) + n
+		.\] 
+
+	We can solve the first strategy's recurrence relation with substitution:
+	\begin{align*}
+		T(n) & = T(n- 1) + 2 \\
+					& = T(n-2) + 2 + 2 \\
+					& = T(n-3) + 2 + 2 + 2 \\
+					& (\ldots) \\
+					& = T(n - (n - 1)) + 2(n - 1) \\
+					& = 2(n - 1) \tag{\( T(1) = 0 \)}
+	.\end{align*}
+
+	And for the second:
+	\begin{align*}
+		T(n) &= T\left(\frac{n}{2}\right) + n \\
+					&= T\left(\frac{n}{4}\right) + \frac{n}{2} + n \\
+					&= T\left(\frac{n}{8}\right) + \frac{n}{4} + \frac{n}{2} + n \\
+					&(\ldots ) \\
+					&=n\left(1 + \frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{k-1}}\right) \\
+	.\end{align*}
+\end{eg}

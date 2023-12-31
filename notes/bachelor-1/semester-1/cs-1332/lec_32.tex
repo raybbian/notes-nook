@@ -1,0 +1,48 @@
+\lecture{32}{Mon 13 Nov 2023 15:32}{DFS}
+
+\subsection{Graph Representations}
+
+How do we store a graph in a computer? There are to main ideas: adjacency matrices and adjacency lists. The rows are the ``out'' vertices and the columns are the ``in'' vertices, and the matrix itself can store the label or weight or some other value of the edge exists.
+
+\begin{note}
+	An undirected graph will have a symmetric adjacency matrix.
+\end{note}
+
+The major appeal of using a matrix is having O(1) operations to remove, add, or set edges. However, there is a lot of space used for nothing - we will always use \( O(|V|^2) \) memory. Also, adding or removing new vertices to the graph is expensive, also time \( O(|V|^2) \) as we need to copy our data to a new array. Also, getting the list of adjacent vertices is time \( O(|V|) \).
+
+An adjacency list is a map from vertices to a list of edges incident to the vertex. With this representation, we can add/remove a vertex in time \( O(1) \). The worst case for removing an edge is \( O(\deg(V)) \approx O(|V|) \). And, we can get edges incident to this vertex in time \( O(1) \), and the vertices at the end of the edges in time \( O(\deg(V)) \approx O(|V|) \)
+
+\begin{note}
+	An adjacency matrix should be used for dense graphs, and an adjacency list should be used for sparse graphs.
+\end{note}
+
+We can also use an edge list, which is a lot worse. This is because we need to look through every single edge in our list to find specific information, which is \( O(|E|) \).
+
+Starting at a vertex in the graph, which vertices are reachable?
+
+The naive solution is to wander through the grarph randomly, and note when a new vertex is seen. This is very slow because it repeats vertices. We can optimize this by marking nodes as we visit them. However, we can get trapped and miss some nodes.
+
+The actual plan is, as we traverse through the graph, we will store the vertices seen but not traversed into a to-do list. When we have nothing to do, we will check the to-do list to jump to the next vertex. If we insert new items into the to-do list at the front, we have DFS. If we insert new items to the back of the to-do list, we have BFS.
+
+\subsection{Depth-First Search}
+
+\begin{algorithm}
+	\caption{DFS}
+	\KwIn {Graph \(G = (V, E)\), start vertex \(v\)}
+	\For{\( w \) adj to \( v \)}{
+		\If{\( w \) is not marked}{
+			mark \( w \) as seen\;
+			DFS\( (G, w) \)\;
+		}
+	}
+\end{algorithm}
+
+\begin{note}
+	In this class, the tiebreaker for which node to visit first is alphabetical.
+\end{note}
+
+DFS can be used for finding connected components, cycles, spanning trees, as well as finding ``a'' path between vertices.
+
+\subsubsection{Runtime}
+
+DFS has a time complexity of \( O(|V|+|E|) \).

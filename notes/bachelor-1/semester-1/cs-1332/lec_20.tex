@@ -1,0 +1,29 @@
+\lecture{20}{Fri 13 Oct 2023 15:32}{2-4 Trees Continued}
+
+Remove operation continued:
+
+\begin{description}
+	\item[Case 3:] We want to remove from a leaf with only one data item, but the siblings have spare data. This operation is called a \textbf{transfer} or \textbf{rotation}. We take the spare data directly to the left or right, promote it into the parent, and pull the parent into the removed leaf. Note that if you transfer an internal node, you must move the subtrees as well!
+	\item[Case 4:] We want to remove from a leaf with only one data item, and there is no spare data in the left or right siblings. Then, we pull down from the parent (left or right) and \textbf{fuse} two nodes together. \par
+		However, you might empty the parent, which requires you pull from the grandparent. However, the grandparent might be empty after that operation as well! Therefore, we stop when the parent has 2 or 3 data items, we use a transfer, or the root becomes empty.
+\end{description}
+
+Still confused: here is a handly flowchart:
+\begin{figure}[ht]
+    \centering
+    \incfig{2-4-tree-remove-flowchart}
+    \caption{2-4 Tree Remove Flowchart}
+    \label{fig:2-4-tree-remove-flowchart}
+\end{figure}
+
+\subsection{Runtime}
+The runtime of a 2-4 tree is as follows:
+\begin{itemize}
+	\item Adding a node may require up to \( \log n \) promotions, which is \( O(\log n) \).
+	\item Removing a node may require up to \( \log n \) fusions, which is \( O(\log n) \).
+\end{itemize}
+
+\begin{note}
+	Note that even though an AVL and a 2-4 tree have the same runtime complexity, the depth of a 2-4 tree is less than or equal to that of an AVL tree. Therefore, it is used when going down the tree is costly - for example, when the data is stored on disk. For example, databases use a generation called a B-tree (where there are many items per node).
+\end{note}
+

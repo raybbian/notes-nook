@@ -1,0 +1,80 @@
+\lecture{17}{Thu 26 Oct 2023 14:03}{Last of Induction}
+
+\begin{eg}
+	The Fibonacci Sequence is defined as follows:
+	\begin{align*}
+		&f_{0}=f_{1}=1 \\
+		&f_n=f_{n-1}+f_{n-2} \qquad \forall n\ge 2
+	.\end{align*}
+	We can do two things to compute the value of \( f_n \). If \( n=0,1 \), then it will output \( 1 \). Otherwise, we return \( f_{n-1}+f_{n-2} \). Note that we can also accomplish the following (more efficiently) with memoization.
+
+	Then, let \( T(n) \) be the number of operations to get \( f_n \). Note that \( T(n) \ge  c+ T(n-1) + T(n-2) \), which implies that the number of steps to calculate the \( n \)-th Fibonacci number is greater than the \( n \)-th Fibonacci number!
+
+	Show that \( f_n \ge \alpha ^{n-2}  \), where \( \alpha =\frac{1+\sqrt{5} }{2} \).
+\end{eg}
+
+\begin{proof}
+	Let us proceed by induction. Note that for \( n=0 \), we have \( f_{0}=1>\alpha ^{0-1} \) and for \( n=1 \), \( f=1>\alpha ^{1-2}  \). Then, it suffices to verify the step case. Assume \( f_k \ge \alpha ^{k-2}  \) for some \( k \in \mathbb{N} \ge 0 \). Then, we have:
+	\begin{align*}
+		f_{k+1}&=f_k+f_{k-1} \tag{Given} \\
+					 &\ge \alpha ^{k-2}+\alpha ^{(k-1)-2}   \tag{By I.H.} \\
+					 &=\alpha ^{k-2} + \alpha ^{k-3} \\
+					 &=\alpha ^{k-3}(\alpha +1) \\
+						&=\alpha ^{k-3}(\alpha ^{2}) \tag{\(\alpha ^{2}=\alpha +1\)} \\
+						&=\alpha ^{k-1} \\
+						&=\alpha ^{(k+1)-2} 
+	.\end{align*}
+	as desired. Therefore, \( f_n \ge \alpha ^{n-2}  \) for all \( n \in \mathbb{N} \).
+\end{proof}
+
+\begin{eg}
+	Consider the following matrix \( M = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}  \). Note that \( M\begin{pmatrix} x \\ y \end{pmatrix} =\begin{pmatrix} x + y \\ x \end{pmatrix}  \).
+
+	Show that for \( f_{0}=0\), \(f_{1}=1 \), and \( f_n=f_{n-1}+f_{n-2} \): \[
+		M^n = \begin{pmatrix} f_{n+1} & f_n \\ f_n & f_{n-1} \end{pmatrix} 
+	.\] 
+\end{eg}
+
+\begin{proof}
+	We have for \( n=1 \), \( M^1 = \begin{pmatrix} 1& 1 \\ 1& 0 \end{pmatrix}  \), and for \( n=2 \), \( M^2=\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}  \). Assume that for some \( k \), \[
+		M^k=\begin{pmatrix} f_{k+1} & f_k \\ f_k & f_{k-1} \end{pmatrix} 
+	.\] Then, we have 
+	\begin{align*}
+		M^{k+1} = M^k \cdot M &= \begin{pmatrix}f_{k+1} & f_k \\ f_k & f_{k-1} \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \\
+													&= \begin{pmatrix} f_{k+1}+f_k & f_{k+1} \\ f_k+f_{k-1} & f_k \end{pmatrix} \\
+													&= \begin{pmatrix} f_{k+2} & f_{k+1} \\ f_{k+1} & f_k \end{pmatrix} 
+	.\end{align*}
+	as desired.
+\end{proof}
+
+\begin{remark}
+	Check \( f_{n-1}\cdot f_{n+1}=f_n^2+(-1)^n \)
+\end{remark}
+
+This is because
+\begin{align*}
+	f_{n-1}\cdot f_{n+1} - f_n^2 &= \det \begin{pmatrix} f_{n+1} & f_n \\ f_n & f_{n-1} \end{pmatrix} \\
+															 &= \det \left( \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^n  \right) \\
+																&= \det \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} ^n \\
+																&= (-1)^n
+.\end{align*}
+
+\begin{eg}
+	Count the number of bit-sequences of length \( n \) such that there are no two consecutive 1s.
+\end{eg}
+
+Let \( a_n \) be the number of bit-sequences. Note that if we place a 0, we can fill the rest with \( a_{n-1} \) sequences. Note that if we place a 1, then the next bit must be a 0, such that we can place the rest with \( a_{n-2} \). In other words, the number of bit-sequences is given by \[
+	a_n = a_{n-1} + a_{n-2}
+.\] Note that we have 2 bit-sequences of length 1 and 3 bit-sequences of length 2. We quickly realize that \( a_n \) is the \( n+2 \)-nd Fibonacci number.
+
+\begin{eg}
+	Let \( s_n \) be the number of bit-sequences such that there are no two 1s at distance 2.
+\end{eg}
+
+We have \( s_3=6 \). Note that if we place a 0, we can fill the rest with \( s_{n-1} \) sequences. Note that if we place a 1, then we can place two 0s such that we can fill the rest with \( s_{n-3} \) sequences. Or, we can place two 1s and then two 0s such that we can fill the rest with \( s_{n-4} \) sequences. In other words, our recurrence relation is \[
+	s_n = s_{n-1} + s_{n-3} + s_{n-4}
+.\] 
+
+\begin{note}
+	If we define the empty string to be a bit-sequence, then \( s_0=1 \). This is ok as long as we don't use the empty string in our operation.
+\end{note}

@@ -1,0 +1,55 @@
+\lecture{14}{Tue 17 Oct 2023 14:17}{Solving Recurrence Relations}
+
+\section{Induction}
+
+\begin{eg}
+	Take from last lecture the following recurrence relation: \[
+		T(n) = T(n - 1) + 2, \quad T(1) = 0
+	.\] 
+	We can "guess" the solution by looking at the relation. We guess \( T(n) = 2 \cdot n \). Then, we have: \[
+		T(n) = 2(n - 1) + 2 = 2n - 2 + 2 = 2n, \quad \text{but } T(1) \neq  2
+	.\] 
+	So instead, we guess \( T(n) = 2 \cdot (n-1) \), which satisfies our base case.
+\end{eg}
+
+We use induction to check if a statement \( P(n) \) is true for all \( n \in \mathbb{N} \). We check that 
+\begin{enumerate}
+	\item \( P(0) \) is true. This is called the base case of induction.
+	\item Assume \( P(k) \) is true for some \( k \in \mathbb{N} \). This is called the inductive hypothesis.
+	\item Prove that \( P(k) \implies P(k+1) \). This is called the step of induction.
+\end{enumerate}
+
+\begin{eg}
+	We will prove that for all \( n \ge 1, n \in \mathbb{N} \), \[
+		1 + 2 + \ldots + n = \frac{n(n+1)}{2}
+	.\] Let \( P(n) \coloneq 1 + 2 + \ldots  + n = \frac{n(n+1)}{2}\). Formally, we wish to prove \( \forall n P(n) \), \( n \ge 1, n \in \mathbb{N} \). We will proceed with induction on \( n \).
+	\begin{description}
+		\item[Base case:] \( n = 1 \). Then, we have \[
+			P(1) \coloneq 1 = \frac{1(1+1)}{2} = 1
+		.\]
+		\item[Step:] We assume that \( P(k) \) is true, where \( k \ge 1, k \in \mathbb{N} \). We wish to show that \( P(k+1) \) is true. From our inductive hypothesis, we have \[
+			1 + 2 + \ldots + k = \frac{k(k+1)}{2}
+		.\] Adding \( k + 1 \) to both sides, we have \[
+			1 + 2 + \ldots + k + (k+1) = \frac{k(k+1)}{2} + k + 1 = \frac{(k+1)(k+2)}{2}
+		.\] The last equality confirms that \( P(k+1) \) is true.
+	\end{description}
+	It follows by induction that \( P(n) \) is true for any \( n \ge 1, n \in \mathbb{N} \).
+\end{eg}
+
+\begin{eg}
+	Let \( H_n = 1 + \frac{1}{2} + \frac{1}{3} + \ldots  + \frac{1}{n} \). We wish to prove that \( H_{2^n} \ge  1 + \frac{n}{2} \) for \( n \in \mathbb{N} \).
+	\begin{description}
+		\item[Base case:] \( n = 0 \). Then, we have \[
+				H_{2^0} = H_1 = 1 \ge 1 + \frac{0}{2} = 1 
+			\]
+		\item[Step:] Let \( P(n) \coloneq H_{2^n} \ge 1 + \frac{n}{2} \). We assume \( P(k) \) is true for some \( k \in \mathbb{N} \). We will prove that \( P(k) \implies P(k+1) \). From our inductive hypothesis, we have \[
+			1 + \frac{1}{2} + \frac{1}{3} + \ldots  + \frac{1}{2^k} \ge 1 + \frac{k}{2}
+		.\] We add to both sides \(\frac{1}{2^k+1} + \frac{1}{2^k+2} + \ldots + \frac{1}{2^{k+1}}\) such that \[
+			H_{2^k+1} \ge  1 + \frac{k}{2} + \frac{1}{2^k+1} + \frac{1}{2^k+2} + \ldots + \frac{1}{2^{k+1}}
+		.\] It is enough to show that \( \frac{1}{2^k+1} + \frac{1}{2^k+2} + \ldots + \frac{1}{2^{k+1}} \ge \frac{1}{2} \). Then, we have \[
+			\frac{1}{2^k+1} + \frac{1}{2^k+2} + \ldots + \frac{1}{2^{k+1}} \ge \frac{1}{2^{k+1}} + \frac{1}{2^{k+1}} + \ldots + \frac{1}{2^{k+1}} = 2^k \cdot  \frac{1}{2\cdot 2^k} = \frac{1}{2} 
+		.\] Combining these inequalities, we have \[
+			H_{2^{k+1}} \ge 1 + \frac{k}{2} + \frac{1}{2^k+1} + \ldots + \frac{1}{2^{k+1}} \ge 1 + \frac{k}{2} + \frac{1}{2} = 1 + \frac{k+1}{2} 
+		\] Therefore, \( P(k+1) \) is true.
+	\end{description}
+\end{eg}

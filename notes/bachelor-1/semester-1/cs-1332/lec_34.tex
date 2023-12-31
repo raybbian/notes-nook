@@ -1,0 +1,51 @@
+\lecture{34}{Mon 20 Nov 2023 15:06}{Dijkstra's Algorithm}
+
+\subsection{Dijkstra's Algorithm}
+
+To find a path from A to B with weighted edges, we can used Dijkstra's.
+
+\begin{eg}
+	Note that Dijkstra's does not support negative edge weights.
+\end{eg}
+
+Given that we know the best path to a node, we can go from that node to the next to find a best path to the neighboring node. We use a min heap based on shortest total length, popping the first one in the heap and processing it.
+
+\begin{algorithm}
+	\caption{Dijkstra's Algorithm}
+	pq = new PriorityQueue()\;
+	pq.enqueue(start, 0)\;
+	\While{pq is not empty or visited not full}{
+		v, dist = pq.poll()\;
+		\If{v not in visited}{
+			visited.add(v)\;
+			\For{w adj to v}{
+				\If{!w.visited}{
+					w.dist = min(w.dist, v.dist + e.weight);
+					pq.add(w);
+				}
+			}
+		}
+	}
+\end{algorithm}
+
+\subsubsection{Runtime}
+
+There can be at most \( |E| \) items in the heap, and each takes \( \log(|E|) \) time to remove, which means that the runtime is \( O(|E| \log(|E|)) \).
+
+\begin{note}
+	Some special priority queues can have a runtime of \( O(|E| + |V| \log(|V|)) \), which uses a decrease priority function. With a Fibonacci Heap, you can achieve a runtime of \( O(|E| + |V| \log(|V|)) \).
+\end{note}
+
+\subsubsection{Negative Edge Weights}
+
+What happens if we have negative edge weights? 
+
+\begin{definition}
+	A \textbf{negative cycle} is a cycle in which the sum of edge weights is negative.
+\end{definition}
+
+The shortest ``path'' problem is not defined on negative cycles, so we don't really need to worry about this case. However, even without a negative cycle, a path might look bad at first, but might be good later on. This is why we need to be careful with negative edge weights.
+
+\begin{note}
+	We can use Bellman-Ford, Floyd Warshall, or Johnson's Algorithm to find shortest paths in such graphs.
+\end{note}

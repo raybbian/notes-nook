@@ -1,0 +1,75 @@
+\lecture{35}{Fri 17 Nov 2023 14:01}{Inclusion Exclusion}
+
+\begin{eg}
+	A movie studio released 4 movies. Movie 1 had 10 actors, M2 had 15, M3 had 11, and M4 had 12 actors. Moreover, 
+	\begin{itemize}
+		\item 3 actors appeared in M1 and M2
+		\item 4 actors appeared in M1 and M3
+		\item 2 actors appeared in M1 and M4
+		\item 1 actor appeared in M2 and M3
+		\item 3 actors appeared in M2 and M4
+		\item 5 actors appeared in M3 and M4
+		\item No actors were in 3 or 4 movies at once.
+	\end{itemize}
+	How many total actors were in the 4 movies?\\
+\end{eg}
+
+By the inclusion exclusion principle, we have \[
+	10 + 15 + 11 + 12 - 3 - 4 - 2 - 1 - 3 - 5 = 30 \text{ actors}
+.\] 
+
+\begin{note}
+	The textbook does a proof by induction on \( m \), the number of sets. However, we'll use algebraic proof instead.
+\end{note}
+
+Before that, we will do a quick algebra question. Let \( a_{1},a_{2},\ldots ,a_m \in \mathbb{R} \). Then, what is the value of \[
+	\prod_{i=1}^{m} (1 - a_{i}) = (1 - a_{1})(1 - a_{2})\ldots (1 - a_{m})
+?\]
+
+\begin{eg}
+	For \( m=2 \), we have \( (1+a_{1})(1+a_{2})=1+a_{1}+a_{2}+a_{1}a_{2} \).
+\end{eg}
+
+When we expand the product \( (1+a_{1})(1+a_{2})\ldots (1+a_m) \), we sum up the expressions obtained by choosing either 1 or \( a_i \) from each \( 1+a_i \) term and multiplying the chosen quantities together.
+
+If \( S \subseteq [m] \) is the set of indices \( i \) such that we choose \( a_i \) from the \( 1+a_i \) term, then the resulting expression is \[
+	\prod_{i \in S} a_{i}
+.\]
+
+\begin{eg}
+	Say \( m=3 \). Then, for the term \( a_{1}a_{3} \), we have \( S = \{1,3\}   \) such that \( a_{1}a_{3}=\prod_{i \in \{1,3\} } a_i\).
+\end{eg}
+
+Therefore, we conclude that \[
+	\prod_{i=1}^{m} (1-a_{i}) = \sum_{S \subseteq [m]} \prod_{i \in S} a_{i}
+.\] 
+
+\begin{eg}
+	Consider if \( a_{1}=a_{2}=\ldots =a_m=a \). Then, \[
+		(1+a)^m = \prod_{i=1}^{m}(1+a) = \sum_{S \subseteq [m]} \prod_{i \in S} a = \sum_{S \subseteq [m]} a^{|S|}  = \sum_{k=0}^{m} \binom{m}{k} a^{k}
+	.\] In other words, this formula is a generalization of the binomial formula!
+\end{eg}
+
+Now, we will proceed with our proof:
+
+\begin{proof}
+	Let \( X \) be a set, with \( A_{1},A_{2},\ldots ,A_M \subseteq X \). Then, 
+	\begin{align*}
+		&|X \ (A_{1}\cup \ldots \cup A_m)| = \sum_{x \in X} \underbrace{1[x \not\in A_{1}\cup \ldots \cup A_m]}_{1 \text{ if } x \not\in  A_{1}\cup \ldots \cup A_m \text{ else } 0}\\
+		&= \sum_{x \in X} \underbrace{\prod_{i=1}^{m} 1[x \not\in A_{i}]}_{\text{0 unless all terms that are multiplied are 1}} = \sum_{x \in X} \underbrace{\prod_{i=1}^{m}(1-1[x \in A_{i}])}_{a_i=-1[x \in A_i]}\\
+		&= \sum_{x \in X} \sum_{S \subseteq [m]} \prod_{i \in S} (-1[x \in A_{i}]) \\
+		&= \sum_{S \subseteq [m]} \sum_{x \in X} (-1)^{|S|} \underbrace{\prod_{i \in S} (1[x \in A_{i}])}_{\text{1 if \( x \in A_i \) for all \( i \in S \), 0 otherwise}}\\
+		&= \sum_{x \in X} \sum_{S \in [m]} (-1)^{|S|} 1\left[x \in \bigcap_{i \in S} A_i\right] \\
+		&= \sum_{S \in [m]} (-1)^{|S|} \underbrace{\sum_{x \in X} 1\left[x \in \bigcap_{i \in S} A_i\right]}_{\left|\bigcap_{i \in S}A_i \right| = N(S)} \\
+		&= \sum_{S \in [m]} (-1)^{|S|} N(S)
+	.\end{align*}
+\end{proof}
+
+\begin{eg}
+	How many strings of length \( n \) can be formed using \( m \) symbols so that each symbol appears at most once?
+\end{eg}
+
+This is just counting permutations, \( P(m,n) \).
+
+\exercise{1} 
+Same question, but now at least symbol appears at least once.

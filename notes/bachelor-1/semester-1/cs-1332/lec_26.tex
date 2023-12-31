@@ -1,0 +1,76 @@
+\lecture{26}{Mon 30 Oct 2023 15:31}{Pattern Matching}
+
+\section{Pattern Matching}
+
+What is our motivation for this problem? Imagine we want to find a pattern in a text. What is the most efficient way of doing so?
+
+\begin{eg}
+	Google searches the entire internet for a pattern: your name. We can also search very long DNA for specific codons (the pattern).
+\end{eg}
+
+\begin{notation}
+	Let the length of the text be \( n \). Let the length of the pattern be \( m \).
+\end{notation}
+
+\begin{definition}
+	Let the \textbf{alphabet} be the set of valid characters for the text.
+\end{definition}
+
+There are two types of pattern matching, which differ on what to do when we find the pattern. If we stop, that means we are searching for a single occurence. If we continue, that means we are searching for all occurences.
+
+\subsection{Brute Force}
+
+Brute force is not just for pattern matching. Instead, we try every possible solution. For pattern matching specifically, we have \( O(n) \) (\( O(n-m) \)) choices for the start of the pattern. We check each starting spot for the pattern.
+
+
+\begin{algorithm}[H]
+	\caption{Brute Force Pattern Matching}
+	i = 0\;
+	\While{i < len(text) - len(pattern)}{
+		j = 0\;
+		\While{j < len(pattern) and text[i+j] = pattern[j]}{
+			j++\;
+		}
+		\If{j = len(pattern)}{
+			return True\;
+		}{
+			j = 0\;
+			i++\;
+		}
+	}
+\end{algorithm}
+
+\subsubsection{Runtime}
+The best case for our brute force pattern matching is \( O(n) \). The worst case is \( O(nm) \), because we need to check every \( n-m \) starting positions at most \( m-1 \) times. For English, the average case is \( O(n) \). 
+
+Note that we don't usually care about the average case because english text is not random. Even though brute force is fine, is there a better way to search for patterns?
+
+\begin{note}
+	Java String.contains() uses brute force.
+\end{note}
+
+\subsection{Boyer-Moore}
+
+The idea for this algorithm is to use the wrong character to shift the pattern by a certain amount with a lookup table. Our lookup table stores the last appearance of each character in the pattern. If a character has not appeared, this index is -1.
+
+\begin{algorithm}[H]
+	\caption{Boyer-Moore Pattern Matching}
+	\KwIn{text, pattern}
+	\KwOut{True if pattern in text, False otherwise}
+	\For{i < len(pattern)}{
+			lookup[pattern[i]] = i\;
+	}
+	i = 0\;
+	\While{i < len(text) - len(pattern)}{
+		j = len(pattern) - 1\;
+		\While{j >= 0 and text[i+j] = pattern[j]}{
+			j -= 1\;
+		}
+		\If{j = -1}{
+			return True\;
+		}{
+			i += max(1, j - lookup[text[i+j]])\;
+		}
+	}
+	return False\;
+\end{algorithm}

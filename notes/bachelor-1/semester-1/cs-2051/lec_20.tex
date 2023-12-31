@@ -1,0 +1,122 @@
+\lecture{20}{Tue 07 Nov 2023 14:12}{What the Modular Arithmetic}
+
+Fix \( m \in \mathbb{N} \), \( m>1 \).
+
+Let \( a \in \mathbb{N} \). Then, \[
+	\{a^n\}_{n\ge 0} \text{ in } \mathbb{Z}_m=\{\overline{0},\overline{1},\overline{2},\ldots ,\overline{m-1}    \}  
+.\] 
+
+Note that we can easily calculate \( a^k \) with \[ a^k \pmod m= \left( a^{k-1} \pmod m \right) \left( a \pmod m \right) \pmod m .\] as well as finding repetition. What do we mean by this?
+
+\begin{eg}
+	Let \( m=6 \), and \( a=11 \). Then, \( a^n \) has periodicity \( 2 \) when taken mod m.
+\end{eg}
+
+\begin{eg}
+	What is \( 4^{2023} \pmod 7 \)? Note that \( 2023 \equiv 1 \pmod 3 \) (from the periodicity), so \( 4^{2023}\equiv 4^1 \equiv 4 \pmod 7  \).
+\end{eg}
+
+\begin{theorem}
+	Let \( a \in \mathbb{N} \). \( a \) is divisible by 3 if and only if the sum of its digits is divisible by 3.
+\end{theorem}
+
+\begin{proof}
+	All of \( \{10^n\}_{n\ge 0}  \) in \( \mathbb{Z}_3 \) are in the class of \( \overline{1}  \)! Therefore, \( 10^k \equiv 1 \pmod 3 \). Then, \( a \) can be written as \[
+		a = (a_k a_{k-1} a_{k-2}\ldots a_{1}a_{0})_{10} \qquad a_i \in \{0,1,2,\ldots 9\}  
+	.\] Then, we know that
+	\begin{align*}
+		a &= 10^k a_k + \ldots  + 10^2 a_2 + 10 a_1 + a_0 \\
+			&\equiv \cancelto{1}{\overline{10^k}}\cdot \overline{a_k} + \ldots  + \cancelto{1}{\overline{10^2}}\cdot \overline{a_2}  + \cancelto{1}{\overline{10} }\cdot \overline{a_1} + a_{0} \pmod 3 \\
+			&= a_k + \ldots  + a_{1} + a_{0} \pmod 3
+	.\end{align*}
+\end{proof}
+
+\begin{theorem}
+	Let \( a \in \mathbb{N} \). \( a \) is divisible by 4 if and only if the last two digits of \( a \) are divisible by 4.
+\end{theorem}
+
+\begin{proof}
+	We know that \( \{10^n\} _{n\ge 0}  \) in \( \mathbb{Z}_{4} \) are \( \overline{1}  \) for \( n=0 \), \( \overline{2}  \) for \( n=1 \), and \( \overline{0}  \) for \( n\ge 2   \). Therefore, we only look at \( n=0 \) and \( n=1 \) (tens and ones place).
+\end{proof} 
+
+\begin{lemma}
+	If \( 1 \le i < j \le p-1 \). Then, \( ai \not\equiv aj \pmod p \).
+\end{lemma}
+
+\begin{proof}
+	\( ai-aj = a(i-j) \not\equiv 0 \pmod p \). 
+\end{proof}
+
+\begin{theorem}
+	(Fermat) Let \( p \) be prime. Let \( a \in \mathbb{N} \) such that \( \gcd(a,p)=1\). Then, \( a^{p-1}\equiv 1 \pmod p \).
+\end{theorem}
+
+\begin{proof}
+	Fix \( p \), prime number. Then we know for \( a^n \) in \( \mathbb{Z}_p \), \( a\in \mathbb{N} \),  \( \gcd(a,p)=1 \). Therefore, all of \[
+		1, a, a^2, a^3, \ldots , a^{n}
+	.\] are invertible. Then all of \[
+		\overline{1}, \overline{2}, \overline{3}, \overline{p-1} 
+	.\] and \[
+		\overline{1a}, \overline{2a}, \overline{3a}, \overline{(p-1)a} 
+	.\] are invertible. Note that the previous two sets are the same sets. Then, we have
+	\begin{align*}
+		\overline{1}\cdot \overline{2}\cdot \overline{3}\cdot \ldots \cdot \overline{(p-1)} &\equiv \overline{1a}\cdot \overline{2a}\cdot \overline{3a}\cdot \overline{(p-1)a}     \pmod p \\
+		(p-1)! &\equiv (p-1)! \cdot a^{p-1}  \pmod p \\
+						1 &\equiv a^{p-1} \pmod p
+	.\end{align*}
+\end{proof}
+
+\begin{eg}
+	What is \( 4^{2023} \pmod 7  \)?
+\end{eg}
+
+Note that 7 is prime, and therefore \( 4^{6}\equiv 1 \pmod 7   \). Then, \( 4^{2023} \equiv 4^{2023 \pmod 6} \equiv 4 \pmod 7 \).
+
+\begin{eg}
+	What is \( 4^{2023} \pmod {131} \)?
+\end{eg}
+
+Note that \( 2023 \pmod {130} = 73 \). Then, by Fermat's theorem, \( 4^{2023} \equiv 4^{73} \pmod {131}   \).
+
+Going even deeper, What about counting the number of invertible elements?
+\[
+	\left| \{1 \le  x \le m \colon \gcd(x,m)=1\}   \right| = \varphi(m)
+.\] is the number of invertible elements in \( \mathbb{Z}_m \). Then, \( \varphi(p)=p-1 \). Note that \( \varphi(p^2)=p(p-1) \).
+
+\begin{theorem}
+	\( \varphi(ab)=\varphi(a) \cdot  \varphi(b) \) as long as \( \gcd(a,b)=1 \).
+\end{theorem}
+
+\begin{theorem}
+	(Euler) Let \( m \in \mathbb{N} \). Let \( p_{1},p_{2},\ldots ,p_k \) be the distinct prime factors of \( m \). Then, \[
+		\varphi(m) = m \cdot \left( 1-\frac{1}{p_{1}} \right) \left( 1- \frac{1}{p_{2}} \right)\ldots  \left( 1-\frac{1}{p_k} \right) 
+	.\] 
+\end{theorem}
+
+\begin{theorem}
+	(Euler) Let \( m \in \mathbb{N} \), \( m > 1 \). Let \( a \in \mathbb{N} \) such that \( \gcd(a,m)=1 \). Then \[
+		a^{\varphi(m)} \equiv 1 \pmod m
+	.\] 
+\end{theorem}
+
+\subsection{Cryptography}
+
+From Euler's theorem, we have \( a^{\varphi(m)+1}\equiv a \pmod m  \).
+
+We label our alphabet such that \( A \to 00 \), \( B \to 01 \), \( Z \to  25 \), etc. Then, you can write every message as a sequence of digits. Let this message be \( m \). We release to the world public key \( (N,e) \).
+
+The encryption key is \( m^e \pmod N \). Then, the decryption key is then \( m^{t\cdot \varphi(N)+1}\equiv m \pmod N  \). the decryption strategy is that if we find \( d \in \mathbb{N} \) such that \( ed \equiv 1 \pmod {\varphi(n)} \), then we have \[
+	\left( m^e \right) ^d = m^{e\cdot d} = m^{t\cdot \varphi(n)+1} \equiv m \pmod n
+.\] such that we can then decrypt the message.
+
+\begin{note}
+	For the public key, we need \( \gcd(\varphi(N), e)=1 \).
+\end{note}
+
+\begin{remark}
+	We usually set \( N=p\cdot q \), both prime. Then, \( \varphi(N) = (p-1)(q-1) \). This is better than \( N \) prime because our enemies need to factorize \( N \) to find our \( p \) and \( q \). By the time they read our message, it is already too late.
+\end{remark}
+
+\begin{note}
+	If a message is longer than \( N \), we need to break it into pieces because when don't want some number congruent to the message, but the message itself.
+\end{note}

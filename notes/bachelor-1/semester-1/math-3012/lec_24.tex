@@ -1,0 +1,51 @@
+\lecture{24}{Fri 20 Oct 2023 14:01}{Planar Graphs}
+
+\begin{note}
+	If we forget this formula, we can reconstruct by examining small graphs.
+\end{note}
+
+\begin{intuition}
+	When you add an edge to a connected planar graph without adding new vertices, the number of faces will go up by one. Similarly, if you add an edge without increasing the number of faces, then we must add one new vertex. Either way, \( n-m+f \) is constant.
+\end{intuition}
+
+\begin{proof}
+	We will proceed with induction on \( m \), the number of vertices in the connected planar graph.
+	\begin{description}
+		\item[Base case:] \( m=0 \). The only connected graph with 0 edges is an isolated vertex \( K_1 \) (assuming \( \varnothing \) is not a graph). \( K_1 \) has \( n = 1 \) vertices, \( f=1 \) faces, and \( m=0 \) edges such that \( n-m+f = 1-0+1 = 2 \), as desired.
+		\item[Step:] \( m\ge 1\). Suppose that for some for value of \( m\ge 1 \), this statement holds for all connected planar graphs with \( m-1 \) edges. Now, consider a drawing of a connected planar graph \( G \) with \( m \) edges, \( n \) vertices, and \( f \) faces. We wish to show that \( n-m+f=2 \). We will break this into cases: \par
+			\begin{description}
+				\item[Case 1:] \( G \) is a tree. Note that for all trees, \( f = 1 \) and \( m = n - 1 \). So, \( n-m+f=(m+1)-m+1=2 \), as desired.
+				\item[Case 2:] \( G \) is not a tree. Because \( G \) is connected, then \( G \) must contain a cycle \( C \). Note that every face in \( G \) lies either inside \( C \) or outside \( C \) (Jordan Curve Theorem). Let \( e \) be an edge on the cycle \( C \). Let \( G' \) be the graph obtained from \( G \) by deleting \( e \). Note that because \( e \) is in a cycle in \( G \), \( G' \) remains connected. Note that \( |V(G')| = n \), \( |E(G')|=m-1 \). It remains to find an expression for the number of faces in \( G' \). \par
+					Since \( e \) is on a cycle \( C \) in \( G \), deleting \( e \) merges two faces into one (Jordan Curve Theorem). Therefore, \( G' \) has \( f-1 \) faces!. By the inductive hypothesis, \( n-(m-1)+(f-1)=2 \). Therefore, \( n-m+f=2 \), as desired.
+			\end{description}
+	\end{description}
+	Because we have verified the base and step of induction, \( n-m+f=2 \) holds for all graphs with \( m \in \mathbb{N} \).
+\end{proof}
+
+\begin{corollary}
+	If \( G \) is a connected planar graph with \( m\ge 3 \) edges and \( n \) vertices, then \( m \le 3n-6 \).
+\end{corollary}
+
+\begin{proof}
+	We will proceed with a double-counting argument. If \( m\ge 3 \), then every face is bounded by \( \ge 3 \) edges. Also, every edge is on the boundary of \( \le 2 \) faces. Then, we have \( 2m \ge 3f \implies f \le \frac{2}{3}m \). By Euler's, \( 2 = n-m+f\le n-m+\frac{2}{3}m = n - \frac{1}{3}m\). Rearranging, we have \( m \le 3n - 6 \).
+\end{proof}
+
+This corollary gives us a certificate that certain graphs are not planar. In other words, if \( G \) has too many edges relative to the number of vertices, then \( m \le 3n-6 \) will not be satisfied.
+
+\begin{eg}
+	\( K_5 \) has \( n=5 \) and \( m=10 \). Then, \( m > 3n-6 \), so \( K_5 \) is not planar.
+\end{eg}
+
+\begin{note}
+	The corollary does \textbf{NOT} say ``if \( m \le  3n - 6 \), then \( G \) is planar''.
+\end{note}
+
+\begin{eg}
+	Adding a very long trail to \( K_5 \) will satisfy \( m\le 3n-6 \). But because the graph contains \( K_5 \), it is not planar.
+\end{eg}
+
+\exercise{1}
+Show that the corollary from Euler's formula holds for \( n\ge 3 \) as well.
+
+\exercise{2}
+\( K_{3,3} \) is the complete bipartite graph with 3 vertices in each part of the bipartition. Show that \( K_{3,3} \) is not planar. Hint: use the fact that \( K_{3,3} \) contains no triangles.

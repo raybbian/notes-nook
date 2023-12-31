@@ -1,0 +1,85 @@
+\lecture{16}{Tue 24 Oct 2023 14:08}{Strong Induction}
+
+Continuing the example from last time, we want to see for any group if there exists a celebrity. To do so, we can ask any person \( A \) whether or not they know person \( B \). How many questions will we have to ask?
+
+Let \( T(n) \) be the minimum number of questions we must ask to determine if there is a celebrity. Note that if \( A \) knows \( B \), \( A \) cannot be the celebrity. Also note that if \( A \) doesn't know \( B \), then \( B \) cannot be the celebrity. Then, our recurrence relation is defined by \[
+	T(n) = 1 + T(n-1)
+.\] We wish to show that we can find whether if there is a celebrity (or not) in at most \( 3(n-1) \) questions.
+
+\begin{note}
+	The base case is \( T(2) = 2 \). This is because if \( A \) knows \( B \), you still need to check whether or not \( B \) knows \( A \).
+\end{note}
+
+\begin{proof}
+	We will proceed with induction. 
+	\begin{description}
+		\item[Base case:] \( n=2 \). We will ask both people, which is sufficient to determine if there is a celebrity. We have \( 2 \le  3 = 3(2-1) \), as desired.
+		\item[Step case:] Assume that for any group of \( k \) people, we can determine if there is a celebrity by asking at most \( 3(k-1) \) questions. We wish to show that we can determine the existence of a celebrity in a group of \( k+1 \) people in at most \( 3(k+1-1) =3k \) questions. Pick two people \( A \) and \( B \), and ask if \( A \) knows \( B \). Then, there are two cases:
+			\begin{description}
+				\item[Case 1:] \( A  \) does not know \( B \). Then, we know that \( B \) cannot be a celebrity. By the inductive hypothesis applied to the original group without \( B \), we can find whether or not there exists a (candidate) celebrity \( C \) in \( 3(k-1) \) steps. To confirm that \( C \) is indeed a celebrity in the group with \( B \), we must check that \( B \) knows \( C \), and \( C \) does not know \( B \). This yields \[
+						1 + 3(k-1) + 2 = 3(k+1-1) = 3k
+					.\] total questions, as desired.
+				\item[Case 2:] \( A \) knows \( B \). Left as an exercise to the reader!
+			\end{description}
+	\end{description}
+	As we have verified both the base and step case of induction, it follows that we can determine the existence of a celebrity in a group of \( n \) people in at most \( 3(n-1) \) moves.
+\end{proof}
+
+\subsection{Strong Induction}
+Instead of assuming that the previous case is true, we assume that all previous cases are true. In other words, we check that \( P(0) \) is true, and we check that \( P(0) \land P(1) \land P(2) \land \ldots \land P(k) \implies P(k+1) \) is true for all \( k \in \mathbb{N} \). If both are true, we can then similarly conclude that \( P(k) \) is true for all \( k\in \mathbb{N} \).
+
+\begin{eg}
+	Show that for all natural numbers \( n\ge 2 \) have a decomposition into prime factors. 
+\end{eg}
+
+\begin{proof}
+	We will proceed with strong induction on \( n \).
+	\begin{description}
+		\item[Base case:] \( n=2 \) is prime, as desired.
+		\item[Step case:] Assume every natural number of up \( k \) can be decomposed into prime factors. We wish to show that \( k+1 \) can be decomposed into prime factors as well.
+			\begin{description}
+				\item[Case 1:] \( k+1 \) is prime. Then the decomposition is trivial.
+				\item[Case 2:] Otherwise, \( k+1 \) is composite. Then, there exists \( a, b \in \mathbb{N} \) such that \( k+1 = ab \), \( 2\le a,b\le k \). By the inductive hypothesis, \( a \) and \( b \) can be decomposed into prime factors. Then, \( k+1 \) can be decomposed into prime factors as well, as desired.
+			\end{description}
+			In both cases, \( k+1 \) can be decomposed into prime factors.
+	\end{description}
+	As we have verified both the base and step case of induction, it follows that for all \( n\in \mathbb{N} \), \( n\ge 2 \), \( n \) can be decomposed into prime factors.
+\end{proof}
+
+\begin{note}
+	For strong induction, we must carefully choose our base case(s), as shown below.
+\end{note}
+
+\begin{eg}
+	(Making change/coin change) There are 4 pesos bills and 5 pesos bills in an unknown country. What is the minimum value \( \zeta \) such that one can make change for all \( n \ge \zeta \)?
+\end{eg}
+
+\begin{proof}
+	We wish to show that \( \zeta=12 \). We will proceed with strong induction on \( n \).
+	\begin{description}
+		\item[Base case:] \( n=12=4+4+4 \), \( n=13=4+4+5 \), \( n=14=4+5+5 \), \( n=15=5+5+5 \).
+		\item[Step case:] Assume one can make change for all values \( [12, k] \) for some natural number \( k \). We wish to show that we can make change for \( k+1 \). To make change for \( k+1 \), we can use the change for \( k-3 \) and add one 4 peso bill.
+	\end{description}
+\end{proof}
+
+\subsection{Induction and Recursion}
+
+\begin{eg}
+	Let \( \{a_n\}_{n \in \mathbb{N}} \) be a sequence of numbers such that \( a_{0}=1, a_{1}=3, a_{2}=9, a_n=a_{n-1} + a_{n-2} + a_{n-3}\) for all \( n \ge 3 \). Prove that \( a_n \le 3^n \).
+\end{eg}
+
+\begin{proof}
+	We will proceed with strong induction on \( n \).
+	\begin{description}
+		\item[Base case:] For \( n=0 \), we have \( a_0=1=3^0 \), as desired. For \( n=1 \), we have \( a_1=3=3^1 \), as desired. And for \( n=2, a_2=9=3^2 \), as desired.
+		\item[Step case:] Assume \( a_k \le 3^k \) for all values up to \( k \in \mathbb{N} \). We wish to show that \( a_{k+1}\le 3^{k+1}  \). We know that 
+			\begin{align*}
+				a_{k+1} &= a_k+a_{k-1}+a_{k-2} \\
+								&\le 3^k + 3^{k-1} + 3^{k-2} \tag {Follows from inductive hypothesis} \\
+								&< 3^k+3^k+3^k \\
+								&= 3^{k+1}
+			.\end{align*}
+			as desired.
+	\end{description}
+	We have verified the base and step of induction. It follows that \( a_n \le 3^n \) for all \( n \in \mathbb{N} \).
+\end{proof}
