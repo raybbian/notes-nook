@@ -50,7 +50,7 @@ class Sync:
                     print(f"Writing file {rel_url}/{item['name']}")
                     content_url = f'{BASE_URL}{rel_url}/{item["name"]}:/content'
                     content = await client.get(content_url, headers=self.headers, follow_redirects=True)
-                    os.makedirs(f'../Notes/{rel_url}', exist_ok=True)
-                    with open(f"../Notes/{rel_url}/{item['name']}", "wb") as f:
+                    os.makedirs(f'../notes/{rel_url}', exist_ok=True)
+                    with open(f"../notes/{rel_url}/{item['name']}", "wb") as f:
                         f.write(content.content)
 
