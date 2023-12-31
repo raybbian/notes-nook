@@ -42,20 +42,6 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
 
-      - name: Compile
-        uses: xu-cheng/texlive-action@v2
-        with: 
-          scheme: full
-          texlive_version: 2023
-          run: |
-            apk add inkscape
-            cd notes/
-            for dir in */ ; do
-              cd "$dir"
-              latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-              cd ../
-            done
-
       - name: Commit
         run: |
           git config --global user.name 'Github Actions'
