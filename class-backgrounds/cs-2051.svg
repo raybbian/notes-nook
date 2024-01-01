@@ -24,13 +24,13 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.6151359"
-     inkscape:cx="-4.9531436"
-     inkscape:cy="43.340006"
-     inkscape:window-width="2560"
-     inkscape:window-height="1530"
-     inkscape:window-x="0"
-     inkscape:window-y="34"
+     inkscape:zoom="2.2841471"
+     inkscape:cx="-11.382805"
+     inkscape:cy="82.306433"
+     inkscape:window-width="1920"
+     inkscape:window-height="1164"
+     inkscape:window-x="2560"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -62,6 +62,14 @@
     <path
        id="MJX-21-TEX-N-2228"
        d="M55 580Q56 587 61 592T75 598Q86 598 96 580L333 48L570 580Q579 596 586 597Q588 598 591 598Q609 598 611 580Q611 574 546 426T415 132T348 -15Q343 -22 333 -22T318 -15Q317 -14 252 131T121 425T55 580Z" />
+    <clipPath
+       id="HbrAqhAMVIfZ">
+      <path
+         fill="none"
+         stroke="none"
+         d="M 0,0 H 1203 V 838 H 0 Z"
+         id="path1" />
+    </clipPath>
   </defs>
   <g
      inkscape:label="Layer 1"
