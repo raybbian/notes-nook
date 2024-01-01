@@ -1,5 +1,5 @@
 const courses = {
-    "current": {
+    "past": {
         "cs-1332": {
             "name": "Data Structures and Algorithms",
             "professor": "Frederic Faulkner",
@@ -28,14 +28,15 @@ const courses = {
             "notes": "Missing lectures 5-17."
         },
     },
-    "future": {
+    "current": {
         "math-3406": {
             "name": "A Second Course in Linear Algebra",
             "professor": "Federico Bonetto",
             "description": "This course will cover important topics in linear algebra not usually discussed in a first-semester course, featuring a mixture of theory and applications.",
             "year": 1,
             "semester": 2,
-            "status": "incomplete"
+            "status": "inprogress",
+            "notes": "Currently in progress."
         },
         "cs-2110": {
             "name": "Computer Organization and Programming",
@@ -43,7 +44,8 @@ const courses = {
             "description": "An introduction to basic computer hardware, machine language, assembly language, and C programming.",
             "year": 1,
             "semester": 2,
-            "status": "incomplete"
+            "status": "inprogress",
+            "notes": "Currently in progress."
         },
         "cs-3511": {
             "name": "Design and Analysis of Algorithms, Honors",
@@ -51,7 +53,8 @@ const courses = {
             "description": "Techniques of design and analysis of efficient algorithms for standard computational problems. NP-Completeness Project.",
             "year": 1,
             "semester": 2,
-            "status": "incomplete"
+            "status": "inprogress",
+            "notes": "Currently in progress."
         },
         "math-3235": {
             "name": "Probability Theory",
@@ -59,7 +62,8 @@ const courses = {
             "description": "This course is a mathematical introduction to probability theory, covering random variables, moments, multivariable distributions, law of large numbers, central limit theorem, and large deviations.",
             "year": 1,
             "semester": 2,
-            "status": "incomplete"
+            "status": "inprogress",
+            "notes": "Currently in progress."
         },
         "math-4032": {
             "name": "Combinatorial Analysis",
@@ -67,7 +71,8 @@ const courses = {
             "description": "Combinatorial problem-solving techniques including the use of generating functions, recurrence relations, Polya theory, combinatorial designs, Ramsey theory, matroids, and asymptotic analysis.",
             "year": 1,
             "semester": 2,
-            "status": "incomplete"
+            "status": "inprogress",
+            "notes": "Currently in progress."
         },
         "cs-3600": {
             "name": "Introduction to Artificial Intelligence",
@@ -75,10 +80,11 @@ const courses = {
             "description": "An introduction to artificial intelligence and machine learning. Topics include intelligent system design methodologies, search and problem solving, supervised and reinforced learning.",
             "year": 1,
             "semester": 2,
-            "status": "incomplete"
+            "status": "inprogress",
+            "notes": "Currently in progress."
         }
     },
-    "past": {
+    "future": {
 
     }
 }
