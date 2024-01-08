@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1704742509 "master.tex" "master.pdf" "master" 1704742510 0
+["pdflatex"] 1704743192 "master.tex" "master.pdf" "master" 1704743193 0
   "../preamble.tex" 1703981153 7971 f2fb51f675f2401a47de224892105b2e ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1689853683 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1689853683 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -29,6 +29,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/stmaryrd/stmary6.tfm" 1689853683 848 068dd119e13b75777e62821af7d4f2a6 ""
   "/usr/share/texmf-dist/fonts/tfm/public/stmaryrd/stmary7.tfm" 1689853683 848 26631fcb3e4cb6757598b9cda7967b63 ""
   "/usr/share/texmf-dist/fonts/tfm/public/stmaryrd/stmary8.tfm" 1689853683 848 6125cdd3627e68d3db8013b98e587508 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1689853683 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb" 1689853683 96423 72b4aa9fd7b8d50def0f15cf61c62655 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb" 1689853683 93900 a2f71b17e4843e705710af210010eac4 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb" 1689853683 95413 3a8ddd1c46f5e2e4390bc74e4c7ff8a8 ""
@@ -265,10 +266,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1689853683 40684 9b9ec0b4288972636ff6a3b9c4238efc ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1703484838 4478429 385ad1d6b64c93bd02d3a0cc5f72992b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1703484834 6768058 28a523afb669d77efaa2231d9a82f134 ""
-  "lec_01.tex" 1704742507 1326 7191bb361e3d8d1e5fb38074ff1ec25b ""
-  "master.aux" 1704742510 1355 0bb007f88607af8a8e7858b0c4d9d923 "pdflatex"
+  "lec_01.tex" 1704743191 2279 453d90b7deba63e18442dfbb8d01b76b ""
+  "master.aux" 1704743193 2624 2a94ea346c0a30fb81f121bf91548f55 "pdflatex"
   "master.tex" 1704735401 220 0a04b27bddaeca99b1e38c809961dab8 ""
-  "master.toc" 1704742510 59 2c8eea4403ecec59d00b365388b7c22a "pdflatex"
+  "master.toc" 1704743193 59 2c8eea4403ecec59d00b365388b7c22a "pdflatex"
   (generated)
   "master.aux"
   "master.log"
