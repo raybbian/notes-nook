@@ -5,5 +5,27 @@
 This course is basically just a second course in Combinatorics, and will cover a range of topics.
 
 \begin{definition}
-	\textbf{Matroids} are the structures that capture whether or not the greedy algorithm works.
+	\textbf{Matroids} are the structures that capture whether or not the greedy algorithm works. They will be covered later in the course.
 \end{definition}
+
+Now, for some examples and review:
+
+\begin{definition}
+	We say points are in \textbf{convex position} if no point is inside a triangle made by 3 other points.
+\end{definition}
+
+\begin{eg}
+	Given a finite set of points on the plane, what is the maxmimum number of points such that no 3 are on a line, and no 4 are in convex position.
+\end{eg}
+
+\begin{explanation}
+	Informally, we know that the ``outside'' of our points has exactly 3 points in the shape of a triangle. We can then place a point in the middle. However, if we try to add another point, then we find that 4 points are in convex position, which is a contradiction. Therefore, 4 points is the maximum size of such a set.
+\end{explanation}
+
+\begin{theorem}
+	(ES, 1935) The maxmimum number of points such that no 3 are on a line and no \( n \) are in convex position is \( \le 4^n \) and \( \ge 2^{n-2}  \).
+\end{theorem}
+
+\begin{theorem}
+	(Suk, 2017) This number is actually \( \le 2^{n + o(1)}  \)
+\end{theorem}
