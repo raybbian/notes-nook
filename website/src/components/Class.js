@@ -17,7 +17,7 @@ export default function Class({courseID, name, professor, description, year, sem
         if (professorName === "Not Assigned") {
             return professorName
         }
-        return professorName.split(' ')[1]
+        return professorName.split(' ').slice(1).join(' ')
     }
 
     const statusColors = {

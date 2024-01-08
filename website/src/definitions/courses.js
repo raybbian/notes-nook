@@ -40,7 +40,7 @@ const courses = {
         },
         "cs-2110": {
             "name": "Computer Organization and Programming",
-            "professor": "Not Assigned",
+            "professor": "David Hillegass",
             "description": "An introduction to basic computer hardware, machine language, assembly language, and C programming.",
             "year": 1,
             "semester": 2,
@@ -49,7 +49,7 @@ const courses = {
         },
         "cs-3511": {
             "name": "Design and Analysis of Algorithms, Honors",
-            "professor": "Sahil Singla",
+            "professor": "Gerald Jan Van Den Brand",
             "description": "Techniques of design and analysis of efficient algorithms for standard computational problems. NP-Completeness Project.",
             "year": 1,
             "semester": 2,
@@ -67,7 +67,7 @@ const courses = {
         },
         "math-4032": {
             "name": "Combinatorial Analysis",
-            "professor": "Not Assigned",
+            "professor": "Rose McCarty",
             "description": "Combinatorial problem-solving techniques including the use of generating functions, recurrence relations, Polya theory, combinatorial designs, Ramsey theory, matroids, and asymptotic analysis.",
             "year": 1,
             "semester": 2,
