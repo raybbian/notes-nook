@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  9 JAN 2024 11:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  9 JAN 2024 11:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1136,21 +1136,29 @@ LaTeX Font Info:    Font shape `T1/cmbr/b/n' in size <14.4> not available
  (./lec_01.tex
 LaTeX Font Info:    Font shape `T1/cmbr/b/n' in size <12> not available
 (Font)              Font shape `T1/cmbr/bx/n' tried instead on input line 1.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4.
+LaTeX Font Info:    Font shape `T1/cmbr/b/n' in size <10> not available
+(Font)              Font shape `T1/cmbr/bx/n' tried instead on input line 4.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 8.
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 
 
 
 ] (./master.aux) ) 
 Here is how much of TeX's memory you used:
- 38649 strings out of 477985
- 965885 string characters out of 5840059
- 1852388 words of memory out of 5000000
- 58159 multiletter control sequences out of 15000+600000
- 524356 words of font info for 66 fonts, out of 8000000 for 9000
+ 38780 strings out of 477985
+ 969519 string characters out of 5840059
+ 1856388 words of memory out of 5000000
+ 58290 multiletter control sequences out of 15000+600000
+ 525115 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,8n,88p,751b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,10n,88p,751b,1066s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb>
-Output written on master.pdf (1 page, 24087 bytes).
+Output written on master.pdf (1 page, 28372 bytes).
 PDF statistics:
  27 PDF objects out of 1000 (max. 8388607)
  17 compressed objects within 1 object stream

@@ -1470,6 +1470,7 @@ INPUT lec_01.tex
 INPUT ./lec_01.tex
 INPUT lec_01.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebbx10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebbx10.tfm
 OUTPUT master.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
