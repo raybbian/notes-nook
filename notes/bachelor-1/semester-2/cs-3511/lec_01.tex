@@ -39,10 +39,44 @@ So, when talking about algorithms, it makes sense to use a middleground, known a
 		\Require $input$
 		\Ensure $output$
 		\For{\( i \gets 1\ldots n \)}
-			\State{Find \( j\ge i \) with smallest \( arr[i] \)}
+			\State{Find \( j\ge i \) with smallest \( arr[j] \)}
 			\State{Swap \( arr[i] \) and \( arr[j] \)}
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}
 
+More detailed descriptions can also be given with pseudocode.
+
 \subsection{Runtime of Algorithms}
+
+Many factors can impact the runtime of an algorithm. For example, Selection Sort, when ran on the professor's laptop had a runtime of \( 0.017 n^2 + 0.669 n + 0.114\)ms. This runtime will vary depending on the context, things like hardware, the programming language, and temperature.
+
+Because we cannot determine these constants for every computer, we will just \textbf{ignore them} for analyzing algorithms.
+
+\begin{definition}
+	\textbf{Big-O Notation} is the notation used to analyze runtimes. It essentially ignores unknown constant factors. More formally, it states that \( f(n)=O(g(n)) \) if and only if there exists \( n_0 \) and \( c>0 \) such that \( f(n) \le c\cdot g(n) ~ \forall n \ge n_0\).
+\end{definition}
+
+\begin{lemma}
+	If \( \lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty \) then \( f(n) = O(g(n)) \).
+\end{lemma}
+
+We can find the runtime of algorithms by counting the number of operations.
+
+\begin{eg}
+	Selection sort runs in \( O(n^2) \).
+\end{eg}
+\begin{explanation}
+	We have \[
+		\sum_{i=1}^{n} \sum_{j=i}^{n} 1 =  \frac{n(n-1)}{2} = O(n^2)
+	.\] 
+	Note that the second equality comes from taking the limit.
+\end{explanation}
+
+\begin{definition}
+	\textbf{Omega} notation is defined as follows: \( f(n) = \Omega(g(n)) \) if \( g(n) = O(f(n)) \).
+\end{definition}
+
+\begin{lemma}
+	\( \lim_{n \to \infty} \frac{g(n)}{f(n)} \implies f(n) = \Omega(g(n)) \).
+\end{lemma}
