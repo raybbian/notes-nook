@@ -1,1 +1,74 @@
-\lecture{1}{Tue 09 Jan 2024 17:01}{}
+\lecture{1}{Tue 09 Jan 2024 17:01}{Review of Vectors and Matrices}
+
+\section{Vectors and Matrices}
+
+For the time being, everything indicated in this source is in \( \mathbb{R} \).
+
+\begin{definition}
+	A \textbf{vector} will be defined as a column vector, e.g. \[
+		u=\begin{bmatrix}
+			x_{1} \\
+			x_{2} \\
+			x_{3} \\
+		\end{bmatrix}
+		\in \mathbb{R}^3
+	.\] 
+\end{definition}
+
+\begin{notation}
+	Sometimes, they will be written as a column vector lying down, e.g. \( (x_{1},x_{2},x_{3}) \in \mathbb{R}^3 \)
+\end{notation}
+
+\begin{definition}
+	Let \( a \) be a scalar. Then multiplication by a scalar is defined as \[
+		au = \begin{bmatrix}
+			a\cdot x_{1}\\
+			a\cdot x_{2}\\
+			a\cdot x_{3}\\
+		\end{bmatrix}
+	.\] 
+\end{definition}
+
+\begin{definition}
+	Let \(u = \begin{bmatrix}
+			x_{1}\\
+			x_{2}\\
+			x_{3}\\
+		\end{bmatrix} \) and \( v = \begin{bmatrix}
+			y_{1}\\
+			y_{2}\\
+			y_{3}\\
+		\end{bmatrix}
+	\). Then addition between vectors is defined as \[
+		u+v = \begin{bmatrix}
+			x_{1}+y_{1}\\
+			x_{2}+y_{2}\\
+			x_{3}+y_{3}\\
+		\end{bmatrix}
+	.\] 
+\end{definition}
+
+\begin{definition}
+	If \( u,v \) are vectors and \( a,b \) are scalars, then any \( au+bv \) is a \textbf{linear combination} of \( u \) and \( v \).
+\end{definition}
+
+\begin{remark}
+	A \textbf{vector space} \( V \) is a set of objects \( u.v \) such that \( au+bv \in V\).
+\end{remark}
+
+\begin{eg}
+	Polynomials of degree \( \le 2 \) in one variable can form a vector space.
+\end{eg}
+\begin{explanation}
+	Let \( p(x) = a_{0}+a_{1}x+a_{2}x^2 \), and \( q(x) = b_{0}+b_{1}x+b_{2}x^2  \). Multiplying by scalars and adding are defined. Note that \( p(x) \to \begin{bmatrix}
+		a_{0}\\
+		a_{1}\\
+		a_{2}\\
+	\end{bmatrix} \).
+\end{explanation}
+
+\begin{eg}
+	Let \( f(x) : [0,1] \to \mathbb{R} \) be a continuous function. We can multiply by scalars and add together such functions, so they form a vector space as well.
+\end{eg}
+
+Suppose we have two vectors \( u, v \in \mathbb{R}^3\). Looking at the set of all linear combinations of \( u,v \),
