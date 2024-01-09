@@ -15,3 +15,91 @@ What data do you need to specify probability? You need the \textbf{set of all ou
 	A \textbf{set} is an unordered collection of elements. \textbf{Elements} are objects within sets.
 \end{definition}
 
+\begin{definition}
+	A set \( A \) is a \textbf{subset} of a set \( B \) if \( a \in A \implies a \in B \)
+\end{definition}
+
+\begin{definition}
+	The \textbf{union} of two sets \( A \) and \( B \) is the collection of elements that are in \( A \) or \( B \).
+\end{definition}
+
+\begin{definition}
+	The \textbf{intersection} of two sets \( A \) and \( B \) is the collection of elements that are in both \( A \) and \( B \).
+\end{definition}
+
+\begin{definition}
+	The \textbf{complement} of a set \( A \) is everything not in \( A \).
+\end{definition}
+
+\begin{definition}
+	A \textbf{finite set} is a set with finite number of elements.
+\end{definition}
+
+\begin{definition}
+	The \textbf{cartesian} product of two sets \( A \) and \( B \) denoted \( A \times B \) is \[
+		\{(a,b) \colon a \in A \land b \in B\}  
+	.\] 
+	Then, \( |A \times B| = |A| \cdot |B| \).
+\end{definition}
+
+\subsection{Back to Probability}
+
+\begin{definition}
+	A \textbf{sample space} is the set of al possible outcomes in an experiment.
+\end{definition}
+
+\begin{eg}
+	The sample space \( \Omega  \) for a coin flip is \( \{H,T\}   \).
+\end{eg}
+
+Note that \textbf{events} are just subsets of the sample space, and \textbf{elementary events} are just elements of the sample space.
+
+\begin{eg}
+	For a dice roll:	\( \Omega =\{1,2,3,4,5,6\}   \), some events could be \( \{1,2\}   \), \( \{3,6\}   \), \( \{3\}   \). There are a total of \( 2^6 \) events.
+\end{eg}
+\begin{definition}
+	If \( \Omega  \) is a finite set, a probability \( P \) on \( \Omega  \) is a function: \( P \colon 2^{\Omega } \to [0,1]    \) such that \( P(\varnothing) = 0 \) and \( P(\Omega )=1 \).
+\end{definition}
+
+\begin{lemma}
+	If \( A_{1}, \ldots, A_{\alpha } \subset \Omega  \) are disjoint, \( P(\bigcup_{i}A_i) \) = \( \sum_{i} P(A_i) \).
+\end{lemma}
+
+\begin{prop}
+	Let \( A = \{a_{1},a_{2},\ldots a_l\}   \) such that \( a_i \) are elementary events. Then, \[
+		P(A) = \sum_{i=1}^{l} P(\{a_i\}  )
+	.\] 
+\end{prop}
+
+\begin{eg}
+	For the dice roll, if \( A=\{1,3,5\}   \), then \( P(A) = 3\cdot  \frac{1}{6}= \frac{1}{2} \).
+\end{eg}
+
+\begin{definition}
+	\textbf{Equiprobable outcomes}: Let's say we have the set \( \Omega =\{\omega_1, \ldots , \omega_N\}   \) and \( P(\omega_i)=P(\omega_j) \) for all \( i \) and \( j \). Then, \( P(\omega) = \frac{1}{N} \) for all \( \omega  \in \Omega  \) and \( P(A) = \frac{|A|}{N} \). In other words, when outcomes are probable, \[ P(\text{event}) = \frac{\text{number of outcomes for that event}}{\text{number of possible outcomes}}.\]
+\end{definition}
+
+\subsection{Counting}
+
+Suppose 2 experiments are being performed. Let's say that experiment 1 has \( m \) possible outcommes, and experiment 2 has \( n \) possible outcomes. Then together, there are total of \( n\cdot m \) total outcomes.
+
+\begin{eg}
+	Rolling a dice and then flipping a coin, how many possible outcomes are there?
+\end{eg}
+\begin{explanation}
+	You have \( 6 \cdot 2 = 12  \) outcomes.
+\end{explanation}
+
+\begin{eg}
+	Let's say you have a college planning committee that consists of 3 freshman, 4 sophomores, 5 juniors, and 2 seniors. How many ways are there to select a subcommittee of 4 with one person from each grade?
+\end{eg}
+\begin{explanation}
+	There are 4 events with 3, 4, 5, and 2 possible outcomes for each. Therefore, there are \( 3\cdot 4\cdot 5\cdot 2=120 \) total subcommittees.
+\end{explanation}
+
+\begin{eg}
+	How many 7-place license plates are there if the first 3 are letters and the last 4 are numbers?
+\end{eg}
+\begin{explanation}
+	There are \( 26^3 \cdot 10^4 \) license plates.
+\end{explanation}

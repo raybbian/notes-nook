@@ -1,2 +1,4 @@
 \contentsline {section}{\numberline {1}Basics of Probability}{1}{}%
 \contentsline {subsection}{\numberline {1.1}Basics of Set Theory}{1}{}%
+\contentsline {subsection}{\numberline {1.2}Back to Probability}{1}{}%
+\contentsline {subsection}{\numberline {1.3}Counting}{2}{}%
