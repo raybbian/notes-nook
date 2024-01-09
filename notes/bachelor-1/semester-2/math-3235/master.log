@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  9 JAN 2024 14:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  9 JAN 2024 15:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1110,10 +1110,10 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 35.
+Package mdframed Info: Not enough space on this page on input line 36.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 39.
-Package mdframed Info: Not enough space on this page on input line 43.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 48.
@@ -1142,6 +1142,7 @@ Package mdframed Info: mdframed detected package amsthm
 
 
 ]
+Package mdframed Info: Not enough space on this page on input line 80.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 87.
@@ -1160,22 +1161,103 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 104.
-) [2
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 108.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 112.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 115.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 119.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 122.
+Package mdframed Info: Not enough space on this page on input line 123.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 126.
+
+Underfull \hbox (badness 1097) in paragraph at lines 126--127
+[][]\T1/cmbr/bx/n/10 Definition 12. [][]\T1/cmbr/m/n/10 A \T1/cmbr/bx/n/10 com-bi-na-tion \T1/cmbr/m/n/10 de-notes the
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 130.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 133.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 137.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 140.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 144.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 147.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 151.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 154.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 158.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 166.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 169.
+[2]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 181.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 185.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 188.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 192.
+
+Underfull \hbox (badness 4954) in paragraph at lines 192--193
+[][]\T1/cmbr/bx/n/10 Definition 15. [][]\T1/cmbr/m/n/10 The \T1/cmbr/bx/n/10 multi-no-mial the-o-rem
+ []
+
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 202.
+LaTeX Font Info:    Trying to load font information for TS1+cmbr on input line 204.
+(/usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
+File: ts1cmbr.fd 2005/04/13 v8.1 (WaS)
+)) [3{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}
 
 ] (./master.aux) ) 
 Here is how much of TeX's memory you used:
- 36444 strings out of 477985
- 906919 string characters out of 5840059
- 1890388 words of memory out of 5000000
- 55978 multiletter control sequences out of 15000+600000
- 533185 words of font info for 95 fonts, out of 8000000 for 9000
+ 36513 strings out of 477985
+ 908407 string characters out of 5840059
+ 1904388 words of memory out of 5000000
+ 56042 multiletter control sequences out of 15000+600000
+ 533530 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,10n,88p,751b,1093s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,10n,88p,751b,1117s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb>
-Output written on master.pdf (2 pages, 106647 bytes).
+Output written on master.pdf (3 pages, 123697 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 77 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -103,3 +103,108 @@ Suppose 2 experiments are being performed. Let's say that experiment 1 has \( m 
 \begin{explanation}
 	There are \( 26^3 \cdot 10^4 \) license plates.
 \end{explanation}
+
+\begin{definition}
+	A \textbf{permutation} is an ordering of elements in a set. The number of ways to order \( n \) elements is given by \( n! \).
+\end{definition}
+
+\begin{eg}
+	Alex has a bunny ranch with 10 bunnies. They are going to run an obstacle course and ranked 1-10 based on completion time. How many possible rankings are there (no ties)?
+\end{eg}
+\begin{explanation}
+	There are \( 10! \) possible rankings.
+\end{explanation}
+
+\begin{eg}
+	Assume 6 bunnies have straight ears and 4 have floppy ears. We rank the bunnies separately. How many possible rankings are there?
+\end{eg}
+\begin{explanation}
+	There are \( 6! \cdot 4! \) possible outcomes.
+\end{explanation}
+
+\begin{definition}
+	A \textbf{combination} denotes the number of ways to choose \( k \) elements from \( n \) total elements (counting subsets).
+\end{definition}
+
+\begin{eg}
+	How many ways are there to pick a 2 person team from a set of 5 people?
+\end{eg}
+\begin{explanation}
+	There are \( C(5,2) = \binom{5}{2} = \frac{5!}{2!\cdot 3!} = 10 \) ways.
+\end{explanation}
+
+\begin{eg}
+	How many committees consisiting of 2 women and 3 men can be formed from a group of 5 women and 7 men?
+\end{eg}
+\begin{explanation}
+	We have \( C(5,2) \cdot C(7,3) \) possible committees.
+\end{explanation}
+
+\begin{eg}
+	What if two of the men do not want to serve on the committee together?
+\end{eg}
+\begin{explanation}
+	The number of ways to choose the women stays the same. However, for the men we must subtract the number of committees that have both men. Therefore, we have \( C(5,2) \cdot (C(7,3) - C(5,1)) \) possible committees.
+\end{explanation}
+
+\begin{eg}
+	How many ways can we divide a 10 person class into 3 groups, sizes 3, 3, and 4?
+\end{eg}
+\begin{explanation}
+	We just have 3 events, multiplying: \( C(10,3)\cdot C(7,3)\cdot C(4,4) \).
+\end{explanation}
+
+\begin{definition}
+	This is known as a \textbf{multinomial}, and is given by \[
+		\binom{n}{n_{1}, n_{2}, \ldots , n_r} = \frac{n!}{n_{1}! \cdot n_{2}! \cdot \ldots \cdot n_r!}
+	.\] It counts the number of ways to partition a set of size \( n \) into sets of sizes \( n_{1},n_{2}\ldots ,n_r \).
+\end{definition}
+
+\subsection{Back to Probability Again}
+
+\begin{eg}
+	Flip 10 fair coins. What is the likelihood of flipping 3 heads?
+\end{eg}
+\begin{explanation}
+	Number of events of 3 heads is \( C(10,3) \). Total number of events is \( 2^{10} \). Therefore, \[
+		P(\text{10 heads}) = \frac{C(10,3)}{2^{10} }
+	.\] 
+\end{explanation}
+
+In general, we have \( \sum_{k=0}^{n} P(\text{\( k \) heads}) = 1 \). In other words, \[
+	\frac{1}{2^{10}  } \cdot \sum_{k=0}^{10} \binom{10}{k} = 1
+.\] such that \[
+	\sum_{k=0}^{10} \binom{10}{k} = 2^{10}
+.\] More generally,
+
+\begin{definition}
+	The \textbf{binomial theorem} states that for all \( x,y \in \mathbb{R} \), \( n\ge 1 \), \( n \in \mathbb{N} \), \[ (x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^k y^{n-k}  .\]
+\end{definition}
+
+\begin{eg}
+	Rolling 10 dice, what is the likelihood of exactly 2 outcomes each of 1,2,3,4, 1 outcome of 6, and 1 outcome of 5.
+\end{eg}
+\begin{explanation}
+	There are total \( 6^{10}  \) outcomes, and there are \( \binom{10}{2,2,2,2,1,1} \) desired outcomes. Therefore, the probability of this event is \( \frac{\binom{10}{2,2,2,2,1,1}}{6^{10} } \).
+\end{explanation}
+
+\begin{definition}
+	The \textbf{multinomial theorem} states that \( (x_{1}+\ldots +x_r)^n = \)
+		\[ \sum_{n_{1}+\ldots +n_r=n} \binom{n}{n_{1},\ldots ,n_r} x_{1}^{n_{1}} x_{2}^{n_{2}} \ldots x_r^{n_r} 
+	.\] 
+\end{definition}
+
+\subsection{Measure Theory}
+
+This is just a generalization of what we have seen before.
+
+\begin{definition}
+	Let \( \mathcal{F} \subset 2^{\Omega }  \) be an ``event space''. A mapping \( P : \mathcal{F} \to  \mathbb{R} \) is a \textbf{probability measure} on \( (\Omega , \mathcal{F}) \) if 
+	\begin{itemize}
+		\item \( P(A) \ge 0 \quad \forall A \in \mathcal{F} \)
+		\item \( P(\varnothing) = 0, P(\Omega) = 1\)
+		\item If \( A_{1},A_{2},\ldots  \) are disjoint, \[
+				P(\bigcup_{i = 1}^{\infty}A_i ) = \sum_{i=1}^{\infty} P(A_i)
+		.\] 
+	\end{itemize}
+\end{definition}

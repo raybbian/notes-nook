@@ -1439,6 +1439,12 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr8.tfm
 OUTPUT master.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
+INPUT /usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
+INPUT /usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
+INPUT /usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
+INPUT /usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/tbmr10.tfm
+INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT master.aux
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb
