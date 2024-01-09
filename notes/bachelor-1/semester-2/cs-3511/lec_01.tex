@@ -1,15 +1,48 @@
 \lecture{1}{Tue 09 Jan 2024 12:28}{Intro and Review}
 
+\section{Intro to Algorithms}
+\subsection{Properties of Algorithms}
+
+What kind of properties can an algorithm even have?
+
+\begin{property}
+	Algorithms can be categorized by speed, memory, readability (simple to understand), accuracy (approximation quality), and requirements for the input.
+\end{property}
+
+The focus of this class will be on \textbf{speed}. We will also talk about accuracy, and algorithms will be mostly readable (but not always). We need some language that will allow us to describe algorithms.
+
+\subsection{Describing Algorithms}
+
+\begin{eg}
+	Let's take for example selection sort.
+\end{eg}
+\begin{explanation}
+	Using plain english, selection sort is: reapeatedly finding the smallest element and appending it to the output.
+\end{explanation}
+
+Algorithms can be described at different levels of detail. One extreme is very informally, like the sentence above. This type helps convey the \textbf{key concepts}, but can be rather vague, ambiguous, and hard to understand.
+
+The other extreme could be posting the source code of the program. This would be a complete description of an algorithm, because even the computer and execute it. However, source code includes details that \textbf{only the computer needs}, such as types, etc.
+
+So, when talking about algorithms, it makes sense to use a middleground, known as \textbf{pseudocode}.
+
+\begin{definition}
+	\textbf{Pseudocode} is a descriptive, step by step set of instructions that detail the structure of a program. English is allowed, and the level of detail depends on the context and the audience.
+\end{definition}
+
 \begin{algorithm}
-	\floatname{algorithm}{Test Algo}
-	\algrenewcommand\algorithmicrequire{\textbf{Input: }}
-	\algrenewcommand\algorithmicensure{\textbf{Output: }}
-	\caption{}\label{alg:}
+	\floatname{algorithm}{Selection Sort}
+	\algrenewcommand\algorithmicrequire{\textbf{Any array of elements}}
+	\algrenewcommand\algorithmicensure{\textbf{A sorted array}}
+	\caption{Pseudocode for Selection Sort}\label{alg:selection-sort}
 	\begin{algorithmic}[1]
 		\Require $input$
 		\Ensure $output$
-		
-		\State \textbf{return} $state$
+		\For{\( i \gets 1\ldots n \)}
+			\State{Find \( j\ge i \) with smallest \( arr[i] \)}
+			\State{Swap \( arr[i] \) and \( arr[j] \)}
+		\EndFor
 	\end{algorithmic}
 \end{algorithm}
 
+\subsection{Runtime of Algorithms}
