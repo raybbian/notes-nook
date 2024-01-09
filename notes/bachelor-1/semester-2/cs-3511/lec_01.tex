@@ -58,7 +58,7 @@ Because we cannot determine these constants for every computer, we will just \te
 \end{definition}
 
 \begin{lemma}
-	If \( \lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty \) then \( f(n) = O(g(n)) \).
+	\( \lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty \implies f(n) = O(g(n)) \).
 \end{lemma}
 
 We can find the runtime of algorithms by counting the number of operations.
@@ -74,9 +74,33 @@ We can find the runtime of algorithms by counting the number of operations.
 \end{explanation}
 
 \begin{definition}
-	\textbf{Omega} notation is defined as follows: \( f(n) = \Omega(g(n)) \) if \( g(n) = O(f(n)) \).
+	\textbf{Omega} notation denotes the relation \( \ge  \).
 \end{definition}
 
 \begin{lemma}
 	\( \lim_{n \to \infty} \frac{g(n)}{f(n)} \implies f(n) = \Omega(g(n)) \).
+\end{lemma}
+
+\begin{definition}
+	\textbf{Little-O} notation denotes the strict relation \( < \).
+\end{definition}
+
+\begin{lemma}
+	\( \lim_{n \to \infty} \frac{f(n)}{g(n)}=0 \implies f(n) = o(g(n)) \).
+\end{lemma}
+
+\begin{definition}
+	\( \omega \) notation denotes the strict relation \( > \).
+\end{definition}
+
+\begin{lemma}
+	\( \lim_{n \to \infty} \frac{g(n)}{f(n)} \implies f(n) = \omega(g(n))\).
+\end{lemma}
+
+\begin{definition}
+	\textbf{Theta} notation denotes the equality relation \( = \).
+\end{definition}
+
+\begin{lemma}
+	\( f(n) = O(g(n)) \land f(n) = \Omega(g(n)) \implies f(n) = \Theta(g(n)) \).
 \end{lemma}
