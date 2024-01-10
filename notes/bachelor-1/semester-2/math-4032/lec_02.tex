@@ -2,13 +2,59 @@
 
 We will now review the types of proofs covered in Math-3012, as well as guidelines for writing them in this class.
 
+\begin{notation}
+	If \( F \) is a mapping from \( N \) to \( M \), we write \( F: N \to M \).
+\end{notation}
+
+\begin{notation}
+	Sometimes, \( N \setminus \{a\}   \) will be instead written as \( N-\{a\}   \).
+\end{notation}
+
 \begin{prop}
 	Let \( N \) be an \( n \)-element set and \( M \) be an \( m \)-element set. Then, there are \( m^n \) mappings (or functions) from \( N \) to \( M \).
 \end{prop}
 \begin{proof}
-	(Inductive) ``We go by induction on \( n \). For the base case \( n=0 \), we consider the empty set \( \varnothing \) to be a mapping from the empty set to \( M \).
+	(Inductive) We go by induction on \( n \). 
+	\begin{description}
+		\item[Base case.] For the base case \( n=0 \), we consider the empty set \( \varnothing \) to be a mapping from the empty set to \( M \). So \( m^0=1 \) and the base case holds. 
+		\item[Inductive step.] Now, let \( n\ge 1 \) and assume that the proposition holds for \( n-1 \) by induction. So, let \( a \in N \). There are \( m^{n-1}  \) mappings \( F' : N \setminus \{a\} \to M  \). For each such \( F' \), we have \( m \) choices for where to send \( a \). These mappings are all distinct, and every \( F:N \to M \) can be obtained in this way. So, the number of mappings \( F : N \to M \) is \( m^{n-1}\cdot m  = m^n\), as desired.
+	\end{description}
 \end{proof}
 
-\begin{notation}
-	If \( F \) is a mapping from \( N \) to \( M \), we write \( F: N \to M \).
-\end{notation}
+\begin{definition}
+	A \textbf{bijection} is a function \( f : X \to Y \) such that \( f \) is one-to-one and onto.
+\end{definition}
+
+\begin{corollary}
+	An \( n \)-element set \( X \) has \( 2^n \) many subsets.
+\end{corollary}
+\begin{proof}
+	(Bijective) For each \( A \subseteq X \), let \( F_A : X \to \{0,1\}   \) such that for each \( x \in X \), 
+	\[ F_A(x)=
+		\begin{cases}
+			0 &\text{ if }x \not\in A\\
+			1 &\text{ if }x \in A
+		\end{cases} 
+	.\] These mappings \( F_A,F_{A'} \) are distinct for distinct subsets \( A,A' \subseteq X \), and every mapping \( F:X \to \{0,1\}   \) is equal to \( F_A \)  for some \( A \subseteq X \). So by proposition 1, the corollary holds.
+\end{proof}
+
+\begin{lemma}
+	For any non-negative integers \( n,k \) (\( n,k \in Z_{\ge 0} \)), we have \( \binom{n}{k} = \binom{n}{n-k} \).
+\end{lemma}
+\begin{proof}
+	(Algebraic) We have 
+	\begin{align*}
+		\binom{n}{k} &= \frac{n!}{k!(n-k)!} \\
+								 &= \frac{n!}{(n-(n-k))!(n-k)!} \\
+								 &= \binom{n}{n-k}
+	,\end{align*} as desired.
+\end{proof}
+
+\begin{theorem}
+	(Binomial Theorem) Let \( n \in \mathbb{Z}_{\ge 0}\). Then \[
+		(x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^k y^{n-k}
+	.\] 
+\end{theorem}
+\begin{proof}
+	Consider \( \underbrace_{(x+y)(x+y)\ldots (x+y)}{n \text{ times}} \)
+\end{proof}

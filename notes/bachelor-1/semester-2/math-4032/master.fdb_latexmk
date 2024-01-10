@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1704913810 "master.tex" "master.pdf" "master" 1704913811 0
+["pdflatex"] 1704915317 "master.tex" "master.pdf" "master" 1704915318 2
   "../preamble.tex" 1704840887 8116 d2bda3634135bc97bcfdf52bcff6876e ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1704400182 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1704400182 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -21,6 +21,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cmbright/ebbx10.tfm" 1704400182 3132 c7da076fe28db5529270d35c3089c073 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr10.tfm" 1704400182 3092 5e77de0b5834ec014abfb4fbde93bc09 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr17.tfm" 1704400182 3088 cedefe459fd712f848e823e4c837691b ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr8.tfm" 1704400182 3088 df8733075b5d59d6a51b781a657af119 ""
   "/usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1704400182 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1704400182 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1704400182 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
@@ -260,10 +261,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1704746840 4478429 385ad1d6b64c93bd02d3a0cc5f72992b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1704746825 6768065 1d280a8029cda5813673d47315baeb31 ""
   "lec_01.tex" 1704743191 2279 453d90b7deba63e18442dfbb8d01b76b ""
-  "lec_02.tex" 1704913807 649 50475b240cb07a590a88d2ec233e42a3 ""
-  "master.aux" 1704913811 3161 7b7b1293a5d4fa4048fd078e3eda85e3 "pdflatex"
+  "lec_02.tex" 1704915316 2607 835faa0a64707b5c846a2e410541f680 ""
+  "master.aux" 1704915318 4697 79eda8c6daa24cb1734ef22d11ccbe12 "pdflatex"
   "master.tex" 1704912961 243 7b38eabf1fdd18edbad32dcb0a8ed576 ""
-  "master.toc" 1704913811 59 2c8eea4403ecec59d00b365388b7c22a "pdflatex"
+  "master.toc" 1704915318 59 2c8eea4403ecec59d00b365388b7c22a "pdflatex"
   (generated)
   "master.aux"
   "master.log"
