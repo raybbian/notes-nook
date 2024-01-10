@@ -56,5 +56,31 @@ We will now review the types of proofs covered in Math-3012, as well as guidelin
 	.\] 
 \end{theorem}
 \begin{proof}
-	Consider \( \underbrace_{(x+y)(x+y)\ldots (x+y)}{n \text{ times}} \)
+	Consider \[ 
+		\underbrace{(x+y)(x+y)\ldots (x+y)}_{n \text{ times } }
+	.\] For each \( (x+y) \) term, we select either the \( x \) or the \( y \), and there are \( \binom{n}{k} \) ways to select \( k \) \( x \)'s and \( n-k \) \( y \)'s. The formula follows.
+\end{proof}
+
+\begin{corollary}
+	For any \( n \in \mathbb{Z}_{\ge 0} \), we have \[ 
+		2^n=\sum_{k=0}^{n} \binom{n}{k} \text{ and } 0=\sum_{k=0}^{n} \binom{n}{k} (-1)^k 
+	.\]
+\end{corollary}
+\begin{proof}
+	Apply the binomial theorem with \( x=y=1 \) to yield the first result, and with \( x=-1, y=1 \) to yield the second.
+\end{proof}
+
+\begin{definition}
+	A \textbf{permutation} is a bijection from a finite set to itself.
+\end{definition}
+
+\begin{eg}
+	One such bijection could be \( 1 \mapsto 2, 2 \mapsto 1, 3 \mapsto 4, 4 \mapsto 5, 5 \mapsto 3 \).
+\end{eg}
+
+\begin{lemma}
+	The number of such bijections is \( n! \).
+\end{lemma}
+\begin{proof}
+	Exercise to the student!
 \end{proof}

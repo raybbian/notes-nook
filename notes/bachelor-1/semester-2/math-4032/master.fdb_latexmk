@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1704915317 "master.tex" "master.pdf" "master" 1704915318 2
+["pdflatex"] 1704915787 "master.tex" "master.pdf" "master" 1704915788 0
   "../preamble.tex" 1704840887 8116 d2bda3634135bc97bcfdf52bcff6876e ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1704400182 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1704400182 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -34,6 +34,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb" 1704400182 96423 72b4aa9fd7b8d50def0f15cf61c62655 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb" 1704400182 93900 a2f71b17e4843e705710af210010eac4 ""
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb" 1704400182 95413 3a8ddd1c46f5e2e4390bc74e4c7ff8a8 ""
+  "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb" 1704400182 93763 147b5ddee129c9f70f569c1abfc1fa24 ""
   "/usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb" 1704400182 25127 0f921359adc22e3a8c6368d4f349f585 ""
   "/usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb" 1704400182 25336 d135e63f9368b9204815755abad3f346 ""
   "/usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb" 1704400182 55166 5e2babdc8b661f5b67fd2775c8b6f50e ""
@@ -261,10 +262,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1704746840 4478429 385ad1d6b64c93bd02d3a0cc5f72992b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1704746825 6768065 1d280a8029cda5813673d47315baeb31 ""
   "lec_01.tex" 1704743191 2279 453d90b7deba63e18442dfbb8d01b76b ""
-  "lec_02.tex" 1704915316 2607 835faa0a64707b5c846a2e410541f680 ""
-  "master.aux" 1704915318 4697 79eda8c6daa24cb1734ef22d11ccbe12 "pdflatex"
+  "lec_02.tex" 1704915786 3469 702a289996892a875d14e8266891faf9 ""
+  "master.aux" 1704915788 5894 e37c5e15fff238fe2144915abf785ef9 "pdflatex"
   "master.tex" 1704912961 243 7b38eabf1fdd18edbad32dcb0a8ed576 ""
-  "master.toc" 1704915318 59 2c8eea4403ecec59d00b365388b7c22a "pdflatex"
+  "master.toc" 1704915788 59 2c8eea4403ecec59d00b365388b7c22a "pdflatex"
   (generated)
   "master.aux"
   "master.log"
