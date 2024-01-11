@@ -61,10 +61,21 @@ However, how do we prove that such an algorithm is correct?
 	Merge(\( L,R \)) correctly merges \( L \) and \( R \) such that the output is sorted if \( L \) and \( R \) are sorted.
 \end{lemma}
 \begin{proof}
-	We wish to show that after the \( i+1 \)-th iteration of the while loop, output[\( 1\ldots i \)] is sorted. We will proceed with induction on \( i \).
+	We wish to show that after the \( i \)-th (1 indexed) iteration of the while loop, output[\( 1\ldots i \)] is sorted. We will proceed with induction on \( i \).
 	\begin{description}
 		\item[Base case] \( i = 0 \). In this case, nothing has occurred yet, and nothing is in the output, so the output is sorted.
-		\item[Inductive step].
+		\item[Inductive step] By the inductive hypothesis, output[\( 0\ldots i-1 \)] is sorted. Let \( l,r \) be the value of variables \( l,r \) at the start of the \( i \)-th iteration. Note that output\( [i-1]  \) is either\[
+				\begin{cases}
+					L[l-1] &= \min(L[l-1],R[r]) \\ &\le \min(L[l], R[r]) \\ &= \text{output}[i] \text{ if prev. was } L \\
+					R[r-1] &= \min(L[l],R[r-1]) \\ &\le \min(L[l], R[r]) \\ &= \text{output}[i] \text{ if prev. was } R
+				\end{cases}
+			,\] which means that output[\( i-1 \)] \( \le  \) output[i], which means that output[\( 0\ldots i \)] is also sorted.
+			After the while loop, output[\( i-1 \)] is either \[
+				\begin{cases}
+					L[a] &\le R[r] \\ &\implies \text{out.append(\( R[r\ldots b] \)) sorted} \\
+					R[b] &\le L[l] \\ &\implies \text{out.append(\( R[l\ldots a] \)) sorted} \\
+				\end{cases}
+			.\] Therefore, the output is a sorted array.
 	\end{description}
 \end{proof}
 
@@ -75,6 +86,15 @@ However, how do we prove that such an algorithm is correct?
 	We will process with induction on \( n \).
 	\begin{description}
 		\item[Base case] \( n=1 \). Then, the array \( A \) is just one element, such that \( A \) is sorted. MergeSort returns \( A \), so it returns a sorted array.
-		\item[Inductive step] We assume that merge sort works for all arrays with size \( < n \). Let \( A \) be an array of length \( n \). Note that \( A[0\ldots \left\lceil \frac{n}{2} \right\rceil ]-1 \) and \( A[\left\lceil \frac{n}{2} \right\rceil \ldots n-1] \) are both shorter arrays of length \( <n \). Therefore, by the inductive hypotheses, we know these two subarrays must be sorted. Since merge is correct, the output must also be sorted.
+		\item[Inductive step] We assume that merge sort works for all arrays with size \( < n \). Let \( A \) be an array of length \( n \). Note that \( A[0\ldots \left\lceil \frac{n}{2} \right\rceil ]-1 \) and \( A[\left\lceil \frac{n}{2} \right\rceil \ldots n-1] \) are both shorter arrays of length \( <n \). Therefore, by the inductive hypothesis, we know these two subarrays must be sorted. Since merge is correct, the output must also be sorted.
 	\end{description}
+\end{proof}
+
+Now, let us argue about the time complexity of merge sort.
+
+\begin{theorem}
+	Merge sort has time complexity \( n\log n \).
+\end{theorem}
+\begin{proof}
+	Let \( T(n) \) be the time complexity for sorting an \( n \)-length array. Note that \( T(n)=2\cdot T(\frac{n}{2}) + O(n) \). This is because merge is linear. We have the base case of \( T(1)=1 \).
 \end{proof}
