@@ -1,4 +1,4 @@
-\lecture{2}{Thu 11 Jan 2024 13:56}{}
+\lecture{2}{Thu 11 Jan 2024 13:56}{More Probabiliy}
 
 \subsection{Properties of Event Spaces}
 
@@ -12,26 +12,26 @@
 \end{definition}
 
 \begin{theorem}
-	If \( A \in \mathcal{F} \), then \( P(A) + P(\Omega \setminus A) \) = 1
+	If \( A \in \mathcal{F} \), then \( \mathbb{P}(A) + \mathbb{P}(\Omega \setminus A) \) = 1
 \end{theorem}
 \begin{proof}
 	Notice that \( A \) and \( \Omega  \setminus  A \) are disjoint. And, that \( A \cup (\Omega  \setminus A) = \Omega \). Then,	\[
-		P(A \cup (\Omega \setminus A)) = P(\Omega ) = 1
+		\mathbb{P}(A \cup (\Omega \setminus A)) = \mathbb{P}(\Omega ) = 1
 	.\] 
 \end{proof}
 
 \begin{theorem}
-	If \( A,B \in \mathcal{F} \) then \( P(A \cup B) + P(A \cap B) = P(A) + P(B)\).
+	If \( A,B \in \mathcal{F} \) then \( \mathbb{P}(A \cup B) + \mathbb{P}(A \cap B) = \mathbb{P}(A) + \mathbb{P}(B)\).
 \end{theorem}
 \begin{proof}
-	Note that \( A \cup B = (A \setminus B) \cup (A \cap B) \cup (B \setminus A) \). This is a union of disjoint sets, such that \( P(A \cup B) = P(A \setminus B) + P(A \cap B) + P(B \setminus A) \). Then, we have \( P(A \cup B) + P(A \cap B) = P(A \setminus B) + P(A \cap B) + P(B \setminus A) + P(A \cap B)\), of which the RHS simplifies to \( P(A) + P(B) \).
+	Note that \( A \cup B = (A \setminus B) \cup (A \cap B) \cup (B \setminus A) \). This is a union of disjoint sets, such that \( \mathbb{P}(A \cup B) = \mathbb{P}(A \setminus B) + \mathbb{P}(A \cap B) + \mathbb{P}(B \setminus A) \). Then, we have \( \mathbb{P}(A \cup B) + \mathbb{P}(A \cap B) = \mathbb{P}(A \setminus B) + \mathbb{P}(A \cap B) + \mathbb{P}(B \setminus A) + \mathbb{P}(A \cap B)\), of which the RHS simplifies to \( \mathbb{P}(A) + \mathbb{P}(B) \).
 \end{proof}
 
 \begin{theorem}
-	If \( A, B \in \mathcal{F} \), and \( A \subseteq B \), then \( P(A) \le  P(B) \).
+	If \( A, B \in \mathcal{F} \), and \( A \subseteq B \), then \( \mathbb{P}(A) \le  \mathbb{P}(B) \).
 \end{theorem}
 \begin{proof}
-	We wish to show \( A \subseteq B \implies P(A) \le P(B) \). Then, \( B = (B \setminus A) \cup  (B \cap A) = (B \setminus A) \cup  A \), such that \( P(B) = P(B \setminus A) + P(A) \ge P(A)\) because \( P(B \setminus A) \ge  0 \).
+	We wish to show \( A \subseteq B \implies \mathbb{P}(A) \le \mathbb{P}(B) \). Then, \( B = (B \setminus A) \cup  (B \cap A) = (B \setminus A) \cup  A \), such that \( \mathbb{P}(B) = \mathbb{P}(B \setminus A) + \mathbb{P}(A) \ge \mathbb{P}(A)\) because \( \mathbb{P}(B \setminus A) \ge  0 \).
 \end{proof}
 
 \subsection{Examples}
@@ -77,57 +77,57 @@
 	An urn contains \( n \) balls. If \( k \) balls are withdrawn one at a time, what is the probability that a special ball is chosen?
 \end{eg}
 \begin{explanation}
-	\( P(\text{special})  = 1 - P(\text{special}^{c})\). If the special ball is not chosen, it would be \( \frac{(n-1)!}{(n-k-1)!} \). The total number of withdrawings is \( \frac{n!}{k!} \). Then, the total probability is \( 1-\frac{n-k}{n} \).
+	\( \mathbb{P}(\text{special})  = 1 - \mathbb{P}(\text{special}^{c})\). If the special ball is not chosen, it would be \( \frac{(n-1)!}{(n-k-1)!} \). The total number of withdrawings is \( \frac{n!}{k!} \). Then, the total probability is \( 1-\frac{n-k}{n} \).
 \end{explanation}
 
 \begin{eg}
 	If \( n \) people are present in a room, what is the prob that no two celebrate their birthday on the same date? How large must \( n \) be such that this probability is \( <\frac{1}{2} \).
 \end{eg}
 \begin{explanation}
-	\( P(\text{no people with same birthday}) \) is the number of no same birthday situations divided by the number of possibilities. Total possibilities is \( 365^n \). No same birthday situatons is \( P(365,n) = \frac{365!}{(365-n)!} \). For the second question, \( n=23 \).
+	\( \mathbb{P}(\text{no people with same birthday}) \) is the number of no same birthday situations divided by the number of possibilities. Total possibilities is \( 365^n \). No same birthday situatons is \( \mathbb{P}(365,n) = \frac{365!}{(365-n)!} \). For the second question, \( n=23 \).
 \end{explanation}
 
 \subsection{Conditional Probability}
 
 \begin{definition}
-	If \( A,B \in \mathcal{F} \) and \( P(B) > 0 \) then the \textbf{conditional probability} if \( A \) given \( B \) is denoted by \( P(A\mid B) \) and defined by \[
-		P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+	If \( A,B \in \mathcal{F} \) and \( \mathbb{P}(B) > 0 \) then the \textbf{conditional probability} if \( A \) given \( B \) is denoted by \( \mathbb{P}(A\mid B) \) and defined by \[
+		\mathbb{P}(A \mid B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}
 	.\] 
 \end{definition}
 
 \begin{theorem}
-	If \( B \in \mathcal{F} \) and \( P(B) > 0 \) then \( (\Omega, \mathcal{F}, \mathbb{Q}) \) is a pobability space where \( \mathbb{Q}: \mathcal{F} \to \mathbb{R} \) is defined by \( \mathbb{Q}(A) = P(A \mid B) \)
+	If \( B \in \mathcal{F} \) and \( \mathbb{P}(B) > 0 \) then \( (\Omega, \mathcal{F}, \mathbb{Q}) \) is a pobability space where \( \mathbb{Q}: \mathcal{F} \to \mathbb{R} \) is defined by \( \mathbb{Q}(A) = \mathbb{P}(A \mid B) \)
 \end{theorem}
 
 \begin{eg}
 	Let's say a coin is flipped twice. What is the conditional probability that both flips land on heads, given that the first flip lands on heads?
 \end{eg}
 \begin{explanation}
-	\( \frac{P(\text{two heads } \cap \text{ first heads})}{P(\text{first heads})} = \frac{P(\text{two heads})}{P(\text{first heads})}\). This is just \( \frac{1}{2} \).
+	\( \frac{\mathbb{P}(\text{two heads } \cap \text{ first heads})}{\mathbb{P}(\text{first heads})} = \frac{\mathbb{P}(\text{two heads})}{\mathbb{P}(\text{first heads})}\). This is just \( \frac{1}{2} \).
 \end{explanation}
 
 \begin{eg}
 	What if given at least one lands on heads?
 \end{eg}
 \begin{explanation}
-	\( \frac{P(\text{two heads } \cap \text{ at least one head})}{P(\text{at least one head})} = \frac{P(\text{two heads})}{P(\text{at least one head})} = \frac{2}{3}\). 
+	\( \frac{\mathbb{P}(\text{two heads } \cap \text{ at least one head})}{\mathbb{P}(\text{at least one head})} = \frac{\mathbb{P}(\text{two heads})}{\mathbb{P}(\text{at least one head})} = \frac{2}{3}\). 
 \end{explanation}
 
 \begin{eg}
 	In the card game bridge, the 52 cards are dealt equally. If North and South have a total of 8 spades among them, what is the probability that East has 3 of the 5 remaining spades?
 \end{eg}
 \begin{explanation}
-	No rule: \( P(\text{E has 3 spades}) = \frac{\binom{5}{3} \cdot \binom{21}{10}}{\binom{26}{13}} \).
+	No rule: \( \mathbb{P}(\text{E has 3 spades}) = \frac{\binom{5}{3} \cdot \binom{21}{10}}{\binom{26}{13}} \).
 \end{explanation}
 
 \begin{theorem}
-	Probability of intersection of three sets (insert here).
+	Probability of intersection of three sets (insert from canvas).
 \end{theorem}
 
 \begin{definition}
 	We call two events \( A,B \) \textbf{independent} if the occurence of one does not affect the other. Formally, \[
-		P(A \mid B) = P(A) \text{ and } P(B \mid A) = P(B)
-	.\] We can also check that \( P(A \cap B) = P(A)\cdot P(B) \).
+		\mathbb{P}(A \mid B) = \mathbb{P}(A) \text{ and } \mathbb{P}(B \mid A) = \mathbb{P}(B)
+	.\] We can also check that \( \mathbb{P}(A \cap B) = \mathbb{P}(A)\cdot \mathbb{P}(B) \).
 \end{definition}
 
 \begin{eg}
@@ -145,16 +145,22 @@
 
 \begin{lemma}
 	\[
-		P(B\mid A)=P(A\mid B)\frac{P(B)}{P(A)}
+		\mathbb{P}(B\mid A)=\mathbb{P}(A\mid B)\frac{\mathbb{P}(B)}{\mathbb{P}(A)}
 	.\] 
 \end{lemma}
 \begin{proof}
-	The RHS is the same as \( \frac{P(A \cap B)}{P(B)} \cdot \frac{P(B)}{P(A)} = \frac{P(A \cap B)}{P(A)} = P(B\mid A) \).
+	The RHS is the same as \( \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} \cdot \frac{\mathbb{P}(B)}{\mathbb{P}(A)} = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(A)} = \mathbb{P}(B\mid A) \).
 \end{proof}
 
 \begin{eg}
 	There are \( n \) balls that are sequentially chosen without replacement from \( r \) red balls and \( b \) blue balls. Given that \( k \) of the \( n \) balls are blue, what is the conditional probability that the first chosen is blue?
 \end{eg}
 \begin{explanation}
-	\( P(\text{first is blue} \mid k\text{ are blue}) \).
+	\begin{align*}
+		& \mathbb{P}(\text{first is blue} \mid k\text{ are blue}) \\
+	  &= \mathbb{P}(k\text{ are blue}\mid \text{first is blue}) \\
+	  &\cdot \frac{\mathbb{P}(\text{first is blue})}{\mathbb{P}(k\text{ are blue})} \\
+		&= \frac{\binom{n-1}{k-1}}{\mathbb{P}(2^{n-1} )} \cdot \frac{\frac{1}{2}}{\frac{\binom{n}{k}}{2^n}}
+	.\end{align*}
 \end{explanation}
+

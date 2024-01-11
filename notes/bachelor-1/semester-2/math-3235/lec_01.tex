@@ -58,25 +58,25 @@ Note that \textbf{events} are just subsets of the sample space, and \textbf{elem
 	For a dice roll:	\( \Omega =\{1,2,3,4,5,6\}   \), some events could be \( \{1,2\}   \), \( \{3,6\}   \), \( \{3\}   \). There are a total of \( 2^6 \) events.
 \end{eg}
 \begin{definition}
-	If \( \Omega  \) is a finite set, a probability \( P \) on \( \Omega  \) is a function: \( P \colon 2^{\Omega } \to [0,1]    \) such that \( P(\varnothing) = 0 \) and \( P(\Omega )=1 \).
+	If \( \Omega  \) is a finite set, a probability \( P \) on \( \Omega  \) is a function: \( P \colon 2^{\Omega } \to [0,1]    \) such that \( \mathbb{P}(\varnothing) = 0 \) and \( \mathbb{P}(\Omega )=1 \).
 \end{definition}
 
 \begin{lemma}
-	If \( A_{1}, \ldots, A_{\alpha } \subset \Omega  \) are disjoint, \( P(\bigcup_{i}A_i) \) = \( \sum_{i} P(A_i) \).
+	If \( A_{1}, \ldots, A_{\alpha } \subset \Omega  \) are disjoint, \( \mathbb{P}(\bigcup_{i}A_i) \) = \( \sum_{i} \mathbb{P}(A_i) \).
 \end{lemma}
 
 \begin{prop}
 	Let \( A = \{a_{1},a_{2},\ldots a_l\}   \) such that \( a_i \) are elementary events. Then, \[
-		P(A) = \sum_{i=1}^{l} P(\{a_i\}  )
+		\mathbb{P}(A) = \sum_{i=1}^{l} \mathbb{P}(\{a_i\}  )
 	.\] 
 \end{prop}
 
 \begin{eg}
-	For the dice roll, if \( A=\{1,3,5\}   \), then \( P(A) = 3\cdot  \frac{1}{6}= \frac{1}{2} \).
+	For the dice roll, if \( A=\{1,3,5\}   \), then \( \mathbb{P}(A) = 3\cdot  \frac{1}{6}= \frac{1}{2} \).
 \end{eg}
 
 \begin{definition}
-	\textbf{Equiprobable outcomes}: Let's say we have the set \( \Omega =\{\omega_1, \ldots , \omega_N\}   \) and \( P(\omega_i)=P(\omega_j) \) for all \( i \) and \( j \). Then, \( P(\omega) = \frac{1}{N} \) for all \( \omega  \in \Omega  \) and \( P(A) = \frac{|A|}{N} \). In other words, when outcomes are probable, \[ P(\text{event}) = \frac{\text{number of outcomes for that event}}{\text{number of possible outcomes}}.\]
+	\textbf{Equiprobable outcomes}: Let's say we have the set \( \Omega =\{\omega_1, \ldots , \omega_N\}   \) and \( \mathbb{P}(\omega_i)=\mathbb{P}(\omega_j) \) for all \( i \) and \( j \). Then, \( \mathbb{P}(\omega) = \frac{1}{N} \) for all \( \omega  \in \Omega  \) and \( \mathbb{P}(A) = \frac{|A|}{N} \). In other words, when outcomes are probable, \[ \mathbb{P}(\text{event}) = \frac{\text{number of outcomes for that event}}{\text{number of possible outcomes}}.\]
 \end{definition}
 
 \subsection{Counting}
@@ -167,11 +167,11 @@ Suppose 2 experiments are being performed. Let's say that experiment 1 has \( m 
 \end{eg}
 \begin{explanation}
 	Number of events of 3 heads is \( C(10,3) \). Total number of events is \( 2^{10} \). Therefore, \[
-		P(\text{10 heads}) = \frac{C(10,3)}{2^{10} }
+		\mathbb{P}(\text{10 heads}) = \frac{C(10,3)}{2^{10} }
 	.\] 
 \end{explanation}
 
-In general, we have \( \sum_{k=0}^{n} P(\text{\( k \) heads}) = 1 \). In other words, \[
+In general, we have \( \sum_{k=0}^{n} \mathbb{P}(\text{\( k \) heads}) = 1 \). In other words, \[
 	\frac{1}{2^{10}  } \cdot \sum_{k=0}^{10} \binom{10}{k} = 1
 .\] such that \[
 	\sum_{k=0}^{10} \binom{10}{k} = 2^{10}
@@ -201,10 +201,10 @@ This is just a generalization of what we have seen before.
 \begin{definition}
 	Let \( \mathcal{F} \subset 2^{\Omega }  \) be an ``event space''. A mapping \( P : \mathcal{F} \to  \mathbb{R} \) is a \textbf{probability measure} on \( (\Omega , \mathcal{F}) \) if 
 	\begin{itemize}
-		\item \( P(A) \ge 0 \quad \forall A \in \mathcal{F} \)
-		\item \( P(\varnothing) = 0, P(\Omega) = 1\)
+		\item \( \mathbb{P}(A) \ge 0 \quad \forall A \in \mathcal{F} \)
+		\item \( \mathbb{P}(\varnothing) = 0, \mathbb{P}(\Omega) = 1\)
 		\item If \( A_{1},A_{2},\ldots  \) are disjoint, \[
-				P(\bigcup_{i = 1}^{\infty}A_i ) = \sum_{i=1}^{\infty} P(A_i)
+				\mathbb{P}(\bigcup_{i = 1}^{\infty}A_i ) = \sum_{i=1}^{\infty} \mathbb{P}(A_i)
 		.\] 
 	\end{itemize}
 \end{definition}
