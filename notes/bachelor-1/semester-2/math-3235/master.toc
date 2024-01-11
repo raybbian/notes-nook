@@ -5,3 +5,5 @@
 \contentsline {subsection}{\numberline {1.4}Back to Probability Again}{2}{}%
 \contentsline {subsection}{\numberline {1.5}Measure Theory}{3}{}%
 \contentsline {subsection}{\numberline {1.6}Properties of Event Spaces}{3}{}%
+\contentsline {subsection}{\numberline {1.7}Examples}{3}{}%
+\contentsline {subsection}{\numberline {1.8}Conditional Probability}{4}{}%

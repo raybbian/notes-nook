@@ -1434,11 +1434,11 @@ INPUT lec_01.tex
 INPUT ./lec_01.tex
 INPUT lec_01.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebbx10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr8.tfm
 OUTPUT master.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr8.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr8.tfm
 INPUT /usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
 INPUT /usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
 INPUT /usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
@@ -1461,3 +1461,4 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb

@@ -1,5 +1,7 @@
 \lecture{2}{Thu 11 Jan 2024 13:56}{}
 
+\subsection{Properties of Event Spaces}
+
 \begin{definition}
 	A collection \( \mathcal{F} \) of subsets of the sample space \( \Omega  \) is called an \textbf{event space} if 
 	\begin{itemize}
@@ -31,6 +33,8 @@
 \begin{proof}
 	We wish to show \( A \subseteq B \implies P(A) \le P(B) \). Then, \( B = (B \setminus A) \cup  (B \cap A) = (B \setminus A) \cup  A \), such that \( P(B) = P(B \setminus A) + P(A) \ge P(A)\) because \( P(B \setminus A) \ge  0 \).
 \end{proof}
+
+\subsection{Examples}
 
 \begin{eg}
 	What is the probability that one is dealt a full house?
@@ -66,5 +70,91 @@
 	What is the probability of being dealt a straight?
 \end{eg}
 \begin{explanation}
-	We can do the probability of any straight, minus probability of straight flush.
+	We can do the probability of any straight, minus probability of straight flush. The number of straights is 10 number-wise. Therefore, the number of straights is \( 10 \cdot (4^5 - 4) \). The probability can be then calculated.
+\end{explanation}
+
+\begin{eg}
+	An urn contains \( n \) balls. If \( k \) balls are withdrawn one at a time, what is the probability that a special ball is chosen?
+\end{eg}
+\begin{explanation}
+	\( P(\text{special})  = 1 - P(\text{special}^{c})\). If the special ball is not chosen, it would be \( \frac{(n-1)!}{(n-k-1)!} \). The total number of withdrawings is \( \frac{n!}{k!} \). Then, the total probability is \( 1-\frac{n-k}{n} \).
+\end{explanation}
+
+\begin{eg}
+	If \( n \) people are present in a room, what is the prob that no two celebrate their birthday on the same date? How large must \( n \) be such that this probability is \( <\frac{1}{2} \).
+\end{eg}
+\begin{explanation}
+	\( P(\text{no people with same birthday}) \) is the number of no same birthday situations divided by the number of possibilities. Total possibilities is \( 365^n \). No same birthday situatons is \( P(365,n) = \frac{365!}{(365-n)!} \). For the second question, \( n=23 \).
+\end{explanation}
+
+\subsection{Conditional Probability}
+
+\begin{definition}
+	If \( A,B \in \mathcal{F} \) and \( P(B) > 0 \) then the \textbf{conditional probability} if \( A \) given \( B \) is denoted by \( P(A\mid B) \) and defined by \[
+		P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+	.\] 
+\end{definition}
+
+\begin{theorem}
+	If \( B \in \mathcal{F} \) and \( P(B) > 0 \) then \( (\Omega, \mathcal{F}, \mathbb{Q}) \) is a pobability space where \( \mathbb{Q}: \mathcal{F} \to \mathbb{R} \) is defined by \( \mathbb{Q}(A) = P(A \mid B) \)
+\end{theorem}
+
+\begin{eg}
+	Let's say a coin is flipped twice. What is the conditional probability that both flips land on heads, given that the first flip lands on heads?
+\end{eg}
+\begin{explanation}
+	\( \frac{P(\text{two heads } \cap \text{ first heads})}{P(\text{first heads})} = \frac{P(\text{two heads})}{P(\text{first heads})}\). This is just \( \frac{1}{2} \).
+\end{explanation}
+
+\begin{eg}
+	What if given at least one lands on heads?
+\end{eg}
+\begin{explanation}
+	\( \frac{P(\text{two heads } \cap \text{ at least one head})}{P(\text{at least one head})} = \frac{P(\text{two heads})}{P(\text{at least one head})} = \frac{2}{3}\). 
+\end{explanation}
+
+\begin{eg}
+	In the card game bridge, the 52 cards are dealt equally. If North and South have a total of 8 spades among them, what is the probability that East has 3 of the 5 remaining spades?
+\end{eg}
+\begin{explanation}
+	No rule: \( P(\text{E has 3 spades}) = \frac{\binom{5}{3} \cdot \binom{21}{10}}{\binom{26}{13}} \).
+\end{explanation}
+
+\begin{theorem}
+	Probability of intersection of three sets (insert here).
+\end{theorem}
+
+\begin{definition}
+	We call two events \( A,B \) \textbf{independent} if the occurence of one does not affect the other. Formally, \[
+		P(A \mid B) = P(A) \text{ and } P(B \mid A) = P(B)
+	.\] We can also check that \( P(A \cap B) = P(A)\cdot P(B) \).
+\end{definition}
+
+\begin{eg}
+	Flip three fair coins. What is likelihood that all three come up heads?
+\end{eg}
+\begin{explanation}
+	With the sample space approach: \( \Omega =\{H,T\}^3  \). Of 8 total elementary events, 1 has three heads, so the probability is \( \frac{1}{8} \).
+
+	With independence: we know that each event is independent, and all events are \( \frac{1}{2} \), so the probability is \( \left( \frac{1}{2} \right) ^3 =\frac{1}{8}\).
+\end{explanation}
+
+\begin{definition}
+	Independence can be expanded to more than just two events (insert from canvas). However, note that events can be pairwise independent, but may not be all together independent.
+\end{definition}
+
+\begin{lemma}
+	\[
+		P(B\mid A)=P(A\mid B)\frac{P(B)}{P(A)}
+	.\] 
+\end{lemma}
+\begin{proof}
+	The RHS is the same as \( \frac{P(A \cap B)}{P(B)} \cdot \frac{P(B)}{P(A)} = \frac{P(A \cap B)}{P(A)} = P(B\mid A) \).
+\end{proof}
+
+\begin{eg}
+	There are \( n \) balls that are sequentially chosen without replacement from \( r \) red balls and \( b \) blue balls. Given that \( k \) of the \( n \) balls are blue, what is the conditional probability that the first chosen is blue?
+\end{eg}
+\begin{explanation}
+	\( P(\text{first is blue} \mid k\text{ are blue}) \).
 \end{explanation}
