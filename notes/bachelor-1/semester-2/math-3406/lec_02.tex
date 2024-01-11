@@ -20,4 +20,58 @@ What does it mean to take a product between a matrix and a vector?
 	.\] i.e. a collection of dot products between the rows and \( x \).
 \end{definition}
 
-We can also see the product as a linear combination.
+We can also see the product as a linear combination of the columns of the matrix \( A \).
+
+\begin{definition}
+	Let the columns of \( A \) be \( A_{1},A_{2},A_{3} \). Then, \( Ax=x_{1}A_{1} + x_{2}A_{2} + x_{3}A_{3} \).
+\end{definition}
+
+\begin{notation}
+	\( A \)'s columns are denoted \( A_1, A_{2}, A_{3} \), while \( A \)'s rows are denoted \( A^{1}, A^{2}, A^{3}    \).
+\end{notation}
+
+If we look at the linear equation \( Ax=b \), we can say that \( b \) is a linear combination of the columns of \( A \). Instead, looking at it like an equation, ``can \( b \) be written as a linear combination of the columns of \( A \)''?
+
+Looking at \( A^{1}x = b_1  \), there are two free variables, such as this is a plane in \( \mathbb{R}^3 \). The only time this is not a plane is if \( a_{11},a_{12},a_{13} \) are all zero, and \( b_{1} \) is nonzero.
+
+If we have \( x,y \), \( A^{1}x=0  \) and \( A^{1}y=0  \) implies \( ax + by = z \), which solves \( A^{1}z=0  \). The set of solutions is a subspace.
+
+Now, suppose we have all solutions of \( A^{1}x=0  \). Call this \( V \). How do we then write the solutions to \( A^{1}x=b  \)? We find any such \( c \) such that \( A^{1}c=b_{1}  \). Then, we claim that the set of solutions of \( A^{1}x=b_{1}  \) is \( V+c = \{x+c | x \in V\}   \). Checking our solution, \( A^{1}\cdot (x+c)=\underbrace{A^{1}\cdot x}_{0} + \underbrace{A^{1}\cdot c}_{b_{1}} = b_{1} \).
+
+Let \( W = V + c \). We want to show if \( x \in W \implies A^{1}\cdot x=0  \). Assume \( A^{1}z = b_{1} \).  If we set \( x=z-c \), then \( A^{1}x = A^{1}z - A^{1}c=0    \). Therefore, \( z = x + c \in W\).
+
+All in all, solving all three equations \( A^{1}x=b_{1},A^{2}x=b_{2},A^{3}x=b_{3}    \) is now just finding the intersection of three translated planes. \textbf{This is what solving \( Ax=b \) means}.
+
+Another viewpoint is this. Consider the equation \( A_{1}x_{1}+A_{2}x_{2}+A_{3}x_{3}=b \). Consider the span of \( A_{1},A_{2},A_{3} \). Does this span contain \( b \)?
+
+\begin{eg}
+	Let's say that \[
+		A = \begin{pmatrix}
+			1 & -1 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1
+		\end{pmatrix}
+	.\] Solving \( Ax=b \), we have \( x_{3}=b_{3} \), \( x_{2}=b_{2}+b_{3} \), and \( x_{1}=b_{1}+b_{2}+b_{3} \) such that \[
+		\begin{pmatrix}
+			1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1
+		\end{pmatrix} \begin{pmatrix}
+			b_{1} \\ b_{2} \\ b_{3}
+		\end{pmatrix} = \begin{pmatrix}
+			x_{1} \\ x_{2} \\ x_{3}
+		\end{pmatrix}
+	.\] Let \( C \) denote this matrix. Then, \( Ax=b \iff Cb=x \), such that \( C=A^{-1}  \). Then, \( C \) is the \textbf{inverse} of \( A \).
+\end{eg}
+
+\begin{definition}
+	We want to say that every \( n\times n \) matrix can be written as the product as an upper triangular and lower triangular matrix, called \textbf{LU factorization}.
+\end{definition}
+
+\begin{definition}
+	\textbf{Matrix multiplication} is defined as \( (AB)_{ij} = \sum_{k} a_{ik} + b_{kl}\) where \( A=\{a_{ij}\}   \) and \( B = \{b_{kl}\}   \)
+\end{definition}
+
+The other way to see \( AB \) is if \( B=\begin{pmatrix}
+	B_{1} & B_{2} & \ldots & B_n
+\end{pmatrix} \), then \[
+	AB=\begin{pmatrix}
+		AB_{1}&AB_{2}&\ldots &AB_n
+	\end{pmatrix}
+.\] 
