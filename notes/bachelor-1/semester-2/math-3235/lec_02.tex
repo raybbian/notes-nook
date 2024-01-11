@@ -1,5 +1,14 @@
 \lecture{2}{Thu 11 Jan 2024 13:56}{}
 
+\begin{definition}
+	A collection \( \mathcal{F} \) of subsets of the sample space \( \Omega  \) is called an \textbf{event space} if 
+	\begin{itemize}
+		\item \( \mathcal{F} \) is non-empty.
+		\item if \( A \in \mathcal{F} \) then \( \Omega \setminus A \in \mathcal{F} \).
+		\item if \( A_{1},A_{2},\ldots \in \mathcal{F} \) then \( \bigcup_{i=1}^{\infty}A_i \in \mathcal{F} \).
+	\end{itemize}
+\end{definition}
+
 \begin{theorem}
 	If \( A \in \mathcal{F} \), then \( P(A) + P(\Omega \setminus A) \) = 1
 \end{theorem}
@@ -16,17 +25,46 @@
 	Note that \( A \cup B = (A \setminus B) \cup (A \cap B) \cup (B \setminus A) \). This is a union of disjoint sets, such that \( P(A \cup B) = P(A \setminus B) + P(A \cap B) + P(B \setminus A) \). Then, we have \( P(A \cup B) + P(A \cap B) = P(A \setminus B) + P(A \cap B) + P(B \setminus A) + P(A \cap B)\), of which the RHS simplifies to \( P(A) + P(B) \).
 \end{proof}
 
-\begin{definition}
-	A collection \( \mathcal{F} \) of subsets of the sample space \( \Omega  \) is called an \textbf{event space} if 
-	\begin{itemize}
-		\item \( \mathcal{F} \) is non-empty
-		\item if \( A \in \mathcal{F} \) then \( \Omega \setminus A \)...
-	\end{itemize}
-\end{definition}
-
 \begin{theorem}
 	If \( A, B \in \mathcal{F} \), and \( A \subseteq B \), then \( P(A) \le  P(B) \).
 \end{theorem}
 \begin{proof}
-	
+	We wish to show \( A \subseteq B \implies P(A) \le P(B) \). Then, \( B = (B \setminus A) \cup  (B \cap A) = (B \setminus A) \cup  A \), such that \( P(B) = P(B \setminus A) + P(A) \ge P(A)\) because \( P(B \setminus A) \ge  0 \).
 \end{proof}
+
+\begin{eg}
+	What is the probability that one is dealt a full house?
+\end{eg}
+\begin{explanation}
+	This is the number of ways one can get a full house, divided by the total number of poker hands (5 card). The total number of poker hands is \( \binom{52}{5} \). The number of full houses is \( \frac{52 \cdot \binom{3}{2} \cdot 48 \cdot 3}{2!3!} \). Another way we can count the number of full houses is \( \binom{13}{1} \cdot \binom{4}{3} \cdot \binom{12}{1} \cdot \binom{4}{2}\). The result of the division is our answer.
+\end{explanation}
+
+\begin{eg}
+	A box contains 3 marbles, 1 red 1 green and 1 blue. Consider an experiment that cnsists of us taking 1 marble, replacing it, and drawing another marble. What is the sample space?
+\end{eg}
+\begin{explanation}
+	\begin{align*}
+		\Omega = & \{(r,r),(r,b),(r,g), \\ & (b,r),(b,g),(b,b), \\ & (g,r),(g,g),(g,b)\}
+	.\end{align*}
+\end{explanation}
+
+\begin{eg}
+	What about if we don't replace the first marble?
+\end{eg}
+\begin{explanation}
+	Everything without \( (r,r),(b,b),(g,g) \).
+\end{explanation}
+
+\begin{eg}
+	What is the probability of being dealt a flush?
+\end{eg}
+\begin{explanation}
+	This is just number of flushses divided by number of poker hands. The number of flushes is \( \binom{4}{1} \cdot \binom{13}{5} \).
+\end{explanation}
+
+\begin{eg}
+	What is the probability of being dealt a straight?
+\end{eg}
+\begin{explanation}
+	We can do the probability of any straight, minus probability of straight flush.
+\end{explanation}
