@@ -3,7 +3,7 @@
 \section{Agents and Environments}
 
 \begin{definition}
-	An \textbf{agent} is an entity that perceives and acts.
+	An \textbf{agent} is an entity that perceives and acts. It perceives the environment through \textbf{sensors} and acts on the environment through \textbf{effectors}.
 \end{definition}
 
 \begin{definition}
@@ -12,4 +12,79 @@
 
 \begin{definition}
 	Characteristics of the \textbf{percepts} \textbf{environment}, and \textbf{action space} dictate techniques for selecting actions.
+\end{definition}
+
+\begin{definition}
+	An \textbf{agent function} is a mathematica description of an agent's behavior that maps sensory perceptions to effector actions: \[
+		F : P \to A
+	.\] 
+\end{definition}
+
+We should keep things as simple as possible. For example, tabulation itself is very strong and powerful in the right situations. However, this table could be too big for memory, and it could resolve in an infinite loop.
+
+To write an agent program, one must establish:
+\begin{enumerate}
+	\item Actions: How the agent changes the environment
+	\item Sensors: What you can know about the environment
+	\item Prior Knowledge: Pre-loaded information
+	\item Objective Function: What the agnet is trying to accomplish
+	\item Measurement Function: How to tell if we are succeeeding or not
+\end{enumerate}
+
+\begin{definition}
+	Steps 4 and 5 detail \textbf{rationality}: ``Of all my actions, which ones get me closer to my objective, given what I know right now?''
+\end{definition}
+
+\begin{eg}
+	For the bugs in the room, you could award 1 point per bug-free room per time step, and a point for each bug killed. You could remove 1 point for each move action, to prevent the infinite loop. If we don't have a map, we can either explore or exploit. And finally, sensors and effectors could be unreliable.
+\end{eg}
+
+\begin{definition}
+	\textbf{Reflex agents} choose actions bassed on the current percept (and maybe memory), and do not consider the future consequences of their actions.
+\end{definition}
+
+Now, can a reflex agent be rational?
+
+\begin{eg}
+	If you put a cranberry in front of a frog, it will eat it, then spit it out immediately. Then, it will see the cranberry, and eat it again. This is an example of a reflex agent, and is also how you can ``\textit{infinite loop a frog}''.
+\end{eg}
+
+The moral of the story? Do the stupid thing first, it might just work.
+
+\begin{definition}
+	A \textbf{model based reflex agent} can model its actions on the world first, then makes an action depending on the mmodel.
+\end{definition}
+
+\begin{definition}
+	\textbf{Planning agents} ask ``what if''. They make decisions based on hypothesized consequences of actions.
+\end{definition}
+
+\begin{definition}
+	\textbf{Utility agents} use some utility to evaluate the hypothetical consequences of actions.
+\end{definition}
+
+\begin{definition}
+	\textbf{Learning agents} get feedback, changes, and improves it knowledge with each action, allowing them to gain knowledge over time.
+\end{definition}
+
+``If you can't win, just confuse them.'' Below are some definitions for different environments.
+
+\begin{definition}
+	\textbf{Observability} means that sensors can observe all parts of the envrinoment.
+\end{definition}
+
+\begin{definition}
+	\textbf{Determinism} means that the world changes exactly as desired. \textbf{Stochastic} mean that there is randomness and uncertainty.
+\end{definition}
+
+\begin{definition}
+	\textbf{Static} means the world doesn't change while agent is deliberating
+\end{definition}
+
+\begin{definition}
+	\textbf{Discreteness} means that the world is broken up into discrete chunks.
+\end{definition}
+
+\begin{definition}
+	\textbf{Episodic} means that the story doesn't matter.
 \end{definition}
