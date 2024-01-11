@@ -1,0 +1,17 @@
+\lecture{2}{Thu 11 Jan 2024 15:39}{Two's Complement}
+
+Multiplication in binary can be done like normal multiplication, but it is a lot faster. Note that we don't even need a microprocessor to add numbers. It can be done purely with transistors.
+
+\begin{definition}
+	The \textbf{not} operator, denoted \( \neg \), toggles the value of a variable.
+\end{definition}
+
+\subsection{Two's Complement}
+
+How do we represent negative numbers? We could have signed magnitude, where 1 bit is used on the left. We could also use 1's complement, in which the negative number is just the negated bit value of the positive.
+
+\begin{definition}
+	\textbf{Two's Complement} wraps back around after the maxmimum number to the least negative number. You can find the negative value of a number by negating it and adding 1.
+\end{definition}
+
+To extend the side of a number, we fill in to the left copies of the leading bit.
