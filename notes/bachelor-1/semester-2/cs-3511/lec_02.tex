@@ -7,3 +7,74 @@ The main idea of divide and conquer is to split the problem into smaller subprob
 \begin{eg}
 	One example of a divide and conquer is Merge Sort.
 \end{eg}
+
+% \usepackage{algorithm,algorithmicx,algpseudocode}
+\begin{algorithm}
+	\floatname{algorithm}{Algorithm}
+	\algrenewcommand\algorithmicrequire{\( A \), \textbf{an array}}
+	\algrenewcommand\algorithmicensure{\textbf{Sorted array}}
+	\caption{Merge Sort}\label{alg:merge-sort}
+	\begin{algorithmic}[1]
+		\Require $input$
+		\Ensure $output$
+		\If{\( n=1 \)}
+			\State \textbf{return} \( A \)
+		\EndIf
+		\State left = MergeSort(\( A[0\ldots \left\lceil \frac{n}{2} \right\rceil ] -1\))
+		\State right = MergeSort(\( A[\left\lceil \frac{n}{2} \right\rceil \ldots n-1] \))
+		\State \textbf{return} Merge(left, right)
+	\end{algorithmic}
+\end{algorithm}
+
+% \usepackage{algorithm,algorithmicx,algpseudocode}
+\begin{algorithm}
+	\floatname{algorithm}{Algorithm}
+	\algrenewcommand\algorithmicrequire{\( L,R \), \textbf{two sorted arrays}}
+	\algrenewcommand\algorithmicensure{\textbf{Merged sorted array}}
+	\caption{Merge}\label{alg:merge-algo}
+	\begin{algorithmic}[1]
+		\Require $input$
+		\Ensure $output$
+		\State \( l=0, r=0, i=0 \)
+		\While{\( l<a \) and \( r<b \)}
+			\If{\( L[l] < R[r] \)}
+				\State output[\( i \)] = \( L[l] \)
+				\State l += 1 
+			\Else
+				\State output[\( i \)] = \( R[r] \)
+				\State r += 1
+			\EndIf
+			\State i += 1
+		\EndWhile
+		\If{\( l=a \)}
+			\State output.append(\( R[r\ldots b] \))
+		\Else
+			\State output.append(\( L[l\ldots a] \))
+		\EndIf
+		\State \textbf{return} $state$
+	\end{algorithmic}
+\end{algorithm}
+
+However, how do we prove that such an algorithm is correct?
+
+\begin{lemma}
+	Merge(\( L,R \)) correctly merges \( L \) and \( R \) such that the output is sorted if \( L \) and \( R \) are sorted.
+\end{lemma}
+\begin{proof}
+	We wish to show that after the \( i+1 \)-th iteration of the while loop, output[\( 1\ldots i \)] is sorted. We will proceed with induction on \( i \).
+	\begin{description}
+		\item[Base case] \( i = 0 \). In this case, nothing has occurred yet, and nothing is in the output, so the output is sorted.
+		\item[Inductive step].
+	\end{description}
+\end{proof}
+
+\begin{theorem}
+	Merge sort is correct.
+\end{theorem}
+\begin{proof}
+	We will process with induction on \( n \).
+	\begin{description}
+		\item[Base case] \( n=1 \). Then, the array \( A \) is just one element, such that \( A \) is sorted. MergeSort returns \( A \), so it returns a sorted array.
+		\item[Inductive step] We assume that merge sort works for all arrays with size \( < n \). Let \( A \) be an array of length \( n \). Note that \( A[0\ldots \left\lceil \frac{n}{2} \right\rceil ]-1 \) and \( A[\left\lceil \frac{n}{2} \right\rceil \ldots n-1] \) are both shorter arrays of length \( <n \). Therefore, by the inductive hypotheses, we know these two subarrays must be sorted. Since merge is correct, the output must also be sorted.
+	\end{description}
+\end{proof}
