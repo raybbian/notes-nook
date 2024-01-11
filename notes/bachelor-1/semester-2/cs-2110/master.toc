@@ -1,6 +1,7 @@
 \contentsline {section}{\numberline {1}Big Ideas}{1}{}%
 \contentsline {section}{\numberline {2}Data Types}{1}{}%
-\contentsline {subsection}{\numberline {2.1}Two's Complement}{1}{}%
+\contentsline {subsection}{\numberline {2.1}Two's Complement}{2}{}%
 \contentsline {subsubsection}{\numberline {2.1.1}Sign extension}{2}{}%
 \contentsline {subsubsection}{\numberline {2.1.2}Doubling}{2}{}%
 \contentsline {subsection}{\numberline {2.2}Fractional Binary Numbers}{2}{}%
+\contentsline {section}{\numberline {3}Logical Operators}{2}{}%

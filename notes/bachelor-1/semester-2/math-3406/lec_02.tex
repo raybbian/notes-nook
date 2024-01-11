@@ -1,0 +1,23 @@
+\lecture{2}{Thu 11 Jan 2024 17:02}{Matrices}
+
+\begin{eg}
+	\[
+		A = \begin{pmatrix}
+			1 & -1 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1
+		\end{pmatrix}
+	\] is a matrix. We can also write \( A = \{a_{ij}\}   \) such that \( i = 1\ldots n \) and \( j = 1\ldots m \).
+\end{eg}
+
+What does it mean to take a product between a matrix and a vector?
+
+\begin{definition}
+	This product is defined as \[
+		\begin{pmatrix}
+			a_{11}x_{1} + a_{12}x_{2} + a_{13}x_{3} \\
+			a_{21}x_{1} + a_{22}x_{2} + a_{13}x_{3} \\
+			a_{31}x_{1} + a_{32}x_{2} + a_{33}x_{3} \\
+		\end{pmatrix}
+	.\] i.e. a collection of dot products between the rows and \( x \).
+\end{definition}
+
+We can also see the product as a linear combination.
