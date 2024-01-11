@@ -14,10 +14,20 @@ How do we represent negative numbers? We could have signed magnitude, where 1 bi
 	\textbf{Two's Complement} wraps back around after the maxmimum number to the least negative number. You can find the negative value of a number by negating it and adding 1.
 \end{definition}
 
-To extend the side of a number, we fill in to the left copies of the leading bit.
-
 \begin{eg}
 	Sum of \( 101111_2 \) and \( 001010_2 \) is \( 111001_2 \).
 \end{eg}
 
-What should we do when we overflow?
+What should we do when we overflow? When we add two positive numbers, and get a negative result, we have probably overflowed. When we add two negative numbers, and get a positive number, we have probably underflowed.
+
+\subsubsection{Sign extension}
+
+To extend the side of a number, we fill in to the left copies of the leading bit. If the number is negative, this bit will be 1.
+
+\subsubsection{Doubling}
+
+When we double a number, we just shift the number to the left. When quadrupling, we can shift the number twice to the left. The operator for this in many languages is <<.
+
+\subsection{Fractional Binary Numbers}
+
+Fractional binary numbers can be denoted by a place for the decimal point, and bits for the number itself otherwise.
