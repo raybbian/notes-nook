@@ -1401,12 +1401,12 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebbx10.tfm
 INPUT ./master.toc
 INPUT master.toc
 INPUT master.toc
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebbx10.tfm
 OUTPUT master.toc
 INPUT ./lec_01.tex
 INPUT lec_01.tex
 INPUT ./lec_01.tex
 INPUT lec_01.tex
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebbx10.tfm
 INPUT ./lec_02.tex
 INPUT lec_02.tex
