@@ -1,0 +1,32 @@
+\lecture{2}{Thu 11 Jan 2024 13:56}{}
+
+\begin{theorem}
+	If \( A \in \mathcal{F} \), then \( P(A) + P(\Omega \setminus A) \) = 1
+\end{theorem}
+\begin{proof}
+	Notice that \( A \) and \( \Omega  \setminus  A \) are disjoint. And, that \( A \cup (\Omega  \setminus A) = \Omega \). Then,	\[
+		P(A \cup (\Omega \setminus A)) = P(\Omega ) = 1
+	.\] 
+\end{proof}
+
+\begin{theorem}
+	If \( A,B \in \mathcal{F} \) then \( P(A \cup B) + P(A \cap B) = P(A) + P(B)\).
+\end{theorem}
+\begin{proof}
+	Note that \( A \cup B = (A \setminus B) \cup (A \cap B) \cup (B \setminus A) \). This is a union of disjoint sets, such that \( P(A \cup B) = P(A \setminus B) + P(A \cap B) + P(B \setminus A) \). Then, we have \( P(A \cup B) + P(A \cap B) = P(A \setminus B) + P(A \cap B) + P(B \setminus A) + P(A \cap B)\), of which the RHS simplifies to \( P(A) + P(B) \).
+\end{proof}
+
+\begin{definition}
+	A collection \( \mathcal{F} \) of subsets of the sample space \( \Omega  \) is called an \textbf{event space} if 
+	\begin{itemize}
+		\item \( \mathcal{F} \) is non-empty
+		\item if \( A \in \mathcal{F} \) then \( \Omega \setminus A \)...
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}
+	If \( A, B \in \mathcal{F} \), and \( A \subseteq B \), then \( P(A) \le  P(B) \).
+\end{theorem}
+\begin{proof}
+	
+\end{proof}

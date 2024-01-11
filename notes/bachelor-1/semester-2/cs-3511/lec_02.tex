@@ -96,5 +96,16 @@ Now, let us argue about the time complexity of merge sort.
 	Merge sort has time complexity \( n\log n \).
 \end{theorem}
 \begin{proof}
-	Let \( T(n) \) be the time complexity for sorting an \( n \)-length array. Note that \( T(n)=2\cdot T(\frac{n}{2}) + O(n) \). This is because merge is linear. We have the base case of \( T(1)=1 \).
+	Let \( T(n) \) be the time complexity for sorting an \( n \)-length array. Note that \( T(n)=2\cdot T(\frac{n}{2}) + O(n) \). This is because merge is linear. We have the base case of \( T(1)=1 \). 
+
+	Let's look at the recursion tree. At the \( i \)-th level, there are \( 2^i \) calls to merge sort, and the input has length \( \frac{n}{2^i} \). Each merge takes \( O(\frac{n}{2^i}) \) time, which implies that all merges performed at level \( i \) take \( 2^i \cdot O(\frac{n}{2^i}) = O(n)\) time.
+
+	Because we have \( \log_2(n) \) levels, and each level takes \( O(n) \) time, then merge sort takes \( O(n\log n) \) time.
+\end{proof}
+
+\begin{theorem}
+	In the general case, with \( a \) recursive calls and each subproblem of length \( \frac{n}{b} \), and \( O(n^c) \) time to combine solutions, we have \( T(n) = a \cdot T(\frac{n}{b}) + O(n^c) \).
+\end{theorem}
+\begin{proof}
+	Then, the total time for level \( i \) is \( O(a^i \cdot \left(\frac{n}{b^i}\right)^c) \), and the total time is \( O(\sum_{i=0}^{n^{\log_b(n)}} a^i \left( \frac{n}{b^i} \right)^c ) \), which has three cases.
 \end{proof}

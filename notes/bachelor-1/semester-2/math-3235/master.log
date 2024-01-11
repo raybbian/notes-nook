@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  9 JAN 2024 15:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  11 JAN 2024 14:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1242,19 +1242,39 @@ Package mdframed Info: mdframed detected package amsthm
 LaTeX Font Info:    Trying to load font information for TS1+cmbr on input line 204.
 (/usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
 File: ts1cmbr.fd 2005/04/13 v8.1 (WaS)
-)) [3{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}
-
-] (./master.aux) ) 
+)) (./lec_02.tex
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 7.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 13.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 16.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 20.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 28.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 31.
+) [3{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./master.aux) ) 
 Here is how much of TeX's memory you used:
- 36513 strings out of 477985
- 908407 string characters out of 5840059
+ 36536 strings out of 477985
+ 908814 string characters out of 5840059
  1904388 words of memory out of 5000000
- 56042 multiletter control sequences out of 15000+600000
+ 56062 multiletter control sequences out of 15000+600000
  533530 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,10n,88p,751b,1117s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb>
-Output written on master.pdf (3 pages, 123697 bytes).
+Output written on master.pdf (3 pages, 126208 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  48 compressed objects within 1 object stream

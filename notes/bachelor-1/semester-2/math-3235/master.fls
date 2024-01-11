@@ -1444,6 +1444,10 @@ INPUT /usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
 INPUT /usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
 INPUT /usr/share/texmf-dist/tex/latex/cmbright/ts1cmbr.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/tbmr10.tfm
+INPUT ./lec_02.tex
+INPUT lec_02.tex
+INPUT ./lec_02.tex
+INPUT lec_02.tex
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT master.aux
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
