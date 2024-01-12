@@ -1,4 +1,4 @@
-\lecture{3}{Fri 12 Jan 2024 14:01}{More Counting Methods}
+\lecture{3}{Fri 12 Jan 2024 14:01}{Permutations and Cycles}
 
 \begin{notation}
 	\( \tau : X \to X \) is a permutation \textbf{on} \( X \). Can also be denoted by \( \sigma : X \to X \).
@@ -29,3 +29,36 @@ For the following, let \( \tau : X \to X \).
 \begin{proof}
 	Consider visiting each element \( x,\tau (x), \tau (\tau (x)), \ldots  \), until the first time we re-visit any element. This will eventually happen, because \( X \) is finite. Then, let's suppoose that we have visited elements \( x_{1},x_{2},\ldots x_k \) so far, such that \( x_{1},x_{2},\ldots ,x_k \) are distinct, and that \( \tau (x_k)=x_i \) for some \( i \in \{1,2,\ldots ,k\}   \). We cannot have \( i\ge 2 \) because then both \( x_{i-1} \) and \( x_k \) would both map to \( x_i \), which is a contradiction because a permutation is a bijection. Therefore, \( i=1 \) and we have established our cycle.
 \end{proof}
+
+\begin{corollary}
+	There exists cycles \( C_{1},C_{2},\ldots ,C_t \), so that every element of \( X \) is an element in exactly one such cycle.
+\end{corollary}
+
+\begin{definition}
+	The \textbf{cycle notation} for \( \tau  \) is written as \[
+		\tau =C_{1}C_{2}\ldots C_t
+	.\] 
+\end{definition}
+
+\begin{eg}
+	Find the cycle notation for the permutation \( \tau  \) of \( \{1,2,3,4,5,6\}   \) where 
+	\begin{align*}
+		\tau (1)&=4 \\
+		\tau (2)&=6 \\ 
+		\tau (3)&= 2 \\
+		\tau (4)&= 5 \\
+		\tau (5)&= 1 \\
+		\tau (6)&= 3
+	.\end{align*}
+\end{eg}
+\begin{explanation}
+	By inspection, we have a cycle \( (1,4,5) \) and another cycle \( (2,3,6) \). Therefore, \( \tau = (1,4,5)(2,3,6) \).
+\end{explanation}
+
+\begin{definition}
+	A \textbf{transposition} is a cycle with exactly two elements.
+\end{definition}
+
+\begin{problem}
+	How quickly does \( n! \) grow as \( n \) gets large?
+\end{problem}
