@@ -1,1 +1,2 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{}%
+\contentsline {subsection}{\numberline {1.1}Counting Review}{2}{}%
