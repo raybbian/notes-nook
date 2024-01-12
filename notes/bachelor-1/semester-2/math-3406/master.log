@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  11 JAN 2024 18:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  11 JAN 2024 23:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1196,22 +1196,22 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 68.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 71--11
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--76
 []\T1/cmbr/m/n/10 The other way to see $\OML/cmbrm/m/it/10 AB$ \T1/cmbr/m/n/10 is if
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--11
+Underfull \hbox (badness 10000) in paragraph at lines 71--76
 \OML/cmbrm/m/it/10 B \OT1/cmbr/m/n/10 = []$\T1/cmbr/m/n/10 , then $\OML/cmbrm/m/it/10 AB \OT1/cmbr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--11
+Underfull \hbox (badness 10000) in paragraph at lines 71--76
 []$\T1/cmbr/m/n/10 . In other words,
  []
 
-[3
+) [3
 
 ] (./master.aux) ) 
 Here is how much of TeX's memory you used:
