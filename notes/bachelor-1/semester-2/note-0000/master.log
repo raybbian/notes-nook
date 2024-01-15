@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.12.25)  30 DEC 2023 19:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  14 JAN 2024 20:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -919,75 +919,28 @@ Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ) (/usr/share/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
 Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
-)) (/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
-\f@nch@headwidth=\skip132
-\f@nch@O@elh=\skip133
-\f@nch@O@erh=\skip134
-\f@nch@O@olh=\skip135
-\f@nch@O@orh=\skip136
-\f@nch@O@elf=\skip137
-\f@nch@O@erf=\skip138
-\f@nch@O@olf=\skip139
-\f@nch@O@orf=\skip140
-)
+)) (/usr/share/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
+\@float@every@algorithm=\toks57
+\c@algorithm=\count355
+) (/usr/share/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
-Package fancyhdr Warning: \fancyhead's `E' option without twoside option is useless.
-(fancyhdr)                Please consider using the `twoside' option on input line 253.
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count356
+\c@ALG@rem=\count357
+\c@ALG@nested=\count358
+\ALG@tlm=\skip132
+\ALG@thistlm=\skip133
+\c@ALG@Lnr=\count359
+\c@ALG@blocknr=\count360
+\c@ALG@storecount=\count361
+\c@ALG@tmpcounter=\count362
+\ALG@tmplength=\skip134
+) (/usr/share/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
 
-
-Package fancyhdr Warning: \fancyhead's `E' option without twoside option is useless.
-(fancyhdr)                Please consider using the `twoside' option on input line 254.
-
-
-Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless.
-(fancyhdr)                Please consider using the `twoside' option on input line 255.
-
-(/usr/share/texmf-dist/tex/latex/todonotes/todonotes.sty
-Package: todonotes 2023/01/31 v1.1.6 Todonotes source and documentation.
-Package: todonotes 2023/01/31
- (/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
- (/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks57
-\XKV@tempa@toks=\toks58
-)
-\XKV@depth=\count355
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-))
-\c@@todonotes@numberoftodonotes=\count356
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
-Package: tcolorbox 2023/02/12 version 6.0.1 text color boxes
- (/usr/share/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks59
-\verbatim@line=\toks60
-\verbatim@in@stream=\read3
-) (/usr/share/texmf-dist/tex/latex/environ/environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
- (/usr/share/texmf-dist/tex/latex/trimspaces/trimspaces.sty
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-))
-\tcb@titlebox=\box130
-\tcb@upperbox=\box131
-\tcb@lowerbox=\box132
-\tcb@phantombox=\box133
-\c@tcbbreakpart=\count357
-\c@tcblayer=\count358
-\c@tcolorbox@number=\count359
-\tcb@temp=\box134
-\tcb@temp=\box135
-\tcb@temp=\box136
-\tcb@temp=\box137
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
-Library (tcolorbox): 'tcbbreakable.code.tex' version '6.0.1'
-(/usr/share/texmf-dist/tex/latex/pdfcol/pdfcol.sty
-Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
-)
-Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box138
-\tcb@totalupperbox=\box139
-\tcb@totallowerbox=\box140
+Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (/usr/share/texmf-dist/tex/latex/import/import.sty
 Package: import 2020/04/01  v 6.2
 ) (/usr/share/texmf-dist/tex/latex/pdfpages/pdfpages.sty
@@ -1003,14 +956,14 @@ Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
  (/usr/share/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count360
-\AM@pagebox=\box141
-\AM@global@opts=\toks61
-\AM@pagecnt=\count361
-\AM@toc@title=\toks62
-\AM@lof@heading=\toks63
-\c@AM@survey=\count362
-\AM@templatesizebox=\box142
+\pdfpages@includegraphics@status=\count363
+\AM@pagebox=\box130
+\AM@global@opts=\toks58
+\AM@pagecnt=\count364
+\AM@toc@title=\toks59
+\AM@lof@heading=\toks60
+\c@AM@survey=\count365
+\AM@templatesizebox=\box131
 ) (/usr/share/texmf-dist/tex/latex/transparent/transparent.sty
 Package: transparent 2022-10-27 v1.5 Transparency with color stacks
  (/usr/share/texmf-dist/tex/latex/transparent/transparent-nometadata.sty
@@ -1071,17 +1024,17 @@ LaTeX Font Info:    ... okay on input line 4.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count363
+\scratchcounter=\count366
 \scratchdimen=\dimen337
-\scratchbox=\box143
-\nofMPsegments=\count364
-\nofMParguments=\count365
-\everyMPshowfont=\toks64
-\MPscratchCnt=\count366
+\scratchbox=\box132
+\nofMPsegments=\count367
+\nofMParguments=\count368
+\everyMPshowfont=\toks61
+\MPscratchCnt=\count369
 \MPscratchDim=\dimen338
-\MPnumerator=\count367
-\makeMPintoPDFobject=\count368
-\everyMPtoPDFconversion=\toks65
+\MPnumerator=\count370
+\makeMPintoPDFobject=\count371
+\everyMPtoPDFconversion=\toks62
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1096,9 +1049,6 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 4.
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.13).
-
-
-Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 4.
 
 (/usr/share/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
@@ -1165,23 +1115,23 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 45.
 Package mdframed Info: Not enough space on this page on input line 46.
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+) (./lec_02.tex) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 
 
  <./figures//sample-figure-1.pdf>] (./master.aux) ) 
 Here is how much of TeX's memory you used:
- 38857 strings out of 477985
- 970969 string characters out of 5840057
- 1866388 words of memory out of 5000000
- 58356 multiletter control sequences out of 15000+600000
+ 36440 strings out of 477985
+ 906846 string characters out of 5840059
+ 1867388 words of memory out of 5000000
+ 55964 multiletter control sequences out of 15000+600000
  531689 words of font info for 93 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,10n,88p,751b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb>
-Output written on master.pdf (1 page, 62039 bytes).
+ 89i,10n,88p,751b,1084s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb>
+Output written on master.pdf (1 page, 74931 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 66 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
