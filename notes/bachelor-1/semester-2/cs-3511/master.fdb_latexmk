@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1705430499 "master.tex" "master.pdf" "master" 1705430500 0
-  "../preamble.tex" 1705429776 8243 fa555fc307dd31d2637edb1b6076c7b1 ""
+["pdflatex"] 1705437064 "master.tex" "master.pdf" "master" 1705437065 0
+  "../preamble.tex" 1705436983 8441 27845beb6bfb2f86eb8e28451e34dc8e ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1704400182 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1704400182 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1704400182 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
@@ -22,7 +22,6 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr10.tfm" 1704400182 3092 5e77de0b5834ec014abfb4fbde93bc09 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr17.tfm" 1704400182 3088 cedefe459fd712f848e823e4c837691b ""
   "/usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr8.tfm" 1704400182 3088 df8733075b5d59d6a51b781a657af119 ""
-  "/usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmr9.tfm" 1704400182 3096 ebe6c9bc1ae47ff13b7faf2f3617a299 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cmbright/ebtl10.tfm" 1704400182 1352 5dcd85b5d3e257479b4c6dd07ac360cc ""
   "/usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1704400182 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/usr/share/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1704400182 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -269,11 +268,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1704746840 4478429 385ad1d6b64c93bd02d3a0cc5f72992b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1704746825 6768065 1d280a8029cda5813673d47315baeb31 ""
   "lec_01.tex" 1704994828 4185 4cba864d8905155203a833e3508d48a4 ""
-  "lec_02.tex" 1705426996 5476 0dbfa6aa54a218b0f3e5761acafca28d ""
-  "lec_03.tex" 1705430497 2615 705c4bf6f0e10961d69cb94925581b8d ""
-  "master.aux" 1705430500 6438 afc646c0147bf1c3ccd7c98b28a7a706 "pdflatex"
+  "lec_02.tex" 1705437061 5482 0162fe74777f48b21d475b8d9fc0dc09 ""
+  "lec_03.tex" 1705431708 2615 705c4bf6f0e10961d69cb94925581b8d ""
+  "master.aux" 1705437065 6527 b4d32225250ba53094415de5fb678805 "pdflatex"
   "master.tex" 1705426424 286 e51255442859976cc622f8b4c6797c3c ""
-  "master.toc" 1705430500 429 d10a299f20d68c33a40f0620a4b035e0 "pdflatex"
+  "master.toc" 1705437065 429 d10a299f20d68c33a40f0620a4b035e0 "pdflatex"
   (generated)
   "master.aux"
   "master.log"
