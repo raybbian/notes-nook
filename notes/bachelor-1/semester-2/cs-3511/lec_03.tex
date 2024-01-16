@@ -29,3 +29,11 @@ def max_dif(l, r, A):
 	right, min_r, max_r = max_dif(A[m + 1:r])
 	return max(left, right, max_l - min_r), min(min_l, min_r), max(max_l, max_r)
 \end{lstlisting}
+
+\subsection{Karatsuba Multiplication}
+
+Multiplication is not actually \( O(n) \) - it is \( O(n^{2} ) \). This is because addition takes a lot longer as numbers \( n \) grow bigger. This is the algorithm used by the python interpreter.
+
+Consider a number \( n \) bits long. Then, we can write \( A = 2^{\frac{n}{2}} \cdot A_{1} + A_{2} \) and \( B = 2^{\frac{n}{2}} \cdot B_{1} + B_{2}  \). Then, \[
+	A \cdot B = 2^{n} A_{1}\cdot B_{1} + 2^{\frac{n}{2}} (A_{1}B_{2} + B_{1}A_{2}) + A_{2}B_{2} 
+.\] This multiplication only contains 4 multiplications of length (bits) \( \frac{n}{2} \), which is faster (?). Using the Master Theorem to calculate, we only get an algorithm of \( O(n^{2} ) \) time.
