@@ -1,0 +1,19 @@
+\lecture{3}{Tue 16 Jan 2024 14:01}{}
+
+Continuing on with conditional probabiltiy from last time,
+
+\begin{eg}
+	A total of \( n \) balls are sequentially and randomly chosen without replacement from an urn containing \( r \) red balls and \( b \) blue balls (\( n\le r+b \)). Given that \( k \) of the \( n \) balls are blue, what is the conditional probability that the first ball chosen is blue?
+\end{eg}
+\begin{explanation}
+	We can use Lemma 2. Then, we have
+	\begin{align*}
+		\mathbb{P}(\text{first blue}) &= \frac{b}{r+b} \\
+		\mathbb{P}(\text{first \( k \) are blue}) &= \frac{\binom{n}{k} P(b,k) P(r,n-k)}{P(r+b, n)}
+	.\end{align*}
+	\( \mathbb{P}(\text{\( k-1 \) of remaining \( n-1 \) slots are blue.}) \) = \[
+		\frac{\binom{n-1}{k-1}P(b-1,k-1)\cdot P(r,n-k)}{P(r+b-1,n-1)}
+	.\] \[
+		\mathbb{P}(\text{\( k-1 \) of rest \( n-1 \) are blue}) \cdot \frac{\mathbb{P}(\text{first blue})}{\mathbb{P}(\text{first \( k \) are blue})}
+	.\] will then be our answer.
+\end{explanation}

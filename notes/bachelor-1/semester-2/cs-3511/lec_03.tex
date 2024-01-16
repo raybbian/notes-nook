@@ -37,3 +37,9 @@ Multiplication is not actually \( O(n) \) - it is \( O(n^{2} ) \). This is becau
 Consider a number \( n \) bits long. Then, we can write \( A = 2^{\frac{n}{2}} \cdot A_{1} + A_{2} \) and \( B = 2^{\frac{n}{2}} \cdot B_{1} + B_{2}  \). Then, \[
 	A \cdot B = 2^{n} A_{1}\cdot B_{1} + 2^{\frac{n}{2}} (A_{1}B_{2} + B_{1}A_{2}) + A_{2}B_{2} 
 .\] This multiplication only contains 4 multiplications of length (bits) \( \frac{n}{2} \), which is faster (?). Using the Master Theorem to calculate, we only get an algorithm of \( O(n^{2} ) \) time.
+
+We can continue to optimize by instead multiplying with the fact that \[
+	(A_{1}+A_{2})\cdot (B_{1}+B_{2}) = A_{1}B_{2}+A_{1}B_{2}+B_{1}A_{2}+A_{2}B_{2}
+.\] Let \( x \) be this value. Let \( y=A_{1}\cdot B_{1} \) and \( z=A_{2}\cdot B_{2} \). Then, we can instead return \[
+	2^{n}y + 2^{\frac{n}{2}}(  x - y - z ) + z
+.\] Then, by the master theorem with merge (addition and subtraction) of \( O(n) \), this algorithm has a runtime of \( O(n^{\log _2(3)} ) \).
