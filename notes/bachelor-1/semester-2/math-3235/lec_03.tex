@@ -51,5 +51,74 @@ Continuing on with conditional probabiltiy from last time,
 \end{definition}
 
 \begin{notation}
-	\( \{X = a\} = \{ \omega  \in \Omega : X(\omega ) = a \} = \ldots = X-1(a) \).
+	\( \{X = a\} = \{ \omega  \in \Omega : X(\omega ) = a \} = \ldots = X^{-1}(a) \).
 \end{notation}
+
+\begin{eg}
+	3 balls are to be selected without replacement from an urn containing 20 balls numbered 1 to 20. What is the probability that at least one of the balls that are drawn has a number as large or larger than 17?
+\end{eg}
+\begin{explanation}
+	\( \Omega =\{1,2,3,\ldots ,20\}   \). \( |\Omega | = \binom{20}{3} \). Let our random variable \( X : \Omega \to \mathbb{R} \), \( X=\text{largest of the three values} \). Let \( E=\{X\ge 17\}   \). Then, \( \mathbb{P}(E)=1 = \mathbb{P}(E^{c}) = \mathbb{P}(\text{all } < 17) \).
+	\begin{align*}
+		\mathbb{P}(\text{all } < 17) &= \frac{|E^{c}|}{|\Omega |} = \frac{\binom{16}{3}}{\binom{20}{3}} \\
+		\mathbb{P}(E) &= 1 - \mathbb{P}(E^{c}) = 1 - \frac{\binom{16}{3}}{\binom{20}{3}}
+	.\end{align*}
+\end{explanation}
+
+\begin{definition}
+	\( X \) is called \textbf{discrete} if \( \exists  \) a countable set \( S \subset \mathbb{R} \) such that \( \mathbb{P}(X \in S) = 1 \).
+\end{definition}
+
+\begin{definition}
+	The \textbf{probability mass function} \( p(a)=P(X = a) \) is positive for most a countable number of values of \( a \).
+\end{definition}
+
+\begin{eg}
+	The pmf of a random variable \( X \) is given by \( p_X(i) = \frac{c\lambda ^i}{i!} \), \( i=0,1,2\ldots  \) where \( \lambda  \) is some positive value. What is \( \mathbb{P}(X=0) \) and \( \mathbb{P}(X>2) \)?
+\end{eg}
+\begin{explanation}
+	\begin{align*}
+		\sum p_X(i) &= \sum_{i=0}^{\infty} \frac{c\lambda ^i}{i!} = 1 \\
+								&\implies X = \frac{1}{\sum_{k=0}^{\infty} \frac{\lambda ^i}{i!}} = e^{-\lambda } 
+	.\end{align*}
+	Then, \( \mathbb{P}(X=0)= p_X(0) = \frac{c\lambda ^{0} }{0!} = c = e^{-\lambda } \). Also, \( \mathbb{P}(X>2) = 1 - \mathbb{P}(X\le 2) \). 
+	\begin{align*}
+		\mathbb{P}(X\le 2) &= \mathbb{P}(X=0) + \mathbb{P}(X=1) + \mathbb{P}(X=2) \\
+											 &= e^{-\lambda } \left( 1 + \lambda  + \frac{\lambda ^{2} }{2} \right) 
+	.\end{align*}
+\end{explanation}
+
+\begin{definition}
+	If \( X \) is a discrete random variable, the \textbf{expectation} of \( X \) is denoted by \( \mathbb{E}(X) \) and is defined by \[
+		\mathbb{E}(X) = \sum_{x \in \text{Im} X} x\mathbb{P}(X=x)
+	.\] 
+\end{definition}
+
+\begin{eg}
+	We say that \( I \) is an indicator variable for the event \( A \) if \[
+		I = \begin{cases}
+			1 &\text{ if \( A \) occurs}\\
+			0 &\text{ if \( A^{c} \) occurs}
+		\end{cases}
+	.\] Find \( \mathbb{E}(I) \).
+\end{eg}
+\begin{explanation}
+	\begin{align*}
+		\mathbb{E}(I_A) &= 0 \cdot \mathbb{P}(I_A=0) + 1 \cdot  \mathbb{P}(I_A = 1) \\
+		&= \mathbb{P}(I_A=1) \\
+		&= \mathbb{P}(\{\omega  \in \Omega : I_A(\omega ) = 1\}  ) \\
+		&= \mathbb{P}(\{\omega  \in A\}  ) \\
+		&= \mathbb{P}(A)
+	.\end{align*}
+\end{explanation}
+
+\begin{eg}
+	A class of 120 students is driven in 3 buses to a performance, with 36, 40, and 44 students in the busees. Let \( X \) denote the number of students on the bus of a randomly chosen student. Find \( \mathbb{E}(X) \).
+\end{eg}
+\begin{explanation}
+	Note that \( \mathbb{P}(B_{1}) = \frac{36}{120} \), \( \mathbb{P}(B_{2}) = \frac{40}{120} \) and \( \mathbb{P}(B_{3})=\frac{44}{120} \). Then, 
+	\begin{align*}
+		\mathbb{E}(X) &= 36 \cdot \frac{36}{120} + 40 \cdot \frac{40}{120} + 44 \cdot \frac{44}{120} \\
+		&= \frac{36^{2}+40^{2}+44^{2}}{120} \\
+	.\end{align*}
+\end{explanation}
