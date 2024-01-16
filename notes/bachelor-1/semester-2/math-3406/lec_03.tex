@@ -1,0 +1,39 @@
+\lecture{3}{Tue 16 Jan 2024 17:00}{Matrix Algebra}
+
+\begin{eg}
+	Solve
+	\[
+		\underbrace{\begin{bmatrix}
+			2 & 4 & -2 \\ 4 & 9 & 4 \\ -2 & -3 & 7
+		\end{bmatrix}}_{A} \begin{bmatrix}
+			x_{1} \\ x_{2} \\ x_{3}
+		\end{bmatrix}
+		= \underbrace{\begin{bmatrix}
+			2 \\ 8 \\ 10
+		\end{bmatrix}}_{b}
+	.\] 
+\end{eg}
+\begin{explanation}
+	\[
+		x = \begin{bmatrix}
+			-1 \\ 2 \\ 2
+		\end{bmatrix}
+	.\] 
+	Let \[
+		E_{12} = \begin{bmatrix}
+			1 & 0 & 0 \\ -2 & 1 & 0 \\ 0 & 0 & 1
+		\end{bmatrix}
+	.\] Then, we have \[
+		E_{12} \begin{bmatrix}
+			2 \\ 8 \\ 10
+		\end{bmatrix} = \begin{bmatrix}
+			2 \\ 4 \\ 10
+		\end{bmatrix}
+	.\] Note that now, we also have \( E_{12}(Ax) = E_{12}b = (E_{12}A)x \)
+\end{explanation}
+
+\begin{definition}
+	AB is such that \[
+		A(Bx) = (AB)x
+	.\] for every vector \( x \).
+\end{definition}
