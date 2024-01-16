@@ -158,4 +158,6 @@ From the elimination example earlier, we have \[
 		0 & 1 & 7 \\
 		0 & 0 & -2  
 	\end{bmatrix} = U
-.\] which is now upper triangular. Flipping this around, \( A = \underbrace{E_{12}^{-1}E_{13}^{-1}E_{23}^{-1}}_{L}U \). Note that all \( E_{i,j} \) are lower triangular, such that \( L \) is also lower triangular. That is \textbf{LU Factorization}.
+.\] which is now upper triangular. Flipping this around, \( A = \underbrace{E_{12}^{-1}E_{13}^{-1}E_{23}^{-1}}_{L}U \). Note that all \( E_{i,j} \) are lower triangular, such that \( L \) is also lower triangular. This is \textbf{LU Factorization}.
+
+We can use this to solve \( Ax=b \) by first writing \( A=LU\implies Ux = L^{-1}B  \), from which you do backwards substitution to solve the problem, reducing the number of operations from a magnitude of \( n^{3}  \) to \( n^{2}  \). However, getting \( A^{-1}  \) is still \( n^{3}  \), so it should only be precomputed if we solve equations \( Ax=b \) \( n \) times.
