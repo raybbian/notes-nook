@@ -17,3 +17,39 @@ Continuing on with conditional probabiltiy from last time,
 		\mathbb{P}(\text{\( k-1 \) of rest \( n-1 \) are blue}) \cdot \frac{\mathbb{P}(\text{first blue})}{\mathbb{P}(\text{first \( k \) are blue})}
 	.\] will then be our answer.
 \end{explanation}
+
+\subsection{Bayes Theorem}
+
+\begin{definition}
+	A \textbf{partition} of \( \Omega  \) is a collection \( \{ B_i : i \in I \} \) of disjoint events with union \( \bigcup_i B_i = \Omega  \). 
+\end{definition}
+
+\begin{theorem}
+	Let \( (\Omega, \mathcal{F}, \mathbb{P}) \) be a probability space. If \( \{B_{1},B_{2},\ldots \}   \) is such a parition with \( \mathbb{P}(B_i) > 0\), then \[
+		\mathbb{P}(A) = \sum_i \mathbb{P}(A \mid B_i) \mathbb{P}(B_i) \quad \text{for } A \in \mathcal{F}
+	.\] 
+\end{theorem}
+
+\begin{eg}
+	Flip a fair coin. If heads, roll a 6-sided fair die. If tails, roll two 4-sided dice and sum the total. What is the overall likelihood of an outcome of 3?
+\end{eg}
+\begin{explanation}
+	Look at the event tree, and count the probabilities. The heads case is \( \frac{1}{2} \cdot \frac{1}{6} \) and the tails case is \( \frac{1}{2}\cdot \frac{1}{8} \). This is an informal Bayes Theorem.
+\end{explanation}
+
+\begin{theorem}
+	We can also rearrange Bayes' Theorem to yield
+	\[
+		\mathbb{P}(B_j \mid A) = \frac{\mathbb{P}(A \mid  B_j)\mathbb{P}(B_j)}{\sum_i \mathbb{P}(A\mid B_i) \mathbb{P}(B_i)}
+	.\] 
+\end{theorem}
+
+\section{Random Variables}
+
+\begin{definition}
+	A \textbf{random variable} on \( (\Omega, \mathbb{P}) \), \( |\Omega | < \infty \) is a function \( X: \Omega  \to  \mathbb{R} \).
+\end{definition}
+
+\begin{notation}
+	\( \{X = a\} = \{ \omega  \in \Omega : X(\omega ) = a \} = \ldots = X-1(a) \).
+\end{notation}
