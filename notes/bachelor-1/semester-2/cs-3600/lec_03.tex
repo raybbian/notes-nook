@@ -33,3 +33,27 @@ How do we select a state space? The world is very, very complex such that the st
 Note that we can rarely build this graph in memory in full. Also, a state tree for a certain graph could be infinitely large (with a cyclic state space graph).
 
 The difference between states and nodes is that the node includes the state, but also information about its children, parents, etc.
+
+\begin{definition}
+	\textbf{Completeness}: does it always find a solution?
+	\textbf{Complexity}: number of nodes expanded, memory used?
+	\textbf{Optimality}: does it always find a least-cost solution?
+\end{definition}
+
+Time and space complexity are measured in \( b \), \( d,  \) and \( m \), where \( b \) is the maximum branching factor, \( d \) is the depth of the least-cost solution, and \( m \) is the maximum depth of the state space.
+
+\begin{eg}
+	What is the completeness, complexity, and optimality of DFS?
+\end{eg}
+\begin{explanation}
+	DFS fails in infinite depth spaces and spaces with loops, so it is not complete. It has \( b^{m}  \) time complexity and \( bm \) space complexity.
+\end{explanation}
+
+\begin{eg}
+	What about BFS?
+\end{eg}
+\begin{explanation}
+	Yes, time complexity of \( b^{d+1}  \), in \( b^{d+1}  \) space, etc.
+\end{explanation}
+
+Sometimes, the shortest path is not the fastest path, so a uniform cost search could be used.
