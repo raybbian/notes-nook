@@ -1,3 +1,28 @@
 \lecture{3}{Tue 16 Jan 2024 15:32}{Hexadecimal and Octal}
 
 Octal is just like binary, but in base 8 as well. However, grouping bits in 3 is kind of weird. So instead, we use hexadecimal, which is base 16 (1...F). This way, we can group bits into 4.
+
+We can define constant hex numbers with 0x, oct numbers with 0, and binary numbers (sometimes) with 0b.
+
+\subsection{Bit Vectors}
+
+To clear a bit vector, we can \& it will all 0s. To set a bit vector, we can | it with 1s. To test a certain bit, you can mask the other bits away, and check the singular bit.
+
+To put 1 in any bit position \( n \) in a mask, shift left by \( n \).
+
+\begin{eg}
+	\( 1 << 2 = 0100_2 \)
+\end{eg}
+
+\subsection{ASCII}
+
+\begin{eg}
+	How do we transform `P' to `p'?
+\end{eg}
+\begin{explanation}
+	We can do `P' + 32, `P' + 0x20, `P' | 0b00010000, etc.
+\end{explanation}
+
+\subsection{Unicode}
+
+Now, we give other languages characters as well. Each character get a number ("code point"), and there are now 1,112,064 code points. It is also backwards compatible with ASCII.
