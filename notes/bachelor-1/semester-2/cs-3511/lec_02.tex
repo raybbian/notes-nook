@@ -108,4 +108,11 @@ Now, let us argue about the time complexity of merge sort.
 \end{theorem}
 \begin{proof}
 	Then, the total time for level \( i \) is \( O(a^i \cdot \left(\frac{n}{b^i}\right)^c) \), and the total time is \( O(\sum_{i=0}^{n^{\log_b(n)}} a^i \left( \frac{n}{b^i} \right)^c ) \), which has three cases.
+	\[
+		\text{Total Time} = \begin{cases}
+			O(n^{\log _b(a)} ), &\text{ if } a > b^{c} \\ 
+			O(n^{c}\log (n) ), &\text{ if } a = b^{c} \\
+			O(n^{c} ), &\text{ if } a < b^{c} 
+		\end{cases}
+	.\] 
 \end{proof}

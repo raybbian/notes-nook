@@ -1,3 +1,31 @@
 \lecture{3}{Tue 16 Jan 2024 12:33}{Divide and Conquer 2}
 
 One general approach that could be used for divide and conquer is, first, split the input into equal parts, assume you have solved the subparts, and then answer the question: how do we merge solutions? Note that sometimes we can improve the complexity of merge as well.
+
+\begin{eg}
+	Given an array \( A[0\ldots n-1] \), find the max \( A[i] - A[j] \) such that \( i<j \).
+\end{eg}
+\begin{explanation}
+	The naive iterative solution is iterating over all pairs \( i,j \) and checking the difference. Otherwise, we can use a divide and conquer solution given below.
+\end{explanation}
+
+\begin{lstlisting}[language=Python]
+def max_dif(A):
+	if n = 1:
+		return float('-inf')
+	left = max_dif(A[:len(A)/2])
+	right = max_dif(A[len(A)/2 + 1:])
+	return max(left, right, max(left) - max(right))
+\end{lstlisting}
+
+Then, the complexity of this is \( T(n) = 2\cdot T(\frac{n}{2}) + O(n) = O(n\log n)\). Note that we can optimize this solution by optimizing the linear time merge to constant time. Instead of returning only the solution, we can return as well the maximum and minimum element of each of the arrays.
+
+\begin{lstlisting}[language=Python]
+def max_dif(l, r, A):
+	if l == r:
+		return float('-inf'), A[l], A[l]
+	m = (l + r) // 2
+	left, min_l, max_l = max_dif(A[l:m])
+	right, min_r, max_r = max_dif(A[m + 1:r])
+	return max(left, right, max_l - min_r), min(min_l, min_r), max(max_l, max_r)
+\end{lstlisting}
