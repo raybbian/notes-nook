@@ -29,11 +29,66 @@
 		\end{bmatrix} = \begin{bmatrix}
 			2 \\ 4 \\ 10
 		\end{bmatrix}
-	.\] Note that now, we also have \( E_{12}(Ax) = E_{12}b = (E_{12}A)x \)
+	.\] Note that this is also \( E_{12}(Ax) = E_{12}b = (E_{12}A)x \)
 \end{explanation}
 
 \begin{definition}
 	AB is such that \[
 		A(Bx) = (AB)x
-	.\] for every vector \( x \).
+	.\] for every vector \( x \). It is defined as \[
+	AB = [AB^1, AB^2, \ldots ,AB^n]
+	.\] where \( B^{i}  \) is the \( i \)-th column of \( B \).
 \end{definition}
+
+\begin{theorem}
+	\( Ax=b \implies (CA)x = Cb \)
+\end{theorem}
+
+\begin{theorem}
+	Let \( \mathbb{R}^{n}  \) be a vector space and \( A,B : \mathbb{R}^{n} \to  \mathbb{R}^{n}   \) linear mappings. Then, \[
+		A \circ B : \mathbb{R}^{n} \to  \mathbb{R}^{n}  
+	.\] is also a linear transformation. Also \[
+		A \circ B (x) = ABx
+	.\] 
+\end{theorem}
+
+\begin{theorem}
+	If \( \hat{A} \) is a linear map from \( \mathbb{R}^{n} \to  \mathbb{R}^{n}   \) then \( \hat{A}(x) = Ax \) for a matrix \( A \).
+\end{theorem}
+\begin{proof}
+	For a linear map, we have \( \hat{A}(x+y) = \hat{A}(x) + \hat{A}(y) \) and \( \hat{A}(\alpha x) = \alpha \hat{A}(x) \). We want to show that any linear mapping is a matrix multiplication. Let \[ e_i = \begin{bmatrix}
+		0 \\ 0 \\ \ldots \\ 1 \\ \ldots \\ 0
+	\end{bmatrix}\] where the 1 is in the \( i\)th place. Let \( A^{i}=\hat{A}(e_i)  \). Let \( A = \begin{bmatrix}
+	A^{1} & A^{2} & \ldots  & A^{n} 
+	\end{bmatrix} \). Then, by construction 
+	\begin{align*}
+		\hat{A}(x)&=\hat{A}(x_{1}e_{1} + x_{2}e_{2}) + \ldots  + x_ne_n ) \\ &= x_{1}\hat{A}(e_{1}) + x_{2}\hat{A}(e_{2}) + \ldots + x_n \hat{A}e_n)\\ &= x_{1}A^{1} + x_{2}A^{2} + \ldots  + x_nA^{n}\\  &= Ax
+	.\end{align*}
+\end{proof}
+
+We can also calculate matrix multiplication as \( (AB)_{i,j} = \sum_k A_{i,k} \cdot B_{k,j}  \).
+
+\begin{theorem}
+	Suppose we take a third matrix \( C \). Then, \[
+		A(BC) = (AB)C
+	.\] This is the \textbf{associative property}.
+\end{theorem}
+\begin{proof}
+	We saw that \[
+		A(Bx) = (AB)x
+	.\] Applying this, we have:
+	\begin{align*}
+		(AB)C &= \begin{bmatrix}
+			(AB)C^{1} & \ldots & (AB)C^{n}  
+		\end{bmatrix} \\
+		&= \begin{bmatrix}
+			A(BC^{1} ) & \ldots & A(BC^{n} )
+		\end{bmatrix} \\
+		&= A \begin{bmatrix}
+			BC^{1} & \ldots & BC^{n}  
+		\end{bmatrix}\\
+		&= A(BC)
+	.\end{align*}
+\end{proof}
+
+
