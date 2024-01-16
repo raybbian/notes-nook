@@ -91,4 +91,71 @@ We can also calculate matrix multiplication as \( (AB)_{i,j} = \sum_k A_{i,k} \c
 	.\end{align*}
 \end{proof}
 
+With this information, row reduction is just a series of matrix multiplications. Note that in row reduction, we can also have permutation matrices that switches the rows.
 
+\begin{theorem}
+	\( AB \neq  BA \).
+\end{theorem}
+\begin{proof}
+	\[
+		\begin{pmatrix}
+			0 & 1 \\ 0 & 0
+		\end{pmatrix} \begin{pmatrix}
+			0 & 0 \\ 1 & 0
+		\end{pmatrix} = \begin{pmatrix}
+			1 & 0 \\ 0 & 0
+		\end{pmatrix}
+	.\] but not the other way around.
+\end{proof}
+
+To summarize matrix operations, we have 
+\begin{align*}
+	A + B &= B + A \\
+	\alpha (A + B) &= \alpha A + \alpha B \\ \\
+	(AB)C &=  A(BC) \\
+	(A+B)C &= AC+BC \\
+	C(A+B) &= CA + CB 
+.\end{align*} By these properties, space of matrices is a vector space, and an algebra. However, we are missing division (the inverse)!
+
+Note that a mapping \( A : \mathbb{R}^{n} \to \mathbb{R}^{m}   \) such that \( m<n \) cannot be invertible, as there are many solutions to \( Ax=b\) and therefore cannot be a bijection. The same can be said when \( n>m \), because \( Ax=b \) will have no solutions. Therefore, \( A \) is an invertible if \( n=m \).
+
+\begin{definition}
+	The \textbf{inverse} \( A^{-1}  \) of \( A \) is defined such that \[
+		A^{-1} A x = x \quad \forall x
+	.\] as well as \( A A^{-1}=I   \) and \( A^{-1}  \) must be unique.
+\end{definition}
+
+\begin{theorem}
+	\[
+		(AB)^{-1}  = B^{-1} A^{-1} 
+	.\] 
+\end{theorem}
+\begin{proof}
+	\begin{align*}
+		(B^{-1}A^{-1}  )(AB) &= B^{-1}(A^{-1}A )B  \\
+		&= B^{-1} I B  \\
+		&= B^{-1} B  \\
+		&= I
+	.\end{align*}
+	This is the only inverse.
+\end{proof}
+
+\begin{eg}
+	The inverse of \[
+		E_{12} = \begin{pmatrix}
+			1 & 0 & 0 \\ -2 & 1 & 0 \\ 0 & 0 & 1
+		\end{pmatrix}
+	.\] is just \[
+		E_{12}^{-1}  = \begin{pmatrix}
+			1 & 0 & 0 \\ 2 & 1 & 0 \\ 0 & 0 & 1
+		\end{pmatrix}
+	.\] (you add back the two first rows you subtracted from the second).
+\end{eg}
+
+From the elimination example earlier, we have \[
+	E_{23}E_{13}E_{12}A = \begin{bmatrix}
+		2 & 4 & -2 \\
+		0 & 1 & 7 \\
+		0 & 0 & -2  
+	\end{bmatrix} = U
+.\] which is now upper triangular. Flipping this around, \( A = \underbrace{E_{12}^{-1}E_{13}^{-1}E_{23}^{-1}}_{L}U \). Note that all \( E_{i,j} \) are lower triangular, such that \( L \) is also lower triangular. That is \textbf{LU Factorization}.
