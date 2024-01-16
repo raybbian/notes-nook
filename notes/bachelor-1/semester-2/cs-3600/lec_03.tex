@@ -5,3 +5,31 @@
 \begin{definition}
 	\textbf{Offline} problem solving is an agent that, given a sequence, state, goal, and problem, returns an action.
 \end{definition}
+
+\begin{definition}
+	A deterministic problem is a \textbf{single-state} problem.
+\end{definition}
+
+\begin{definition}
+	A non-observable problem is a \textbf{conformant} problem.
+\end{definition}
+
+\begin{definition}
+	A partially observable problem is a \textbf{contingency} problem.
+\end{definition}
+
+\begin{definition}
+	An unknown state space is an \textbf{exploration} problem.
+\end{definition}
+
+How do we select a state space? The world is very, very complex such that the state space must be abstracted for problem solving. These abstract solutions should be easier than the real problem.
+
+\subsection{State Space Graphs and Search Trees}
+
+\begin{definition}
+	A \textbf{state space graph} is a mathematical representation of a search problem. Arcs on this graph represent an action that causes a change from one state to another.
+\end{definition}
+
+Note that we can rarely build this graph in memory in full. Also, a state tree for a certain graph could be infinitely large (with a cyclic state space graph).
+
+The difference between states and nodes is that the node includes the state, but also information about its children, parents, etc.
