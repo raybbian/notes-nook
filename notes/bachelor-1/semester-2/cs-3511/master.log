@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  11 JAN 2024 13:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  16 JAN 2024 12:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -941,29 +941,51 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 Package: algpseudocode 
 
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/usr/share/texmf-dist/tex/latex/import/import.sty
+) (/usr/share/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count363
+\lst@gtempboxa=\box130
+\lst@token=\toks58
+\lst@length=\count364
+\lst@currlwidth=\dimen332
+\lst@column=\count365
+\lst@pos=\count366
+\lst@lostspace=\dimen333
+\lst@width=\dimen334
+\lst@newlines=\count367
+\lst@lineno=\count368
+\lst@maxwidth=\dimen335
+ (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count369
+\lst@skipnumbers=\count370
+\lst@framebox=\box131
+) (/usr/share/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+ (/usr/share/texmf-dist/tex/latex/import/import.sty
 Package: import 2020/04/01  v 6.2
 ) (/usr/share/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
  (/usr/share/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
-\ESO@tempdima=\dimen332
-\ESO@tempdimb=\dimen333
+\ESO@tempdima=\dimen336
+\ESO@tempdimb=\dimen337
 )
-\AM@pagewidth=\dimen334
-\AM@pageheight=\dimen335
-\AM@fboxrule=\dimen336
+\AM@pagewidth=\dimen338
+\AM@pageheight=\dimen339
+\AM@fboxrule=\dimen340
  (/usr/share/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count363
-\AM@pagebox=\box130
-\AM@global@opts=\toks58
-\AM@pagecnt=\count364
-\AM@toc@title=\toks59
-\AM@lof@heading=\toks60
-\c@AM@survey=\count365
-\AM@templatesizebox=\box131
+\pdfpages@includegraphics@status=\count371
+\AM@pagebox=\box132
+\AM@global@opts=\toks59
+\AM@pagecnt=\count372
+\AM@toc@title=\toks60
+\AM@lof@heading=\toks61
+\c@AM@survey=\count373
+\AM@templatesizebox=\box133
 ) (/usr/share/texmf-dist/tex/latex/transparent/transparent.sty
 Package: transparent 2022-10-27 v1.5 Transparency with color stacks
  (/usr/share/texmf-dist/tex/latex/transparent/transparent-nometadata.sty
@@ -1024,17 +1046,17 @@ LaTeX Font Info:    ... okay on input line 4.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count366
-\scratchdimen=\dimen337
-\scratchbox=\box132
-\nofMPsegments=\count367
-\nofMParguments=\count368
-\everyMPshowfont=\toks61
-\MPscratchCnt=\count369
-\MPscratchDim=\dimen338
-\MPnumerator=\count370
-\makeMPintoPDFobject=\count371
-\everyMPtoPDFconversion=\toks62
+\scratchcounter=\count374
+\scratchdimen=\dimen341
+\scratchbox=\box134
+\nofMPsegments=\count375
+\nofMParguments=\count376
+\everyMPshowfont=\toks62
+\MPscratchCnt=\count377
+\MPscratchDim=\dimen342
+\MPnumerator=\count378
+\makeMPintoPDFobject=\count379
+\everyMPtoPDFconversion=\toks63
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1042,6 +1064,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (/usr/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
@@ -1050,6 +1073,7 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.13).
 
+\c@lstlisting=\count380
 (/usr/share/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
  (/usr/share/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -1193,17 +1217,17 @@ Underfull \hbox (badness 3919) in paragraph at lines 110--111
 \T1/cmbr/m/n/10 is $\OML/cmbrm/m/it/10 O\OT1/cmbr/m/n/10 (\OML/cmbrm/m/it/10 a[] \OMS/cmbrs/m/n/10 ^^A [][]\OT1/cmbr/m/n/10 )$\T1/cmbr/m/n/10 , and the to-tal time is
  []
 
-) [3] (./master.aux) ) 
+) (./lec_03.tex) [3] (./master.aux) ) 
 Here is how much of TeX's memory you used:
- 36494 strings out of 477985
- 907717 string characters out of 5840059
- 1888388 words of memory out of 5000000
- 56025 multiletter control sequences out of 15000+600000
+ 37850 strings out of 477985
+ 927296 string characters out of 5840059
+ 1889388 words of memory out of 5000000
+ 57366 multiletter control sequences out of 15000+600000
  533933 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,13n,88p,751b,1082s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb>
-Output written on master.pdf (3 pages, 117938 bytes).
+Output written on master.pdf (3 pages, 118425 bytes).
 PDF statistics:
  73 PDF objects out of 1000 (max. 8388607)
  45 compressed objects within 1 object stream
