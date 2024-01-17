@@ -8,7 +8,7 @@
 \begin{proof}
 	We have for the lower bound
 	\[
-		n! &= \prod_{i=2}^{n}i \ge \prod_{i=2}^{n}2 = 2^{n-1}  
+		n! = \prod_{i=2}^{n}i \ge \prod_{i=2}^{n}2 = 2^{n-1}  
 	.\] 
 	And for the upper bound,
 	\[
@@ -21,3 +21,59 @@ Note that these bounds are very far off. Here is a motivating example.
 \begin{eg}
 	Suppose \( n \) students draw a card from a deck of \( n \) cards, replacing the card afterwards. What is the likelihood that all \( n \) cards drawn are distinct?
 \end{eg}
+\begin{explanation}
+	The probability is the number of desireable outcomes over the total number of outcomes. This is just \[
+		\frac{n!}{n^{n} }
+	.\] 
+	Note that if we use the upper bound from this lemma, we would get that the probability is at most \( \frac{1}{n} \). In reality however, the true probability is much, much smaller.
+\end{explanation}
+
+\begin{lemma}
+	A better set of bounds are the following:
+	\[
+		\left( \frac{n}{2} \right) ^{\frac{n}{2}} \le n! \le \frac{(n+1)^{n} }{2^{\frac{n}{2}} }
+	.\] 
+\end{lemma}
+\begin{proof}
+	Left as an exercise!
+\end{proof}
+
+\begin{lemma}
+	For any two \( a,b \ge 2 \), we have \( a\cdot b\ge a+b \).
+\end{lemma}
+\begin{lemma}
+	(Arithmetic-Geometric Mean Inequality) For any two \( a,b\ge 0 \), we have \[
+		\sqrt{ab} \le \frac{a+b}{2}
+	.\] 
+\end{lemma}
+
+With these last two lemmas, we can show the following:
+
+\begin{theorem}
+	(Gauss) For any \( n \in \mathbb{Z}_{>0} \), \[
+		n^{\frac{n}{2}} \le n! \le \frac{(n+1)^{n} }{2^{n} }
+	.\] 
+\end{theorem}
+\begin{proof}
+	We instead look at \( (n!)^{2}  \). Pairing 1 with \( n \), 2 with \( n-1 \), etc, we have for the lower bound
+	\begin{align*}
+		n! &= \left( \prod_{i=1}^{n}i  \right) \left( \prod_{i=1}^{n}i  \right) \\
+		&= \prod_{i=1}^{n}i(n + 1 - i)  \\
+		&= \prod_{i=1}^{n}\sqrt{i(n+1-i)}   \\
+		&\ge \prod_{i=1}^{n}\sqrt{n} \tag{Lemma 7}  \\
+		&\ge n^{\frac{n}{2}} 
+	.\end{align*}
+	And for the upper bound, we have 
+	\begin{align*}
+		n! &= \left( \prod_{i=1}^{n}i  \right) \left( \prod_{i=1}^{n}i  \right) \\
+		&= \prod_{i=1}^{n}i(n + 1 - i)  \\
+		&= \prod_{i=1}^{n}\sqrt{i(n+1-i)}   \\
+		&\le \prod_{i=1}^{n} \frac{i + n + 1 - i}{2}  \\
+		&=  \frac{(n+1)^{n} }{2^{n} }
+	.\end{align*}
+\end{proof}
+
+\begin{theorem}
+	(Even better bound)
+\end{theorem}
+
