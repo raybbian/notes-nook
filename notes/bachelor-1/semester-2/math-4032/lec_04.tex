@@ -1,0 +1,23 @@
+\lecture{4}{Wed 17 Jan 2024 14:02}{Estimates for \( n! \)}
+
+\begin{lemma}
+	(Simplest) For any positive integer \( n \in \mathbb{Z}_{>0} \), \[
+		2^{n-1} \le n! \le n^{n-1}  
+	.\] 
+\end{lemma}
+\begin{proof}
+	We have for the lower bound
+	\[
+		n! &= \prod_{i=2}^{n}i \ge \prod_{i=2}^{n}2 = 2^{n-1}  
+	.\] 
+	And for the upper bound,
+	\[
+		n! = \prod_{i=2}^{n}i \le \prod_{i=2}^{n}n = n^{n-1}  
+	.\] 
+\end{proof}
+
+Note that these bounds are very far off. Here is a motivating example.
+
+\begin{eg}
+	Suppose \( n \) students draw a card from a deck of \( n \) cards, replacing the card afterwards. What is the likelihood that all \( n \) cards drawn are distinct?
+\end{eg}
