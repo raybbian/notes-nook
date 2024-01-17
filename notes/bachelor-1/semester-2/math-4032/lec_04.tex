@@ -74,6 +74,22 @@ With these last two lemmas, we can show the following:
 \end{proof}
 
 \begin{theorem}
-	(Even better bound)
+	(Even better bound) For any \( n \in \mathbb{Z}_{>0} \), we have \[
+		e \left( \frac{n}{e} \right) ^{n}  \le n! \le en \left( \frac{n}{e} \right) ^{n} 
+	.\] 
 \end{theorem}
-
+\begin{proof}
+	The lower bound will be given as a homework problem. The upper bound is as follows. Note that \( \ln (n!) = \sum_{i=1}^{n} \ln (i) \). Then, we can take the integral of \( \ln (x) \), which is greater than this sum.
+	\begin{align*}
+		\sum_{i=1}^{n} \ln (i) &\le \int_{1}^{n+1}\ln (x) dx  \\
+		&= (n+1)\ln (n+1)-n
+	.\end{align*}
+	Thus 
+	\begin{align*}
+		n! &\le e^{(n+1)\ln (n+1)-n}  \\
+		&= \frac{e^{(n+1)\ln (n+1)}}{e^{n} }  \\
+		&= \frac{\left(e^{\ln (n+1)}\right)^{n+1}    }{e^{n} } \\
+		&= \frac{\left( n+1 \right) ^{n+1}}{e^{n} } 
+	.\end{align*}
+	Applying this for \( n(n-1)! \) gives the bound.
+\end{proof}
