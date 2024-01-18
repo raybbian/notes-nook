@@ -3,3 +3,5 @@
 \subsection{Adversarial Search and Games}
 
 Note that in a tree search, you may repeatedly process already visited states. In some cases you should use a state graph instead.
+
+In a graph search, you should \textbf{never} expand a state twice. Instead, you use a data structure to see which nodes have already been visited. It is important to store the closed set as a set, and not a list. Also note that a graph search will not wreck completeness.
