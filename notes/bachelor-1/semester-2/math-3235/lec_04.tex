@@ -1,4 +1,4 @@
-\lecture{4}{Thu 18 Jan 2024 14:03}{Random Variables}
+\lecture{4}{Thu 18 Jan 2024 14:03}{Random Variables and Expected Values}
 
 \begin{prop}
 	If \( X \) is a discrete random variables that takes on one of the values \( x_i \), \( I\ge 1 \), with respective proabilities \( p(x_i) \), then, for any real valued function \( g \), \[
@@ -41,7 +41,7 @@
 \end{proof}
 
 \begin{prop}
-	If \( X \) is a discrete random variable with finitely many values, then \( \Var(x) = 0 \iff X \equiv \mathbb{E}(X) \)
+	If \( X \) is a discrete random variable with finitely many values, then \( \Var(x) = 0 \iff X \equiv \mathbb{E}(X) \).
 \end{prop}
 \begin{proof}
 	(\( \impliedby \)) Suppose \( X=\mathbb{E}(X) \) Then,
@@ -50,12 +50,38 @@
 		&= c^{2}\cdot \sum_{i=1}^{n} \mathbb{P}_X(x_i)  \\
 		&= c^{2}
 	.\end{align*}
-	Plugging both sides back into \( \Var(X) \), we have \( \Var(X) = c^{2} - c^{2} = 0   \).
-
-	(\( \implies \)) Suppose \( \Var(X) = 0 \). Then, 
+	Plugging both sides back into \( \Var(X) \), we have \( \Var(X) = c^{2} - c^{2} = 0   \). (\( \implies \)) Suppose \( \Var(X) = 0 \). Then, 
 	\begin{align*}
 		\Var(X) &= \mathbb{E}[(X - \mathbb{E}[X] )^{2} ] = 0\\
-						&= \underbrace{\sum_{i}(X - c)^{2} \cdot P_X(i)}_{\text{every term \( \ge 0 \)}}  \\
-						\implies X = c = \mathbb{E}(X) \\
+						&= \underbrace{\sum_{i}(x_i - c)^{2} \cdot \mathbb{P}_X(i)}_{\text{every term \( \ge 0 \)}}  \\
+						&\implies (x_i = c \quad \forall i) \implies \mathbb{E}(X) = c
 	.\end{align*}
 \end{proof}
+
+Note that \( \Var(X) \) is very similar to standard deviation, and it measures the spread of how far apart data is from the mean.
+
+\begin{definition}
+	Let \( X:\Omega \to \mathbb{R} \) be a random variable. The \textbf{cumulative distributino function} (CDF) is defined as \[
+		F_X(a) = \mathbb{P}(X \le a) = \mathbb{P}(X(\omega ) \in (-\infty, a])
+	.\] 
+\end{definition}
+
+\begin{definition}
+	We say \( X \sim \text{Bernoulli}(p) \) if \[
+		\mathbb{P}(X=1) = p \quad \mathbb{P}(X=0) = 1-p \quad (p \in (0,1))
+	.\] 
+\end{definition}
+
+\begin{eg}
+	It is known that screws produced will be defective with probability 0.1. The company sells screws in packages of 10 and gives a refund if more than 1 screw is defective. What propotion of packages must the company refund?
+\end{eg}
+\begin{explanation}
+	Let \( X \) represent the number of defective screws. We wish to find \( 1-\mathbb{P}(X\le 1) \). This is just \( 1 - \mathbb{P}(X=0) - \mathbb{P}(X = 1) \). Just apply the binomial formula to get your answer.
+\end{explanation}
+
+\begin{definition}
+	A random variable \( X \) that takes on one of the values \(0,1,2,\ldots \) is said to be a \textbf{Poisson} random variable with parameter \( \lambda  \) if for some \( \lambda >0 \)
+	\[
+		p(i) = \mathbb{P}(X=i) = e^{-\lambda } \left( \frac{\lambda ^{i}}{i!}  \right) 
+	.\] 
+\end{definition}
