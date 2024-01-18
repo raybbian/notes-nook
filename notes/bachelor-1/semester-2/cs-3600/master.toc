@@ -1,3 +1,4 @@
 \contentsline {section}{\numberline {1}Agents and Environments}{1}{}%
 \contentsline {section}{\numberline {2}Uninformed Search}{2}{}%
 \contentsline {subsection}{\numberline {2.1}State Space Graphs and Search Trees}{2}{}%
+\contentsline {subsection}{\numberline {2.2}Adversarial Search and Games}{3}{}%
