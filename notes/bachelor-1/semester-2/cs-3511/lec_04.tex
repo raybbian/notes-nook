@@ -1,0 +1,36 @@
+\lecture{4}{Thu 18 Jan 2024 12:35}{Divide and Conquer 3}
+
+Note that arithmetic will take O(1) unless numbers blow up (grow exponentially).
+
+Today we will cover a different version of binary search. One example of this version is binary search.
+
+\begin{lstlisting}[language=Python]
+def bin_search(arr, k):
+	if n == 1:
+		if arr[0] == k:
+			return arr[0]
+		else:
+			raise Exception("")
+		if a[n/2] < k:
+			return bin_search(arr[n/2+1:], k)
+		else:
+			return bin_search(arr[:n/2], k)
+\end{lstlisting}
+
+By the master theorem, we have \( a=1, b=2, c=0 \) such that binary search runs in \( O(\log n) \) time. Another similar algorithm to binary search in which we only recurse into one spot is finding the \( k \)-th largest element in array, with a quickselect-type algorithm.
+
+\begin{lstlisting}[language=Python]
+def k_smallest(arr, k):
+	p = A[rand()]
+	smaller = []
+	larger = []
+	for i in range(n):
+		if arr[i] <= p:
+			smaller.append(arr[i])
+		else:
+			larger.append(arr[i])
+	if smaller = k:
+		return p
+	if smaller < k
+		return k_smallest(larger, k - len(smaller))
+\end{lstlisting}
