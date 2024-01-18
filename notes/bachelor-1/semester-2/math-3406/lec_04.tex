@@ -7,19 +7,6 @@
 	If \( A \) is \( n\times m \), then \( A^{T}  \) is \( m\times n \).
 \end{definition}
 
-How do we compute \( (AB)^{T}  \)? Assume that \( B \) is just a vector \( x \). This means that \( Ax \) is just a vector
-\begin{align*}
-	Ax &= x_{1}A^{1}+x_{2}A^{2} + \ldots  + x_n A^{n}
-.\end{align*} Subsequently, 
-\begin{align*}
-	(Ax)^{T} = x_{1}(A^{1} )^{T} + \ldots + x_{n}(A^{n} )^{T} 
-.\end{align*}
-where \( (A^{3} )^{T}  \) is the transpose of the 3rd column, which is just the 3rd row. In other words, 
-\begin{align*}
-	(Ax)^{T} &= x_{1}(A^{T} )_{1} + \ldots + x_{n}(A^{T} )_{n}  \\
-	&= x^{T}A^{T}   \\
-.\end{align*}
-
 \begin{eg}
 	If \( x = \begin{bmatrix}
 		1 \\ 2 \\ 3
@@ -27,3 +14,76 @@ where \( (A^{3} )^{T}  \) is the transpose of the 3rd column, which is just the 
 	1 & 2 & 3
 	\end{bmatrix}  \)
 \end{eg}
+
+\begin{prop}
+	\( (AB)^{T}=B^{T}A^{T}    \)
+\end{prop}
+\begin{proof}
+	How do we compute \( (AB)^{T}  \)? Assume that \( B \) is just a vector \( x \). This means that \( Ax \) is just a vector
+	\begin{align*}
+		Ax &= x_{1}A^{1}+x_{2}A^{2} + \ldots  + x_n A^{n}
+	.\end{align*} Subsequently, 
+	\begin{align*}
+		(Ax)^{T} = x_{1}(A^{1} )^{T} + \ldots + x_{n}(A^{n} )^{T} 
+	.\end{align*}
+	where \( (A^{3} )^{T}  \) is the transpose of the 3rd column, which is just the 3rd row. In other words, 
+	\begin{align*}
+		(Ax)^{T} &= x_{1}(A^{T} )_{1} + \ldots + x_{n}(A^{T} )_{n}  \\
+		&= x^{T}A^{T}
+	.\end{align*}
+	With this definition, then \( (AB)^{T} = \begin{bmatrix}
+		AB^{1} & AB^{2} & \ldots  & AB^{n}   
+	\end{bmatrix}^{T}  \) which equals \[
+		\begin{bmatrix}
+			(AB^{1} )^{T}  \\
+			(AB^{2} )^{T}  \\
+			\ldots  \\
+			(AB^{n} )^{T}  \\
+		\end{bmatrix} = \begin{bmatrix}
+		(B^{1} )^{T}A^{T}   \\
+		(B^{2} )^{T}A^{T}   \\
+		\ldots \\
+		(B^{n} )^{T}A^{T}   \\
+		\end{bmatrix} = B^{T}A^{T}  
+	.\] There is another way to prove this, by looking at the value at \( (AB)^{T}_{ij}  \).
+\end{proof}
+
+Note that this fact can be expanded, such that \( (ABC)^{T}=C^{T}B^{T}A^{T}     \).
+
+\begin{prop}
+	Let \( x \) and \( y \) be vectors. Then, \( x^{T}y = (x \cdot y)  \).
+\end{prop}
+\begin{proof}
+	Let \( x = \begin{bmatrix}
+		1 \\ 2 \\ 3
+	\end{bmatrix} \) and \( y = \begin{bmatrix}
+		2 \\ 4 \\ 6
+	\end{bmatrix} \). Then, we have \(
+		x^{T} = \begin{bmatrix}
+			1 & 2 & 3
+		\end{bmatrix} 
+	\) such that \[
+		x^{T}y = 1 \cdot 2 + 2 \cdot 4 + 3 \cdot  6 
+	.\] which is the dot product.
+\end{proof}
+
+What about the other way? Note that \( x y^{T}  \) is \( 3\times 3 \) and is a rank 1 matrix. To elaborate, let \(
+	A = xy^{T} 
+\)  and \( z \) be any vector. Then, we have that \[
+	Az = x(y^{T}z )= (y \cdot z) x
+.\] which is a multiple of \( x \).
+
+\begin{definition}
+	\( A \) is \textbf{rank} 1 because the image of \( A \) contains a line (\( x \), dimension 1).
+\end{definition}
+
+\begin{prop}
+	\( (A^{-1} )^{T} = (A^{T} )^{-1}   \)
+\end{prop}
+\begin{proof}
+	Proof with the identity.
+\end{proof}
+
+\begin{prop}
+	\( x^{T}(Ay) = (x \cdot Ay) = (Ay)^{T}x = (A^{T}y\cdot x )  \) for every vector \( x,y \).
+\end{prop}
