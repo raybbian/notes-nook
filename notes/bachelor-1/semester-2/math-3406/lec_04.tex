@@ -1,0 +1,29 @@
+\lecture{4}{Thu 18 Jan 2024 17:02}{Transpose, Permutations, Spaces}
+
+\begin{definition}
+	If \( A \) is an \( n\times m \) matrix, then the \textbf{transpose} \( A^{T}  \) is \[
+		(A^{T})_{ij} =  A_{ji}
+	.\] 
+	If \( A \) is \( n\times m \), then \( A^{T}  \) is \( m\times n \).
+\end{definition}
+
+How do we compute \( (AB)^{T}  \)? Assume that \( B \) is just a vector \( x \). This means that \( Ax \) is just a vector
+\begin{align*}
+	Ax &= x_{1}A^{1}+x_{2}A^{2} + \ldots  + x_n A^{n}
+.\end{align*} Subsequently, 
+\begin{align*}
+	(Ax)^{T} = x_{1}(A^{1} )^{T} + \ldots + x_{n}(A^{n} )^{T} 
+.\end{align*}
+where \( (A^{3} )^{T}  \) is the transpose of the 3rd column, which is just the 3rd row. In other words, 
+\begin{align*}
+	(Ax)^{T} &= x_{1}(A^{T} )_{1} + \ldots + x_{n}(A^{T} )_{n}  \\
+	&= x^{T}A^{T}   \\
+.\end{align*}
+
+\begin{eg}
+	If \( x = \begin{bmatrix}
+		1 \\ 2 \\ 3
+	\end{bmatrix} \), then \( x^{T} = \begin{bmatrix}
+	1 & 2 & 3
+	\end{bmatrix}  \)
+\end{eg}
