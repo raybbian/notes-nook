@@ -10,5 +10,52 @@
 \end{proof}
 
 \begin{eg}
-	Suppose \( t \) units of a product are ordered, and \( X = \text{number of units sold} \) is a random variable. Assume a net profit of 6 per unit and a net loss of \( l \) per unit left unsold. Compute \textit{expected profit}.
+	Suppose \( t \) units of a product are ordered, and \( X = \text{number of units sold} \) is a random variable. Assume a net profit of \( b \) per unit and a net loss of \( l \) per unit left unsold. Compute \textit{expected profit}.
 \end{eg}
+\begin{explanation}
+	Our profit function is then \( \gamma = bX - l(t-X) \). Then, \( \mathbb{E}(\gamma ) = \mathbb{E}(g(X)) \) where \( g(X) = (b+l)X - lt \). Then we have
+	\begin{align*}
+		\mathbb{E}(g(X)) &= \sum_{x \in \text{Im}X} g(x) \cdot \mathbb{P}_X(x) \\
+										 &= (b+l)\underbrace{\sum_{x \in \text{Im}X} x \cdot \mathbb{P}_X(x)}_{\mathbb{E}(X)} \\ & \qquad - lt \underbrace{\sum_{x \in \text{Im}X} \mathbb{P}_X(x)}_{1}\\ 
+		&= (b+l)\mathbb{E}(X) - lt
+	.\end{align*}
+\end{explanation}
+
+\begin{definition}
+	If \( X \) is a random variable with mean \( \mu  \), then the \textbf{variance} of \( X \), denoted by \( \Var(X) \) is defined by \[
+		\Var(X) = \mathbb{E}((X - \mu )^{2} )
+	.\] 
+\end{definition}
+
+\begin{prop}
+	\( \Var(X) = \mathbb{E}(X^{2} ) + (\mathbb{E}(X))^{2} \)
+\end{prop}
+\begin{proof}
+	We have 
+	\begin{align*}
+		\Var(X) &= \mathbb{E}((X - \mathbb{E}(X)^{2})) \\
+						&= \mathbb{E}(X^{2} - 2x\cdot \mathbb{E}(X) + (\mathbb{E}(X))^{2}   ) \\
+						&= \mathbb{E}(X^{2} ) - 2 \mathbb{E}(X) + (\mathbb{E}(X))^{2} \tag{\( \mathbb{E}(c) = c \) for constant \( c \)} \\
+						&= \mathbb{E}(X^{2} ) - (\mathbb{E}(X))^{2}
+	.\end{align*}
+\end{proof}
+
+\begin{prop}
+	If \( X \) is a discrete random variable with finitely many values, then \( \Var(x) = 0 \iff X \equiv \mathbb{E}(X) \)
+\end{prop}
+\begin{proof}
+	(\( \impliedby \)) Suppose \( X=\mathbb{E}(X) \) Then,
+	\begin{align*}
+		\mathbb{E}(X^{2} ) &= \sum_{i=1}^{n} x_{i}^{2}\mathbb{P}_X(x_i)  \\
+		&= c^{2}\cdot \sum_{i=1}^{n} \mathbb{P}_X(x_i)  \\
+		&= c^{2}
+	.\end{align*}
+	Plugging both sides back into \( \Var(X) \), we have \( \Var(X) = c^{2} - c^{2} = 0   \).
+
+	(\( \implies \)) Suppose \( \Var(X) = 0 \). Then, 
+	\begin{align*}
+		\Var(X) &= \mathbb{E}[(X - \mathbb{E}[X] )^{2} ] = 0\\
+						&= \underbrace{\sum_{i}(X - c)^{2} \cdot P_X(i)}_{\text{every term \( \ge 0 \)}}  \\
+						\implies X = c = \mathbb{E}(X) \\
+	.\end{align*}
+\end{proof}
