@@ -31,6 +31,14 @@ def k_smallest(arr, k):
 			larger.append(arr[i])
 	if smaller = k:
 		return p
-	if smaller < k
+	if smaller < k:
 		return k_smallest(larger, k - len(smaller))
+	if smaller > k:
+		return k_smallest(smaller, k)
 \end{lstlisting}
+
+If we can guarantee a good pivot \( \frac{3}{10}n \le \text{smaller} \le \frac{7}{10}n \), then the number of recursions is at most \( \log _{\frac{10}{7}}(n) = O(\log n) \). We can guarantee these goods pivots with the median of medians algorithm.
+
+First, we split our array \( A \) into \( \frac{n}{5} \) groups, each of size 5. We can then sort each of these elements in ``constant'' time. Then, the median of each group is in the middle index of each 5. Now, we return the median of the array containing all medians. We can do this with recursion (divide and conquer), by calling ksmallest on it again.
+
+We claim that the median of medians is a good \( p \). Imagine the upper left rectangular part of the median array. This is less than or equal to the median of medians. Same with the lower right rectangular part. Note that the number of elements in the rectangular parts are both \( \frac{3}{10} \). Therefore, \( p \) is at least the \( \frac{3}{10} \)-th element (same with the upper side).
