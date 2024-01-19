@@ -67,3 +67,28 @@
 		&= \left\lfloor \log _2(n) \right\rfloor + 1
 	.\end{align*}
 \end{proof}
+
+\begin{definition}
+	Let \( f,g : \mathbb{Z}_{>0}\to \mathbb{R} \). We say \( f=O(g) \) or \( f \) is big-O of \( g \) if there exists \( n_0,C \), such that \[
+		|f(n)| \le C\cdot g(n) \quad \forall n\ge n_{0}
+	.\] 
+\end{definition}
+
+\begin{note}
+	If \( f,g :\mathbb{Z}_{>0}\to \mathbb{R} \) and \( f\sim g \), we have \[
+		f=O(g) \quad \text{and} \quad g=O(f)
+	.\] If \( \epsilon =1 \) for all significantly large \( n \), \( \frac{f(n)}{g(n)}\le 2 \).
+\end{note}
+
+\begin{eg}
+	\( \sum_{i=1}^{n} \frac{1}{i} = O(\log n) \).
+\end{eg}
+
+\begin{lemma}
+	Let \( a, \alpha ,\beta >0 \) be fixed. Then as \( n\to \infty \), 
+	\begin{itemize}
+		\item \( n^{\alpha } = O(n^{\beta } )  \) if \( \alpha <\beta  \).
+		\item \( n^{\alpha } = O(a^{n} ) \) if \( a>1 \).
+		\item \( (\ln (n))^{\alpha } =O(n^{\beta } ) \) .
+	\end{itemize}
+\end{lemma}
