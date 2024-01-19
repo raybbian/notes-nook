@@ -1,0 +1,22 @@
+\lecture{5}{Fri 19 Jan 2024 14:01}{Asymptotic Analysis}
+
+\begin{theorem}
+	\textbf{Stirling's Formula} says that \[
+		n! \sim \sqrt{2\pi n} \left( \frac{n}{e} \right) ^{n} 
+	.\] 
+\end{theorem}
+
+\begin{definition}
+	For two functions \( f,g:\mathbb{Z}_{>0} \to \mathbb{R} \), we write \( f \sim g \) and say \( f \) is asymptotic to \( g \) if \[
+		\lim_{n \to \infty} \frac{f(n)}{g(n)} = 1
+	.\] Also note that \( f\sim g \iff g \sim f \).
+\end{definition}
+
+\begin{eg}
+	\( 2n + \sqrt{n} \sim 2n \).
+\end{eg}
+\begin{explanation}
+	This is because \[
+		\lim_{n \to \infty} \frac{2n+\sqrt{n} }{2n} = 1
+	.\] 
+\end{explanation}
