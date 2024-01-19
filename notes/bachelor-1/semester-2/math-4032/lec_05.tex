@@ -20,3 +20,50 @@
 		\lim_{n \to \infty} \frac{2n+\sqrt{n} }{2n} = 1
 	.\] 
 \end{explanation}
+
+\begin{eg}
+	(Informal) How many digits are in \( 100! \)?
+\end{eg}
+\begin{explanation}
+	Using Stirling's Formula, we have that \[
+		100! \sim \sqrt{2\pi 100} \left( \frac{100}{e} \right) ^{100} = 9.324\ldots \times 10^{157}  
+	.\], whereas \( 100! = 9.332\ldots  \times 10^{157}  \) (very close approximation).
+\end{explanation}
+
+\begin{definition}
+	The \( n \)-th harmonic number \[
+		H_n=\sum_{i=1}^{n} \frac{1}{i}
+	.\] 
+\end{definition}
+
+\begin{theorem}
+	(Euler-Mascheroni) \( H_n \sim \ln (n) \).
+\end{theorem}
+\begin{proof}
+	Omitted.
+\end{proof}
+
+\begin{lemma}
+	For any positive integer \( n \in \mathbb{Z}_{>0} \), we have \[
+		\frac{\left\lfloor \log _2(n) \right\rfloor}{2} \le H_n \le \left\lfloor \log _2(n) \right\rfloor + 1
+	.\] 
+\end{lemma}
+\begin{proof}
+	We can break up the proof into parts of size \( 2,4,8,16\ldots  \). Let \( S_k=\{i \in \mathbb{Z}_{>0} : 2^{k-1} \le i \le 2^{k}-1   \}   \) for any \( k \in \mathbb{Z}_{>0} \). Note that \( |S_k| = 2^{k-1}  \). Also, for every \( x \in  S_k \), we have \[
+		\frac{1}{2^{k} } < \frac{1}{x} \le \frac{1}{2^{k-1} }
+	.\] 
+	Therefore, we have 
+	\begin{align*}
+		H_n &= \sum_{i=1}^{n} \frac{1}{i} = \sum_{k=1}^{\left\lfloor \log _2(n) \right\rfloor} \sum_{x \in S_k} \frac{1}{x} \\
+				&\ge \sum_{k=1}^{\left\lfloor \log _2(n) \right\rfloor} \sum_{x \in S_k} \frac{1}{2^{k} } \\
+		&= \sum_{k=1}^{\left\lfloor \log _2(n) \right\rfloor} 2^{k-1}/2^{k}   \\
+		&= \sum_{k=1}^{\left\lfloor \log _2n \right\rfloor} \frac{1}{2} \\
+		&= \frac{\left\lfloor \log _2(n) \right\rfloor}{2}
+	.\end{align*}
+	In the other direction, we have
+	\begin{align*}
+		H_n &\le \sum_{k=1}^{\left\lfloor \log _2(n) \right\rfloor+1} \sum_{x \in S_k} \frac{1}{x} \\
+		&\le \sum_{k=1}^{\left\lfloor \log _2(n) \right\rfloor + 1} \frac{|S_k|}{2^{k-1} }  \\
+		&= \left\lfloor \log _2(n) \right\rfloor + 1
+	.\end{align*}
+\end{proof}
