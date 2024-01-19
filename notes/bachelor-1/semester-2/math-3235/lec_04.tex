@@ -15,8 +15,8 @@
 \begin{explanation}
 	Our profit function is then \( \gamma = bX - l(t-X) \). Then, \( \mathbb{E}(\gamma ) = \mathbb{E}(g(X)) \) where \( g(X) = (b+l)X - lt \). Then we have
 	\begin{align*}
-		\mathbb{E}(g(X)) &= \sum_{x \in \text{Im}X} g(x) \cdot \mathbb{P}_X(x) \\
-										 &= (b+l)\underbrace{\sum_{x \in \text{Im}X} x \cdot \mathbb{P}_X(x)}_{\mathbb{E}(X)} \\ & \qquad - lt \underbrace{\sum_{x \in \text{Im}X} \mathbb{P}_X(x)}_{1}\\ 
+		\mathbb{E}(g(X)) &= \sum_{x \in \text{Im}X} g(x) \cdot p_X(x) \\
+										 &= (b+l)\underbrace{\sum_{x \in \text{Im}X} x \cdot p_X(x)}_{\mathbb{E}(X)} \\ & \qquad - lt \underbrace{\sum_{x \in \text{Im}X} p_X(x)}_{1}\\ 
 		&= (b+l)\mathbb{E}(X) - lt
 	.\end{align*}
 \end{explanation}
@@ -46,14 +46,14 @@
 \begin{proof}
 	(\( \impliedby \)) Suppose \( X=\mathbb{E}(X) \) Then,
 	\begin{align*}
-		\mathbb{E}(X^{2} ) &= \sum_{i=1}^{n} x_{i}^{2}\mathbb{P}_X(x_i)  \\
-		&= c^{2}\cdot \sum_{i=1}^{n} \mathbb{P}_X(x_i)  \\
+		\mathbb{E}(X^{2} ) &= \sum_{i=1}^{n} x_{i}^{2}p_X(x_i)  \\
+		&= c^{2}\cdot \sum_{i=1}^{n} p_X(x_i)  \\
 		&= c^{2}
 	.\end{align*}
 	Plugging both sides back into \( \Var(X) \), we have \( \Var(X) = c^{2} - c^{2} = 0   \). (\( \implies \)) Suppose \( \Var(X) = 0 \). Then, 
 	\begin{align*}
 		\Var(X) &= \mathbb{E}[(X - \mathbb{E}[X] )^{2} ] = 0\\
-						&= \underbrace{\sum_{i}(x_i - c)^{2} \cdot \mathbb{P}_X(i)}_{\text{every term \( \ge 0 \)}}  \\
+						&= \underbrace{\sum_{i}(x_i - c)^{2} \cdot p_X(i)}_{\text{every term \( \ge 0 \)}}  \\
 						&\implies (x_i = c \quad \forall i) \implies \mathbb{E}(X) = c
 	.\end{align*}
 \end{proof}
