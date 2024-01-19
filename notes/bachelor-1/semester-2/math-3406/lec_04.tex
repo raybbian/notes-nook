@@ -85,5 +85,71 @@ What about the other way? Note that \( x y^{T}  \) is \( 3\times 3 \) and is a r
 \end{proof}
 
 \begin{prop}
-	\( x^{T}(Ay) = (x \cdot Ay) = (Ay)^{T}x = (A^{T}y\cdot x )  \) for every vector \( x,y \).
+	\( x^{T}(Ay) = (x \cdot Ay) = (Ay)^{T}x = (A^{T}y\cdot x )  \) for every vector \( x,y \). Note that this can be taken as the definition of the transpose.
 \end{prop}
+
+\begin{definition}
+	An \( n\times n \) matrix \( S \) is \textbf{symmetric} if \( S^{T}=S  \).
+\end{definition}
+
+In row reduction, we saw that exchanging two rows is represented by the matrix \( P_{ij} \).
+
+\begin{eg}
+	\[
+		\begin{bmatrix}
+			1 & 0 & 0 & 0 \\
+			1 & 1 & 0 & 0 \\
+			0 & 0 & 0 & 1 \\
+			0 & 0 & 1 & 0 
+		\end{bmatrix} = P_{34}
+	.\] 
+\end{eg}
+
+\begin{definition}
+	In a \textbf{permutation matrix}, all entries are 1 or 0, and there is exactly one 1 on every row. More formally, for every \( i \), the exists \( j \) such that \( P_{ij}= 1 \) and \( P_{ij'}= 0 \) for all \( j' \neq  j \).
+\end{definition}
+
+For a permutation \( \sigma  \), the permutation matrix is defined as \( P_{i\sigma (i)}=1 \) and otherwise \( P_{ij}= 0 \). Also note that if \( P,Q \) are permutation matrices, then \( PQ \) is also a permutation matrix.
+
+Note that elimination and row exchange can be done in reverse order. Simply permute the rows, then eliminate, rather than eliminate the rows, then permute.
+
+\begin{prop}
+	If \( S \) is symmetric, we have \[
+		S = LDU
+	.\] and \[
+		S^{T} = U^{T} D L^{T}  = S
+	.\] which means we can write \( S \) as \[
+		S = L D L^{T} 
+	.\] 
+\end{prop}
+
+\section{Vector Spaces}
+
+\begin{eg}
+	Let \( f(x) \) be a continuous function from \( [0,1]\to R \). This is a vector space.
+\end{eg}
+
+\begin{eg}
+	Let \( p(x)  \) be a polynomial of degree \( \le n \). This is also a vector space.
+\end{eg}
+
+In theory, we can have a vector space much more generally than \( \mathbb{R}^{n}  \). 
+
+\begin{definition}
+	Let \( x_{1},\ldots ,x_m \) be vectors. Then, \( V = \Span\{x_{1},\ldots ,x_m\}   \) is a \textbf{subspace}.
+\end{definition}
+
+\begin{definition}
+	Let \( V \) be a vector space such that \( x_{1},\ldots ,x_m \in V \). Suppose that \( \Span \{x_{1},\ldots ,x_m\} =V  \). Then, \( V \) has \textbf{finite dimension}.
+\end{definition}
+
+\begin{definition}
+	The vectors \( x_{1},\ldots ,x_m \) are a \textbf{generating set}.
+\end{definition}
+
+\begin{eg}
+	\( V \), the vector space of all continuous functions, is not finite.
+\end{eg}
+\begin{eg}
+	\( V \), the vector space of all polynomials with degree \( \le n \), is finite. Consider the span of \( 1,x,x^{2},\ldots ,x^{n}   \).
+\end{eg}
