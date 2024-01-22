@@ -1,0 +1,24 @@
+\lecture{6}{Mon 22 Jan 2024 14:02}{Binomial Coefficients and Counting Primes}
+
+\begin{note}
+	Note that we can also write, for functions \( f, g, h \) \( f = g + O(h) \), which means that \( |f - g| + O(h) \).
+\end{note}
+
+\begin{eg}
+	\[ \binom{n}{2} = \frac{n(n-1)}{2} = \frac{n^{2}}{2} - \frac{n}{2} = \frac{n^{2}}{2} + O(n) .\]
+\end{eg}
+
+\begin{definition}
+	\( f(n) = \Theta (g(n)) \) if \( f=O(g) \) and \( g=O(f) \).
+\end{definition}
+
+\begin{definition}
+	\( f = o(g) \) if \( \lim_{n \to \infty} \frac{f}{g} = 0 \).
+\end{definition}
+
+\begin{eg}
+	What are all primes less than 20?
+\end{eg}
+\begin{explanation}
+	2, 3, 5, 7, 11, 13, 17, 19
+\end{explanation}
