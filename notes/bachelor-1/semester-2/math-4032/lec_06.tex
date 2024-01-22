@@ -62,7 +62,16 @@ The \textbf{Riemann Hypothesis} states that \[
 				\binom{2k+1}{k} = \frac{(2k+1)!}{k!(k+1)!}
 		.\] such that \( p \) divides the numberator but not the denominator. 
 
-		By induction the product of primes \( p \) such that \( 2 \le p \le k+1 \) is bound by 
+		By induction the product of primes \( p \) such that \( 0 \le p \le k+1 \) is bound by \[
+			\prod_{i=1}^{\pi (k+1)}p_i \le 16^{k+1}  
+		.\] Combining our bounds and lemma, we have
+		\begin{align*}
+			\prod_{i=1}^{\pi (n)} p_i &= \left(\prod_{i=1}^{\pi (k+1)} p_i \right)\left( \prod_{i=\pi (k+1)+1}^{\pi (n)}p_i  \right) \\
+													&\le 16^{k+1} \binom{2k+1}{k} \\
+													&\le 16^{k+1} \cdot 4^{k}  \\
+													&\le 16^{2k+1} 
+		.\end{align*}
+		Note that bounding by \( 4^{n}  \) may work here, but \( 16^{n}  \) is presented due to a mistake in the lecture notes.
 	\end{description}
 \end{proof}
 
@@ -73,4 +82,23 @@ The \textbf{Riemann Hypothesis} states that \[
 	We will show the upper bound, i.e. \[
 		\pi (n) = O\left(\frac{n}{\ln n}\right)
 	.\] 
+	Let \( p_{1},p_{2},\ldots \) be the sequence of primes. Then, \[
+		\pi (n)! \le \prod_{i=1}^{\pi (n)}p_i  \le 16^{n} 
+	.\] because \( p_{1} \ge 1, p_{2} \ge 2 \), etc. We have also shown that \[
+		e\left(\frac{\pi (n)}{e}\right)^{\pi (n)} \le \pi (n)!
+	.\] As such, \[
+		e\left(\frac{\pi (n)}{e}\right)^{\pi (n)} \le 16^{n} 
+	.\] Taking the \( \ln  \) of both sides, we have
+	\begin{align*}
+		\ln \left( \correct{e}{1} \left( \frac{\pi (n)}{e} \right)^{\pi (n)}  \right) &\le \ln \left( 16^{n}  \right) \\
+		\pi (n)\cdot \ln \left( \frac{\pi (n)}{e} \right) &\le n\ln (16) \\
+	.\end{align*}
+
+	Assume towards a contradiction that \[ \pi (n) \ge \frac{100n}{\ln n} \]. Then, 
+	\begin{align*}
+		\frac{100n}{\ln n} \cdot \ln \left( \frac{100n}{e\ln n} \right) &\le n\ln 16 \\
+		\frac{100}{\ln 16 \cdot \ln n}\ln \left( \frac{100n}{e\ln n} \right) &\le 1 \\
+		\frac{100}{\ln 16\cdot \ln n} (\ln (100n) - \ln (e\ln n)) &\le 1 \\
+	.\end{align*}
+	which is a contradiction (after many calculations). Therefore, there exists some \( C<100 \) such that \( \pi (n) = O(\frac{n}{\ln n}) \).
 \end{proof}
