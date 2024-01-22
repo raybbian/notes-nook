@@ -22,3 +22,55 @@
 \begin{explanation}
 	2, 3, 5, 7, 11, 13, 17, 19
 \end{explanation}
+
+\begin{definition}
+	Let \( \pi (n) \) be the number of primes that are \( \le n \).
+\end{definition}
+
+\begin{theorem}
+	The \textbf{prime number theorem} states that \[
+		\pi (n) \sim \frac{n}{\ln (n)}
+	.\] 
+\end{theorem}
+
+The \textbf{Riemann Hypothesis} states that \[
+	\pi (n) = \int_{1}^{n}\frac{1}{\ln (x)} dx + O(\sqrt{n} \ln (n)) 
+.\] It's called a hypothesis because it is often used in other mathematical proofs, even if not proved yet. For example, determining whether a knot could be un-knotted is in NP if the RH is true.
+
+\begin{lemma}
+	For any \( k\ge 1 \), we have that \[
+		\binom{2k+1}{k} \le 4^{k} 
+	.\] 
+\end{lemma}
+\begin{proof}
+	Later.
+\end{proof}
+
+\begin{lemma}
+	For any \( n\ge 2 \), the product of all primes \( \le n \) is at most \( 16^{n}  \).
+\end{lemma}
+\begin{proof}
+	We wish to prove that \[
+		\prod_{i=1}^{\pi (n)}p_i \le 16^{n}  
+	.\] where \( p_i \) denotes the \( i \)-th prime. We proceed with induction on \( n \).
+	\begin{description}
+		\item[Base case] \( n=2,3 \). Holds trivially.
+		\item[Step case 1] \( n \) is even. Note that \( n \) cannot be prime, such that by induction, \[
+			\prod_{i=1}^{\pi (n)} p_i =  \prod_{i=1}^{\pi (n-1)} p_i \le  16^{n-1} \le 16^{n} 
+		.\] 
+		\item[Step case 2] \( n \) is odd. We write \( n=2k+1 \) for some \( k \ge 1 \). Note that every prime \( p \) such that \( k+2 \le p \le 2k + 1 \) divides \( \binom{2k+1}{k} \). This is because \[
+				\binom{2k+1}{k} = \frac{(2k+1)!}{k!(k+1)!}
+		.\] such that \( p \) divides the numberator but not the denominator. 
+
+		By induction the product of primes \( p \) such that \( 2 \le p \le k+1 \) is bound by 
+	\end{description}
+\end{proof}
+
+\begin{theorem}
+	The weak prime number theorem states that \[ \pi (n) = \Theta \left(\frac{n}{\ln n}\right) .\]
+\end{theorem}
+\begin{proof}
+	We will show the upper bound, i.e. \[
+		\pi (n) = O\left(\frac{n}{\ln n}\right)
+	.\] 
+\end{proof}
