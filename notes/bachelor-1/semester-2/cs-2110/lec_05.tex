@@ -1,3 +1,14 @@
 \lecture{5}{Tue 23 Jan 2024 15:52}{Combinational Logic}
 
 The process for making circuits is this: Once we have a working circuit, we use logic gates to implement it. Once that is finished, we can use boolean algebra to simplify our logic gate.
+
+Here are some non-traditional rules for simplification where \( + \) is OR and \( \times  \) is AND:
+\begin{enumerate}
+	\item \( A + AB = A \)
+	\item \( A + \overline{A}B = A + B \)
+	\item \( (A + B)(A + C) = A + BC \)
+\end{enumerate}
+
+DeMorgan's Law can be combined with double negation to transform circuits into some with less transistors.
+
+To simplify a circuit, OR together all cases which result in 1. Then, simplify it with boolean algebra.
