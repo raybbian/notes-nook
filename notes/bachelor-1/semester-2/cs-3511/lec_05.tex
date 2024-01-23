@@ -5,6 +5,16 @@
 \end{theorem}
 \begin{proof}
 	We wish to show that \[
-		T(n) = T\left(\frac{n}{5}\right) + O(n) + T\left(\frac{7}{10}\right) \le C \cdot n
-	.\] 
+		T(n) = T\left(\frac{n}{5}\right) + O(n) + T\left(\frac{7}{10}n \right) \le C \cdot n
+	.\] We proceed by induction. We know that \[
+		T(n) \le T \left( \frac{n}{5} \right) + T \left( \frac{7}{10}n \right) + d\cdot n
+	.\] by definition of \( O(n) \).
+
+	Assume \( T(n') \le C \cdot n'\) for all \( n' < n \). Therefore, \[
+		T(n) \le C \cdot \frac{n}{5} + C \cdot \frac{7n}{10} + d\cdot n
+	.\] Simplifying, we have \[
+		T(n) \le C \cdot n \cdot  \left(\frac{2}{10} + \frac{7}{10}\right) + d \cdot n
+	.\] We pick \( C = d \cdot 10 \) such that \[
+		T(n) \le C \cdot n
+	.\] as desired. Note that for the trivial base case, we know that this algorithm for \( n=1 \) takes constant time.
 \end{proof}
