@@ -1478,6 +1478,10 @@ INPUT lec_04.tex
 INPUT ./lec_04.tex
 INPUT lec_04.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cmbright/ebmo10.tfm
+INPUT ./lec_05.tex
+INPUT lec_05.tex
+INPUT ./lec_05.tex
+INPUT lec_05.tex
 INPUT master.aux
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb
