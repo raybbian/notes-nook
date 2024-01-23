@@ -28,3 +28,42 @@
 \begin{note}
 	The product of two symmetric matrices are not necessarily symmetric.
 \end{note}
+
+\begin{definition}
+	\( V \) is a \textbf{vector space} if there is a function \( V \times V \to V \) denoted \( + \), which is commutative, associative, and has negation and null element and if there is another function \( \mathbb{R} \times V \to V \) which is distributive and has a null element.
+\end{definition}
+
+Note that \( \mathbb{R}^{n}  \) is a vector space. A subspace of \( \mathbb{R}^{n}  \) is also a vector space. Polynomials of degree \( \le n \) also form a vector space.
+
+\begin{definition}
+	Let \( B = \{x_{1},x_{2},\ldots x_n\}   \). Then, the \textbf{span} of \( B \) is the set of linear combinations of all \( x_i \). \( B \) is \textbf{generating} if \( \Span B = V \).
+\end{definition}
+
+\begin{note}
+	\( \Span B \) is the smallest subspace of \( V \) that contains \( B \).
+\end{note}
+
+\begin{definition}
+	We say that \( B \) is \textbf{linearly independent} if \( \sum_{i} \alpha _i x_i = 0 \implies \text{all } \alpha _i = 0 \).
+\end{definition}
+
+\begin{prop}
+	Let \( B \) be generating. If \( B \) is not linearly independent, we can eliminate one element from \( B \), and get smaller \( B' \) that is still generating.
+\end{prop}
+\begin{proof}
+	Then some \( \alpha _i \) is nonzero. Assuming \( \alpha _1 \) is non-zero, \( x_1 = \sum_{i \neq  1}^{n} \frac{\alpha _i}{\alpha 1} x_i \). Then, we have
+	\begin{align*}
+		y &= \sum_{i=1}^{n} \gamma _i x_i \tag{\( B \) generating} \\
+		&= \sum_{i \neq 1}^{n} \gamma _1 \frac{\alpha _i}{\alpha_1} x_i + \sum_{i=2}^{n} \gamma _i x_i\\
+		\beta_i &= \gamma _1 \frac{\alpha _i}{\alpha _1} + \gamma _i
+	.\end{align*}
+	Repeating this elimination process yields a set \( D = \{x_{1},\ldots ,x_d\}   \) that is minimal. This object \( D \) is called a \textbf{basis}. In other words, every vector \( x \) can be written as \[
+		x = \sum_{i=1}^{d} \alpha _i x_i \quad \alpha _i \in \mathbb{R}
+	.\] in a unique way.
+\end{proof}
+
+In other words, a basis is a mapping from \( V \to \mathbb{R}^{d}  \). The basis for polynomials is \( B = \{1,x,x^{2},\ldots ,x^{n}  \}   \). The basis for vectors in \( \mathbb{R}^{3}  \) can be \( \{\hat{i}, \hat{j}, \hat{k}\} \), etc.
+
+\begin{note}
+	All basis for the same vector space have the same dimension.
+\end{note}
