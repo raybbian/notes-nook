@@ -8,6 +8,75 @@ Note that the Poisson distribution can be derived from the binomial distribution
 \begin{explanation}
 	We have
 	\begin{align*}
-		\mathbb{E}[X] = \sum_{x=0}^{n} x \cdot  \binom{n}{x} p^{x}  \cdot q^{n-x} 
+		\mathbb{E}[X] &= \sum_{x=0}^{n} x \cdot  \binom{n}{x} p^{x}  \cdot q^{n-x}  \\
+		&= \sum_{x=1}^{n} n \cdot \binom{n-1}{x-1} p^{x} q^{n-x}   \\
+		&= np \cdot \sum_{x=1}^{n} \binom{n-1}{x-1} p^{x-1} q^{n-x}   \\
+		&= np \cdot (p + q)^{n-1}  \\
+			&= np
 	.\end{align*}
+
+	For the variance, we have
+	\begin{align*}
+		\Var X &= \mathbb{E}(X^{2}) - (\mathbb{E}X)^{2}  \\
+		\mathbb{E}(X^{2} ) &= np \cdot \sum_{x=1}^{n} x\cdot \binom{n-1}{x-1} p^{x-1} q^{n-x}  \\
+											 &= np \cdot \mathbb{E}(Y + 1) \tag{\( Y \sim \text{Bin}(n - 1, p) \)} \\
+		&= n\cdot p((n-1)p+1)
+	.\end{align*}
+	such that \[
+		\Var X = np(1-p)
+	.\] 
 \end{explanation}
+
+\begin{eg}
+	Same thing, but with \( X \) as poisson.
+\end{eg}
+\begin{explanation}
+	\begin{align*}
+		\mathbb{E}X &= \sum_{x=0}^{\infty} x\cdot \left( \frac{e^{-\lambda }\lambda ^{x}}{x!} \right) \\
+		&= e^{-\lambda }\cdot \lambda  \sum_{x=1}^{\infty} \frac{\lambda ^{x-1} }{(x-1)!} \\
+		&= e^{-\lambda }\cdot \lambda \cdot e^{\lambda } \tag{Change of vars.}   \\
+		&= \lambda
+	.\end{align*}
+
+	For the variance, we have 
+	\begin{align*}
+		\mathbb{E}(X ^{2}) &= \sum_{x=0}^{\infty} x^{2} \frac{e^{-\lambda }\lambda ^{x}  }{x!}  \\
+		&= \lambda \sum_{x=1}^{\infty} x \frac{e^{-\lambda }\lambda ^{x-1} }{(x-1)!} \\
+		&= \lambda \sum_{y=0}^{\infty} \frac{(y+1)\cdot e^{-\lambda }\lambda ^{y}  }{y!} \\
+		&= \lambda \left[ \sum_{y=0}^{\infty} y\cdot \frac{e^{-\lambda }\lambda ^{y}  }{y!} + \sum_{y=0}^{\infty} \frac{e^{-\lambda }\lambda ^{y}  }{y!} \right] \\
+		&= \lambda (\lambda  + 1)
+	.\end{align*}
+	such that \[
+		\Var X = \lambda 
+	.\] 
+\end{explanation}
+
+\begin{eg}
+	If \( n \) people are present in  the room, what is the probability that no two of them celebrate their birthday on the same day of the year? How large does \( n \) be such that this probability is less than \( \frac{1}{2} \)?
+\end{eg}
+\begin{explanation}
+	We compare \( \binom{n}{2} \) times. Each probability for same birthday is \( \frac{1}{365} \). Using Poisson,
+	\begin{align*}
+		\mathbb{P}(X = 0) &= e^{-\lambda } = \exp \left( \frac{-n \cdot * (n-1)}{730} \right)
+	.\end{align*}
+	such that \( n=23  \) is our threshhold.
+\end{explanation}
+
+\begin{definition}
+	A \textbf{geometric distribution} is the number of independent Bernoulli trials it takes for a single success. The pmf is \[
+		p_X(i) = (1 - p)^{i-1}  \cdot p
+	.\] 
+\end{definition}
+
+\begin{definition}
+	If \( X  \) is a discrete random variable and \( \mathbb{P}(B) > 0 \), the \textbf{conditional expectation} of \( X \) given \( B \) is denoted by \( \mathbb{E}(X \mid B) \) and defined by \[
+		\mathbb{E}(X \mid B) = \sum_{x \in \text{Im}X} x\cdot \mathbb{P}(X = x \mid B)
+	.\] 
+\end{definition}
+
+\begin{definition}
+	If \( X \) is a discrete random variable and \( \{B_{1}, B_{2}, \ldots \}  \) is a partition of the sample space such that \( \mathbb{P}(B_i) > 0 \forall i \), then the \textbf{partition theorem} states that 
+	\[
+		\mathbb{E} (X) = \sum_i \mathbb{E}(X \mid B_i) \mathbb{P}(B_i)
+	.\] 
+\end{definition}
