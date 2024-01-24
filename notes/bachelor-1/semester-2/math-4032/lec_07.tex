@@ -1,4 +1,4 @@
-\lecture{7}{Wed 24 Jan 2024 14:00}{}
+\lecture{7}{Wed 24 Jan 2024 14:00}{More Bounds, Inclusion Exclusion}
 
 The proof from previous lecture will not be given, as it is on the homework.
 
@@ -58,3 +58,44 @@ The proof from previous lecture will not be given, as it is on the homework.
 		&\ge \frac{n^{k}}{k^{k} }
 	.\end{align*}
 \end{proof}
+
+\subsection{Inclusion Exclusion}
+
+\begin{eg}
+	Say there are 20 math majors, 15 CS majors, and 5 who are majoring in both in one class. How many people are in the class?
+\end{eg}
+\begin{explanation}
+	\( 20 + 15 - 5 = 30 \).
+\end{explanation}
+
+\begin{lemma}
+	If \( A \) and \( B \) are finite sets, then \( |A \cup B| = |A| + |B| - |A \cap B| \).
+\end{lemma}
+\begin{proof}
+	Count.
+\end{proof}
+
+\begin{lemma}
+	If \( A, B, C \) are finite sets, then
+	\begin{align*}
+		|A \cup B \cup  C| &= |A| + |B| + |C| \\ &- |A \cap B| - |B \cap C| - | C \cap A| \\ &+ |A \cap B \cap C|
+	.\end{align*}
+\end{lemma}
+
+\begin{definition}
+	Given a set \( S \), and a positive integer \( k \le |S|\), we write \[
+		\binom{S}{k}
+	.\] to denote the set of subsets of \( S \) whose size is exactly \( k \).
+\end{definition}
+
+\begin{note}
+	\[
+		\left| \binom{S}{k} \right| = \binom{|S|}{k}
+	.\] 
+\end{note}
+
+\begin{theorem}
+	(Inclusion Exclusion Principle) If \( A_{1},A_{2},\ldots ,A_n \) are finite sets, then \[
+		\left| \bigcup_{i = 1}^{n} A_i \right| = \sum_{k=1}^{n}	(-1)^{k-1} \sum_{I \in \binom{\{1,2,\ldots ,n\}  }{k}} \left| \bigcap_{i \in I} A_i \right| 
+	.\] 
+\end{theorem}
