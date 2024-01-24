@@ -1,1 +1,73 @@
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns='http://www.w3.org/1999/xhtml'><head><meta content='text/html; charset=utf-8' http-equiv='content-type'/><style type='text/css'>body {font-family:Arial; margin-left:40px; }img  { border:0 none; }#content { margin-left: auto; margin-right: auto }#message h2 { font-size: 20px; font-weight: normal; color: #000000; margin: 34px 0px 0px 0px }#message p  { font-size: 13px; color: #000000; margin: 7px 0px 0px0px}#errorref { font-size: 11px; color: #737373; margin-top: 41px }</style><title>OneDrive</title></head><body><div id='content'><div id='message'><h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p></div><div id='errorref'><span>Ref A: 55D512A2F53A4BE48C4FC84C82C27237 Ref B: CHGEDGE1108 Ref C: 2024-01-24T01:58:09Z</span></div></div></body></html>
+\lecture{4}{Wed 04 Oct 2023 13:08}{Rules of Counting; Permutations}
+
+\subsection{Counting in Sets}
+
+\begin{notation}
+	\( |A| \) denotes the number of elements in the set \( A \). This is also known as the \textbf{size} or \textbf{cardinality} of \( A \).
+\end{notation}
+
+\begin{eg}
+	\( \{1,2,5\} =3  \).
+\end{eg}
+
+Let \( A \) and \( B \) be finite sets. Then, 
+
+\begin{theorem}
+	The \textbf{rule of sum} states that \( |A \cup B| = |A| + |B| - |A \cap B| \).j
+\end{theorem}
+
+\begin{theorem}
+	Given \( A \subseteq B \), then \( A \le B \) and \( |B \setminus A| = |B| - |A| \). This is known as the \textbf{rule of difference}.
+\end{theorem}
+
+\begin{theorem}
+	The \textbf{rule of product} states that \( |A \times B| = |A| \cdot |B| \).
+\end{theorem}
+
+\begin{eg}
+	What are the number of license plates that can be made from 3 letters followed by 4 digits?
+\end{eg}
+
+Let the set of letters \( L = \{A,B,C, \ldots,Z\}   \) and the set of digits \( D = \{0,1,\ldots ,9\}   \). Then, the set \( L \times L \times L \times D \times D \times D \times D \) corresponds to all licencse plates. By the rule of product, \( |L \times L \times L \times D \times D \times D \times D| = |L| \cdot |L| \cdot |L| \cdot |D| \cdot |D| \cdot |D| \cdot |D| = 26^3 \cdot 10^4 \) license plates.
+
+\begin{eg}
+	How many strings of length 100 can be formed using capital english letters?
+\end{eg}
+
+\( 100^26 \) strings.
+
+\begin{eg}
+	How many of these such strings contain the letter ``A'' at least once?
+\end{eg}
+
+Note that \( 100\cdot 26^{99}  \) is wrong because it overcounts the number of strings with more than one \( "A" \). Instead, we can use the rule of difference to find the number of strings with no \( "A" \) and subtract that from the total number of strings. This value is just \( 26^{100}-25^{100}   \).
+
+\begin{eg}
+	How many of these strings use the letter ``A'' exactly once?
+\end{eg}
+
+We can choose the position of the A in this case, so we have \( 100 \cdot 26^{99} \) strings.
+
+\begin{definition}
+	A \textbf{permutation} of length \( k \) over a set \( A \) is a sequence \( (a_{1},a_{2},a_{3},\ldots ,a_k) \in A^k \) such that the elements are distinct. 
+\end{definition}
+
+\begin{eg}
+	\( (1,5,2,3) \) is a permutation of length 4 over \( \mathbb{N} \).
+\end{eg}
+
+\begin{notation}
+	\( P(n,k) \) denotes the number of permutations of \( k \) over an \( n \)-element set. Its value is equal to \( \frac{n!}{(n-k)!} \).
+\end{notation}
+
+\begin{eg}
+	\( P(3,2)  = 6\).
+\end{eg}
+
+Listing out the permutations, we have: \( (1,2),(1,3),(2,1),(2,3),(3,1),(3,2) \).
+
+\exercise{1}
+Show that \( P(n,n-1) = P(n,n) \).
+
+\exercise{2}
+Find the value of \( P(n,n+1) \).
