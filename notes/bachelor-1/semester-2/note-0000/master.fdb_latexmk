@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1705281394 "master.tex" "master.pdf" "master" 1705281395 0
-  "../preamble.tex" 1704840887 8116 d2bda3634135bc97bcfdf52bcff6876e ""
+["pdflatex"] 1706058806 "master.tex" "master.pdf" "master" 1706058807 0
+  "../preamble.tex" 1705605696 8473 4b37bb99630edf7a463f2ce49bff3d1c ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1704400182 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1704400182 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1704400182 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
@@ -207,6 +207,9 @@
   "/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty" 1704400182 6107 5cfea8a675c58918b8c04be10261e48c ""
   "/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty" 1704400182 6812 3c152a1c8d562d7b7291c4839b61a5c3 ""
   "/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1704400182 678 4792914a8f45be57bb98413425e4c7af ""
+  "/usr/share/texmf-dist/tex/latex/listings/listings.cfg" 1704400182 1829 d8258b7d94f5f955e70c623e525f9f45 ""
+  "/usr/share/texmf-dist/tex/latex/listings/listings.sty" 1704400182 80947 75a96bb4c9f40ae31d54a01d924df2ff ""
+  "/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty" 1704400182 77021 d05e9115c67855816136d82929db8892 ""
   "/usr/share/texmf-dist/tex/latex/mathtools/mathtools.sty" 1704400182 62269 5c1837a5bc5db4c0d255eedc225ca44b ""
   "/usr/share/texmf-dist/tex/latex/mathtools/mhsetup.sty" 1704400182 5582 a43dedf8e5ec418356f1e9dfe5d29fc3 ""
   "/usr/share/texmf-dist/tex/latex/mdframed/md-frame-1.mdf" 1704400182 24632 760c4c81e779e6958bac43417deb524f ""
@@ -261,9 +264,10 @@
   "figures/sample-figure-1.pdf_tex" 1703918702 2087 b9749816fdf19964cb2bf4a081d87328 ""
   "lec_01.tex" 1703984272 1069 23c493517e2c504961061b554cdf257e ""
   "lec_02.tex" 1705281385 233 d02f1106d01255a866b944dd180dfb51 ""
-  "master.aux" 1705281395 1726 2ab27bc9a91edeee3970f5489248f9b5 "pdflatex"
-  "master.tex" 1705281200 240 32e6e611268a90315f196090fb4c7efc ""
-  "master.toc" 1705281395 63 2451d3b7d32aee96d7d58a55a4f38f53 "pdflatex"
+  "lec_03.tex" 1706058799 50 b30e27eec548915f6eb672cffd6a96e9 ""
+  "master.aux" 1706058806 1726 2ab27bc9a91edeee3970f5489248f9b5 "pdflatex"
+  "master.tex" 1706058436 263 de6987b9fbbf730ccc00f6d81555639f ""
+  "master.toc" 1706058806 63 2451d3b7d32aee96d7d58a55a4f38f53 "pdflatex"
   (generated)
   "master.aux"
   "master.log"
