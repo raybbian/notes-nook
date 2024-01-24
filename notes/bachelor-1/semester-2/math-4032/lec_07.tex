@@ -1,0 +1,26 @@
+\lecture{7}{Wed 24 Jan 2024 14:00}{}
+
+The proof from previous lecture will not be given, as it is on the homework.
+
+\begin{lemma}
+	For any \( n\ge k\ge 1 \), \[
+		\binom{n}{k} \le \left( \frac{en}{k} \right) ^{k} 
+	.\] 
+\end{lemma}
+
+\begin{observation}
+	If \( n=2k \), then \[
+		\binom{2k}{k} \le \left( \frac{e\cdot 2k}{k} \right)^{k}  \le (2e)^{k} 
+	.\] 
+\end{observation}
+
+\begin{lemma}
+	(Bernoulli-type inequality) For any real number \( x\ge 0 \), we have \[
+		1 + x \le e^{x} 
+	.\] 
+\end{lemma}
+\begin{proof}
+	This is true for \( x=0 \) because \( 1 + 0 \le e^{0} = 1 \). Therefore, we just need to show that \[
+		f(x) = e^{x} - (1+x) 
+	.\] is increasing. This holds because \( f'(x) = e^{x}-1\ge 0  \).
+\end{proof}
