@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1706062125 "master.tex" "master.pdf" "master" 1706062127 0
-  "../preamble.tex" 1706062038 8479 6ca463860dd974ab69c06e27a179e797 ""
+["pdflatex"] 1706123720 "master.tex" "master.pdf" "master" 1706123722 0
+  "../preamble.tex" 1706123504 8521 c0392d1b0c5c07e2c11d3f133984bc17 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1704400182 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1704400182 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1704400182 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -41,6 +41,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb" 1704400182 93763 147b5ddee129c9f70f569c1abfc1fa24 ""
   "/usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb" 1704400182 25127 0f921359adc22e3a8c6368d4f349f585 ""
   "/usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb" 1704400182 25336 d135e63f9368b9204815755abad3f346 ""
+  "/usr/share/texmf-dist/fonts/type1/public/hfbright/hfbras10.pfb" 1704400182 42753 5ff75e4bb01f51125559ee53a181bf48 ""
   "/usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb" 1704400182 55166 5e2babdc8b661f5b67fd2775c8b6f50e ""
   "/usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrbs8.pfb" 1704400182 55689 5e1c3b943f5d51a5bec6d8333661726d ""
   "/usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb" 1704400182 34889 a5ba8b20a45b3437534c87396d980b48 ""
@@ -275,9 +276,9 @@
   "lec_03.tex" 1705632254 5717 228fc2e0f678f544745a5d8b399523d8 ""
   "lec_04.tex" 1706037611 3958 72123209970a945d7e1d985e5180dde1 ""
   "lec_05.tex" 1706058423 3327 639eab7846ef0abdb4b33fd250538333 ""
-  "master.aux" 1706062126 25781 361e0f2be43cc1fc18f43acde4565a4a "pdflatex"
-  "master.tex" 1706036477 308 7e79dee3d1c4c727b93b85d8e6a89928 ""
-  "master.toc" 1706062127 755 7f07d976252b548047a20f7377409eb0 "pdflatex"
+  "master.aux" 1706123722 25781 b2689cd79f82b05b8d907f446b92829d "pdflatex"
+  "master.tex" 1706123720 309 fd3202a213948b216aaa89369d7c45b5 ""
+  "master.toc" 1706123722 755 7f07d976252b548047a20f7377409eb0 "pdflatex"
   (generated)
   "master.aux"
   "master.log"

@@ -24,3 +24,37 @@ The proof from previous lecture will not be given, as it is on the homework.
 		f(x) = e^{x} - (1+x) 
 	.\] is increasing. This holds because \( f'(x) = e^{x}-1\ge 0  \).
 \end{proof}
+
+\begin{lemma}
+	For any \( n\ge k\ge 1 \), we have \[
+		\sum_{i=0}^{k} \binom{n}{i}\le \left( \frac{en}{k}  \right) ^{k} 
+	.\]
+\end{lemma}
+\begin{proof}
+	Recall that for any \( x,y \), we have \[
+		(x+y)^{n} = \sum_{i=0}^{n} \binom{n}{i}x^{i}y^{n-i}  
+	.\] When \( y = 1 \), \[
+		(1+x)^{n} = \sum_{i=0}^{n} \binom{n}{i}x^{i}  
+	.\] Choosing \( x=\frac{k}{n} \) with the intuition that \( x < 1 \) allows us to continue:
+	\[
+		\sum_{i=0}^{n} \binom{n}{i}x^{i}\ge \sum_{i=0}^{k} \binom{n}{i}x^{i}  
+	.\] Dividing everything by \( x^{k}  \), \[
+		\frac{(1+x)^{n} }{x^{k} } = \sum_{i=0}^{n} \binom{n}{i}x^{i-k} \ge \sum_{i=0}^{k} \binom{n}{i}x^{i-k} 
+	.\] Since \( x \le 1 \), \[
+	\frac{(e^{x})^{n}  }{x^{k}  } \ge  \frac{(1+x)^{n} }{x^k } \ge \sum_{i=0}^{k} \binom{n}{i}x^{i-k} \ge \sum_{i=0}^{k} \binom{n}{i} 
+	.\] Plugging in \( x = \frac{k}{n} \) gets our result.
+\end{proof}
+
+\begin{lemma}
+	For any \( n\ge k\ge 1 \), we have \[
+		\binom{n}{k} \ge \frac{n^{k}}{k^{k} } 
+	.\] 
+\end{lemma}
+\begin{proof}
+	\begin{align*}
+		\binom{n}{k} &= \frac{n!}{k!(n-k)!} \\
+		&= \frac{n(n-1)(n-2)\ldots (n-k+1)}{k!} \\
+		&= \frac{n}{k}\cdot \frac{n-1}{k-1} \cdot \frac{n-2}{k-2} \cdot \ldots \cdot  \frac{n-k+1}{1} \\
+		&\ge \frac{n^{k}}{k^{k} }
+	.\end{align*}
+\end{proof}
