@@ -23,3 +23,61 @@ The definition of vector spaces can be given with \( \mathbb{C} \) instead of \(
 \end{eg}
 
 Consider a subspace of \( \mathbb{R}^{n}  \). The simplest example is a plane, or a hyperplane (if \( n>3 \)). Let \( A \) be a \( 1\times n \) matrix such that \( A\neq 0 \), and \( V \) the set of solutions to \( Ax=0 \). Then, \( V \) is a subspace of \( \mathbb{R}^{n}  \). What is the dimension of \( V \)?
+
+The dimension of \( V \) should be \( n-1 \). Let \( x_{2}=1 \), and \( x_{3},\ldots ,x_n =0\). Let \( x_{1} = -\frac{a_{2}}{a_{1}} \). Then, \[
+	\sum_{i=1}^{n} a_i x_i = a_1 \left( -\frac{a_{2}}{a_{1}} \right) + a_{2} = 0
+.\] such that this is a solution. We can apply the same thing, instead setting \( x_i=1 \) to find solutions \( f_i \) such that \( Af_i=0 \) for \( i=1\ldots n-1 \). These vectors are linearly independent as the only values for \( \alpha  \) such that \[
+	\alpha_2 f_{2} + \alpha _3f_{3} + \ldots  + \alpha _n f_n = 0
+.\] is that \[
+	\alpha _2 = \alpha _3 = \ldots  = \alpha _n = 0
+.\] This tells us that \[
+	\text{dim} V \ge n-1
+.\] Note that if \( V \subset \mathbb{R}^{n}  \), then \( \text{dim}V < n \). Therefore, \[
+	\text{dim}V = n-1
+.\] 
+
+\begin{note}
+	Also note that the column vector \( A^{T}  \) is not in \( V \). This process also might not work for complex numbers, as \( A A^{T}  \) is not necessarily non-negative.
+\end{note}
+
+\begin{definition}
+	The thing we constructed, \( V \), is called the \textbf{nullspace} of \( A \), denoted \( N(A) \). Similarly, \( \text{dim}N(A) = n-1  \).
+\end{definition}
+
+Now, let us consider \( A^{T}  \). 
+
+\begin{definition}
+	\( W = \Span A^{T}  \). \( \text{dim}A^{T} = 1  \).
+\end{definition}
+
+\begin{definition}
+	If \( A \) is an \( n\times m \) matrix (\( m \) columns and \( n \) rows) in \( \mathbb{R}^{n}  \). Then, \( C(A) \) is the \textbf{column space} of \( A \), and is defined as \[
+		\Span \{A_{1},A_{2},\ldots ,A_n\}  
+	.\] 
+\end{definition}
+
+\begin{prop}
+	If we have two subspaces of \( \mathbb{R}^{n}  \), \( V,W \), then \[
+		\Span \{V, W\} = \{x + y : x \in V, y \in W\}  
+	.\] We then say that \( \mathbb{R}^{n} = V \bigoplus W \) (called the direct sum).
+\end{prop}
+\begin{proof}
+	Assume that \( V \cup W = \{0\}   \). Then, we can show that every vector in \( \Span \{V, W\}   \) can be written in a unique way as \( x+y \) where \( x \in V \), \( y \in W \).
+\end{proof}
+
+Back to our equation, let \( A \) be a \( 1\times n \) matrix and \( V = \{x : Ax=0\}   \). Let \( W = \Span A^{T} = C(A^{T} )  \). Then, we have \[
+	V \cap W = \{0\} \implies V \bigoplus W = \mathbb{R}^{n} 
+.\] In other words,
+
+\begin{prop}
+	We have shown so far that for a row matrix,
+	\[
+		N(A) \bigoplus C(A^{T} ) = \mathbb{R}^{n} 
+	.\] 
+\end{prop}
+
+\begin{prop}
+	If \( V \bigoplus W = \mathbb{R}^{n}  \), then \[
+		\text{dim}V + \text{dim}W = n
+	.\] 
+\end{prop}
