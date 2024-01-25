@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  25 JAN 2024 14:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.8)  25 JAN 2024 14:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1596,43 +1596,27 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 29.
-
-./lec_06.tex:29: Missing $ inserted.
-<inserted text> 
-                $
-l.29 ...,2\}     \). Then, we have \begin{vmatrix}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./lec_06.tex:31: Missing $ inserted.
-<inserted text> 
-                $
-l.31 	\end{vmatrix}
-                   
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-) [9
-
-] (./master.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 46.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 53.
+Package mdframed Info: Not enough space on this page on input line 58.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 61.
+) [9] (./master.aux) ) 
 Here is how much of TeX's memory you used:
- 38080 strings out of 477985
- 932309 string characters out of 5840059
+ 38086 strings out of 477985
+ 932444 string characters out of 5840059
  1906388 words of memory out of 5000000
- 57581 multiletter control sequences out of 15000+600000
+ 57587 multiletter control sequences out of 15000+600000
  534333 words of font info for 97 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,19n,88p,782b,1117s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbras10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrbs8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmo10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb>
-Output written on master.pdf (9 pages, 206143 bytes).
+Output written on master.pdf (9 pages, 208173 bytes).
 PDF statistics:
  117 PDF objects out of 1000 (max. 8388607)
  74 compressed objects within 1 object stream

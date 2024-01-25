@@ -26,7 +26,39 @@ Our objective is to treat random vectors \( (X,Y_{0} \in \mathbb{R}^{2} ) \) tog
 	Two cards are drawn at random from a dech of 52 cards. If \( X \) denotes the number of aces drawn and \( Y \) denotes the number of kings, display the join mass function of \( X \), and \( Y \) in tabular form.
 \end{eg}
 \begin{explanation}
-	Note that \( X = \{0,1,2\}, Y=\{0,1,2\}     \). Then, we have \begin{vmatrix}
-		
-	\end{vmatrix}
+	Note that \( X = \{0,1,2\}, Y=\{0,1,2\}     \). Then, we have 
+	\begin{center}
+		\begin{tabular}{ |c| c c c| }
+			\hline
+			& \( X=0 \) & \( X=1 \) & \( X=2 \) \\
+			\hline
+			\( Y=0 \) & \( \frac{44}{52}\cdot \frac{43}{51} \) & \( \frac{\binom{4}{1} \cdot \binom{44}{1}}{\binom{52}{2}} \) & \( \frac{\binom{4}{2}}{\binom{52}{2}} \)\\ 
+			\( Y=1 \) & \( \frac{\binom{4}{1} \cdot \binom{44}{1}}{\binom{52}{2}} \) & \( \frac{\binom{4}{1}\cdot \binom{4}{1}}{\binom{52}{2}} \) & 0 \\  
+			\( Y=2 \) & \( \frac{\binom{4}{2}}{\binom{52}{2}} \) & 0 & 0 \\
+			\hline
+		\end{tabular}
+	\end{center}
 \end{explanation}
+
+Note that we can expand this past 2 dimensions.
+
+\begin{definition}
+	Suppose that each of \( n \) experiments can result in any one of \( r \) possible outcomes, with proabilities, \( p_{1}, p_{2}, \ldots p_r \) which sum up to one. If we let \( X_I \) denote the nubmer of the \( n \) experiments that result in outcome number \( i \), then the probability mass function is given by 
+	\begin{align*}
+		&\mathbb{P}(X_{1}=n_{1},\ldots ,X_r=n_r) \\ &= \binom{n}{n_{1},n_{2},\ldots ,n_r} p_{1}^{n_{1}}  \cdot p_{2}^{n_{2}}  \cdot \ldots \cdot p_r^{n_r} 
+	.\end{align*}
+\end{definition}
+
+\begin{definition}
+	We have that
+	\begin{align*}
+		&\mathbb{E}(g(X,Y)) \\ &= \sum_{x \in \text{Im}X} \sum_{y \in \text{Im}Y} g(x,y)\mathbb{P}(X=x,Y=y)
+	.\end{align*}
+	when this sum converges absolutely.
+\end{definition}
+
+\begin{corollary}
+	\[
+		\mathbb{E}(aX + bY) = a\mathbb{E}(X) + b\mathbb{E}(Y)
+	.\] 
+\end{corollary}
