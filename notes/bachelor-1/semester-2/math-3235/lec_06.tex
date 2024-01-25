@@ -62,3 +62,37 @@ Note that we can expand this past 2 dimensions.
 		\mathbb{E}(aX + bY) = a\mathbb{E}(X) + b\mathbb{E}(Y)
 	.\] 
 \end{corollary}
+\begin{proof}
+	Linearity :).
+\end{proof}
+
+\begin{definition}
+	Two discrete random variables \( X \) and \( Y \) are \textbf{independent} if the pair of events \( [X=x] \) and \( [Y=y] \) are independent for all \( x,y \in \mathbb{R} \). We write this as 
+	\begin{align*}
+		\mathbb{P}(X=x,Y=y) &= \mathbb{P}(X=x)\mathbb{P}(Y=y) \\ &\forall x,y \in \mathbb{R}
+	.\end{align*}
+\end{definition}
+
+\begin{corollary}
+	If \( X \) is independent of itself, then \( X \) is almost surely consant.
+\end{corollary}
+
+\begin{prop}
+	\( k \) random variables are independent of the product of all of them is the same as the multivariate probability of all.
+\end{prop}
+
+\begin{definition}
+	The \textbf{indicator function} of an event \( A \) is the function \( \mathbb{I}_A \) defined by \[
+		\mathbb{I}_A(\omega ) = \begin{cases}
+			1 &\text{ if } w \in A\\
+			0 &\text{ if } w \not\in A
+		\end{cases}
+	.\] 
+\end{definition}
+
+\begin{eg}
+	Show that two events \( A \) and \( B \) are independent iff their indicator functions are independent random variables.
+\end{eg}
+\begin{explanation}
+	Case work for the forward direction, and set construction for the second.
+\end{explanation}
