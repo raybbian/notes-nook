@@ -1,0 +1,56 @@
+\lecture{9}{Mon 29 Jan 2024 14:01}{Extremal Combinatorics}
+
+We will start this unit by looking at graphs and hypergraphs.
+
+\begin{definition}
+	A \textbf{hypergraph} is a pair \( H=(V,E) \) such that \( V \) is a set, and \( E  \) is a subset of the powerset of \( V \) (\( E \subset 2^{V}  \)). Unless otherwise noted, \( V \) is a finite set.
+\end{definition}
+
+\begin{definition}
+	Given a hypergraph \( H=(V,E) \), then the elements \( v \in V \) are called \textbf{vertices} and the elements \( e \in E \) are called \textbf{edges}.
+\end{definition}
+
+\begin{definition}
+	A hypergraph \( H=(V,E) \) is \textbf{isomorphic} to another hypergraph \( H'=(V',E') \) if there is a bijection \( \phi : V\to V' \) between the vertex sets such that for any \( S \subseteq V \), we have \( S \in E \) iff \( \phi(S) \in E' \).
+\end{definition}
+
+\begin{definition}
+	A \textbf{graph} is a hypergraph in which every edge has size 2. In other words, \( E \subseteq \binom{V}{2} \).
+\end{definition}
+
+\begin{definition}
+	Given \( H=(V,E) \), a vertex \( v\in V \) is \textbf{incident} to an edge \( e \in E \) if \( v \in e \).
+\end{definition}
+
+\begin{definition}
+	The \textbf{degree} of a vertex \( v \in V \) is the number of edges it is incident to. We write this as \[
+		d_H(v) = |\{e \in E: v \in e\}|
+	.\] 
+\end{definition}
+
+\begin{definition}
+	The \textbf{incidence mamtrix} \( M \) of a hypergraph \( H=(V,E) \) is a \( V\times E \) matrix (\( V \) rows and \( E  \) columns) so that each entry \[
+		M_{v,e} : \begin{cases}
+			1, &\text{ if } v \in e\\
+			0 &\text{ otherwise}
+		\end{cases}
+	.\] 
+\end{definition}
+
+\begin{theorem}
+	(Hypergraph handshaking). If \( H=(V,E) \) is a hypergraph, then \[
+		\sum_{v \in V} d_H(V) = \sum_{e \in E}|e|
+	.\] 
+\end{theorem}
+\begin{proof}
+	Let \( M \) be the incidence matrix of \( H \). Then \( \sum_{v \in V} d_H(v) \) counts the number of 1's of \( M \) by summing along rows, and \( \sum_{e \in E}|e| \) counts the number of 1's by summing along columns. As the number of 1's in the matrix is the same, these two values are the same.
+\end{proof}
+
+\begin{corollary}
+	For any graph, we have \[
+		\sum_{v \in V}d_G(v) = 2 |E|
+	.\] 
+\end{corollary}
+\begin{proof}
+	This is because \( |e|=2 \) for all \( e \in E \) by definition of a graph.
+\end{proof}
