@@ -1,0 +1,16 @@
+\lecture{7}{Tue 30 Jan 2024 14:02}{}
+
+\begin{eg}
+	Suppose that \( n+m \) independent trials with probability of success \( p \) are performed. If \( X \) is the number of successes of the first \( n \), and \( Y \) is the number of successes of the last \( m \), then \( X \) and \( Y \) are independent.
+\end{eg}
+\begin{explanation}
+	Look at \( p_{x,y}(X=x,Y=y) \). We wish to show that this equals \( p_X(x) \cdot p_Y(y) \). Let 1 be success, 0 be failure. Then, \( \Omega = \{0,1\} ^{n+m} = (a = \{0,1\} ^{n}  , b=\{0,1\} ^{m}  )  \). Then 
+	\begin{align*}
+		\mathbb{P}((a, b)) &= p^{x+y} \cdot (1-p)^{m + n - (x + y)}  \\
+		&= p^{x}\cdot (1-p)^{n-x} \cdot p^{y}\cdot (1-p)^{m-y}
+	.\end{align*}
+	Therefore, 
+	\begin{align*}
+		\mathbb{P}(X=x,Y=y) = \sum_{(a,b) \in \{X=x,Y=y\}  } \mathbb{P}((a,b))
+	.\end{align*}
+\end{explanation}

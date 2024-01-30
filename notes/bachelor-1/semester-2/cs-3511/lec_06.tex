@@ -35,4 +35,4 @@ Yeah, it's just DFS. At a current node, go to the next node. After you've finish
 You can think of directed acyclic graphs as dependency graphs. What happens if we have a cycle? Bad things. How can we find these cycles? We can run DFS, and if we explore a vertex that is already in the current path, then we know there is a cycle. We can use backtracking to extract this cycle, if necessary.
 
 \subsection{Topological Sort}
-We can order the vertices of our graph topologically, so that all dependencies are processed before the nodes that require them.
+We can order the vertices of our graph topologically, so that all dependencies are processed before the nodes that require them. This is just a dfs where we only recurse once all vertex indegrees have been processed already.
