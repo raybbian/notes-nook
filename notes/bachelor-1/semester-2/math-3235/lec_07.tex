@@ -82,3 +82,61 @@
 		\mathbb{E}XY = \mathbb{E}X\mathbb{E}Y 
 	.\] which shows that this property is not bidirectional.
 \end{explanation}
+
+\begin{theorem}
+	(Convolution Formula) Set \( Z=X+Y \), \( X,Y \) independent. Then for all \( z \in \mathbb{R} \),
+	\begin{align*}
+		\mathbb{P}(Z=z) &= \sum_{x} \mathbb{P}(X=x,Y=z-x) \\ &= \sum_{x}\mathbb{P}(X=x)\mathbb{P}(Y=z-x) 
+	.\end{align*}
+\end{theorem}
+
+\begin{eg}
+	If \( X \) and \( Y \) are independent discrete random variables, \( X \) having the Poisson distribution with parameter \( \lambda  \) and \( Y \) has Poisson disrubtion with parameter \( \mu  \), show that \( X+Y \) has poisson distrubtion with parameter \( \lambda +\mu  \).
+\end{eg}
+\begin{explanation}
+	Let \( Z=X+Y \). Remember that \[
+		\mathbb{P}(X=x) = \frac{e^{-\lambda }\lambda ^{x}  }{x!} \quad \text{and} \quad \mathbb{P}(Y=y) = \frac{e^{-\mu }\mu ^{y}  }{y!}
+	.\] Then, 
+	\begin{align*}
+		\mathbb{P}(Z=z) &= \sum_{x=0}^{\infty} \mathbb{P}(X=x)\mathbb{P}(Y=z-x)\\
+		&= \sum_{x=0}^{z}\mathbb{P}(X=x)\mathbb{P}(Y=z-x)  \\
+		&= \sum_{x=0}^{z}\frac{e^{-\lambda }\lambda ^{x}  }{x!}\cdot \frac{e^{-\mu }\mu ^{z-x}  }{(z-x)!}  \\
+		&= \sum_{x=0}^{z} e^{-\lambda -\mu }\frac{1}{z!}\frac{z!}{x!(z-x)!} \cdot \lambda ^{x}\mu ^{z-x}   \\
+		&= e^{-\lambda -\mu }\frac{1}{z!}\sum_{x=0}^{z} \binom{z}{x}\lambda ^{x}\mu ^{z-x}    \\
+		&= e^{-\lambda -\mu }\frac{1}{z!}(\lambda +\mu )^{z}  
+	.\end{align*}
+	which is precisely the Poisson distribution with \( \lambda +\mu  \).
+\end{explanation}
+
+\begin{theorem}
+	Let \( A_{1},A_{2}\ldots A_n \) be events. Then, we have that \[
+		\sum_{i=0}^{n} \mathbb{I}_{A_i}(\omega ) = \text{number of events that \( \omega  \) occurs}
+	.\] 
+\end{theorem}
+
+\begin{eg}
+	The \( 2n \) seats around a circular table are numbered clockwise. Queens sit in odd numbered seats and Kings in even numbesr. Let \( N \) be the number of queens sitting next to their king. Find the mean and variance of \( N \).
+\end{eg}
+\begin{explanation}
+	Let \( A_i \) be the event that the \( i \)-th pair sit together. Then, \[
+		N = \sum_{i=1}^{n} \mathbb{I}_{A_i}
+	.\] Note that \( \mathbb{P}(A_i) =\frac{2}{n}\). Think of a fixed king permutation, then there are two spots out of \( n \) spots for the queen to sit. Next, 
+	\begin{align*}
+		\mathbb{E}N &= \mathbb{E}\left( \sum_{i=1}^{n} \mathbb{I}_{A_i} \right) \\
+		&= \sum_{i=1}^{n} \mathbb{E} \mathbb{I}_{A_i} \\
+		&= \sum_{i=1}^{n} \mathbb{P}(A_i) \\
+		&= \sum_{i=1}^{n} \frac{2}{n} = 2 
+	.\end{align*}
+	The variance calculation is more involved. Remember that \[
+		\Var(N) = \mathbb{E}N^{2} - (\mathbb{E}N)^{2} 
+	.\] Then, we have 
+	\begin{align*}
+		\mathbb{E}(N^{2} ) &= \mathbb{E}\left( \left[ \sum_{i=1}^{n} \mathbb{I}_{A_i} \right]^{2}  \right) \\
+		&= \mathbb{E}\left( \sum_{i=1}^{n} \sum_{j=1}^{n} \mathbb{I}_{A_i}\mathbb{I}_{A_j} \right)  \\
+		&= \mathbb{E}\left( \sum_{i=1}^{n} \mathbb{I}_{A_i} \mathbb{I}_{A_i} + 2 \sum_{1 \le i<j\le n} \mathbb{I}_{A_i} \mathbb{I}_{A_j} \right)  \\
+		&= \sum_{i=1}^{n} \mathbb{E}(\mathbb{I}_{A_i}\mathbb{I}_{A_i}) + 2 \sum_{1 \le i<j\le n} \mathbb{E}(\mathbb{I}_{A_i}\mathbb{I}_{A_j}) \\
+		&= \sum_{i=1}^{n} \mathbb{E}(\mathbb{I}_{A_i}) + 2 \sum_{1 \le i<j\le n} \mathbb{E}(\mathbb{I}_{A_i}\mathbb{I}_{A_j}) \\
+		&= \sum_{i=1}^{n} \underbrace{\mathbb{P}(A_i)}_{\frac{2}{n}} + 2 \sum_{1 \le i<j\le n} \mathbb{P}(A_i \cap A_j) 
+	.\end{align*}
+	From here, we need to calculate \( \mathbb{P}(A_i \cap A_j) \).
+\end{explanation}
