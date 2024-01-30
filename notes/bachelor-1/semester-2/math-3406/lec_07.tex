@@ -31,3 +31,30 @@ If we have an \( n\times n \) matrix, \( A = \begin{pmatrix}
 		\Dim R(A) + \Dim N(A) = n
 	.\] 
 \end{prop}
+
+\begin{prop}
+	If \( V \) is a subspace of \( \mathbb{R}^{n}  \), and \( E \) is an invertible matrix, \[
+		W = \{Ex : x \in V\}  
+	.\] is a subspace as well. If \( E \) is invertible then \[
+		\Dim W = \Dim V
+	.\]  
+\end{prop}
+
+Putting all of these things together, we have the following properties for any matrix (go back and review these):
+
+\begin{prop}
+	\begin{align*}
+		\Dim N(A) + \Dim R(A) &= n \\
+		\Dim N(A^{T}) + \Dim C(A) &=  m \\
+		\Dim R(A) = \Dim C(A)
+	.\end{align*}
+\end{prop}
+
+If we have solutions to \( A \overline{x}=b \), then \[
+	\overline{x} + N(A)
+.\] is the set of all possible solutions of \( Ax=b \).
+
+If there is a 0 row in \( \begin{bmatrix}
+	A& b
+\end{bmatrix} \), then there has to be a 0 also in the corresponding place in \( b \).
+
