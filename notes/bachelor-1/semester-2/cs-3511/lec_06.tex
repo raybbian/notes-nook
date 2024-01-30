@@ -27,3 +27,12 @@ Yeah, it's just DFS. At a current node, go to the next node. After you've finish
 \begin{proof}
 	By contradiction. Assume that there is a path \( v, v_{1}, v_{2}, \ldots , v_k \). Assume \( v_k \) is not visited by the call to DFS(\( v \)). Let \( v_i \) be the last vertex that did get visited. That means DFS(\( v_i \)) must have been called. However, that means the edge between \( v_{i} \) and \( v_{i+1} \) must have been looked at. The only way then that DFS(\( v_{i+1} \)) doesn't get called, is if it is already visited. However, that means that DFS(\( v_{i+1} \)) must have been called. This is a contradiction, as then \( v_{i+1} \) must be the last visited vertex.
 \end{proof}
+
+\begin{definition}
+	A graph \( G \) is a \textbf{directed acyclic graph} if it is a directed graph without cycles.
+\end{definition}
+
+You can think of directed acyclic graphs as dependency graphs. What happens if we have a cycle? Bad things. How can we find these cycles? We can run DFS, and if we explore a vertex that is already in the current path, then we know there is a cycle. We can use backtracking to extract this cycle, if necessary.
+
+\subsection{Topological Sort}
+We can order the vertices of our graph topologically, so that all dependencies are processed before the nodes that require them.

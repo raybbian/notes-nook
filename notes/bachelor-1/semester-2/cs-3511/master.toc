@@ -6,3 +6,4 @@
 \contentsline {subsection}{\numberline {2.1}Karatsuba Multiplication}{4}{}%
 \contentsline {section}{\numberline {3}Graphs}{5}{}%
 \contentsline {subsection}{\numberline {3.1}DFS}{5}{}%
+\contentsline {subsection}{\numberline {3.2}Topological Sort}{5}{}%
