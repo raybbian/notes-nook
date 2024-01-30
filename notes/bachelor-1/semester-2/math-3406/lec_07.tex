@@ -6,4 +6,28 @@ Note that if \( A=0 \) is a \( 1\times n \) matrix, then \( N(A) = \{x : Ax=0\} 
 	We say that \( N(A) \) and \( C(A^{T} ) \) are \textbf{orthogonal}.
 \end{definition}
 
-Let \( A^{T} \) be \( n\times 1 \).  
+In other words, given a matrix, we have 4 subspaces \[
+	N(A) \quad C(A^{T}) \quad N(A^{T} ) \quad C(A)
+.\] 
+
+\begin{definition}
+	\( N(A^{T} ) \) is also known as the \textbf{left} null space, because you put \( x \) on the left.
+\end{definition}
+
+If we have an \( n\times n \) matrix, \( A = \begin{pmatrix}
+	1 & 2 \\ 1 & 4
+\end{pmatrix} \) and its eliminated variant \( U=\begin{pmatrix}
+	1 & 2  \\ 0 & 2
+\end{pmatrix} \), then we have that \( N(A) = \{0\}   \), \( R(A) = C(A^{T} ) \), \( R(A) = R(U) \). If we have a solution \( Ax=b \), then we have a solution \( Ux=c \). The set of \( c \) for which \( Ux=c \) can be solved are the \( C(U) \). Similarly, the set of \( b \) for which \( Ax=b \) can be solved are are the \( C(A) \). Therefore, 
+
+\begin{prop}
+	If \( A \) is a matrix and \( U \) is its eliminated variant, then \[
+	\Dim C(A) = \Dim C(U)
+.\] 
+\end{prop}
+
+\begin{prop}
+	Dimension of row space is number of pivot variables, and the dimension of the null space is the number of free variables. Therefore, \[
+		\Dim R(A) + \Dim N(A) = n
+	.\] 
+\end{prop}
