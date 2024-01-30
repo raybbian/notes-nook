@@ -1,3 +1,23 @@
-\lecture{7}{Tue 30 Jan 2024 15:33}{Clock Cycles}
+\lecture{7}{Tue 30 Jan 2024 15:33}{Clock Cycles and State Machines}
 
-We instead need to use two latches to copy data into the leader, then copy to the follower. This is known as \textbf{write-enable}, which is sort of like a flip flop between two D-latches.
+We instead need to use two latches to copy data into the leader, then copy to the follower. This is known as \textbf{write-enable}, which is sort of like a flip flop between two D-latches. It's sort of like a landing bay in a space ship.
+
+\begin{note}
+	We must build our own D-latches in circuitsim.
+\end{note}
+
+\subsection{State Machines}
+
+We will now create state machines!
+
+\begin{definition}
+	A \textbf{state machine} includes states and transitions.
+\end{definition}
+
+\begin{eg}
+	A garage door state machine includes a Motor Up, Stop (Down Next), Motor Down, and Stop (Up Next) state.
+\end{eg}
+
+We need something to hold state, combinational logic, a clock, a reset button, limit switches, and push button. We also need to handle being in no state. We should also add dummy states for when the button is pressed down.
+
+To implement the state machine logic, we need to create a truth table for every state. We consider the circuit inputs, the current state, next state, and circuit outputs.

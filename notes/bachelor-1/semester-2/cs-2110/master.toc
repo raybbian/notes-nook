@@ -9,3 +9,4 @@
 \contentsline {subsection}{\numberline {3.2}ASCII}{2}{}%
 \contentsline {subsection}{\numberline {3.3}Unicode}{2}{}%
 \contentsline {subsection}{\numberline {3.4}Floating Point}{2}{}%
+\contentsline {subsection}{\numberline {3.5}State Machines}{3}{}%
