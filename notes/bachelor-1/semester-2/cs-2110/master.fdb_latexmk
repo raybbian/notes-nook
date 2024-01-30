@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1706218913 "master.tex" "master.pdf" "master" 1706218913 0
+["pdflatex"] 1706646884 "master.tex" "master.pdf" "master" 1706646885 0
   "../preamble.tex" 1706123504 8521 c0392d1b0c5c07e2c11d3f133984bc17 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1704400182 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1704400182 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -256,17 +256,18 @@
   "/usr/share/texmf-dist/tex/latex/zref/zref-abspage.sty" 1704400182 2245 c8a4088d07cffc2e5207730c738edd76 ""
   "/usr/share/texmf-dist/tex/latex/zref/zref-base.sty" 1704400182 20785 71a3d72ab517959a6979c27e6176bec1 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1704400182 40684 9b9ec0b4288972636ff6a3b9c4238efc ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1704746840 4478429 385ad1d6b64c93bd02d3a0cc5f72992b ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1704746825 6768065 1d280a8029cda5813673d47315baeb31 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1706570461 4478429 385ad1d6b64c93bd02d3a0cc5f72992b ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1706570444 6768053 448a89d6a2983e7343345b214bc58b32 ""
   "lec_01.tex" 1704836359 2051 cf8d503f2a3395cce335dd5c014c3705 ""
   "lec_02.tex" 1705008594 2284 c53289956662ceeae9ec25c17f6de445 ""
   "lec_03.tex" 1705441498 1305 373a323f3fd4f385ec1121886ab3512c ""
   "lec_04.tex" 1705963228 844 31f0f0595a50c0af3ba9cab538a85d0b ""
   "lec_05.tex" 1706047253 693 2a9bfb0f417c72eadae43f9e060b7af0 ""
-  "lec_06.tex" 1706218912 289 95ac894f2a618b3b6578b347ce68a869 ""
-  "master.aux" 1706218913 6162 ab8abf16ad845006ce4d7e17cc7f2534 "pdflatex"
-  "master.tex" 1706215141 350 cbbe058d2a1ede01e549afbacaac84a6 ""
-  "master.toc" 1706218913 703 ade04449a8564b3b08ba2abc369881b8 "pdflatex"
+  "lec_06.tex" 1706220123 289 95ac894f2a618b3b6578b347ce68a869 ""
+  "lec_07.tex" 1706646883 182 e52520e02fbf9a6950fbc0409a8aaf79 ""
+  "master.aux" 1706646885 6162 ab8abf16ad845006ce4d7e17cc7f2534 "pdflatex"
+  "master.tex" 1706646834 373 7cc0d602da4ad4e403ce71f957642515 ""
+  "master.toc" 1706646885 703 ade04449a8564b3b08ba2abc369881b8 "pdflatex"
   (generated)
   "master.aux"
   "master.log"
