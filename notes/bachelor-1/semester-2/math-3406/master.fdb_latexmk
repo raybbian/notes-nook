@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1706224062 "master.tex" "master.pdf" "master" 1706224064 0
-  "../preamble.tex" 1706123504 8521 c0392d1b0c5c07e2c11d3f133984bc17 ""
+["pdflatex"] 1706652642 "master.tex" "master.pdf" "master" 1706652644 0
+  "../preamble.tex" 1706652510 8553 5ca5dfbf80fbe10bf1508d7892d21bff ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1704400182 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1704400182 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1704400182 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -265,17 +265,18 @@
   "/usr/share/texmf-dist/tex/latex/zref/zref-abspage.sty" 1704400182 2245 c8a4088d07cffc2e5207730c738edd76 ""
   "/usr/share/texmf-dist/tex/latex/zref/zref-base.sty" 1704400182 20785 71a3d72ab517959a6979c27e6176bec1 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1704400182 40684 9b9ec0b4288972636ff6a3b9c4238efc ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1704746840 4478429 385ad1d6b64c93bd02d3a0cc5f72992b ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1704746825 6768065 1d280a8029cda5813673d47315baeb31 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1706570461 4478429 385ad1d6b64c93bd02d3a0cc5f72992b ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1706570444 6768053 448a89d6a2983e7343345b214bc58b32 ""
   "lec_01.tex" 1704850312 5227 2d67c60776a93f7c8131f76f9fad8ba3 ""
   "lec_02.tex" 1705033935 3816 d138488270d1f14517895df458b6ac5a ""
   "lec_03.tex" 1705446995 5334 bc9535a668665134450e6e1df09a1197 ""
   "lec_04.tex" 1705619729 4920 5e2ede915489f256a570119d475bb6dd ""
   "lec_05.tex" 1706051746 2941 2e5c763a78c06d335be178d8fac0b907 ""
-  "lec_06.tex" 1706224055 3872 77312bbf0728d8b17c0f724a80b8f353 ""
-  "master.aux" 1706224064 18022 3a66e9497cc9ce962a375fc009466f01 "pdflatex"
-  "master.tex" 1706220126 346 8c3571a1ea9ddda16815d8474505b5d2 ""
-  "master.toc" 1706224064 127 0d56b211a0ac1479893ff698cf78a886 "pdflatex"
+  "lec_06.tex" 1706224169 3872 77312bbf0728d8b17c0f724a80b8f353 ""
+  "lec_07.tex" 1706652642 457 e870262ada0669fc5f1727c64aff7196 ""
+  "master.aux" 1706652644 18223 f056c9f3cae426067967c4f0537871fe "pdflatex"
+  "master.tex" 1706652164 369 b1d723b9502696758623af4c17e58fc8 ""
+  "master.toc" 1706652644 127 0d56b211a0ac1479893ff698cf78a886 "pdflatex"
   (generated)
   "master.aux"
   "master.log"
