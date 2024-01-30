@@ -1,3 +1,29 @@
 \lecture{6}{Tue 30 Jan 2024 12:32}{Graphs, DFS, Topological Order}
 
+\section{Graphs}
+
 Insert every class' graph definitions here.
+
+Two common representations of graphs are adjacency matrices, adjacency lists, and edge lists.
+
+\begin{definition}
+	An \textbf{adjacency matrix} is a matrix where \[
+		A_{ij} = \begin{cases}
+			1 &\text{ if there is an edge between \( i,j \)}\\
+			0 &\text{ otherwise}
+		\end{cases}
+	.\] 
+\end{definition}
+
+However, an adjacency list uses too much space, so an adjacency list can be used, which is at most \( O(V + E) \) space. This list stores only direct neighbors.
+
+\subsection{DFS}
+
+Yeah, it's just DFS. At a current node, go to the next node. After you've finished exploring everything from that node, come back to this node and go to next node after. Keep a visited array to not visit vertices more than once.
+
+\begin{lemma}
+	DFS(\( v \)) will visit every vertex that can be reached from \( v \) via some path.
+\end{lemma}
+\begin{proof}
+	By contradiction. Assume that there is a path \( v, v_{1}, v_{2}, \ldots , v_k \). Assume \( v_k \) is not visited by the call to DFS(\( v \)). Let \( v_i \) be the last vertex that did get visited. That means DFS(\( v_i \)) must have been called. However, that means the edge between \( v_{i} \) and \( v_{i+1} \) must have been looked at. The only way then that DFS(\( v_{i+1} \)) doesn't get called, is if it is already visited. However, that means that DFS(\( v_{i+1} \)) must have been called. This is a contradiction, as then \( v_{i+1} \) must be the last visited vertex.
+\end{proof}
