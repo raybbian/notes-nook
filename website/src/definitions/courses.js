@@ -74,6 +74,7 @@ const courses = {
             "status": "inprogress",
             "notes": "Currently in progress."
         },
+/*
         "cs-3600": {
             "name": "Introduction to Artificial Intelligence",
             "professor": "Thad Starner",
@@ -83,6 +84,7 @@ const courses = {
             "status": "inprogress",
             "notes": "Currently in progress."
         }
+*/
     },
     "future": {
 
