@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.29)  31 JAN 2024 14:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.1.29)  31 JAN 2024 14:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1523,20 +1523,43 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 9.
-) [8] (./master.aux) ) 
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 15.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 24.
+
+Underfull \hbox (badness 5533) in paragraph at lines 34--35
+\T1/cmbr/m/n/10 then there ex-ists a tri-an-gle $\OML/cmbrm/m/it/10 T[]$\T1/cmbr/m/n/10 , $\OML/cmbrm/m/it/10 k \OMS/cmbrs/m/n/10 2
+ []
+
+[8]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 37.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 44.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 48.
+) [9
+
+] (./master.aux) ) 
 Here is how much of TeX's memory you used:
- 38054 strings out of 477985
- 931512 string characters out of 5840058
+ 38068 strings out of 477985
+ 931828 string characters out of 5840058
  1900388 words of memory out of 5000000
- 57544 multiletter control sequences out of 15000+600000
+ 57558 multiletter control sequences out of 15000+600000
  533530 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,12n,88p,927b,1123s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbras10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/share/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbbx10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr17.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbmr8.pfb>
-Output written on master.pdf (8 pages, 184900 bytes).
+Output written on master.pdf (9 pages, 188779 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
+ 107 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

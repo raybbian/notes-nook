@@ -10,3 +10,40 @@
 		\frac{\sum_{v \in V} \deg(v)}{|V|} = \frac{\sum_{e \in E}|e|}{|V|} = \frac{2|E|}{|V|}
 	.\] is the average degree of a vertex in the graph. Then, there exists \( v \in V \) whose degree is at most the average.
 \end{proof} 
+
+\begin{definition}
+	A \textbf{triangulation} is a sequence of triangles \( T, T_{1}, T_{2}, \ldots , T_n \) such that 
+	\begin{enumerate}
+		\item \( T, T_{1}, T_{2}, \ldots , T_n \subseteq  \mathbb{R}^{2}  \),
+		\item \( T = \bigcup_{i=1}^{n}T_i   \),
+		\item For any distinct \( i,j \in \{1, \ldots , n\}   \), \( T_i \cap T_j \) is either empty, consists of one vertex, or one edge.
+	\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+	(Sperner) For any vertices such that 
+	\begin{enumerate}
+		\item The 3 outer vertices get different colors,
+		\item Vertices on the edge of \( T \) are colored the same as one of the edge's endpoints.
+	\end{enumerate}
+	Then, there exists an inner triangle with 3 different colors. More formally, if \( T, T_{1}, T_{2}, \ldots , T_n \), and \( v_{1},v_{2},v_{3} \) are the vertices of \( T \), and the vertices are colored by \( \{1, 2, 3\}   \), such that
+	\begin{enumerate}
+		\item \( v_i \) is color \( i \) for \( i=1, 2, 3 \), and 
+		\item vertices on the edge of \( T \) between \( v_i \) and \( v_j \) are colored either \( i \) or \( j \) for \( i\neq j \in \{1, 2, 3\}  \),
+	\end{enumerate}
+	then there exists a triangle \( T_k \), \( k \in \{1,2,\ldots ,n\}   \), such that the three vertices of \( T_k \) receive colors 1, 2, 3.
+\end{lemma}
+\begin{proof}
+	Define a graph \( G=(V,E) \) such that \( V = \{T, T_{1}, T_{2}, \ldots ,T_n\}   \). Connect two vertices if and only if the edge the two triangles share have colors 1 and 2. 
+	\begin{observation}
+		It is enough to prove that a triangle has odd degree in \( G \) if and only if three vertices of the triangle receive distinct colors. Then, as the outer triangle has odd degree, some other smaller triangle must also have odd degree.
+	\end{observation}
+\end{proof}
+
+\begin{theorem}
+	(Brower's Fixed Point)  Every continuous map from the unit disc \( \{(x, y) \in \mathbb{R}^{2} : x^{2}+y^{2}\le 1   \}  \) to itself has a fixed point (a point \( p \) such that \( p \mapsto p \)).
+\end{theorem}
+
+\begin{theorem}
+	(Product Structure Theorem) Also uses Sperner's Lemma.
+\end{theorem}
