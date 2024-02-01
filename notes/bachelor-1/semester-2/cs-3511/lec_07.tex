@@ -19,3 +19,12 @@ However, what happens if we want to find the shortest path in a graph where ther
 
 \subsection{Dijkstra}
 Instead of a first in first out queue, we use a priority queue. This allows us to process vertices in a way such that the cost to travel to that vertex is less.
+
+\begin{theorem}
+	Dijkstra is optimal.
+\end{theorem}
+\begin{proof}
+	Let \( d(v) \) be the length of the shortest path from \( s \) to \( v  \) for all \( v \in V\), where \( s \) is the start vertex. Assume the algorithm stores an incorrect value in the distance array. Let \( v_{1}, v_{2}, \ldots v_n \) be the vertices in the order in which they were visited by Dijkstra. Let \( v_i \) be the first vertex where \( d(v_i) \) is wrong. That means we used the wrong edge to go from \( v_{i-1} \) to \( v_i \). This means that \[
+		d(v_i) = d(v_{i-1}) + w_{v_{i-1}v_i} > \text{shortest path to \( v_i \)}
+	.\] Let \( a \) be a vertex with guaranteed correct distance, and \( b \) one otherwise. Assume that this path with \( a,b \) is the correct shortest path from \( s \) to \( v_i \). However, \( v_i \) was popped from the queue before \( b \). This means that the shortest path to \( b \) is \( \ge  \) the shortest path to \( v_i \). With some algebraic manipulation as well as asserting that there are no negative edge weights (check the lecture notes), then we have that the shortest path to \( v_i \) is strictly greater than the shortest path to \( v_i \), a contradiction. Therefore, there cannot exist such a \( v_i \).
+\end{proof}
