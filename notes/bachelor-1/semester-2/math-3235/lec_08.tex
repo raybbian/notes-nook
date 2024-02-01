@@ -20,5 +20,60 @@ Continuing on with the Variance calculation, we have that
 \begin{explanation}
 	Let \( A_i  \) be the event that bunny \( i \) is ready. Then, \[
 		X = \sum_{i=1}^{n} \mathbb{I}_{A_i}
-	.\] counts the number of bunnies ready. We want to compute for \( X \ge k \) how many \( k \)-large teams is possible. This is just \( \binom{X}{k} \).
+	.\] counts the number of bunnies ready. We want to compute for \( X \ge k \) how many \( k \)-large teams is possible. This is just \( \binom{X}{k} \). Note that \[
+		\binom{X}{k} = \sum_{1 \le i_{1} < i_{2} < \ldots < i_k \le n} \mathbb{I}_{A_{i_1} \cap A_{i_2} \cap \ldots \cap A_{i_n}}
+	.\] This means that 
+	\begin{align*}
+		\mathbb{E}\binom{X}{k} &= \sum_{1 \le i_{1} < i_{2} < \ldots < i_k \le n} \mathbb{E}\left(\mathbb{I}_{A_{i_1} \cap A_{i_2} \cap \ldots \cap A_{i_n}}\right) \\
+		&= \sum_{1 \le i_{1} < i_{2} < \ldots < i_k \le n} \mathbb{P}(A_{i_1} \cap \ldots \cap A_{i_n}) \\
+		&= \sum_{1 \le i_{1} < i_{2} < \ldots < i_k \le n} \mathbb{P}(A_{i_1})\cdot \ldots \cdot  \mathbb{P}(A_{i_n}) \tag{Independent}\\
+		&= \sum_{1 \le i_{1} < i_{2} < \ldots < i_k \le n} p^{k} \\
+		&= \binom{n}{k}p^{k}
+	.\end{align*}
+\end{explanation}
+
+\begin{eg}
+	A grove of 52 trees is araranged in a circular fashion. If 15 chipmunks live in these trees, show that there is a group of 7 consecutive trees that together house at least 3 chipmunks.
+\end{eg}
+\begin{explanation}
+	We find \[
+		\mathbb{E}(\text{num chipmunks that lie in 7 con. trees}) > 2
+	.\] In other words, if on average there are 3, then for one group there must be 3. Let \( X \) be the number of chipmunks that lie in a random tree and 6 neighbors clockwise. Let \[
+		X_i = \begin{cases}
+			1, &\text{ if chipmunk \( i \) lives in nbhd}\\
+			0 &\text{ otherwise.}
+		\end{cases}
+	.\]  We know that \[
+		X = \sum_{i=1}^{15} X_i \quad \text{and}\quad \mathbb{E}X = \sum_{i=1}^{15} \mathbb{E}X_i
+	.\] Then, we have that \[
+		\mathbb{E}[X_i] = \mathbb{P}(X_i=1) = \frac{7}{52}
+	.\]. Therefore, \[
+		\mathbb{E}X = 7 \cdot \frac{15}{52} = \frac{105}{52} > 2
+	.\] 
+\end{explanation}
+
+\section{Probability Generating Functions}
+
+\begin{definition}
+	Consider the sequence \( u_{0},u_{1},u_{2}\ldots  \) of real numbers. We can write down the \textbf{generating function}  of this sequence as \[
+		U(s) = u_{0} + u_{1}s + u_{2}s^{2} + \ldots 
+	.\] 
+\end{definition}
+
+\begin{eg}
+	The sequence given by \[
+		u_n = \begin{cases}
+			\binom{N}{n}, &\text{ if } n = 0, 1, 2, \ldots , N\\
+			0 &\text{ otherwise}
+		\end{cases}
+	.\] has generating function \[
+		U(s) = \sum_{n=0}^{N} \binom{N}{n} s^{n}  = (1+s)^{N} 
+	.\] 
+\end{eg}
+
+\begin{eg}
+	If \( u_{0}, u_{1}, \ldots  \) has generating function \( U(s) \) and \( v_{0}, v_{1}, \ldots  \) has generating function \( V(s) \), find \( V(s) \) in terms of \( U(s) \) when (a) \( v_n = 2u_n \) and (b) \( v_n = u_1 + 1 \), and (c) \( v_n = n u_n \).
+\end{eg}
+\begin{explanation}
+	We have (a) \( 2U(S) \), (b) \( U(S) + \frac{1}{1-s} \), and (c) \( S \cdot U'(S) \).
 \end{explanation}

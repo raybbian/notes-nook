@@ -10,3 +10,4 @@
 \contentsline {subsection}{\numberline {1.9}Bayes Theorem}{5}{}%
 \contentsline {section}{\numberline {2}Random Variables}{6}{}%
 \contentsline {section}{\numberline {3}Multivariate Probability}{9}{}%
+\contentsline {section}{\numberline {4}Probability Generating Functions}{12}{}%
