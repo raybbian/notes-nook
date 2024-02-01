@@ -1,3 +1,24 @@
 \lecture{8}{Thu 01 Feb 2024 14:07}{}
 
-Continuing on with the Variance calculation, we have that
+Continuing on with the Variance calculation, we have that 
+\begin{tmpexplanation}
+	Note that \( \mathbb{P}(A_i \cap A_j) \) is given by (WLOG)
+	\begin{align*}
+		\mathbb{P}(A_i \cap A_j) &= \mathbb{P}(A_1) \cdot \mathbb{P}(A_2 \mid A_1) \\
+														 &= \frac{2}{n} \cdot \left[ \frac{1}{n-1} \frac{1}{n-1} + \frac{n-2}{n-1} \frac{2}{n-1} \right] \\
+														 &= \frac{2}{n} \cdot \frac{2n-3}{(n-1)^{2} }
+	.\end{align*}
+	Continuing on, we have that
+	\begin{align*}
+		\mathbb{E}(N^{2} ) &= n \cdot \frac{2}{n} + \frac{4}{n}\cdot \frac{2n-3}{(n-1)^{2} } \binom{n}{2}
+	.\end{align*}
+\end{tmpexplanation}
+
+\begin{eg}
+	My squad of bunnies have been training all summer. Each bunny is ready for the bunny mission with probability \( p \). If I have \( n \) bunnies in the squad and need \( k \) for the mission, find \( \mathbb{E} \) of the number of \( k \)-large teams that I can form.
+\end{eg}
+\begin{explanation}
+	Let \( A_i  \) be the event that bunny \( i \) is ready. Then, \[
+		X = \sum_{i=1}^{n} \mathbb{I}_{A_i}
+	.\] counts the number of bunnies ready. We want to compute for \( X \ge k \) how many \( k \)-large teams is possible. This is just \( \binom{X}{k} \).
+\end{explanation}
