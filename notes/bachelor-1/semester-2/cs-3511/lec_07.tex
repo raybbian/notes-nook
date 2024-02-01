@@ -1,0 +1,21 @@
+\lecture{7}{Thu 01 Feb 2024 12:37}{BFS, Dijkstra}
+
+\subsection{BFS}
+
+Note that BFS is just DFS, but instead of processing the most recent node explored, we process the latest node explored. To find shortest paths, we can track the parent of each node, and go backwards.
+
+\begin{theorem}
+	BFS finds the shortest path.
+\end{theorem}
+\begin{proof}
+	Let \( v_i \) be the vertices with distance \( i \) to the start point of BFS. We wish to show that BFS visits all vertices from \( v_i \) before visiting a vertex from \( v_{i+1} \). We proceed by induction on \( i \).
+	\begin{description}
+		\item[Base case] \( i=0 \). Then, \( v_0 \) is just the start point which is visited first.
+		\item[Step case] \( i \to i + 1\). Let's look at BFS right after we finished visiting all vertices \( v_i \). Note that no vertices of distance \( v_{i+1} \) have been visited, which implies that no vertices of distance \( v_{i+2} \) has been enqueued, and all vertices from \( v_{i+1} \) are currently in the queue. Since we use a FIFO queue all of \( v_{i+1} \) must be visited before a vertex from \( v_{i+2} \). Furthermore, the edge we use to traverse to \( v_{i+1} \) requires that an edge \( (u, v_{i+1}) \) such that \( u \in v_i \).
+	\end{description}
+\end{proof}
+
+However, what happens if we want to find the shortest path in a graph where there are edge weights?
+
+\subsection{Dijkstra}
+Instead of a first in first out queue, we use a priority queue. This allows us to process vertices in a way such that the cost to travel to that vertex is less.

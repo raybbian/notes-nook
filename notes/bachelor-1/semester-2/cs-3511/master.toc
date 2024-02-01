@@ -7,3 +7,5 @@
 \contentsline {section}{\numberline {3}Graphs}{5}{}%
 \contentsline {subsection}{\numberline {3.1}DFS}{5}{}%
 \contentsline {subsection}{\numberline {3.2}Topological Sort}{5}{}%
+\contentsline {subsection}{\numberline {3.3}BFS}{5}{}%
+\contentsline {subsection}{\numberline {3.4}Dijkstra}{6}{}%
