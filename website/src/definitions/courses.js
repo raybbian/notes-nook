@@ -35,8 +35,8 @@ const courses = {
             "description": "This course will cover important topics in linear algebra not usually discussed in a first-semester course, featuring a mixture of theory and applications.",
             "year": 1,
             "semester": 2,
-            "status": "inprogress",
-            "notes": "Currently in progress."
+            "status": "incomplete",
+            "notes": "Discontinued."
         },
         "cs-2110": {
             "name": "Computer Organization and Programming",
@@ -44,8 +44,8 @@ const courses = {
             "description": "An introduction to basic computer hardware, machine language, assembly language, and C programming.",
             "year": 1,
             "semester": 2,
-            "status": "inprogress",
-            "notes": "Currently in progress."
+            "status": "incomplete",
+            "notes": "Discontinued."
         },
         "cs-3511": {
             "name": "Design and Analysis of Algorithms, Honors",
@@ -74,17 +74,15 @@ const courses = {
             "status": "inprogress",
             "notes": "Currently in progress."
         },
-/*
         "cs-3600": {
             "name": "Introduction to Artificial Intelligence",
             "professor": "Thad Starner",
             "description": "An introduction to artificial intelligence and machine learning. Topics include intelligent system design methodologies, search and problem solving, supervised and reinforced learning.",
             "year": 1,
             "semester": 2,
-            "status": "inprogress",
-            "notes": "Currently in progress."
+            "status": "incomplete",
+            "notes": "Discontinued."
         }
-*/
     },
     "future": {
 
