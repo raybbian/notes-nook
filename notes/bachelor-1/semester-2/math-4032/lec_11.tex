@@ -7,5 +7,24 @@ Continuing with the proof of Sperner's Lemma:
 \end{definition}
 
 \begin{replacementproof}
-	
+	Consider the outer triangle \( T \). All smaller triangles \( T_i \) adjacent to \( T \) must lie on the edge of \( T \) which has colors \( 1,2 \). Note that there must be odd triangles adjacent to \( T \), as the there must be odd number of changes from 1 to 2 on the edge.
+
+	Now, consider a smaller triangle's degree \( d_G(T_i) \), where \( i \in \{1, 2, \ldots , n\}   \). If \( T_i \) has 3 different colors, then \( d_G(T_i) =1\). For the other direction, assume that \( d_G(T_i) \) is odd. Then, there must be at least one edge that receives colors 1 and 2. There are then 3 cases for the third vertex:
+	\begin{description}
+		\item[Case 1] It is of color 1. Then, there are two edges that have colors 1, 2.
+		\item[Case 2] It is of color 2. Then, there are again two edges that have colors 1, 2.
+		\item[Case 3] It is of color 3. Then, there is only one edge.
+	\end{description}
+	Therefore, the degree of \( T_i \) is odd if and only if it is colored vertices of different colors. There must be one such \( T_i \) in the graph, because the number of odd degree vertices in the graph is even.
 \end{replacementproof}
+
+\begin{definition}
+	A hypergraph \( H=(V, E) \) is \textbf{laminar} if for all pairs of its edges \( A, B \in E \) \( A,B \) is either disjoint, or one is a subset of the other. More formally, \( A \cap B = \varnothing \), \( A \subseteq B \), or \( B \subseteq A \).
+\end{definition}
+
+\begin{lemma}
+	Every laminar hypergraph with \( n \) vertices has at most \( 2n-1 \) edges.
+\end{lemma}
+\begin{proof}
+	Suppose that this is not the case. Let \( H=(V,E) \) be a counterexample such that \( |V| \) is minimum, and \( |E| \) is maximum. Because \( H \) is a counterexample, there must exist an edge \( A \in E \) such that \( A \neq V \).
+\end{proof}
