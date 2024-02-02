@@ -26,5 +26,26 @@ Continuing with the proof of Sperner's Lemma:
 	Every laminar hypergraph with \( n \) vertices has at most \( 2n-1 \) edges.
 \end{lemma}
 \begin{proof}
-	Suppose that this is not the case. Let \( H=(V,E) \) be a counterexample such that \( |V| \) is minimum, and \( |E| \) is maximum. Because \( H \) is a counterexample, there must exist an edge \( A \in E \) such that \( A \neq V \).
+	Suppose that this is not the case. Let \( H=(V,E) \) be a counterexample such that \( |V| \) is minimum, and \( |E| \) is maximum. Because \( H \) is a counterexample, there must exist an edge \( A \in E \) such that \( A \neq V \). Choose \( A \) such that \( |A| \) is maximum. By the choice of \( H \), \( \overline{A} = V\setminus A  \) is an edge of \( H \) (because otherwise, we would have a counterexample with even more edges, but our counterexample is maximum). Consider 
+	\begin{align*}
+		H_{1}&= (A, \{ e \in E: e \subseteq A\}  ) \\
+		H_{2}&= (\overline{A}, \{e \in E : e \subseteq \overline{A}\}  ) 
+	.\end{align*}
+	Then, by the choice of \( H \), neither \( H_{1} \) nor \( H_{2} \) is a counterexample. Therefore, the number of edges contained in \( A \) is at most \( 2|A|-1 \). Likewise, the number of edges contained in \( \overline{A} \) is \( 2|\overline{A}|-1 \). Then, the only edge that is not a subset of \( A \) or \( \overline{A} \) is \( V \). Therefore, \[
+		|E| \le (2|A| - 1) + (2|\overline{A}| - 1) - 1 = 2|V| - 1
+	.\] as desired.
 \end{proof}
+
+\begin{definition}
+	A hypergraph is \textbf{Sperner} if there are no distinct edges \( A \) and \( B \) with \( A \subset  B \).
+\end{definition}
+
+\begin{corollary}
+	For any integer \( n\ge 1 \), there exists a Sperner hypergraph on \( n \) vertices and \[
+		\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}
+	.\] edges.
+\end{corollary}
+
+\begin{theorem}
+	This bound is tight.
+\end{theorem}
