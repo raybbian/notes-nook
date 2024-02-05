@@ -15,6 +15,23 @@
 	\begin{observation}
 		For every permutation \( \tau  \), there is at most 1 edge \( A \in E \) such that \( A \) is initial for \( \tau  \). This is because in a Sperner hypergraph, no edge is contained in the other.
 	\end{observation}
+
+	\begin{observation}
+		Every \( A \in E \) is initial for \( |A|!(n-|A|)! \) permutations. This is because there are \( |A|! \) many ways to map \( \{1, 2, \ldots , |A|\}   \) to \( A \). There are then \( (n-|A|)! \) ways to map the rest.
+	\end{observation}
+
+	Let \[
+		\chi_{A, \tau }= \begin{cases}
+			1, &\text{ if \( A \) initial for \( \tau  \)}\\
+			0, &\text{ otherwise}
+		\end{cases}
+	.\] Then, \[
+		\underbrace{\sum_{\tau }\sum_{A \in E} \chi_{A,\tau }}_{\le \sum_{\tau } = n!} = \underbrace{\sum_{A \in E}\sum_{\tau } \chi_{A,\tau }}_{\sum_{A \in E}|A|!(n-|A|)!}
+	.\] Together, we have that \[
+		n! \ge \sum_{A \in E}|A|!(n-|A|)!
+	.\] such that \[
+		1 \ge \sum_{A \in E} \frac{|A|!(n-|A|)!}{n!} = \frac{1}{\binom{n}{|A|}}
+	.\] 
 \end{proof}
 
 And now with our proof for Sperner's theorem:
