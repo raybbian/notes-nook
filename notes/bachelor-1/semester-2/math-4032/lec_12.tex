@@ -1,0 +1,15 @@
+\lecture{12}{Mon 05 Feb 2024 13:58}{}
+
+\begin{note}
+	All normal graphs are Sperner, as all edges have the same size.
+\end{note}
+
+We will now prove that any Sperner hypergraph has at most \[
+	\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}
+.\] vertices.
+
+\begin{lemma}
+	(LMY-Inequality) If \( H=(V,E) \) is a Sperner hypergraph, and \( n=|V| \), then \[
+		\sum_{A \in E} \frac{1}{\binom{n}{|A|}} \le 1
+	.\] 
+\end{lemma}
