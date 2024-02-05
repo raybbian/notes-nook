@@ -4,12 +4,28 @@
 	All normal graphs are Sperner, as all edges have the same size.
 \end{note}
 
-We will now prove that any Sperner hypergraph has at most \[
-	\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}
-.\] vertices.
-
 \begin{lemma}
 	(LMY-Inequality) If \( H=(V,E) \) is a Sperner hypergraph, and \( n=|V| \), then \[
 		\sum_{A \in E} \frac{1}{\binom{n}{|A|}} \le 1
 	.\] 
 \end{lemma}
+\begin{proof}
+	Without loss of generality, let \( V = \{1, 2, \ldots , n\}   \). We proceed with a double counting argument. We let \( A \subseteq \{1, 2, \ldots ,n \}   \) be \textbf{initial} for \( \tau  \) if \( \tau (\{1, 2, \ldots , |A|\}  ) =A\). In other words, the first \( |A| \) elements map to the set \( A \). Note that \( \tau (\varnothing) \subseteq \tau (\{1\} \subseteq \tau (\{1,2\}  ) \subseteq \ldots \subseteq \tau (\{1, 2, \ldots , n\}  ) )\) are all initial sets.
+
+	\begin{observation}
+		For every permutation \( \tau  \), there is at most 1 edge \( A \in E \) such that \( A \) is initial for \( \tau  \). This is because in a Sperner hypergraph, no edge is contained in the other.
+	\end{observation}
+\end{proof}
+
+And now with our proof for Sperner's theorem:
+
+\begin{theorem}
+	Sperner's
+\end{theorem}
+\begin{proof}
+	Recall that \[
+		\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \ge \binom{n}{k}
+	.\] for any \( 1\le k\le n \). Therefore, \[
+		\frac{|E|}{\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}} = \sum_{A \in E} \frac{1}{\binom{n}{\left\lfloor \frac{n}{2} \right\rfloor}} \le \sum_{A \in E}\frac{1}{\binom{n}{|A|}}
+	.\] which must be at most 1 from LMY. Therefore, \( |E| \le \binom{n}{\left\lfloor \frac{n}{2} \right\rfloor} \).
+\end{proof}
