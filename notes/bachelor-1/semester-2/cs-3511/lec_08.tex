@@ -30,4 +30,6 @@ For Kruskal's, we just add edges in descending order so long as they don't creat
 \end{theorem}
 \begin{proof}
 	We assume that the sorting of edges is unique. Let \( U \) be the correct MST. Let \( e_{1}, e_{2}, \ldots , e_{n-1} \) be the edges picked by Kruskal. Let \( e_i \) be the first edge not in \( U \). This means that \( e_{1}, e_{2}, \ldots , e_{i-1} \in U \).
+
+	Then, \( U + e_i \) has a cycle, which must use an edge \( ab \) that is not among \( e_{1}, \ldots ,e_I \). Since Kruskal goes through edges in sorted order, we have that \( w_{ab}>w_{e_i} \). That means \( U \) would no longer be a spanning tree, a contradiction.
 \end{proof}
