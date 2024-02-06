@@ -1,0 +1,56 @@
+\lecture{9}{Tue 06 Feb 2024 14:16}{}
+
+\begin{theorem}
+	We have that \( G_X(s) = \mathbb{E}(s^{X} ) \).
+\end{theorem}
+\begin{proof}
+	\begin{align*}
+		\mathbb{E}(s^{X} ) &= \sum_{i=0}^{\infty} \mathbb{P}(X=i) \cdot {S^i}  \\
+		&=  G_X(s) 
+	.\end{align*}
+\end{proof}
+
+\begin{eg}
+	What is the PGF for \( X\equiv 0 \)?
+\end{eg}
+\begin{explanation}
+	We have that \( p_i = \mathbb{P}(X=i) \), such that \( p_{0} =1\), \( p_i = 0 \) for all \( i>0 \). Then, 
+	\begin{align*}
+		\mathbb{E}(s^{X} ) &= p_{0}s^{0} + \ldots  + p_i s^{i} + \ldots  = 1 \\
+		&= G_X(s) 
+	.\end{align*}
+\end{explanation}
+
+\begin{eg}
+	What is the PGF for \( X \sim \text{Bernoulli}(p) \)?
+\end{eg}
+\begin{explanation}
+	Remember that \( p \) is the probability for success, and \( 1-p \) is the probability for failure (Binomial). We have that \( p_{0} = 1-p \) and \( p_{1}=p \). Then, 
+	\begin{align*}
+		\mathbb{E}(s^{X} ) = G_X(s) &= p_{0}s^{0}+ p_{1}s^{1}   \\
+		&= (1 - p) + p \cdot  s 
+	.\end{align*}
+\end{explanation}
+
+\begin{theorem}
+	Given \( X \) with geometric distribution with parameter \( p \), we have that \[
+		\mathbb{P}(X = k) = pq^{k-1} 
+	.\] where \( p + q = 1 \), and \( X  \) has probability generating function \[
+		\frac{p}{q}\cdot \frac{1}{1-qs}
+	.\] 
+\end{theorem}
+
+\begin{definition}
+	Let \( k\ge 1 \). The \( k \)th \textbf{moment} of the random variable \( X \) is the quantity \( \mathbb{E}(X^{k} ) \).
+\end{definition}
+
+\begin{theorem}
+	The \( r \)th derivative of \( G_X(s) \) for \( s=1 \) is \( \mathbb{E}(X[X-1]\ldots [X-r+1]) \) for \( r = 1,2,\ldots  \). In other words, with \( s=1, r=1 \) we can get \( G_X'(1) = \mathbb{E}(X) \).
+\end{theorem}
+
+\begin{eg}
+	Use the method of generating functions to show that a random variable with Poisson distribution with parameter \( \lambda  \) has both mean and variance equal to \( \lambda  \).
+\end{eg}
+\begin{explanation}
+	Note that \( G''(1) = \mathbb{E}(X[X-1]) = \mathbb{E}X^{2} - \mathbb{E}X \).
+\end{explanation}

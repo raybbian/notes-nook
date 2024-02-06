@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1706818116 "master.tex" "master.pdf" "master" 1706818119 0
+["pdflatex"] 1707248167 "master.tex" "master.pdf" "master" 1707248169 0
   "../preamble.tex" 1706652510 8553 5ca5dfbf80fbe10bf1508d7892d21bff ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1704400182 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1704400182 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -278,10 +278,11 @@
   "lec_05.tex" 1706058423 3327 639eab7846ef0abdb4b33fd250538333 ""
   "lec_06.tex" 1706214612 3732 88c39d3022f7430e56e8c84bea7b17b8 ""
   "lec_07.tex" 1706814435 6507 9fc166ea23f3ac18af44cfbf0d84d312 ""
-  "lec_08.tex" 1706818113 3736 df169b9e227a9b6612846e95f72a8055 ""
-  "master.aux" 1706818119 33042 ce8034686174fcf6f495d444122d09f7 "pdflatex"
-  "master.tex" 1706814436 378 3c11f25df311586926e78b38515c49c4 ""
-  "master.toc" 1706818119 906 a1755fc0b4b9aa15141123d20df4798a "pdflatex"
+  "lec_08.tex" 1707246985 3757 94babddf2d4c2ec6068893c96c7863ac ""
+  "lec_09.tex" 1707248163 1964 59f71a2ca2c4b651620b99059efaff50 ""
+  "master.aux" 1707248169 35181 5a4e656da560ea7b0467df70ac89f806 "pdflatex"
+  "master.tex" 1707246976 401 ad98805b5558ec151fd9b7fd3ad27220 ""
+  "master.toc" 1707248169 906 a1755fc0b4b9aa15141123d20df4798a "pdflatex"
   (generated)
   "master.aux"
   "master.log"
