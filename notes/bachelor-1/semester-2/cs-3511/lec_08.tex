@@ -20,3 +20,14 @@ Note that if we replace the priority in Dijkstra with just the weight of the edg
 
 	However, because Prim decided to use this edge \( ab \) as well as \( e_i \), which means that \( w_{ab} > w_{e_i} \). Then, \( U + e_i - ab \) is a spanning tree of smaller weight, which means that \( U \) was not an MST, which is a contradiction.
 \end{proof}
+
+\subsection{Kruskal's}
+
+For Kruskal's, we just add edges in descending order so long as they don't create a cycle. We can achieve this with DSU.
+
+\begin{theorem}
+	Kruskal finds an MST.
+\end{theorem}
+\begin{proof}
+	We assume that the sorting of edges is unique. Let \( U \) be the correct MST. Let \( e_{1}, e_{2}, \ldots , e_{n-1} \) be the edges picked by Kruskal. Let \( e_i \) be the first edge not in \( U \). This means that \( e_{1}, e_{2}, \ldots , e_{i-1} \in U \).
+\end{proof}
