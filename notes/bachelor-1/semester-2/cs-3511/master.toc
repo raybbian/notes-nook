@@ -9,3 +9,4 @@
 \contentsline {subsection}{\numberline {3.2}Topological Sort}{5}{}%
 \contentsline {subsection}{\numberline {3.3}BFS}{5}{}%
 \contentsline {subsection}{\numberline {3.4}Dijkstra}{6}{}%
+\contentsline {subsection}{\numberline {3.5}Prim's}{6}{}%

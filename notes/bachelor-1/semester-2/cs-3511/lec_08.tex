@@ -1,1 +1,22 @@
 \lecture{8}{Tue 06 Feb 2024 12:30}{Prim's and Kruskal}
+
+Note that if we run DFS, BFS, and Dijkstra, we get trees based on which edges we used to traverse the graph. Dijkstra's is called the shortest path tree. These trees are also known as \textbf{spanning trees}.
+
+\begin{definition}
+	A \textbf{spanning tree} is a tree that reaches all nodes of the graph using only edges of that graph.
+\end{definition}
+
+\subsection{Prim's}
+
+Note that if we replace the priority in Dijkstra with just the weight of the edges instead of the current distance + weight, we will get the \textbf{minimum spanning tree}. This algorithm is known as Prim's algorithm.
+
+\begin{theorem}
+	Prim's algorithm finds an MST.
+\end{theorem}
+\begin{proof}
+	Let \( e_{1}, e_{2}, \ldots, e_n-1  \) be the edges used by Prim, by the order in which Prim uses these edges. \( e_{1}, \ldots , e_{i-1} \) are combined in some MST, but \( e_i \) is the first edge such that \( e_{1}, \ldots , e_i \) is not combined in any MST.
+
+	Then, there is some MST \( U \) that uses \( e_{1}, \ldots , e_{i-1} \). This \( U \) mus have an edge connecting the inside and outside that doesn't use \( e_i \). Since the graph must be connected, there must now be a cycle.
+
+	However, because Prim decided to use this edge \( ab \) as well as \( e_i \), which means that \( w_{ab} > w_{e_i} \). Then, \( U + e_i - ab \) is a spanning tree of smaller weight, which means that \( U \) was not an MST, which is a contradiction.
+\end{proof}
