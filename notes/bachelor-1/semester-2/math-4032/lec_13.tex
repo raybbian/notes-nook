@@ -19,3 +19,32 @@ If we fix a graph \( G' \), what is the maximum number of edges in an \( n \)-ve
 \begin{eg}
 	If \( G' \) is the single edge, then the maximum number of edges in a graph that does not contain \( G' \) is 0.
 \end{eg}
+
+\begin{eg}
+	If \( G' \) is the line graph with 2 edges, then for every vertex \( v \) we have that \( d_G(v) \le 1 \). By the handshaking lemma, we have that \[
+		2|E| \le \sum_{v \in V}d_G(v) \le |V|
+	.\] Therefore, \[
+		|E| \le \left\lfloor \frac{n}{2} \right\rfloor
+	.\] 
+\end{eg}
+
+\begin{observation}
+	Note that if \( G'' \subseteq G' \), and \( G'\subseteq G \), then \( G'' \subseteq G \).
+\end{observation}
+
+\begin{definition}
+	For any integer \( r\ge 1 \), the \textbf{complete graph} on \( r \) vertices, denoted \( K_r \), has \( r \) vertices and \( \binom{r}{2} \) edges.
+\end{definition}
+
+We now look at the case where \( G'=K_3 \) is the triangle graph. One such example is the complete bipartite graph with \( \left\lfloor \frac{n}{2} \right\rfloor \) vertices on one side and \( \left\lceil \frac{n}{2} \right\rceil  \) vertices on the other. this graph has \( \left\lfloor \frac{n}{2} \right\rfloor \left\lceil \frac{n}{2} \right\rceil \) edges, which is actually the unique graph to the extremal problem.
+
+\begin{theorem}
+	(Turan) Every \( n \)-vertex graph with no subgraph isomorphic to \( K_3 \) has at most \[
+		\left\lfloor \frac{n}{2} \right\rfloor \left\lceil \frac{n}{2} \right\rceil 
+	.\] edges.
+\end{theorem}
+\begin{proof}
+	(Erdos) Let \( G = (V,E) \) be an \( n \)-vertex graph with no subgraph \( \cong K_3 \). Let \( v \in V \) be a vertex of maximum degree. Let \( N_G(v) = \{x \in V : (v, x) \in E\}   \). Let this set be called the \textbf{neighborhood} of \( v \) in \( G \). 
+
+	Let \( \hat{G} = (\hat{V}, \hat{E})\) be the graph with vertex set \( \hat{V}=V \).
+\end{proof}
