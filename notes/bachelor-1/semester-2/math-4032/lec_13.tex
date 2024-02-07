@@ -46,5 +46,15 @@ We now look at the case where \( G'=K_3 \) is the triangle graph. One such examp
 \begin{proof}
 	(Erdos) Let \( G = (V,E) \) be an \( n \)-vertex graph with no subgraph \( \cong K_3 \). Let \( v \in V \) be a vertex of maximum degree. Let \( N_G(v) = \{x \in V : (v, x) \in E\}   \). Let this set be called the \textbf{neighborhood} of \( v \) in \( G \). 
 
-	Let \( \hat{G} = (\hat{V}, \hat{E})\) be the graph with vertex set \( \hat{V}=V \).
+	Let \( \hat{G} = (\hat{V}, \hat{E})\) be the graph with vertex set \( \hat{V}=V \) and edge set \[
+		\hat{E}=\{(x, y) : x \in N_G(v) \text{ and } y \not\in N_G(v)\}  
+	.\] This graph \( \hat{G} \) has no subgraph \( \cong K_3 \). We claim that \[
+		|\hat{E}| \ge |E|
+	.\] Continuing, 
+	\begin{align*}
+		|E| &\le \sum_{y \not\in N_G(v)} d_G(y) \\
+				&\le \sum_{y \not\in N_G(v)} d_G(v)\\
+				&=|\hat{E}| 
+	.\end{align*}
+	Remember to maximize \( ab \) such that \( a+b=n \), we set \( a=\left\lfloor \frac{n}{2} \right\rfloor \) and \( b=\left\lceil \frac{n}{2} \right\rceil  \). Therefore, the maximum number of edges in our graph is \( |\hat{E}| = ab \le  \left\lfloor \frac{n}{2} \right\rfloor  \left\lceil \frac{n}{2} \right\rceil \).
 \end{proof}
