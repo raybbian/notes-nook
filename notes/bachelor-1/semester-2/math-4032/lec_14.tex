@@ -25,5 +25,25 @@ This graph is called the \textbf{Turan Graph} \( T(n, 2) \).
 	Let \( n,r \in Z_{>0}\), and let \( G=(V,E) \) be an \( n \)-vertex complete multipartite graph with \( \le r \) parts. Then \( G \) has at most as many edges as \( T(n, r) \), and is \( T(n, r) \) if \( = \) holds.
 \end{lemma}
 \begin{proof}
-	Suppose \( G \) has \( \ge 2 \) vertices in its largest part than in its smallest part. We wil show that \( |E| <  \) the number of edges in \( T(n, r) \).
+	Suppose \( G \) has \( \ge 2 \) vertices in its largest part than in its smallest part. We will show that \( |E| <  \) the number of edges in \( T(n, r) \). 
+
+	While there are \( \ge 2 \) more vertices in the largest part of \( G_i \) than in its smallest part, let \( G_{i+1} \) be the complete multipartite graph formed from moving one such vertex from the smallest part to the largest part of \( G_i \). 
+\end{proof}
+
+\begin{lemma}
+	This process will end, and when it does, that graph is isomorphic to \( T(n, r) \).
+\end{lemma}
+\begin{proof}
+	HW.
+\end{proof}
+
+\begin{lemma}
+	The number of edges in \( G_i \) is strictly less than the number of edges in \( G_{i+1} \).
+\end{lemma}
+\begin{proof}
+	Let \( v \) be the vertex of \( G_i \) which was moved. Then the number of edges of \( G_i \), which are not incident to \( v \), is the number of edges in \( G_{i+1}  \) that are not incident to \( v \). Also, we have that \[
+		d_{G_i}(v) = n - \text{vertices in part with \( v \)}
+	.\] and \[
+		d_{G_{i+1})}(v) = n - \text{vertices in new part with \( v \)}
+	.\] Therefore, the number of edges in \( G_{i+1} \) is strictly greater than that of \( G_i \).
 \end{proof}
