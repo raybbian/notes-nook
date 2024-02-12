@@ -5,7 +5,7 @@
 \end{definition}
 
 \begin{theorem}
-	(Kovori-Sos-Turan) Let \( G'=(V',E') \) be a bipartite graph. Then there exists \( \epsilon >0 \) (which depends on \( G' \)) such that every \( n \)-vertex graph with no subgraph isomporhic \( \cong G' \) has \( O(n^{2-\epsilon } ) \) edges. In fact, we can take \[
+	(Kovori-Sos-Turan) Let \( G'=(V',E') \) be a bipartite graph. Then there exists \( \epsilon >0 \) (which depends on \( G' \)) such that every \( n \)-vertex graph with no subgraph isomorphic \( \cong G' \) has \( O(n^{2-\epsilon } ) \) edges. In fact, we can take \[
 		\epsilon = \frac{1}{\text{size of larger part of bipartition}}
 	.\] 
 \end{theorem}
@@ -25,3 +25,16 @@ We will now look at a construction for the lower bound.
 \begin{definition}
 	In its essence, a \textbf{projective plane} is a system of \( q^{2} + q + 1  \) lines and ponts such that every pair of points determines a line, every pair of lines determines a unique point, and every line contains \( q+1 \) points.
 \end{definition}
+
+\begin{tmpexplanation}
+	Consider the (biparite) incidence graph of a projective plane such that each point is connected to the lines that it is in. Formally, \[
+		V = \{\text{points}\} \cup \{\text{lines}\} 
+	\] and \[ 
+		\quad E = \{\{x,y\} : x \text{ is a point in line } y  \}	
+	.\] 
+	Observe that \( G \) has no subgraph isomorphic to \( C_4 \). Also note that the number of edges is the number of lines times the number of points in each line, which is \[
+		(q^{2}+q+1)(q+1) \ge q^{3}  
+	.\] Also note that the number of vertices is \( 2(q^{2}+q+1) =O(q^{2})  \). Therefore, \[
+		\text{number edges} = \Omega(\text{number vertices}^{1.5} )
+	.\] 
+\end{tmpexplanation}
