@@ -1,9 +1,27 @@
 \lecture{15}{Mon 12 Feb 2024 14:06}{}
 
-\begin{observation}
-	Since \( T(n, 2) \) has \( \approx \frac{n^{2}}{4}  \) edges, \( G' \) must have a of \( T(n, 2) \). This way, we can block many more edges.
-\end{observation}
+\begin{definition}
+	A graph \( G \) is \textbf{bipartite} if \( G \subseteq T(n, 2) \) for some \( n \). Equivalently, \( G \) is \textbf{bipartite} if its vertex set can be paritioned into two sets \( A \) and \( B \) such that every edge of \( G \) has one end in \( A \) and one end in \( B \). The two sets \( A \) and \( B \) are called a \textbf{bipartition} of the graph.
+\end{definition}
+
+\begin{theorem}
+	(Kovori-Sos-Turan) Let \( G'=(V',E') \) be a bipartite graph. Then there exists \( \epsilon >0 \) (which depends on \( G' \)) such that every \( n \)-vertex graph with no subgraph isomporhic \( \cong G' \) has \( O(n^{2-\epsilon } ) \) edges. In fact, we can take \[
+		\epsilon = \frac{1}{\text{size of larger part of bipartition}}
+	.\] 
+\end{theorem}
+
+\begin{theorem}
+	(Special case of KST) If \( G' \) is the complete bipartite graph with bipartition \( (A,B) \) such that \( |A|=2 \) and \( |B|=2 \), then every \( n \)-vertex graph with no subgraph \( \cong G' \) has \[
+		O(n^{\frac{3}{2}} )
+	.\] Note that \( G' \) is also the 4-cycle \( C_4 \).
+\end{theorem}
+
+\begin{note}
+	The same for \( K_{3,3} \) is an open problem, known as the \textbf{Zarankeiwicz Problem}.
+\end{note}
+
+We will now look at a construction for the lower bound.
 
 \begin{definition}
-	A graph \( G \) is \textbf{bipartite} if \( G \subseteq T(n, 2) \) for some \( n \). Equivalently, \( G \) is \textbf{bipartite} if its vertex set can be paritioned into two sets \( A \) and \( B \) such that every edge of \( G \) has one end in \( A \) and one end in \( B \).
+	In its essence, a \textbf{projective plane} is a system of \( q^{2} + q + 1  \) lines and ponts such that every pair of points determines a line, every pair of lines determines a unique point, and every line contains \( q+1 \) points.
 \end{definition}
