@@ -93,3 +93,27 @@
 		f(x) = \frac{1}{\sqrt{2\pi \sigma ^{2} } }\exp \left( -\frac{1}{2\sigma ^{2} } (x-\mu )^{2}  \right) 
 	.\] 
 \end{definition}
+
+\begin{theorem}
+	Memoryless + continuous implies \( \exp(\lambda ) \).
+\end{theorem}
+
+\begin{eg}
+	Consider a post office with two clerks, each of which have a client (Ms. Jones and Mr. Brown). Given that Mr. Smith will receive service as soon as a client leaves, and each time a client spends with the clerk is exponentially distributed with paramenter \( \lambda  \), what is the probability that Mr. Smith leaves last?
+\end{eg}
+\begin{explanation}
+	Let \( X_J, X_B \) be the amount of time \( J, B \) wait after \( S \) walks in. Let \( E_J \) be the event that \( J \) leaves first, and same with \( E_B \). Note that Mr. S leaves 2nd or 3rd. We will calculate the probability that \( S \) leaves second.
+
+	This is just 
+	\begin{align*}
+		&\sum_{i = J,B} \mathbb{P}(S \text{ leaves second} \mid E_i) \cdot \mathbb{P}(E_i) 
+	.\end{align*}
+	Then, 
+	\begin{align*}
+		&\mathbb{P}(S \text{ leaves second} \mid E_i)  \\
+		&= \mathbb{P}(X_B > X_S + X_J \mid  X_B > X_S) \\
+		&= \mathbb{P}(X_B > X_S) \tag{Memoryless}\\
+		&= \frac{1}{2} \tag{Memoryless}
+	.\end{align*}
+	Such that the answer is \( \frac{1}{2} \).
+\end{explanation}
