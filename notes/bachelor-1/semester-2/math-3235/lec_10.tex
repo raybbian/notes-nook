@@ -14,8 +14,82 @@
 	If \( X \) is uniformly distributed over \( (0, 10) \), calculate the probability that \( X<3 \), \( X>6 \), and \( 3<X<8 \).
 \end{eg}
 \begin{explanation}
-	For \( X<3 \), we have 
+	Note that \[
+		f_X(t) = \begin{cases}
+			0, &\text{ if }t<0\\
+			\frac{1}{10} &\text{ if } 0\le t\le 10 \\
+			1 &\text{ if } t > 10
+		\end{cases}
+	.\] Then for \( X<3 \),
 	\begin{align*}
-		\mathbb{P}(X < 3) = \sum_{-\infty}^{3} f_X(t) dt
+		\mathbb{P}(X < 3) &= \sum_{-\infty}^{3} f_X(t) dt \\
+		&= \int_{-\infty}^{0}0 dt + \int_{0}^{3}\frac{1}{10}dt  \\
+		&= \frac{3}{10}
+	.\end{align*}
+	Similarly for \( X>6 \), we have \( \frac{4}{10} \).
+\end{explanation}
+
+\begin{eg}
+	Suppose \( X \) is a continuous random variable whose probability density function is given by \[
+		f(x) = \begin{cases}
+			C(4x-2x^{2} ), &\text{ if }0<x<2\\
+			0 &\text{ otherwise}
+		\end{cases}
+	.\] 
+	What is \( C \)? What is \( \mathbb{P}(X>1) \)?
+\end{eg}
+\begin{explanation}
+	We have that \[
+		\int_{-\infty}^{\infty}f(x)dx = 1 
+	.\] such that 
+	\begin{align*}
+		1 &= \int_{0}^{2}C(4x-2x^{2} ) dx\\
+		&= 4C\left(\frac{x^{2} }{2} |_0^{2} \right) - 2C \left(\frac{x^{3} }{3} |_0^{2}\right)  \\
+		&= \frac{8}{3}C 
+	.\end{align*}
+	Therefore, \( C = \frac{3}{8} \). Now calculating \( \mathbb{P}(X>1) \), 
+	\begin{align*}
+		\mathbb{P}(X>1) &= \int_{1}^{\infty} f(x)dx \\
+										&= \int_{1}^{2}\frac{3}{8}(4x-2x^{2} )dx  \\
+										&= \frac{1}{2} 
 	.\end{align*}
 \end{explanation}
+
+\begin{eg}
+	The amount of time in hours that a computer functions before breaking down is a continuous random variable with PDF given by \[
+		f(x) = \begin{cases}
+			\lambda e^{\frac{-x}{100}} , &\text{ if } x\ge 0\\
+			0 &\text{ otherwise}
+		\end{cases}
+	.\] What is \( \mathbb{P}(50 < X < 150) \)? \( \mathbb{P}(X<100) \)?
+\end{eg}
+\begin{explanation}
+	We have that 
+	\begin{align*}
+		\int_{-\infty}^{\infty} f(x) dx &= 1 \\
+		\int_{0}^{\infty}\lambda e^{\frac{-x}{100}}  &= 1 \\
+		&= 0 - (100\lambda \cdot -1) \\
+		&= 100\lambda 
+	.\end{align*}
+	such that \( \lambda =\frac{1}{100} \). Then,
+	\begin{align*}
+		\mathbb{P}(50 < X < 150) &= e^{-\frac{1}{2}} - e^{-\frac{3}{2}}   \\
+		\mathbb{P}(X < 100) &= 1-e^{-1} 
+	.\end{align*}
+\end{explanation}
+
+\begin{definition}
+	The \textbf{uniform distribution} is given by \[
+		f(x) = \begin{cases}
+			\frac{1}{b-a}, &\text{ if }a<x<b\\
+			0 &\text{ otherwise}
+		\end{cases}
+	.\]. The \textbf{exponential distribution} with parameter \( \lambda >0 \) has \[
+		f(x) = \begin{cases}
+			\lambda e^{-\lambda x} &\text{ if } x>0  \\
+			0 &\text{ otherwise}
+		\end{cases}
+	.\] The \textbf{normal distribution} with parameters \( \mu  \) and \( \sigma ^{2}  \) has density function \[
+		f(x) = \frac{1}{\sqrt{2\pi \sigma ^{2} } }\exp \left( -\frac{1}{2\sigma ^{2} } (x-\mu )^{2}  \right) 
+	.\] 
+\end{definition}
