@@ -1,0 +1,21 @@
+\lecture{10}{Tue 13 Feb 2024 14:01}{CDFs and PDFs}
+
+\begin{definition}
+	The CDF is everything under the graph of a PDF to the left of some point \( t \).
+\end{definition}
+
+\begin{theorem}
+	We have for PDFs
+	\[ \mathbb{P}(a\le X\le b) = \int_{a}^{b}f_X(t) dt = F_x(b) - F_x(a)\]
+	where \( F \) is a CDF.
+\end{theorem}
+
+\begin{eg}
+	If \( X \) is uniformly distributed over \( (0, 10) \), calculate the probability that \( X<3 \), \( X>6 \), and \( 3<X<8 \).
+\end{eg}
+\begin{explanation}
+	For \( X<3 \), we have 
+	\begin{align*}
+		\mathbb{P}(X < 3) = \sum_{-\infty}^{3} f_X(t) dt
+	.\end{align*}
+\end{explanation}
