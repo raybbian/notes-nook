@@ -25,6 +25,16 @@ We will now prove the special case of the Kovori-Sos-Turan theorem.
 	.\end{align*}
 	All in all, 
 	\begin{align*}
-		2|E|-n \le \sqrt{2 \sum_{v \in V}\binom{d_G(2)}{2}} \cdot \sqrt{n} 
+		2|E|-n &\le \sqrt{2 \sum_{v \in V}\binom{d_G(2)}{2}} \cdot \sqrt{n} \\
+	  \sum_{v \in V}\binom{d_G(v)}{2} &\le  \frac{n^2}{2}\\
+		2|E|-n &\le \sqrt{n^{2} }  \cdot \sqrt{n} \\
+		&= n^{\frac{3}{2}}
 	.\end{align*}
+	Such that \[
+		|E| \le \frac{n^{\frac{3}{2}}+n }{2} = O(n^{\frac{3}{2}} )
+	.\] 
 \end{replacementproof}
+
+\begin{theorem}
+	(Szemeredi-Trotter) For incidences for points on lines in the plane in \( \mathbb{R}^{2}  \), the number of incidences is \( O(n^{\frac{4}{3}} ) \).
+\end{theorem}
