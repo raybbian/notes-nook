@@ -9,5 +9,22 @@
 We will now prove the special case of the Kovori-Sos-Turan theorem.
 
 \begin{replacementproof}
-	We count the number of cherries such that \( v \) is red and the two green star vertices are \( \in N_G(v) \). One way to count such cherries is choose every two vertices in the neighborhood of \( G \), which is \( \binom{d_G(V)}{2} \).
+	We count the number of subgraphs isomorphic to cherries such that \( v \) is red and the two green star vertices are \( \in N_G(v) \). One way to count such cherries is choose every two vertices in the neighborhood of \( G \), which is \( \sum_{v \in V} \binom{d_G(V)}{2} \).
+
+	The second way is to first choose the two green star vertices, which is just \( \binom{n}{2} \). Then, there is at most one choice for the red vertex as there is no subgraph isomorphic to \( C_4 \). This is therefore at most \( \binom{n}{2} \).
+
+	Putting this all together, we have 
+	\begin{align*}
+		\sum_{v \in V}\binom{d_G(v)}{2} \le \binom{n}{2} \le \frac{n^{2}}{2}
+	.\end{align*}
+	Let the vertex set be \( \{1, 2, \ldots , n\}   \). Apply the Cauchy-Schwarz inequality with all \( y_{i}=1 \), and \( x_i = d_G(i) - 1 \). Then, 
+	\begin{align*}
+		\sum_{i=1}^{n} x_i &\le  \sqrt{\sum_{i=1}^{n} x_i^{2} } \sqrt{\sum_{i=1}^{n} 1} \\
+		&= \sqrt{\sum_{i=1}^{n} (d_G(i) - 1)^{2} } \cdot \sqrt{n}   \\
+		&\le \sqrt{ 2 \sum_{v  \in V} \binom{d_G(v)}{2}} \cdot \sqrt{n}
+	.\end{align*}
+	All in all, 
+	\begin{align*}
+		2|E|-n \le \sqrt{2 \sum_{v \in V}\binom{d_G(2)}{2}} \cdot \sqrt{n} 
+	.\end{align*}
 \end{replacementproof}
