@@ -5,3 +5,38 @@
 		\lambda (t) = \frac{f(t)}{\overline{F}(t)}
 	.\] where \( \overline{F} = 1 - F \). Suppose that an item has survived for a time \( t \) and we wish to find the probability that it will not survive for a longer \( dt \). Then \( \lambda (t) \) is the probability intensity that a \( t \) old item will die/fail.
 \end{definition}
+
+\begin{eg}
+	What is the hazard rate of the exponential function?
+\end{eg}
+\begin{explanation}
+	We have \[
+		f_x(t) = \gamma e^{-\gamma t}  \quad t \ge 0
+	.\] and that \[
+		F_X(t) = 1 - e^{-\gamma t} 
+	.\] from a previous class. Then \[
+		\lambda (t) = \frac{\gamma e^{-\gamma t} }{e^{-\gamma t} } = \gamma \quad  t > 0
+	.\] It doesn't depend on \( t \) (memoryless)! Also note that working backwards, \[
+		\overline{F}_X = Ce^{-\lambda t} 
+	.\] 
+\end{explanation}
+
+\begin{eg}
+	A distribution function of positive continuous random variable can be specified by giving its hazard rate function. If a random variable has linear hazard rate function, \[
+		\lambda (t) = a + bt
+	.\] then \[
+		\overline{F}_X = Ce^{-at - \frac{bt ^{2} }{2}}  
+	.\] Noting that \( F_X(0) = 0 \), then we can solve for \( C \)), which is 1.
+\end{eg}
+
+\begin{definition}
+	Expectation of a continuous random variable is given by \[
+		\mathbb{E}(X) = \int_{-\infty}^{\infty}x\cdot f_X(x)dx 
+	.\] 
+\end{definition}
+
+\begin{theorem}
+	(Law of the subconcious statistician) If \( X \) is a continuous random variable, then \[
+		\mathbb{E}(g(X)) = \int_{-\infty}^{\infty}g(x)f_X(x)dx 
+	.\] whenever this integral converges.
+\end{theorem}
