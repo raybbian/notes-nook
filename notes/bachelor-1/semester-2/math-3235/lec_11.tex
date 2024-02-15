@@ -40,3 +40,52 @@
 		\mathbb{E}(g(X)) = \int_{-\infty}^{\infty}g(x)f_X(x)dx 
 	.\] whenever this integral converges.
 \end{theorem}
+
+\begin{eg}
+	If \( X \) has the exponential distribution with parameter \( \lambda  \), then \( \mathbb{E}(X) = \frac{1}{\lambda } \)
+\end{eg}
+
+\begin{eg}
+	A stick of length 1 is split at a point \( U \) uniformly distributed over \( (0,1) \). Determine the expected length of the piece that contains the point \( p \), \( 0\le p\le 1 \).
+\end{eg}
+\begin{explanation}
+	The answer is \( p - p^{2} + \frac{1}{2}  \).
+\end{explanation}
+
+\begin{lemma}
+	For nonnegative random variable \( Y \), \[
+		\mathbb{E}(Y) = \int_{0}^{\infty}\mathbb{P}(Y>y)dy 
+	.\] 
+\end{lemma}
+\begin{proof}
+	\begin{align*}
+		\mathbb{E}(Y) &= \int_{0}^{\infty}\mathbb{P}(Y>y)  dy\\
+		\mathbb{P}(Y>y) &=  \int_{y}^{\infty}f_Y(x)dx  \\
+		\int_{0}^{\infty} \mathbb{P}(Y>y) dy &= \int_{0}^{\infty}\int_{y}^{\infty}f_Y(x)dxdy   \\
+		&= \int_{0}^{\infty}\int_{0}^{x} f_Y(x)dy dx   \\
+		&= \int_{0}^{\infty} \left(\int_{0}^{x} dy \right) f_Y(x) dx  \\
+		&= \int_{0}^{\infty} x f_Y(x) dx 
+	.\end{align*}
+\end{proof}
+
+\begin{eg}
+	If \( X \) is continuous with density function \( f_X \), and \( g(x) = ax + b \) when \( a>0 \), then \( Y=g(X) = aX + b \) has distribution function given by
+\end{eg}
+\begin{explanation}
+	Note that 
+	\begin{align*}
+		F_Y(t) &= \mathbb{P}(y\le t) \\
+		&= \mathbb{P}(aX + b \le t) \\
+		&= \mathbb{P}\left(X \le \frac{t-b}{a}\right) \\
+		&= F_X\left(\frac{t-b}{a}\right) 
+	.\end{align*}
+	Note that \[
+		f_Y(t) = \frac{d}{dt} F_X \left( \frac{t-b}{a} \right)  = \frac{1}{a} \cdot f_X\left(\frac{t-b}{a}\right)
+	.\] 
+\end{explanation}
+
+\begin{theorem}
+	If \( X  \) is a CRV with density function \( f_X \), and \( g \) is a strictly increasing and differentiable function from \( \mathbb{R} \) to \( \mathbb{R} \), then \( Y = g(X) \) has density function \[
+		f_Y(y) = f_X(g^{-1}(y))\frac{d}{dy}[g^{-1}(y)]
+	.\] 
+\end{theorem}
