@@ -7,3 +7,16 @@
 \begin{theorem}
 	(Tutte) For every \( k \in \mathbb{Z}_{>0} \), there exists a graph \( G=(V,E) \) with no subgraph \( \cong K_3 \) such that \( G \) is not a subgraph of any complete multipartite graph with \( \le k \) parts.
 \end{theorem}
+
+\begin{lemma}
+	The minimum \textbf{chromatic number} of \( G \) is the minimum integer \( k \) such that there exists \( \phi : V \to \{1, 2, \ldots , k\}   \) such that the ends of every edge have different colors.
+\end{lemma}
+
+\begin{definition}
+	Another way to define the \textbf{chromatic number} is \( \chi(G) \). Any function \(\phi :V \to \{1, \ldots , k\}   \) such that for all \( (u, v) \in E \), \( \phi (u) \neq  \phi (v) \) is called a \textbf{proper k-coloring}.
+\end{definition}
+
+We now show the proof of the theorem:
+\begin{replacementproof}
+	We proceed with induction on \( k \). Formally, set \( G_{k+1} = (V_{k+1}, E_{k+1}) \) where \( V_{k+1} = V \cup \underbrace{\{\hat{a} : a \in V_k\}}_{\hat{V_k}}  \cup \{v\}    \).
+\end{replacementproof}
