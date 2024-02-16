@@ -18,7 +18,7 @@
 
 We now show the proof of the theorem:
 \begin{replacementproof}
-	We proceed with induction on \( k \). Formally, set \( G_{k+1} = (V_{k+1}, E_{k+1}) \) where \[ V_{k+1} = V \cup \underbrace{\{\hat{a} : a \in V_k\}}_{\hat{V_k}}  \cup \{v\}    \] and
+	We proceed with induction on \( k \). Formally, set \( G_{k+1} = (V_{k+1}, E_{k+1}) \) where \[ V_{k+1} = V \cup \underbrace{\{\hat{a} : a \in V_k\}}_{\hat{V_k}:}  \cup \{v\}    \] and
 	\begin{align*}
 		E_{k+1} &= E_k \cup \{\{a, \hat{b}\}: \{a, b\}  \in E_k   \}  \\ &\cup \{ \{\hat{a}, v\} : a \in V_k \}
 	.\end{align*}
@@ -27,6 +27,6 @@ We now show the proof of the theorem:
 			\phi (a) &\text{ if } \phi (a) \in \{1, \ldots , k\}  \\
 			\phi (\hat{a}) &\text{ if } \phi (a) = k+1
 		\end{cases}
-	.\] Note that \( \phi '(a) \in \{1, \ldots , k\}   \). This is a proper \( k \) coloring. 
+	.\] Note that \( \phi '(a) \in \{1, \ldots , k\}   \). This is a proper \( k \) coloring, a contradiction.
 \end{replacementproof}
 
