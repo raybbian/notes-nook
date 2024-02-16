@@ -1525,6 +1525,10 @@ INPUT ./lec_16.tex
 INPUT lec_16.tex
 INPUT ./lec_16.tex
 INPUT lec_16.tex
+INPUT ./lec_17.tex
+INPUT lec_17.tex
+INPUT ./lec_17.tex
+INPUT lec_17.tex
 INPUT master.aux
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb
