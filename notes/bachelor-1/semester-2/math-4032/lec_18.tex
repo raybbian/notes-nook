@@ -46,5 +46,9 @@ Note that \( S_2 \) is a ball, like a soccer ball.
 	(Lovasz-Kneser) The chromatic number of \( G_{3k-1, k} \) is \( >k \).
 \end{theorem}
 \begin{proof}
-	Suppose not. Then \( \phi  \) is a proper \( k \)-coloring of \( G_{3k-1, k} \). Let \( P \subseteq S_k \) be a set of \( 3k-1 \) points such that no points in \( P \) lie on a hyperplane through the origin. (For any vector \( x \in \mathbb{R}^{k+1}  \)), the set of \( \{y \in \mathbb{R}^{k+1} : x \cdot y = 0 \}   \) is a hyperplane through the origin).
+	Suppose not. Then \( \phi  \) is a proper \( k \)-coloring of \( G_{3k-1, k} \). Let \( P \subseteq S_k \) be a set of \( 3k-1 \) points such that no \( k+1 \) points in \( P \) lie on a hyperplane through the origin. (For any vector \( x \in \mathbb{R}^{k+1}  \)), the set of \( \{y \in \mathbb{R}^{k+1} : x \cdot y = 0 \}   \) is a hyperplane through the origin).
+
+	For each color \( i \), let \( X_i \) be the set of all \( x \in S_k \). such that there exists a vertex \( A \in V_{3k-1, k} \) such that \( \phi (A) = i \), and \( f(A) \) lies in the hemisphere of \( S_k \) centered at \( x \).
+
+	It is possible to show that \( X_{1}, X_{2}, \ldots , X_k \) are open, and that \( S_k \setminus \bigcup_{i=1}^{k}X_i  \) is closed. So by the theorem, there exists antipodal points \( x, -x \) which are contained in the same one of \( X_i \). If the the last set contains these two points, then there are two open hemispheres, both containing less than \( k \) points, which means that there are \( k+1 \) points contained in a hyperplane. If some \( X_i \) has antipodal points, then two disjoint sets have the same color, which is a contradiction.
 \end{proof}
