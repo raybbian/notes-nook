@@ -9,3 +9,42 @@ Note that \( S_2 \) is a ball, like a soccer ball.
 \begin{definition}
 	A set \( X \subseteq S_n \) is \textbf{open} if for every \( x \in X \), there exists \( \epsilon >0 \) such that all points \( y \in S_n \) with \( dist(x, y) < \epsilon  \) are in \( X \).
 \end{definition}
+
+\begin{definition}
+	A set \( X \subseteq S_{n} \) is \textbf{closed} if \( S_n \setminus X \) is open.
+\end{definition}
+
+\begin{lemma}
+	Any union of open sets is open.
+\end{lemma}
+\begin{proof}
+	Omitted.
+\end{proof}
+
+\begin{theorem}
+	(Bosuk-Ulam) Let \( X_{1}, X_{2}, \ldots , X_{n+1} \subseteq S_n \) such that \[
+		\bigcup_{i=1}^{n+1}X_i = S_n 
+	.\] and each of \( X_i \) is either open or closed. Then there exists \( i \in \{1, 2, \ldots , n+1\}   \) and \( x \in S_n \) such that \( X_i \) contains both \( x  \) and \( -x \). These points are called \textbf{antipodal}.
+\end{theorem}
+
+\begin{definition}
+	The \textbf{Kneser} graph \( G_{n,k} = (V_{n,k}, E_{n,k}) \) has a vertex set \[
+		V_{n,k}= \{I \subseteq \{1, \ldots , n\} : |I| = k \}  
+	.\]  and \[
+		E_{n,k} = \{\{A,B\} : A\cap B = \varnothing \}  
+	.\] 
+\end{definition}
+
+\begin{lemma}
+	The graph \( G_{3k-1, k} \) has no subgraph \( \cong K_3 \).
+\end{lemma}
+\begin{proof}
+	There are no 3 disjoint sets \( A, B, C \in \{1, 2, \ldots , 3k-1\}   \) of size \( k \).
+\end{proof}
+
+\begin{theorem}
+	(Lovasz-Kneser) The chromatic number of \( G_{3k-1, k} \) is \( >k \).
+\end{theorem}
+\begin{proof}
+	Suppose not. Then \( \phi  \) is a proper \( k \)-coloring of \( G_{3k-1, k} \). Let \( P \subseteq S_k \) be a set of \( 3k-1 \) points such that no points in \( P \) lie on a hyperplane through the origin. (For any vector \( x \in \mathbb{R}^{k+1}  \)), the set of \( \{y \in \mathbb{R}^{k+1} : x \cdot y = 0 \}   \) is a hyperplane through the origin).
+\end{proof}
