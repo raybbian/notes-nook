@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1708027574 "master.tex" "master.pdf" "master" 1708027577 0
+["pdflatex"] 1708365400 "master.tex" "master.pdf" "master" 1708365402 0
   "../preamble.tex" 1707579980 8553 5ca5dfbf80fbe10bf1508d7892d21bff ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1704400182 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1704400182 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -280,11 +280,11 @@
   "lec_07.tex" 1706814435 6507 9fc166ea23f3ac18af44cfbf0d84d312 ""
   "lec_08.tex" 1707246985 3757 94babddf2d4c2ec6068893c96c7863ac ""
   "lec_09.tex" 1707850888 5363 7135fefd8ab58612ece3c638d0179570 ""
-  "lec_10.tex" 1707855184 4170 662a779db8d74e3e46c627937907205e ""
-  "lec_11.tex" 1708027571 3464 0bfbaea61ac87377210081d9b03e5e41 ""
-  "master.aux" 1708027576 41771 38c932453f98facc880740b7b460d641 "pdflatex"
+  "lec_10.tex" 1708365393 4169 82be3c68212459ec7656800b90ecbca2 ""
+  "lec_11.tex" 1708027936 3464 0bfbaea61ac87377210081d9b03e5e41 ""
+  "master.aux" 1708365402 41771 a4343c750e934627828d4c0d5fc12aa5 "pdflatex"
   "master.tex" 1708023708 447 60fb6abb21a833174fb872a8d0cb1f11 ""
-  "master.toc" 1708027576 906 a1755fc0b4b9aa15141123d20df4798a "pdflatex"
+  "master.toc" 1708365402 906 a1755fc0b4b9aa15141123d20df4798a "pdflatex"
   (generated)
   "master.aux"
   "master.log"
