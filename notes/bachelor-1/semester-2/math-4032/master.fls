@@ -1533,6 +1533,10 @@ INPUT ./lec_18.tex
 INPUT lec_18.tex
 INPUT ./lec_18.tex
 INPUT lec_18.tex
+INPUT ./lec_19.tex
+INPUT lec_19.tex
+INPUT ./lec_19.tex
+INPUT lec_19.tex
 INPUT master.aux
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb
