@@ -1,0 +1,9 @@
+\lecture{20}{Mon 26 Feb 2024 14:02}{Probabilistic Method}
+
+Recall that a graph is Sperner if it doesn't have any nested edges. We can prove the LMY inequality with this method:
+
+\begin{replacementproof}
+	We go by induction on \( n \), the number of vertices. We assume the lemma is true for \( n-1 \). Choose \( x \in V \) at random such that each vertex is chosen with probability \( \frac{1}{|V|} \). Set \[
+		E_x = \{A \in E : x \not\in A\}  
+	.\] 
+\end{replacementproof}
