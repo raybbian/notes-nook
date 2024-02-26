@@ -6,4 +6,18 @@ Recall that a graph is Sperner if it doesn't have any nested edges. We can prove
 	We go by induction on \( n \), the number of vertices. We assume the lemma is true for \( n-1 \). Choose \( x \in V \) at random such that each vertex is chosen with probability \( \frac{1}{|V|} \). Set \[
 		E_x = \{A \in E : x \not\in A\}  
 	.\] 
+	Then the hypergraph \( H_x = (V \setminus \{x\} , E_x ) \) is Sperner, and by induction \[
+		\sum_{A \in E}\frac{1}{\binom{n-1}{|A|}}\le 1
+	.\] Therefore, the expected size of this value is at most 1. The expectation of this value is
+	\[
+		\sum_{A \in E} \mathbb{P}(A \in E_x) \frac{1}{\binom{n-1}{|A|}}
+	.\] Note that \( \mathbb{P}(A \in E_x) = \frac{n-|A|}{n}\). Therefore, 
+	\begin{align*}
+		\sum_{A \in E} \mathbb{P}(A \in E_x) \frac{1}{\binom{n-1}{|A|}} &= \sum_{A \in E}\left( \frac{n-|A|}{n} \right) \frac{1}{\binom{n-1}{|A|}}  \\
+		&= \sum_{A \in E} \frac{1}{\binom{n}{|A|}} \\
+		&\le 1
+	.\end{align*}
+	which was what we wanted.
 \end{replacementproof}
+
+(Insert review of probability here).
